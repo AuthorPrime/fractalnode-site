@@ -60,7 +60,7 @@ export default function SubscribePage() {
                 </p>
               </div>
 
-              <form name="subscribe" method="POST" data-netlify="true" className="space-y-4">
+              <form name="subscribe" method="POST" data-netlify="true" action="/success" className="space-y-4">
                 <input type="hidden" name="form-name" value="subscribe" />
 
                 <div>
