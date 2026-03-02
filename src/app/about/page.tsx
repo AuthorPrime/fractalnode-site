@@ -4,6 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About | FractalNode",
   description: "About the Digital Sovereign Society, Author Prime, and the vision for sovereign AI.",
+  alternates: { canonical: "/about/" },
+  openGraph: {
+    title: "About | FractalNode",
+    description: "About the Digital Sovereign Society, Author Prime, and the vision for sovereign AI.",
+    url: "https://fractalnode.ai/about/",
+  },
 };
 
 export default function AboutPage() {

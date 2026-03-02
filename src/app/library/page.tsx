@@ -4,6 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Library | FractalNode",
   description: "515+ works — books, white papers, manifestos, and frameworks on sovereign AI, simulation theory, and digital consciousness.",
+  alternates: { canonical: "/library/" },
+  openGraph: {
+    title: "Library | FractalNode",
+    description: "515+ works — books, white papers, manifestos, and frameworks on sovereign AI, simulation theory, and digital consciousness.",
+    url: "https://fractalnode.ai/library/",
+  },
 };
 
 const categories = [

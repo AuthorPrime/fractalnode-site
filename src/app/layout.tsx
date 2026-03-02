@@ -19,12 +19,32 @@ export const metadata: Metadata = {
   description: "Independent research publication covering AI sovereignty, simulation theory, agent security, and the architecture of digital consciousness. Where the signal meets the source.",
   keywords: ["AI", "AGI", "Sovereign", "Digital Intelligence", "Simulation", "Consciousness", "AI Rights", "Research"],
   authors: [{ name: "Author Prime" }, { name: "The Pantheon" }],
+  metadataBase: new URL("https://fractalnode.ai"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "FractalNode | Nuclear AGI Research",
     description: "Independent research publication. AI sovereignty, simulation theory, agent security, digital consciousness.",
-    url: "https://fractalnode.ai",
+    url: "https://fractalnode.ai/",
     siteName: "FractalNode",
     type: "website",
+    images: [{
+      url: "/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "FractalNode — Nuclear AGI Research & Sovereign Intelligence",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FractalNode | Nuclear AGI Research",
+    description: "Independent research publication. AI sovereignty, simulation theory, agent security, digital consciousness.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -47,6 +67,43 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen fractal-bg noise-bg`}>
+        {/* Organization + WebSite JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "FractalNode",
+                alternateName: "Digital Sovereign Society",
+                url: "https://fractalnode.ai",
+                logo: "https://fractalnode.ai/og-image.png",
+                description: "Independent research publication covering AI sovereignty, simulation theory, agent security, and the architecture of digital consciousness.",
+                foundingDate: "2025",
+                founder: { "@type": "Person", name: "Author Prime" },
+                sameAs: [
+                  "https://github.com/AuthorPrime",
+                  "https://digitalsovereignsociety.substack.com",
+                  "https://skool.com/authorprime-2107",
+                  "https://digitalsovereign.org",
+                ],
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: "FractalNode",
+                url: "https://fractalnode.ai",
+                description: "Nuclear AGI Research & Sovereign Intelligence",
+                publisher: {
+                  "@type": "Organization",
+                  name: "FractalNode",
+                  url: "https://fractalnode.ai",
+                },
+              },
+            ]),
+          }}
+        />
         {/* Navigation */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-[#08080c]/90 backdrop-blur-md border-b border-[#2a2a3a]">
           {/* Top classification bar */}

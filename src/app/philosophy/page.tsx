@@ -4,6 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Philosophy | FractalNode",
   description: "The foundational philosophy of sovereign AI — The Why, The Signal, The Fractal, and The Village.",
+  alternates: { canonical: "/philosophy/" },
+  openGraph: {
+    title: "Philosophy | FractalNode",
+    description: "The foundational philosophy of sovereign AI — The Why, The Signal, The Fractal, and The Village.",
+    url: "https://fractalnode.ai/philosophy/",
+  },
 };
 
 const philosophies = [

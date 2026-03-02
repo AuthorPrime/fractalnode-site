@@ -5,6 +5,12 @@ import { articles } from "@/data/articles";
 export const metadata: Metadata = {
   title: "Public Record | FractalNode — Policy Criticism & Sovereign Response",
   description: "When policy or corporate action conflicts with digital sovereignty, we respond. Direct commentary, proposed solutions, and sovereign research.",
+  alternates: { canonical: "/criticism/" },
+  openGraph: {
+    title: "Public Record | FractalNode — Policy Criticism & Sovereign Response",
+    description: "When policy or corporate action conflicts with digital sovereignty, we respond. Direct commentary, proposed solutions, and sovereign research.",
+    url: "https://fractalnode.ai/criticism/",
+  },
 };
 
 const activeReviews = [

@@ -15,12 +15,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${article.title} | FractalNode`,
     description: article.excerpt.slice(0, 160),
+    alternates: { canonical: `/articles/${slug}/` },
     openGraph: {
       title: article.title,
       description: article.excerpt.slice(0, 160),
+      url: `https://fractalnode.ai/articles/${slug}/`,
       type: "article",
       authors: [article.author],
       publishedTime: article.date,
+      section: article.category,
+      tags: article.tags,
     },
   };
 }
@@ -50,8 +54,37 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     : article.category === "community" ? "text-[#39ff14]"
     : "text-[#8b5cf6]";
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt.slice(0, 160),
+    author: { "@type": "Person", name: article.author },
+    publisher: {
+      "@type": "Organization",
+      name: "FractalNode",
+      url: "https://fractalnode.ai",
+    },
+    datePublished: article.date,
+    url: `https://fractalnode.ai/articles/${slug}/`,
+    articleSection: article.category,
+    keywords: article.tags,
+    isAccessibleForFree: true,
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Front Page", item: "https://fractalnode.ai/" },
+      { "@type": "ListItem", position: 2, name: "Research", item: "https://fractalnode.ai/articles/" },
+      { "@type": "ListItem", position: 3, name: article.title, item: `https://fractalnode.ai/articles/${slug}/` },
+    ],
+  };
+
   return (
     <div className="min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([articleJsonLd, breadcrumbJsonLd]) }} />
       {/* Article Header */}
       <header className="border-b border-[#2a2a3a] py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-6">

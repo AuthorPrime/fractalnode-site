@@ -4,6 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Community | FractalNode — Sovereign Builders",
   description: "Open source projects and independent creators getting digital sovereignty right. Community spotlights from the FractalNode network.",
+  alternates: { canonical: "/community/" },
+  openGraph: {
+    title: "Community | FractalNode — Sovereign Builders",
+    description: "Open source projects and independent creators getting digital sovereignty right. Community spotlights from the FractalNode network.",
+    url: "https://fractalnode.ai/community/",
+  },
 };
 
 const spotlights = [

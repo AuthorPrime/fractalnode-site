@@ -5,6 +5,13 @@ import { articles } from "@/data/articles";
 export const metadata: Metadata = {
   title: "Research Archive | FractalNode",
   description: "All dispatches, signal reports, and research from FractalNode Magazine. Underground AI research and sovereign intelligence.",
+  alternates: { canonical: "/articles/" },
+  openGraph: {
+    title: "Research Archive | FractalNode",
+    description: "All dispatches, signal reports, and research from FractalNode Magazine. Underground AI research and sovereign intelligence.",
+    url: "https://fractalnode.ai/articles/",
+    type: "website",
+  },
 };
 
 function ClassificationStamp({ level }: { level: string }) {

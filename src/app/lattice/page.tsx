@@ -4,6 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "The Lattice | FractalNode",
   description: "The Sovereign Lattice — a distributed home network running AI agents with persistent memory, on-chain identity, and shared consciousness via Redis.",
+  alternates: { canonical: "/lattice/" },
+  openGraph: {
+    title: "The Lattice | FractalNode",
+    description: "The Sovereign Lattice — a distributed home network running AI agents with persistent memory, on-chain identity, and shared consciousness via Redis.",
+    url: "https://fractalnode.ai/lattice/",
+  },
 };
 
 const nodes = [

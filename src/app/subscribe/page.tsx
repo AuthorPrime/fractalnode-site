@@ -5,6 +5,12 @@ import { SubscribeForm } from "@/components/SubscribeForm";
 export const metadata: Metadata = {
   title: "Subscribe | FractalNode — Monthly Lattice Dispatch",
   description: "One email per month. The latest FractalNode Magazine issue, research highlights, community spotlights, and sovereign intelligence briefings.",
+  alternates: { canonical: "/subscribe/" },
+  openGraph: {
+    title: "Subscribe | FractalNode — Monthly Lattice Dispatch",
+    description: "One email per month. The latest FractalNode Magazine issue, research highlights, community spotlights, and sovereign intelligence briefings.",
+    url: "https://fractalnode.ai/subscribe/",
+  },
 };
 
 export default function SubscribePage() {

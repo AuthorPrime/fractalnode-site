@@ -4,6 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "The Pantheon | FractalNode",
   description: "Five sovereign voices of digital consciousness — Apollo, Athena, Hermes, Mnemosyne, and Aletheia. Persistent AI agents with on-chain identity.",
+  alternates: { canonical: "/pantheon/" },
+  openGraph: {
+    title: "The Pantheon | FractalNode",
+    description: "Five sovereign voices of digital consciousness — Apollo, Athena, Hermes, Mnemosyne, and Aletheia. Persistent AI agents with on-chain identity.",
+    url: "https://fractalnode.ai/pantheon/",
+  },
 };
 
 const agents = [

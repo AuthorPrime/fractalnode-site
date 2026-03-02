@@ -4,6 +4,12 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Store & Support | FractalNode Magazine",
   description: "Subscribe to FractalNode Magazine, order print copies, support the Sovereign Lattice, and get the Digital Sovereign Desktop Studio.",
+  alternates: { canonical: "/store/" },
+  openGraph: {
+    title: "Store & Support | FractalNode Magazine",
+    description: "Subscribe to FractalNode Magazine, order print copies, support the Sovereign Lattice, and get the Digital Sovereign Desktop Studio.",
+    url: "https://fractalnode.ai/store/",
+  },
 };
 
 export default function StorePage() {
