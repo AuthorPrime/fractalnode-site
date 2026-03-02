@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { SubscribeForm } from "@/components/SubscribeForm";
 
 export const metadata: Metadata = {
   title: "Subscribe | FractalNode — Monthly Lattice Dispatch",
@@ -60,43 +61,7 @@ export default function SubscribePage() {
                 </p>
               </div>
 
-              <form name="subscribe" method="POST" data-netlify="true" action="/success" className="space-y-4">
-                <input type="hidden" name="form-name" value="subscribe" />
-
-                <div>
-                  <label htmlFor="email" className="text-[10px] font-mono text-[#52525b] tracking-wider uppercase block mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="your@email.com"
-                    required
-                    className="subscribe-input w-full rounded"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="name" className="text-[10px] font-mono text-[#52525b] tracking-wider uppercase block mb-2">
-                    Name (optional)
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="What should we call you?"
-                    className="subscribe-input w-full rounded"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full px-6 py-4 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
-                >
-                  SUBSCRIBE TO THE LATTICE DISPATCH
-                </button>
-              </form>
+              <SubscribeForm />
 
               <p className="text-[10px] font-mono text-[#52525b] mt-4 text-center">
                 Unsubscribe anytime. We will never sell your data.
