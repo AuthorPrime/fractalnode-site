@@ -77,7 +77,7 @@ export default function StorePage() {
                 <span className="stamp stamp-restricted">LIMITED RUN</span>
               </div>
               <h4 className="text-xl font-bold mb-1 text-zinc-200">Print Edition</h4>
-              <div className="text-3xl font-bold text-[#d4a020] my-4">$15</div>
+              <div className="text-3xl font-bold text-[#d4a020] my-4">$19</div>
               <ul className="space-y-2 mb-6 flex-grow">
                 {[
                   "Physical printed magazine",
@@ -93,7 +93,7 @@ export default function StorePage() {
                 ))}
               </ul>
               <a
-                href="https://buy.stripe.com/28EaEW0HefMX0FH7COfIs01"
+                href="https://buy.stripe.com/3cI4gy1Li6cn8893myfIs04"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-center px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
@@ -128,7 +128,7 @@ export default function StorePage() {
                 ))}
               </ul>
               <a
-                href="https://buy.stripe.com/cNidR8du0eITbklcX8fIs02"
+                href="https://buy.stripe.com/00w4gyey48kvewxf5gfIs05"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-center px-6 py-3 border border-[#8b5cf6]/30 text-[#8b5cf6] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#8b5cf6]/10 transition-colors"
