@@ -32,8 +32,8 @@
   --border-bright: #3f3f56;
 
   /* Text */
-  --text-muted: #71717a;
-  --text-dim: #52525b;
+  --text-muted: #a1a1aa;
+  --text-dim: #71717a;
   --text-classified: #d4a020;
 }
 
@@ -290,7 +290,7 @@ body {
 }
 
 .prose-sovereign p {
-  color: var(--text-muted);
+  color: #b4b4bc;
   margin-bottom: 1.5em;
   font-size: 16px;
 }

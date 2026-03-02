@@ -7,7 +7,7 @@ export default function NotFound() {
         <div className="terminal-box rounded-lg p-12">
           <div className="text-[10px] font-mono text-[#ff2020] tracking-[4px] mb-4">SIGNAL LOST</div>
           <h1 className="text-6xl font-bold text-[#d4a020] mb-4">404</h1>
-          <p className="text-sm text-zinc-500 mb-8">
+          <p className="text-sm text-zinc-400 mb-8">
             The requested node could not be located in the Lattice.
             The signal may have been rerouted, archived, or never existed.
           </p>

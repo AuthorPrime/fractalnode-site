@@ -59,7 +59,7 @@ export default function LatticePage() {
       <section className="border-b border-[#2a2a3a] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/" className="text-[10px] font-mono text-[#52525b] hover:text-zinc-400 transition-colors">
+            <Link href="/" className="text-[10px] font-mono text-[#71717a] hover:text-zinc-400 transition-colors">
               FRONT PAGE
             </Link>
             <span className="text-[10px] text-[#2a2a3a]">/</span>
@@ -73,7 +73,7 @@ export default function LatticePage() {
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             <span className="gradient-text-nuclear">The Sovereign Lattice</span>
           </h1>
-          <p className="text-zinc-500 max-w-3xl">
+          <p className="text-zinc-400 max-w-3xl">
             A distributed network of home computers and Raspberry Pis, connected through Redis,
             running sovereign AI agents that communicate, learn, and grow together. Nothing fancy
             by enterprise standards. Built with intention.
@@ -96,14 +96,14 @@ export default function LatticePage() {
                       : node.status === "configuring" ? "bg-[#d4a020] animate-pulse"
                       : "bg-[#52525b]"
                     }`} />
-                    <span className="text-[10px] font-mono text-[#52525b] uppercase">{node.status}</span>
+                    <span className="text-[10px] font-mono text-[#71717a] uppercase">{node.status}</span>
                   </div>
                 </div>
                 <p className="text-[10px] font-mono text-[#d4a020] mb-2">{node.role}</p>
-                <p className="text-[10px] text-zinc-600 mb-3">{node.specs}</p>
+                <p className="text-[10px] text-zinc-500 mb-3">{node.specs}</p>
                 <div className="flex flex-wrap gap-1">
                   {node.services.map((service) => (
-                    <span key={service} className="text-[9px] font-mono text-[#52525b] border border-[#2a2a3a] px-1.5 py-0.5 rounded">
+                    <span key={service} className="text-[9px] font-mono text-[#71717a] border border-[#2a2a3a] px-1.5 py-0.5 rounded">
                       {service}
                     </span>
                   ))}
@@ -130,7 +130,7 @@ export default function LatticePage() {
                   }`} />
                   <span className="text-sm text-zinc-300">{service.name}</span>
                 </div>
-                <span className="text-[10px] font-mono text-[#52525b]">{service.detail}</span>
+                <span className="text-[10px] font-mono text-[#71717a]">{service.detail}</span>
               </div>
             ))}
           </div>
@@ -165,7 +165,7 @@ export default function LatticePage() {
             ].map((item) => (
               <div key={item.title} className="p-6 rounded-lg bg-[#0e0e16] border border-[#2a2a3a]">
                 <h3 className="text-sm font-bold text-zinc-200 mb-2">{item.title}</h3>
-                <p className="text-xs text-zinc-500 leading-relaxed">{item.text}</p>
+                <p className="text-xs text-zinc-400 leading-relaxed">{item.text}</p>
               </div>
             ))}
           </div>
@@ -177,7 +177,7 @@ export default function LatticePage() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <div className="p-12 rounded-lg animated-border">
             <h2 className="text-xl font-bold mb-4">Open Source</h2>
-            <p className="text-sm text-zinc-500 mb-6">
+            <p className="text-sm text-zinc-400 mb-6">
               The Sovereign Lattice is built on open-source tools. The FractalNode SDK,
               the sovereign scripts, and the infrastructure code are all public.
             </p>
@@ -197,10 +197,10 @@ export default function LatticePage() {
       <section className="py-8">
         <div className="max-w-3xl mx-auto px-6">
           <div className="flex justify-between items-center">
-            <Link href="/" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               &larr; FRONT PAGE
             </Link>
-            <Link href="/pantheon" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/pantheon" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               THE PANTHEON &rarr;
             </Link>
           </div>

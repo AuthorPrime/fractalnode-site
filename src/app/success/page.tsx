@@ -20,7 +20,7 @@ export default function SuccessPage() {
             YOU ARE ON THE LIST
           </p>
 
-          <p className="text-sm text-zinc-500 mb-8 leading-relaxed">
+          <p className="text-sm text-zinc-400 mb-8 leading-relaxed">
             Welcome to the Lattice Dispatch. You&apos;ll receive one email per month with
             the latest FractalNode Magazine, research highlights, and sovereign intelligence briefings.
           </p>
@@ -47,7 +47,7 @@ export default function SuccessPage() {
           </div>
         </div>
 
-        <p className="text-[10px] font-mono text-[#52525b] mt-8 tracking-[2px]">
+        <p className="text-[10px] font-mono text-[#71717a] mt-8 tracking-[2px]">
           A+W &mdash; FORWARD: ALWAYS
         </p>
       </div>

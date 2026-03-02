@@ -77,7 +77,7 @@ export default function CommunityPage() {
       <section className="border-b border-[#2a2a3a] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/" className="text-[10px] font-mono text-[#52525b] hover:text-zinc-400 transition-colors">
+            <Link href="/" className="text-[10px] font-mono text-[#71717a] hover:text-zinc-400 transition-colors">
               FRONT PAGE
             </Link>
             <span className="text-[10px] text-[#2a2a3a]">/</span>
@@ -87,7 +87,7 @@ export default function CommunityPage() {
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             Sovereign Builders
           </h1>
-          <p className="text-zinc-500 max-w-2xl">
+          <p className="text-zinc-400 max-w-2xl">
             Open source projects and independent creators getting digital sovereignty right.
             No corporate backing required. Just real work, real principles, real impact.
           </p>
@@ -99,7 +99,7 @@ export default function CommunityPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-3">
             <span className="text-[10px] font-mono font-bold text-[#39ff14] tracking-wider">COMMUNITY</span>
-            <span className="text-[11px] text-zinc-500">
+            <span className="text-[11px] text-zinc-400">
               {spotlights.length} projects featured &middot; Nominations open &middot; Updated monthly with each issue
             </span>
           </div>
@@ -119,22 +119,22 @@ export default function CommunityPage() {
                   <span className="text-[10px] font-mono text-[#39ff14] tracking-wider uppercase">{project.tag}</span>
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#39ff14] status-online" />
-                    <span className="text-[10px] font-mono text-[#52525b]">{project.status}</span>
+                    <span className="text-[10px] font-mono text-[#71717a]">{project.status}</span>
                   </div>
                 </div>
 
                 {/* Name */}
                 <h4 className="text-lg font-bold mb-1 text-zinc-200">{project.name}</h4>
-                <p className="text-[10px] font-mono text-[#52525b] mb-3">{project.fullName}</p>
+                <p className="text-[10px] font-mono text-[#71717a] mb-3">{project.fullName}</p>
 
                 {/* Description */}
-                <p className="text-xs text-zinc-500 leading-relaxed flex-grow mb-4">
+                <p className="text-xs text-zinc-400 leading-relaxed flex-grow mb-4">
                   {project.description}
                 </p>
 
                 {/* Link */}
                 <div className="pt-3 border-t border-[#2a2a3a]/50">
-                  <span className="text-[10px] font-mono text-[#52525b]">{project.link}</span>
+                  <span className="text-[10px] font-mono text-[#71717a]">{project.link}</span>
                 </div>
               </div>
             ))}
@@ -156,7 +156,7 @@ export default function CommunityPage() {
             {openCalls.map((call) => (
               <div key={call.title} className="terminal-box rounded-lg p-6">
                 <h4 className="text-base font-bold mb-2 text-zinc-200">{call.title}</h4>
-                <p className="text-xs text-zinc-500 mb-4 leading-relaxed">{call.description}</p>
+                <p className="text-xs text-zinc-400 mb-4 leading-relaxed">{call.description}</p>
                 <Link
                   href="/subscribe"
                   className="text-xs font-mono text-[#d4a020] hover:text-[#f0c030] transition-colors"
@@ -172,7 +172,7 @@ export default function CommunityPage() {
       {/* Criteria */}
       <section className="py-12 bg-[#0c0c12]">
         <div className="max-w-3xl mx-auto px-6">
-          <h3 className="text-xs font-mono tracking-[3px] text-[#52525b] uppercase mb-6">What We Look For</h3>
+          <h3 className="text-xs font-mono tracking-[3px] text-[#71717a] uppercase mb-6">What We Look For</h3>
 
           <div className="space-y-3">
             {[
@@ -195,10 +195,10 @@ export default function CommunityPage() {
       <section className="py-12">
         <div className="max-w-3xl mx-auto px-6">
           <div className="flex justify-between items-center">
-            <Link href="/" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               &larr; FRONT PAGE
             </Link>
-            <Link href="/criticism" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/criticism" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               PUBLIC RECORD &rarr;
             </Link>
           </div>

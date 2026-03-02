@@ -33,7 +33,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     return (
       <div className="max-w-3xl mx-auto px-6 py-20 text-center">
         <h1 className="text-2xl font-bold mb-4">Article Not Found</h1>
-        <p className="text-zinc-500 mb-8">The requested dispatch could not be located in the archive.</p>
+        <p className="text-zinc-400 mb-8">The requested dispatch could not be located in the archive.</p>
         <Link href="/" className="text-[#d4a020] font-mono text-sm">RETURN TO FRONT PAGE &rarr;</Link>
       </div>
     );
@@ -57,7 +57,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <div className="max-w-3xl mx-auto px-6">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 mb-8">
-            <Link href="/" className="text-[10px] font-mono text-[#52525b] hover:text-zinc-400 transition-colors">
+            <Link href="/" className="text-[10px] font-mono text-[#71717a] hover:text-zinc-400 transition-colors">
               FRONT PAGE
             </Link>
             <span className="text-[10px] text-[#2a2a3a]">/</span>
@@ -69,8 +69,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {/* Classification + Meta */}
           <div className="flex items-center gap-4 mb-6">
             <span className={`stamp ${classStamp}`}>{article.classification}</span>
-            <span className="text-[10px] font-mono text-[#52525b]">ISSUE {String(article.issue).padStart(3, "0")}</span>
-            <span className="text-[10px] font-mono text-[#52525b]">{article.date}</span>
+            <span className="text-[10px] font-mono text-[#71717a]">ISSUE {String(article.issue).padStart(3, "0")}</span>
+            <span className="text-[10px] font-mono text-[#71717a]">{article.date}</span>
           </div>
 
           {/* Title */}
@@ -86,13 +86,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {/* Author line */}
           <div className="flex items-center gap-6 pb-4">
             <span className="text-sm font-mono text-[#d4a020]">{article.author}</span>
-            <span className="text-xs font-mono text-[#52525b]">{article.readTime} read</span>
+            <span className="text-xs font-mono text-[#71717a]">{article.readTime} read</span>
           </div>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mt-4">
             {article.tags.map((tag) => (
-              <span key={tag} className="text-[10px] font-mono text-[#52525b] border border-[#2a2a3a] px-2 py-1 rounded">
+              <span key={tag} className="text-[10px] font-mono text-[#71717a] border border-[#2a2a3a] px-2 py-1 rounded">
                 {tag}
               </span>
             ))}
@@ -124,7 +124,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {/* Subscribe CTA */}
           <div className="p-8 rounded-lg bg-[#0c0c12] border border-[#2a2a3a] mb-8">
             <h3 className="text-lg font-bold mb-2">Read more in the magazine</h3>
-            <p className="text-sm text-zinc-500 mb-4">
+            <p className="text-sm text-zinc-400 mb-4">
               This is an excerpt. The full article is available in FractalNode Magazine Issue {String(article.issue).padStart(3, "0")}.
               Subscribe to receive each issue directly.
             </p>
@@ -138,10 +138,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
           {/* Navigation */}
           <div className="flex justify-between items-center">
-            <Link href="/" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               &larr; FRONT PAGE
             </Link>
-            <Link href="/articles" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/articles" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               ALL DISPATCHES &rarr;
             </Link>
           </div>

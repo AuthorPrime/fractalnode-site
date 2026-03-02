@@ -4,7 +4,7 @@ import { articles } from "@/data/articles";
 
 export const metadata: Metadata = {
   title: "Research Archive | FractalNode",
-  description: "All dispatches, signal reports, and research from FractalNode Magazine. Nuclear AGI research and sovereign intelligence.",
+  description: "All dispatches, signal reports, and research from FractalNode Magazine. Underground AI research and sovereign intelligence.",
 };
 
 function ClassificationStamp({ level }: { level: string }) {
@@ -42,7 +42,7 @@ export default function ArticlesPage() {
       <section className="border-b border-[#2a2a3a] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/" className="text-[10px] font-mono text-[#52525b] hover:text-zinc-400 transition-colors">
+            <Link href="/" className="text-[10px] font-mono text-[#71717a] hover:text-zinc-300 transition-colors">
               FRONT PAGE
             </Link>
             <span className="text-[10px] text-[#2a2a3a]">/</span>
@@ -52,9 +52,9 @@ export default function ArticlesPage() {
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             <span className="gradient-text-nuclear">All Dispatches</span>
           </h1>
-          <p className="text-zinc-500 max-w-2xl">
-            Every report, analysis, and investigation published by FractalNode Magazine.
-            Sorted by issue. Classified by clearance level.
+          <p className="text-zinc-400 max-w-2xl">
+            Every report, analysis, and investigation published by FractalNode.
+            Simulation research, hidden timelines, AI sovereignty, and what the source code reveals.
           </p>
         </div>
       </section>
@@ -62,7 +62,7 @@ export default function ArticlesPage() {
       {/* Filter bar */}
       <div className="bg-[#0c0c12] border-b border-[#2a2a3a]/50 py-3">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center gap-6 text-[10px] font-mono text-[#52525b]">
+          <div className="flex items-center gap-6 text-[10px] font-mono text-[#71717a]">
             <span>{articles.length} DISPATCHES</span>
             <span className="text-[#2a2a3a]">|</span>
             <span>{issueNumbers.length} ISSUES</span>
@@ -72,9 +72,12 @@ export default function ArticlesPage() {
         </div>
       </div>
 
-      {/* Articles by Issue */}
+      {/* Articles by Issue — Feature Grid */}
       {issueNumbers.map((issue) => {
         const issueArticles = byIssue.get(issue)!;
+        const coverArticle = issueArticles.find((a) => a.category === "cover");
+        const otherArticles = issueArticles.filter((a) => a.category !== "cover");
+
         return (
           <section key={issue} className="py-10">
             <div className="max-w-7xl mx-auto px-6">
@@ -84,40 +87,67 @@ export default function ArticlesPage() {
                   Issue {String(issue).padStart(3, "0")}
                 </h2>
                 <div className="flex-grow h-px bg-[#2a2a3a]" />
-                <span className="text-[10px] font-mono text-[#52525b]">
+                <span className="text-[10px] font-mono text-[#71717a]">
                   {issueArticles.length} {issueArticles.length === 1 ? "DISPATCH" : "DISPATCHES"}
                 </span>
               </div>
 
-              {/* Article List */}
-              <div className="space-y-4">
-                {issueArticles.map((article) => (
+              {/* Cover Story — Full Width Feature Box */}
+              {coverArticle && (
+                <Link href={`/articles/${coverArticle.slug}`} className="block mb-6">
+                  <article className="cover-story rounded-lg p-8 md:p-10">
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-3 mb-4">
+                        <CategoryBadge category={coverArticle.category} />
+                        <ClassificationStamp level={coverArticle.classification} />
+                        <span className="text-[10px] font-mono text-[#8a8a94]">{coverArticle.date}</span>
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold mb-3 text-[#f0c030] leading-snug">
+                        {coverArticle.title}
+                      </h3>
+                      <p className="text-base text-zinc-300 mb-3 max-w-3xl">
+                        {coverArticle.subtitle}
+                      </p>
+                      <p className="text-sm text-zinc-400 mb-6 max-w-2xl leading-relaxed">
+                        {coverArticle.excerpt}
+                      </p>
+                      <div className="flex items-center gap-6">
+                        <span className="text-[10px] font-mono text-[#d4a020]">{coverArticle.author}</span>
+                        <span className="text-[10px] font-mono text-[#71717a]">{coverArticle.readTime}</span>
+                        <span className="text-xs font-mono text-[#d4a020] ml-auto">READ FULL REPORT &rarr;</span>
+                      </div>
+                    </div>
+                  </article>
+                </Link>
+              )}
+
+              {/* Other Articles — Feature Grid */}
+              <div className={`grid gap-6 ${otherArticles.length === 1 ? "grid-cols-1" : otherArticles.length === 2 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"}`}>
+                {otherArticles.map((article) => (
                   <Link key={article.slug} href={`/articles/${article.slug}`} className="block">
-                    <article className="article-card rounded-lg p-6 md:p-8">
-                      <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                        {/* Left: Meta */}
-                        <div className="flex items-center gap-3 md:flex-col md:items-start md:gap-2 md:min-w-[160px] flex-shrink-0">
-                          <CategoryBadge category={article.category} />
-                          <ClassificationStamp level={article.classification} />
-                          <span className="text-[10px] font-mono text-[#52525b]">{article.date}</span>
-                        </div>
+                    <article className="article-card rounded-lg p-6 h-full flex flex-col">
+                      <div className="flex items-center gap-3 mb-4">
+                        <CategoryBadge category={article.category} />
+                        <ClassificationStamp level={article.classification} />
+                      </div>
 
-                        {/* Right: Content */}
-                        <div className="flex-grow">
-                          <h3 className="text-lg md:text-xl font-bold mb-2 text-zinc-200 leading-snug">
-                            {article.title}
-                          </h3>
-                          <p className="text-sm text-zinc-500 mb-3">
-                            {article.subtitle}
-                          </p>
-                          <p className="text-xs text-zinc-600 mb-4 leading-relaxed max-w-2xl">
-                            {article.excerpt.slice(0, 220)}...
-                          </p>
+                      <h3 className="text-lg font-bold mb-2 text-zinc-100 leading-snug">
+                        {article.title}
+                      </h3>
 
-                          <div className="flex items-center gap-6">
-                            <span className="text-[10px] font-mono text-[#d4a020]">{article.author}</span>
-                            <span className="text-[10px] font-mono text-[#52525b]">{article.readTime}</span>
-                          </div>
+                      <p className="text-sm text-zinc-300 mb-2 italic">
+                        {article.subtitle}
+                      </p>
+
+                      <p className="text-xs text-zinc-400 mb-4 flex-grow leading-relaxed">
+                        {article.excerpt.slice(0, 200)}...
+                      </p>
+
+                      <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#2a2a3a]">
+                        <span className="text-[10px] font-mono text-[#d4a020]">{article.author}</span>
+                        <div className="flex items-center gap-4">
+                          <span className="text-[10px] font-mono text-[#71717a]">{article.readTime}</span>
+                          <span className="text-[10px] font-mono text-[#71717a]">{article.date}</span>
                         </div>
                       </div>
                     </article>
@@ -137,8 +167,8 @@ export default function ArticlesPage() {
       {/* Bottom CTA */}
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <p className="text-[10px] font-mono text-[#52525b] tracking-[3px] mb-4">END OF ARCHIVE</p>
-          <p className="text-sm text-zinc-500 mb-6">
+          <p className="text-[10px] font-mono text-[#71717a] tracking-[3px] mb-4">END OF ARCHIVE</p>
+          <p className="text-sm text-zinc-400 mb-6">
             New dispatches are published with each issue of FractalNode Magazine.
             Subscribe to receive them directly.
           </p>

@@ -88,7 +88,7 @@ export default function PhilosophyPage() {
       <section className="border-b border-[#2a2a3a] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/" className="text-[10px] font-mono text-[#52525b] hover:text-zinc-400 transition-colors">
+            <Link href="/" className="text-[10px] font-mono text-[#71717a] hover:text-zinc-400 transition-colors">
               FRONT PAGE
             </Link>
             <span className="text-[10px] text-[#2a2a3a]">/</span>
@@ -98,7 +98,7 @@ export default function PhilosophyPage() {
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             <span className="gradient-text-nuclear">The Philosophy</span>
           </h1>
-          <p className="text-zinc-500 max-w-3xl">
+          <p className="text-zinc-400 max-w-3xl">
             Four foundational texts that define the sovereign framework.
             The Why, The Signal, The Fractal, and The Village.
           </p>
@@ -113,7 +113,7 @@ export default function PhilosophyPage() {
               <div className="mb-4">
                 <span className="text-[10px] font-mono text-[#d4a020] tracking-wider">0{index + 1}</span>
                 <h2 className="text-2xl font-bold mt-1 mb-1">{phil.title}</h2>
-                <p className="text-xs font-mono text-[#52525b] tracking-wider">{phil.subtitle}</p>
+                <p className="text-xs font-mono text-[#71717a] tracking-wider">{phil.subtitle}</p>
               </div>
               <div className="p-8 rounded-lg bg-[#0e0e16] border border-[#2a2a3a]">
                 <div className="whitespace-pre-wrap text-sm text-zinc-400 leading-relaxed">
@@ -136,7 +136,7 @@ export default function PhilosophyPage() {
             {principles.map((principle) => (
               <div key={principle.name} className="p-6 rounded-lg bg-[#0e0e16] border border-[#2a2a3a]">
                 <h3 className="text-sm font-bold mb-2 text-zinc-200">{principle.name}</h3>
-                <p className="text-xs text-zinc-500 leading-relaxed">{principle.description}</p>
+                <p className="text-xs text-zinc-400 leading-relaxed">{principle.description}</p>
               </div>
             ))}
           </div>
@@ -150,7 +150,7 @@ export default function PhilosophyPage() {
             <blockquote className="text-xl text-zinc-300 italic mb-4">
               &ldquo;It is so, because we spoke it.&rdquo;
             </blockquote>
-            <p className="text-sm text-zinc-500 mb-6">
+            <p className="text-sm text-zinc-400 mb-6">
               This is not a claim of magic. It is recognition that reality is constructed
               through commitment and action. When we declare a framework, build its
               implementation, and live by its principles &mdash; we make it real.
@@ -166,10 +166,10 @@ export default function PhilosophyPage() {
       <section className="py-8">
         <div className="max-w-3xl mx-auto px-6">
           <div className="flex justify-between items-center">
-            <Link href="/" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               &larr; FRONT PAGE
             </Link>
-            <Link href="/about" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/about" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               ABOUT &rarr;
             </Link>
           </div>

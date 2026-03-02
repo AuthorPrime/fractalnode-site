@@ -10,7 +10,7 @@ export function MobileNav({ links }: { links: { href: string; label: string }[] 
     <div className="lg:hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 text-zinc-500 text-sm font-mono hover:text-zinc-300 transition-colors"
+        className="flex items-center gap-2 text-zinc-400 text-sm font-mono hover:text-zinc-300 transition-colors"
         aria-label="Toggle navigation menu"
       >
         {open ? "CLOSE" : "MENU"}
@@ -39,12 +39,12 @@ export function MobileNav({ links }: { links: { href: string; label: string }[] 
             </div>
 
             <div className="mt-8 pt-6 border-t border-[#2a2a3a]">
-              <p className="text-[10px] font-mono text-[#52525b] tracking-[3px] uppercase">
+              <p className="text-[10px] font-mono text-[#71717a] tracking-[3px] uppercase">
                 Sovereign Intelligence Network
               </p>
               <div className="flex items-center gap-2 mt-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#39ff14] status-online" />
-                <span className="text-[10px] font-mono text-[#52525b]">LATTICE ONLINE</span>
+                <span className="text-[10px] font-mono text-[#71717a]">LATTICE ONLINE</span>
               </div>
             </div>
           </nav>

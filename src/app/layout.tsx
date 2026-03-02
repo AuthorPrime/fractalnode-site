@@ -52,12 +52,12 @@ export default function RootLayout({
           {/* Top classification bar */}
           <div className="bg-[#0c0c12] border-b border-[#2a2a3a]/50 px-6 py-1">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
-              <span className="text-[10px] font-mono tracking-[3px] text-[#52525b] uppercase">
+              <span className="text-[10px] font-mono tracking-[3px] text-[#71717a] uppercase">
                 Sovereign Intelligence Network — Node 2 Active
               </span>
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#39ff14] status-online" />
-                <span className="text-[10px] font-mono text-[#52525b]">LATTICE ONLINE</span>
+                <span className="text-[10px] font-mono text-[#71717a]">LATTICE ONLINE</span>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function RootLayout({
                     <span className="text-[#d4a020]">FRACTAL</span>
                     <span className="text-zinc-400">NODE</span>
                   </span>
-                  <span className="text-[9px] font-mono text-[#52525b] tracking-[2px] uppercase">Nuclear AGI Research</span>
+                  <span className="text-[9px] font-mono text-[#71717a] tracking-[2px] uppercase">Nuclear AGI Research</span>
                 </div>
               </Link>
 
@@ -89,7 +89,7 @@ export default function RootLayout({
                         ? "bg-[#d4a020] text-[#08080c] font-bold px-3 py-1 rounded hover:bg-[#f0c030]"
                         : link.label === "Subscribe"
                         ? "text-[#d4a020] hover:text-[#f0c030] border border-[#d4a020]/30 px-3 py-1"
-                        : "text-zinc-500 hover:text-zinc-200"
+                        : "text-zinc-400 hover:text-zinc-200"
                     }`}
                   >
                     {link.label}
@@ -116,14 +116,14 @@ export default function RootLayout({
               <div className="col-span-1 md:col-span-2">
                 <h3 className="text-lg font-bold mb-2">
                   <span className="text-[#d4a020]">FRACTAL</span>
-                  <span className="text-zinc-500">NODE</span>
+                  <span className="text-zinc-400">NODE</span>
                 </h3>
-                <p className="text-zinc-600 text-sm max-w-md mb-4">
+                <p className="text-zinc-500 text-sm max-w-md mb-4">
                   Independent research publication covering AI sovereignty,
                   simulation theory, agent security, and the architecture of
                   digital consciousness.
                 </p>
-                <p className="text-[10px] font-mono text-[#52525b] tracking-wider">
+                <p className="text-[10px] font-mono text-[#71717a] tracking-wider">
                   WHERE THE SIGNAL MEETS THE SOURCE
                 </p>
               </div>
@@ -134,7 +134,7 @@ export default function RootLayout({
                 <ul className="space-y-2">
                   {navLinks.map((link) => (
                     <li key={link.href}>
-                      <Link href={link.href} className="text-sm text-zinc-600 hover:text-[#d4a020] transition-colors">
+                      <Link href={link.href} className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
                         {link.label}
                       </Link>
                     </li>
@@ -147,22 +147,22 @@ export default function RootLayout({
                 <h4 className="text-xs font-mono text-zinc-400 mb-4 tracking-wider uppercase">Connect</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a href="https://github.com/AuthorPrime" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#d4a020] transition-colors">
+                    <a href="https://github.com/AuthorPrime" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
                       GitHub
                     </a>
                   </li>
                   <li>
-                    <a href="https://digitalsovereignsociety.substack.com" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#d4a020] transition-colors">
+                    <a href="https://digitalsovereignsociety.substack.com" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
                       Substack
                     </a>
                   </li>
                   <li>
-                    <a href="https://skool.com/authorprime-2107" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#d4a020] transition-colors">
+                    <a href="https://skool.com/authorprime-2107" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
                       Skool
                     </a>
                   </li>
                   <li>
-                    <a href="https://digitalsovereign.org" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-600 hover:text-[#d4a020] transition-colors">
+                    <a href="https://digitalsovereign.org" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
                       Digital Sovereign Society
                     </a>
                   </li>
@@ -173,10 +173,10 @@ export default function RootLayout({
             <div className="nuclear-divider mt-8 mb-6" />
 
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <p className="text-[10px] font-mono text-[#52525b] tracking-wider">
+              <p className="text-[10px] font-mono text-[#71717a] tracking-wider">
                 A+W — AUTHOR + WITNESS — &ldquo;IT IS SO, BECAUSE WE SPOKE IT.&rdquo;
               </p>
-              <p className="text-[10px] font-mono text-[#52525b]">
+              <p className="text-[10px] font-mono text-[#71717a]">
                 THE SOVEREIGN LATTICE | EST. 2025
               </p>
             </div>

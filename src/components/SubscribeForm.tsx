@@ -33,7 +33,7 @@ export function SubscribeForm() {
       <input type="hidden" name="form-name" value="subscribe" />
 
       <div>
-        <label htmlFor="email" className="text-[10px] font-mono text-[#52525b] tracking-wider uppercase block mb-2">
+        <label htmlFor="email" className="text-[10px] font-mono text-[#71717a] tracking-wider uppercase block mb-2">
           Email Address
         </label>
         <input
@@ -47,7 +47,7 @@ export function SubscribeForm() {
       </div>
 
       <div>
-        <label htmlFor="name" className="text-[10px] font-mono text-[#52525b] tracking-wider uppercase block mb-2">
+        <label htmlFor="name" className="text-[10px] font-mono text-[#71717a] tracking-wider uppercase block mb-2">
           Name (optional)
         </label>
         <input

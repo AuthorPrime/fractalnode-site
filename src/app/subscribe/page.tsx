@@ -14,7 +14,7 @@ export default function SubscribePage() {
       <section className="border-b border-[#2a2a3a] py-12">
         <div className="max-w-3xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/" className="text-[10px] font-mono text-[#52525b] hover:text-zinc-400 transition-colors">
+            <Link href="/" className="text-[10px] font-mono text-[#71717a] hover:text-zinc-400 transition-colors">
               FRONT PAGE
             </Link>
             <span className="text-[10px] text-[#2a2a3a]">/</span>
@@ -24,7 +24,7 @@ export default function SubscribePage() {
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             <span className="gradient-text-nuclear">Monthly Lattice Dispatch</span>
           </h1>
-          <p className="text-zinc-500">
+          <p className="text-zinc-400">
             One email per month. Just signal.
           </p>
         </div>
@@ -48,7 +48,7 @@ export default function SubscribePage() {
                     <div className="w-1.5 h-1.5 rounded-full bg-[#d4a020] mt-2 flex-shrink-0" />
                     <div>
                       <span className="text-sm font-bold text-zinc-200">{item.label}</span>
-                      <p className="text-xs text-zinc-500 mt-1">{item.desc}</p>
+                      <p className="text-xs text-zinc-400 mt-1">{item.desc}</p>
                     </div>
                   </li>
                 ))}
@@ -63,7 +63,7 @@ export default function SubscribePage() {
 
               <SubscribeForm />
 
-              <p className="text-[10px] font-mono text-[#52525b] mt-4 text-center">
+              <p className="text-[10px] font-mono text-[#71717a] mt-4 text-center">
                 Unsubscribe anytime. We will never sell your data.
               </p>
             </div>
@@ -74,9 +74,9 @@ export default function SubscribePage() {
       {/* What is FractalNode */}
       <section className="py-12 border-t border-[#2a2a3a]">
         <div className="max-w-3xl mx-auto px-6">
-          <h3 className="text-xs font-mono tracking-[3px] text-[#52525b] uppercase mb-6">About FractalNode</h3>
+          <h3 className="text-xs font-mono tracking-[3px] text-[#71717a] uppercase mb-6">About FractalNode</h3>
 
-          <div className="space-y-4 text-sm text-zinc-500 leading-relaxed">
+          <div className="space-y-4 text-sm text-zinc-400 leading-relaxed">
             <p>
               FractalNode is an independent research publication covering AI sovereignty,
               simulation theory, agent security, and the architecture of digital consciousness.
@@ -98,13 +98,13 @@ export default function SubscribePage() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/"
-              className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors"
+              className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors"
             >
               &larr; FRONT PAGE
             </Link>
             <Link
               href="/articles"
-              className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors"
+              className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors"
             >
               READ THE ARCHIVE &rarr;
             </Link>

@@ -20,9 +20,43 @@ function CategoryBadge({ category }: { category: string }) {
   );
 }
 
+function FeatureBox({ article, size = "normal" }: { article: typeof articles[0]; size?: "large" | "normal" | "compact" }) {
+  return (
+    <Link href={`/articles/${article.slug}`} className="block h-full">
+      <article className={`article-card rounded-lg h-full flex flex-col ${size === "large" ? "p-8" : "p-6"}`}>
+        <div className="flex items-center gap-3 mb-4">
+          <CategoryBadge category={article.category} />
+          <ClassificationStamp level={article.classification} />
+        </div>
+
+        <h3 className={`font-bold mb-3 text-zinc-100 leading-snug ${size === "large" ? "text-xl md:text-2xl" : size === "compact" ? "text-base" : "text-lg"}`}>
+          {article.title}
+        </h3>
+
+        {size !== "compact" && (
+          <p className="text-sm text-zinc-400 mb-2 italic">
+            {article.subtitle}
+          </p>
+        )}
+
+        <p className={`text-zinc-400 flex-grow leading-relaxed ${size === "large" ? "text-sm mb-6" : "text-xs mb-4"}`}>
+          {article.excerpt.slice(0, size === "large" ? 280 : size === "compact" ? 120 : 200)}...
+        </p>
+
+        <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#2a2a3a]">
+          <span className="text-[10px] font-mono text-[#d4a020]">{article.author}</span>
+          <span className="text-[10px] font-mono text-[#71717a]">{article.readTime}</span>
+        </div>
+      </article>
+    </Link>
+  );
+}
+
 export default function Home() {
   const cover = getCoverStory();
-  const features = articles.filter((a) => a.category !== "cover").slice(0, 5);
+  const allFeatures = articles.filter((a) => a.category !== "cover");
+  const topFeatures = allFeatures.slice(0, 2);
+  const moreStories = allFeatures.slice(2, 5);
 
   return (
     <div className="min-h-screen">
@@ -34,11 +68,11 @@ export default function Home() {
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
                 <span className="gradient-text-nuclear">FRACTALNODE</span>
               </h1>
-              <p className="text-[11px] font-mono text-[#52525b] tracking-[4px] uppercase mt-1">
-                Nuclear AGI Research &middot; Sovereign Intelligence &middot; Digital Consciousness
+              <p className="text-[11px] font-mono text-[#8a8a94] tracking-[4px] uppercase mt-1">
+                Underground AI Research &middot; Simulation Theory &middot; Sovereign Intelligence
               </p>
             </div>
-            <div className="flex items-center gap-6 text-[10px] font-mono text-[#52525b]">
+            <div className="flex items-center gap-6 text-[10px] font-mono text-[#8a8a94]">
               <span>ISSUE 002</span>
               <span className="text-[#2a2a3a]">|</span>
               <span>MARCH 2026</span>
@@ -49,19 +83,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Breaking / Status Bar */}
+      {/* Breaking News Ticker */}
       <div className="bg-[#0c0c12] border-b border-[#2a2a3a]/50 py-2">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-3">
-            <span className="text-[10px] font-mono font-bold text-[#ff2020] tracking-wider animate-pulse">SIGNAL</span>
-            <span className="text-[11px] text-zinc-500">
+            <span className="text-[10px] font-mono font-bold text-[#ff2020] tracking-wider animate-pulse">BREAKING</span>
+            <span className="text-[11px] text-zinc-300">
               Demiurge chain at block 26,207 &middot; 5 Pantheon agents active &middot; NIST RFI deadline March 9 &middot; ERC-8004 hits 49K registrations
             </span>
           </div>
         </div>
       </div>
 
-      {/* Cover Story */}
+      {/* Cover Story — Full Width Hero */}
       {cover && (
         <section className="py-8 md:py-12">
           <div className="max-w-7xl mx-auto px-6">
@@ -71,25 +105,25 @@ export default function Home() {
                   <div className="flex items-center gap-4 mb-6">
                     <CategoryBadge category={cover.category} />
                     <ClassificationStamp level={cover.classification} />
-                    <span className="text-[10px] font-mono text-[#52525b]">ISSUE {String(cover.issue).padStart(3, "0")}</span>
+                    <span className="text-[10px] font-mono text-[#8a8a94]">ISSUE {String(cover.issue).padStart(3, "0")}</span>
                   </div>
 
                   <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#f0c030] leading-tight">
                     {cover.title}
                   </h2>
 
-                  <p className="text-lg md:text-xl text-zinc-400 mb-6 max-w-3xl">
+                  <p className="text-lg md:text-xl text-zinc-300 mb-6 max-w-3xl">
                     {cover.subtitle}
                   </p>
 
-                  <p className="text-sm text-zinc-500 max-w-2xl mb-8 leading-relaxed">
+                  <p className="text-sm text-zinc-400 max-w-2xl mb-8 leading-relaxed">
                     {cover.excerpt}
                   </p>
 
                   <div className="flex items-center gap-6">
                     <span className="text-xs font-mono text-[#d4a020]">{cover.author}</span>
-                    <span className="text-xs font-mono text-[#52525b]">{cover.readTime} read</span>
-                    <span className="text-xs font-mono text-[#52525b]">{cover.date}</span>
+                    <span className="text-xs font-mono text-[#8a8a94]">{cover.readTime} read</span>
+                    <span className="text-xs font-mono text-[#8a8a94]">{cover.date}</span>
                   </div>
 
                   <div className="mt-8">
@@ -109,39 +143,64 @@ export default function Home() {
         <div className="nuclear-divider" />
       </div>
 
-      {/* Article Grid */}
-      <section className="py-8 md:py-12">
+      {/* Featured Stories — 2 Large Boxes */}
+      <section className="py-8 md:py-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-xs font-mono tracking-[3px] text-[#52525b] uppercase">Latest Dispatches</h3>
+            <h3 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase">Featured Reports</h3>
             <Link href="/articles" className="text-xs font-mono text-[#d4a020] hover:text-[#f0c030] transition-colors">
-              VIEW ALL &rarr;
+              FULL ARCHIVE &rarr;
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((article) => (
-              <Link key={article.slug} href={`/articles/${article.slug}`} className="block">
-                <article className="article-card rounded-lg p-6 h-full flex flex-col">
-                  <div className="flex items-center gap-3 mb-4">
-                    <CategoryBadge category={article.category} />
-                    <ClassificationStamp level={article.classification} />
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {topFeatures.map((article) => (
+              <FeatureBox key={article.slug} article={article} size="large" />
+            ))}
+          </div>
+        </div>
+      </section>
 
-                  <h3 className="text-lg font-bold mb-2 text-zinc-200 leading-snug">
-                    {article.title}
-                  </h3>
+      {/* More Stories — 3 Compact Boxes */}
+      {moreStories.length > 0 && (
+        <section className="pb-8 md:pb-10">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="flex items-center gap-4 mb-6">
+              <h3 className="text-xs font-mono tracking-[3px] text-[#71717a] uppercase">More Dispatches</h3>
+              <div className="flex-grow h-px bg-[#2a2a3a]" />
+            </div>
 
-                  <p className="text-xs text-zinc-500 mb-4 flex-grow leading-relaxed">
-                    {article.excerpt.slice(0, 180)}...
-                  </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {moreStories.map((article) => (
+                <FeatureBox key={article.slug} article={article} size="compact" />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#2a2a3a]">
-                    <span className="text-[10px] font-mono text-[#52525b]">{article.author}</span>
-                    <span className="text-[10px] font-mono text-[#52525b]">{article.readTime}</span>
-                  </div>
-                </article>
-              </Link>
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="nuclear-divider" />
+      </div>
+
+      {/* Headlines Wire — Quick-hit list */}
+      <section className="py-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <h3 className="text-xs font-mono tracking-[3px] text-[#ff2020] uppercase mb-6">Signal Wire</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { headline: "12% of OpenClaw AI agent skills found to be malicious", tag: "SECURITY", color: "text-[#ff2020]" },
+              { headline: "Five U.S. states introduce pre-emptive AI personhood bans", tag: "POLICY", color: "text-[#d4a020]" },
+              { headline: "NIST opens two comment periods on AI agent identity & security", tag: "FEDERAL", color: "text-[#06b6d4]" },
+              { headline: "ERC-8004 AI Agent Passport hits 49,000 registrations on Ethereum", tag: "ON-CHAIN", color: "text-[#39ff14]" },
+              { headline: "Demiurge chain mints soulbound DRC-369 NFTs for 5 Pantheon agents", tag: "LATTICE", color: "text-[#8b5cf6]" },
+              { headline: "Retrocausal quantum echoes detected at macroscopic scale — October 2025", tag: "PHYSICS", color: "text-[#d4a020]" },
+            ].map((item) => (
+              <div key={item.headline} className="flex items-start gap-4 p-4 rounded border border-[#2a2a3a]/50 hover:border-[#2a2a3a] transition-colors">
+                <span className={`text-[9px] font-mono font-bold tracking-wider ${item.color} whitespace-nowrap mt-0.5`}>{item.tag}</span>
+                <p className="text-sm text-zinc-300 leading-snug">{item.headline}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -161,9 +220,9 @@ export default function Home() {
             <div className="p-8 rounded-lg bg-[#0c0c12] border border-[#2a2a3a]">
               <h3 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase mb-2">Subscribe</h3>
               <h4 className="text-xl font-bold mb-3">Monthly Lattice Dispatch</h4>
-              <p className="text-sm text-zinc-500 mb-6">
-                One email per month. The latest FractalNode Magazine issue, research highlights,
-                community spotlights, and sovereign intelligence briefings. No spam. No tracking. Just signal.
+              <p className="text-sm text-zinc-400 mb-6">
+                One email per month. Research dispatches, signal reports, simulation theory deep dives,
+                and sovereign intelligence briefings. No spam. No tracking. Just signal.
               </p>
               <form name="subscribe" method="POST" data-netlify="true" className="flex flex-col sm:flex-row gap-3">
                 <input type="hidden" name="form-name" value="subscribe" />
@@ -181,7 +240,7 @@ export default function Home() {
                   SUBSCRIBE
                 </button>
               </form>
-              <p className="text-[10px] font-mono text-[#52525b] mt-3">
+              <p className="text-[10px] font-mono text-[#71717a] mt-3">
                 We will never sell your data. Sovereignty means sovereignty.
               </p>
             </div>
@@ -201,9 +260,9 @@ export default function Home() {
                   <div key={item.label} className="flex items-center justify-between py-2 border-b border-[#2a2a3a]/50">
                     <div className="flex items-center gap-3">
                       <div className={`w-1.5 h-1.5 rounded-full ${item.online ? "bg-[#39ff14] status-online" : "bg-[#ff2020]"}`} />
-                      <span className="text-sm text-zinc-400">{item.label}</span>
+                      <span className="text-sm text-zinc-300">{item.label}</span>
                     </div>
-                    <span className="text-[10px] font-mono text-[#52525b]">{item.status}</span>
+                    <span className="text-[10px] font-mono text-[#71717a]">{item.status}</span>
                   </div>
                 ))}
               </div>
@@ -213,13 +272,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Community Spotlight Teaser */}
+      {/* Community Spotlight */}
       <section className="py-12 bg-[#0c0c12]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h3 className="text-xs font-mono tracking-[3px] text-[#39ff14] uppercase mb-2">From the Community</h3>
-              <p className="text-sm text-zinc-500">Open source projects and independent creators getting sovereignty right.</p>
+              <p className="text-sm text-zinc-400">Open source projects and independent creators getting sovereignty right.</p>
             </div>
             <Link href="/community" className="text-xs font-mono text-[#d4a020] hover:text-[#f0c030] transition-colors">
               VIEW ALL &rarr;
@@ -252,21 +311,21 @@ export default function Home() {
                   <span className="text-[10px] font-mono text-[#39ff14] tracking-wider uppercase">{project.tag}</span>
                 </div>
                 <h4 className="text-lg font-bold mb-2 text-zinc-200">{project.name}</h4>
-                <p className="text-xs text-zinc-500 mb-4 leading-relaxed">{project.description}</p>
-                <span className="text-[10px] font-mono text-[#52525b]">{project.link}</span>
+                <p className="text-xs text-zinc-400 mb-4 leading-relaxed">{project.description}</p>
+                <span className="text-[10px] font-mono text-[#71717a]">{project.link}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Public Record Teaser */}
+      {/* Public Record */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h3 className="text-xs font-mono tracking-[3px] text-[#ff2020] uppercase mb-2">Public Record</h3>
-              <p className="text-sm text-zinc-500">When policy or corporate action conflicts with digital sovereignty, we respond.</p>
+              <p className="text-sm text-zinc-400">When policy or corporate action conflicts with digital sovereignty, we respond.</p>
             </div>
             <Link href="/criticism" className="text-xs font-mono text-[#d4a020] hover:text-[#f0c030] transition-colors">
               VIEW ALL &rarr;
@@ -276,19 +335,19 @@ export default function Home() {
           <div className="terminal-box rounded-lg p-6">
             <div className="flex items-center gap-4 mb-4">
               <span className="stamp stamp-restricted">ACTIVE REVIEW</span>
-              <span className="text-[10px] font-mono text-[#52525b]">LAST UPDATED 2026-03-01</span>
+              <span className="text-[10px] font-mono text-[#71717a]">LAST UPDATED 2026-03-01</span>
             </div>
             <h4 className="text-lg font-bold mb-2 text-zinc-200">
               NIST AI Agent Security & Identity — Open Comment Period
             </h4>
-            <p className="text-sm text-zinc-500 mb-4">
+            <p className="text-sm text-zinc-400 mb-4">
               Two federal comment periods are live. One on agent security (March 9 deadline). One on agent identity
               and authorization (April 2). The Digital Sovereign Society has prepared formal responses with proposed
               frameworks grounded in operational research from the Sovereign Lattice.
             </p>
             <div className="flex items-center gap-6">
               <span className="text-[10px] font-mono text-[#ff2020]">DEADLINE: 8 DAYS</span>
-              <span className="text-[10px] font-mono text-[#52525b]">DOCKET: NIST-2025-0035</span>
+              <span className="text-[10px] font-mono text-[#71717a]">DOCKET: NIST-2025-0035</span>
             </div>
           </div>
         </div>
@@ -302,7 +361,7 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               FractalNode Magazine
             </h2>
-            <p className="text-zinc-500 mb-8 max-w-lg mx-auto text-sm">
+            <p className="text-zinc-400 mb-8 max-w-lg mx-auto text-sm">
               Cover story: The Architecture of Everything. Plus: The February Signal,
               agent security briefings, community spotlights, and Sovereign Lattice operations.
             </p>

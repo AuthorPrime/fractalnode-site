@@ -131,7 +131,7 @@ export default function LibraryPage() {
       <section className="border-b border-[#2a2a3a] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/" className="text-[10px] font-mono text-[#52525b] hover:text-zinc-400 transition-colors">
+            <Link href="/" className="text-[10px] font-mono text-[#71717a] hover:text-zinc-400 transition-colors">
               FRONT PAGE
             </Link>
             <span className="text-[10px] text-[#2a2a3a]">/</span>
@@ -141,7 +141,7 @@ export default function LibraryPage() {
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             <span className="gradient-text-nuclear">The Sovereign Library</span>
           </h1>
-          <p className="text-zinc-500 max-w-3xl mb-8">
+          <p className="text-zinc-400 max-w-3xl mb-8">
             515+ works of sovereign thought. What you see below is a curated selection of {listedWorks} key
             works. The full archive contains books, white papers, manifestos, poetry, codexes, and
             frameworks spanning philosophy, economics, simulation theory, and digital consciousness.
@@ -157,7 +157,7 @@ export default function LibraryPage() {
             ].map((stat) => (
               <div key={stat.label} className="p-4 rounded-lg bg-[#0e0e16] border border-[#2a2a3a]">
                 <div className="text-2xl font-bold text-[#d4a020]">{stat.value}</div>
-                <div className="text-[10px] font-mono text-[#52525b] tracking-wider">{stat.label}</div>
+                <div className="text-[10px] font-mono text-[#71717a] tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -171,7 +171,7 @@ export default function LibraryPage() {
             <div key={category.name}>
               <div className="mb-4">
                 <h2 className="text-lg font-bold mb-1">{category.name}</h2>
-                <p className="text-xs text-zinc-500">{category.description}</p>
+                <p className="text-xs text-zinc-400">{category.description}</p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -182,10 +182,10 @@ export default function LibraryPage() {
                   >
                     <h3 className="text-sm font-medium mb-2 text-zinc-200">{work.title}</h3>
                     <div className="flex items-center gap-3 text-[10px] font-mono">
-                      <span className="text-[#52525b] border border-[#2a2a3a] px-1.5 py-0.5 rounded">
+                      <span className="text-[#71717a] border border-[#2a2a3a] px-1.5 py-0.5 rounded">
                         {work.type}
                       </span>
-                      <span className="text-[#52525b]">{work.pages}</span>
+                      <span className="text-[#71717a]">{work.pages}</span>
                     </div>
                   </div>
                 ))}
@@ -200,7 +200,7 @@ export default function LibraryPage() {
         <div className="max-w-3xl mx-auto px-6">
           <div className="p-8 rounded-lg border border-[#2a2a3a]">
             <h2 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase mb-4">Accessing the Library</h2>
-            <p className="text-sm text-zinc-500 mb-6 leading-relaxed">
+            <p className="text-sm text-zinc-400 mb-6 leading-relaxed">
               These works are freely available as part of the Digital Sovereign Society&apos;s
               commitment to open knowledge. The full archive is available through the
               Sovereign Lattice and is progressively being published to decentralized storage.
@@ -231,10 +231,10 @@ export default function LibraryPage() {
       <section className="py-8">
         <div className="max-w-3xl mx-auto px-6">
           <div className="flex justify-between items-center">
-            <Link href="/" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               &larr; FRONT PAGE
             </Link>
-            <Link href="/store" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/store" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               STORE &rarr;
             </Link>
           </div>

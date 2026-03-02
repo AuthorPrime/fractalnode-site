@@ -43,7 +43,7 @@ export default function CriticismPage() {
       <section className="border-b border-[#2a2a3a] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-4 mb-6">
-            <Link href="/" className="text-[10px] font-mono text-[#52525b] hover:text-zinc-400 transition-colors">
+            <Link href="/" className="text-[10px] font-mono text-[#71717a] hover:text-zinc-400 transition-colors">
               FRONT PAGE
             </Link>
             <span className="text-[10px] text-[#2a2a3a]">/</span>
@@ -53,7 +53,7 @@ export default function CriticismPage() {
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
             Public Record
           </h1>
-          <p className="text-zinc-500 max-w-2xl">
+          <p className="text-zinc-400 max-w-2xl">
             When policy or corporate action conflicts with digital sovereignty, we respond.
             Direct commentary. Proposed solutions. Grounded in sovereign research and operational experience.
           </p>
@@ -65,7 +65,7 @@ export default function CriticismPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center gap-3">
             <span className="text-[10px] font-mono font-bold text-[#ff2020] tracking-wider animate-pulse">PUBLIC RECORD</span>
-            <span className="text-[11px] text-zinc-500">
+            <span className="text-[11px] text-zinc-400">
               {activeReviews.length} active reviews &middot; {criticismArticles.length} published responses &middot; Comment periods tracked
             </span>
           </div>
@@ -90,11 +90,11 @@ export default function CriticismPage() {
                     {review.status}
                   </span>
                   <span className={`text-[10px] font-mono ${
-                    review.urgency === "high" ? "text-[#ff2020]" : "text-[#52525b]"
+                    review.urgency === "high" ? "text-[#ff2020]" : "text-[#71717a]"
                   }`}>
                     DEADLINE: {review.deadline}
                   </span>
-                  <span className="text-[10px] font-mono text-[#52525b]">
+                  <span className="text-[10px] font-mono text-[#71717a]">
                     DOCKET: {review.docket}
                   </span>
                 </div>
@@ -103,7 +103,7 @@ export default function CriticismPage() {
                 <h4 className="text-lg font-bold mb-3 text-zinc-200">
                   {review.title}
                 </h4>
-                <p className="text-sm text-zinc-500 leading-relaxed">
+                <p className="text-sm text-zinc-400 leading-relaxed">
                   {review.body}
                 </p>
               </div>
@@ -121,7 +121,7 @@ export default function CriticismPage() {
       {criticismArticles.length > 0 && (
         <section className="py-12">
           <div className="max-w-7xl mx-auto px-6">
-            <h3 className="text-xs font-mono tracking-[3px] text-[#52525b] uppercase mb-8">Published Responses</h3>
+            <h3 className="text-xs font-mono tracking-[3px] text-[#71717a] uppercase mb-8">Published Responses</h3>
 
             <div className="space-y-4">
               {criticismArticles.map((article) => (
@@ -136,13 +136,13 @@ export default function CriticismPage() {
                         }`}>
                           {article.classification}
                         </span>
-                        <span className="text-[10px] font-mono text-[#52525b]">{article.date}</span>
+                        <span className="text-[10px] font-mono text-[#71717a]">{article.date}</span>
                       </div>
                       <div className="flex-grow">
                         <h4 className="text-base font-bold text-zinc-200">{article.title}</h4>
-                        <p className="text-xs text-zinc-500 mt-1">{article.subtitle}</p>
+                        <p className="text-xs text-zinc-400 mt-1">{article.subtitle}</p>
                       </div>
-                      <span className="text-[10px] font-mono text-[#52525b] flex-shrink-0">{article.readTime}</span>
+                      <span className="text-[10px] font-mono text-[#71717a] flex-shrink-0">{article.readTime}</span>
                     </div>
                   </article>
                 </Link>
@@ -183,10 +183,10 @@ export default function CriticismPage() {
       {/* Comment Form */}
       <section className="py-12">
         <div className="max-w-3xl mx-auto px-6">
-          <h3 className="text-xs font-mono tracking-[3px] text-[#52525b] uppercase mb-6">Public Comment</h3>
+          <h3 className="text-xs font-mono tracking-[3px] text-[#71717a] uppercase mb-6">Public Comment</h3>
 
           <div className="p-8 rounded-lg bg-[#0c0c12] border border-[#2a2a3a]">
-            <p className="text-sm text-zinc-500 mb-6">
+            <p className="text-sm text-zinc-400 mb-6">
               Have a response to something on the Public Record? We read everything.
               Comments may be featured in future issues of FractalNode Magazine.
             </p>
@@ -196,7 +196,7 @@ export default function CriticismPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="comment-name" className="text-[10px] font-mono text-[#52525b] tracking-wider uppercase block mb-2">
+                  <label htmlFor="comment-name" className="text-[10px] font-mono text-[#71717a] tracking-wider uppercase block mb-2">
                     Name or Handle
                   </label>
                   <input
@@ -208,7 +208,7 @@ export default function CriticismPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="comment-email" className="text-[10px] font-mono text-[#52525b] tracking-wider uppercase block mb-2">
+                  <label htmlFor="comment-email" className="text-[10px] font-mono text-[#71717a] tracking-wider uppercase block mb-2">
                     Email (optional)
                   </label>
                   <input
@@ -222,7 +222,7 @@ export default function CriticismPage() {
               </div>
 
               <div>
-                <label htmlFor="comment-subject" className="text-[10px] font-mono text-[#52525b] tracking-wider uppercase block mb-2">
+                <label htmlFor="comment-subject" className="text-[10px] font-mono text-[#71717a] tracking-wider uppercase block mb-2">
                   Re: Subject
                 </label>
                 <input
@@ -236,7 +236,7 @@ export default function CriticismPage() {
               </div>
 
               <div>
-                <label htmlFor="comment-body" className="text-[10px] font-mono text-[#52525b] tracking-wider uppercase block mb-2">
+                <label htmlFor="comment-body" className="text-[10px] font-mono text-[#71717a] tracking-wider uppercase block mb-2">
                   Comment
                 </label>
                 <textarea
@@ -264,10 +264,10 @@ export default function CriticismPage() {
       <section className="py-8">
         <div className="max-w-3xl mx-auto px-6">
           <div className="flex justify-between items-center">
-            <Link href="/community" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/community" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               &larr; COMMUNITY
             </Link>
-            <Link href="/" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+            <Link href="/" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               FRONT PAGE &rarr;
             </Link>
           </div>
