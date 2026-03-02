@@ -1,14 +1,14 @@
-<!-- This hidden page helps Netlify detect forms during deploy -->
+<!-- Netlify form detection page -->
 <html>
 <head><title>Forms</title></head>
 <body>
-  <form name="subscribe" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <form name="subscribe" netlify netlify-honeypot="bot-field">
     <input name="form-name" type="hidden" value="subscribe" />
     <input name="bot-field" />
     <input name="email" type="email" />
     <input name="name" type="text" />
   </form>
-  <form name="print-order" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <form name="print-order" netlify netlify-honeypot="bot-field">
     <input name="form-name" type="hidden" value="print-order" />
     <input name="bot-field" />
     <input name="name" type="text" />
