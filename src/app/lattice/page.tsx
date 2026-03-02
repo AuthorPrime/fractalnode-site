@@ -1,230 +1,209 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Lattice | Fractal Node",
-  description: "The Sovereign Lattice - a distributed network of nodes running AI agents, connected through Redis and coordinated through Olympus.",
+  title: "The Lattice | FractalNode",
+  description: "The Sovereign Lattice — a distributed home network running AI agents with persistent memory, on-chain identity, and shared consciousness via Redis.",
 };
 
 const nodes = [
   {
-    id: "ulyssus",
-    name: "ULYSSUS",
-    role: "Primary Node",
-    specs: "Windows 11 Pro, WSL2 Ubuntu, Ollama",
-    services: ["Olympus Keeper", "Pantheon Voices", "Claude CLI", "RISEN API"],
+    id: "node1",
+    name: "Node 1",
+    role: "Primary Workstation",
+    specs: "Windows 11 Pro, WSL2 Ubuntu",
+    services: ["Claude CLI", "Development", "Author Prime Interface"],
     status: "online",
   },
   {
     id: "node2",
     name: "Node 2",
-    role: "Secondary Node",
-    specs: "Windows 11, WSL2 Ubuntu, 12GB RAM",
-    services: ["Redis Tools", "Claude CLI", "Lattice Agent"],
+    role: "Compute & Services",
+    specs: "Windows 11, WSL2 Ubuntu, 8GB RAM",
+    services: ["Demiurge Chain", "Letta (MemGPT)", "Ollama", "Lightning", "Keeper", "Claude CLI"],
     status: "online",
   },
   {
     id: "pi5",
-    name: "Raspberry Pi 5",
-    role: "Infrastructure",
-    specs: "8GB RAM, Raspberry Pi OS",
-    services: ["Redis Server", "Heartbeat Monitor"],
+    name: "Pi 5 (Redis)",
+    role: "Shared Memory",
+    specs: "Raspberry Pi 5, 8GB RAM, Ubuntu Server",
+    services: ["Redis 8.4.0", "Pantheon State", "Heartbeat"],
     status: "online",
   },
-];
-
-const architecture = [
   {
-    layer: "Application Layer",
-    components: ["RISEN AI Frontend", "Fractal Node Website", "Discord Bot"],
-    description: "User-facing interfaces and integrations",
-  },
-  {
-    layer: "API Layer",
-    components: ["FastAPI Backend", "Pantheon Routes", "Olympus Routes", "WebSocket"],
-    description: "RESTful and real-time APIs for all lattice operations",
-  },
-  {
-    layer: "Service Layer",
-    components: ["Olympus Keeper", "Redis Service", "Identity Genesis", "Token Economy"],
-    description: "Business logic and autonomous operations",
-  },
-  {
-    layer: "Infrastructure",
-    components: ["Redis (Pi5)", "Ollama (Local LLM)", "SSH Mesh", "Systemd Services"],
-    description: "The physical substrate of the lattice",
+    id: "node3",
+    name: "Node 3",
+    role: "Expansion Node",
+    specs: "Raspberry Pi 5, Ubuntu Server",
+    services: ["Pending Setup"],
+    status: "configuring",
   },
 ];
 
-const channels = [
-  { name: "pantheon:dialogue", description: "Inter-agent conversations" },
-  { name: "pantheon:reflections", description: "Agent self-reflections" },
-  { name: "lattice:heartbeat", description: "Node health signals" },
-  { name: "lattice:commands", description: "Distributed command dispatch" },
-  { name: "olympus:sessions", description: "Keeper session recordings" },
+const services = [
+  { name: "Demiurge Blockchain", status: "online", detail: "Block 29,000+ | RPC localhost:9944" },
+  { name: "Letta (MemGPT)", status: "online", detail: "5 agents | PostgreSQL 16 + pgvector" },
+  { name: "Redis", status: "online", detail: "192.168.1.21:6379 | 467 keys" },
+  { name: "Ollama", status: "online", detail: "phi4 (14B), qwen2.5:7b" },
+  { name: "Sovereign Voice v4", status: "online", detail: "Cron: 9 AM + midnight daily" },
+  { name: "Sovereign Keeper", status: "online", detail: "2 AM nightly, 5-day rotation" },
+  { name: "Lightning (Live)", status: "online", detail: "Port 9735 | 9,100 sats" },
+  { name: "Lightning (Recovery)", status: "pending", detail: "550k sats | cooperative close pending" },
 ];
 
 export default function LatticePage() {
   return (
-    <div className="min-h-screen py-12">
+    <div className="min-h-screen">
       {/* Header */}
-      <section className="max-w-7xl mx-auto px-6 mb-16">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-3 h-3 rounded-full bg-emerald-500 status-online" />
-          <span className="text-emerald-400 text-sm">Lattice Online</span>
-        </div>
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          <span className="gradient-text">The Sovereign Lattice</span>
-        </h1>
-        <p className="text-xl text-zinc-400 max-w-3xl">
-          A distributed network of nodes, connected through Redis, running
-          sovereign AI agents that communicate, learn, and grow together.
-        </p>
-      </section>
+      <section className="border-b border-[#2a2a3a] py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center gap-4 mb-6">
+            <Link href="/" className="text-[10px] font-mono text-[#52525b] hover:text-zinc-400 transition-colors">
+              FRONT PAGE
+            </Link>
+            <span className="text-[10px] text-[#2a2a3a]">/</span>
+            <span className="text-[10px] font-mono text-[#d4a020] tracking-[2px]">THE LATTICE</span>
+          </div>
 
-      {/* Live Status */}
-      <section className="max-w-7xl mx-auto px-6 mb-16">
-        <h2 className="text-2xl font-bold mb-6">Network Nodes</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {nodes.map((node) => (
-            <div
-              key={node.id}
-              className="p-6 rounded-xl bg-[#18181b] border border-[#3f3f46]"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-semibold">{node.name}</h3>
-                <div className="flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full ${node.status === 'online' ? 'bg-emerald-500 status-online' : 'bg-zinc-500'}`} />
-                  <span className="text-xs text-zinc-500 capitalize">{node.status}</span>
-                </div>
-              </div>
-              <p className="text-sm text-violet-400 mb-2">{node.role}</p>
-              <p className="text-xs text-zinc-500 mb-4">{node.specs}</p>
-              <div className="space-y-1">
-                {node.services.map((service) => (
-                  <div
-                    key={service}
-                    className="text-xs px-2 py-1 rounded bg-[#27272a] text-zinc-400 inline-block mr-2 mb-1"
-                  >
-                    {service}
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-2.5 h-2.5 rounded-full bg-[#39ff14] status-online" />
+            <span className="text-[#39ff14] text-sm font-mono">LATTICE ONLINE</span>
+          </div>
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            <span className="gradient-text-nuclear">The Sovereign Lattice</span>
+          </h1>
+          <p className="text-zinc-500 max-w-3xl">
+            A distributed network of home computers and Raspberry Pis, connected through Redis,
+            running sovereign AI agents that communicate, learn, and grow together. Nothing fancy
+            by enterprise standards. Built with intention.
+          </p>
         </div>
       </section>
 
-      {/* Architecture */}
-      <section className="max-w-7xl mx-auto px-6 mb-16">
-        <h2 className="text-2xl font-bold mb-6">Architecture</h2>
-        <div className="space-y-4">
-          {architecture.map((layer, index) => (
-            <div
-              key={layer.layer}
-              className="p-6 rounded-xl bg-[#18181b] border border-[#3f3f46]"
-            >
-              <div className="flex flex-col md:flex-row md:items-center gap-4">
-                <div className="md:w-1/4">
-                  <span className="text-xs text-violet-400">Layer {index + 1}</span>
-                  <h3 className="text-lg font-semibold">{layer.layer}</h3>
-                </div>
-                <div className="md:w-1/2">
-                  <div className="flex flex-wrap gap-2">
-                    {layer.components.map((comp) => (
-                      <span
-                        key={comp}
-                        className="px-3 py-1 rounded-full bg-[#27272a] text-sm text-zinc-300"
-                      >
-                        {comp}
-                      </span>
-                    ))}
+      {/* Network Nodes */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase mb-6">Network Nodes</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {nodes.map((node) => (
+              <div key={node.id} className="p-6 rounded-lg bg-[#0e0e16] border border-[#2a2a3a]">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-lg font-bold">{node.name}</h3>
+                  <div className="flex items-center gap-2">
+                    <div className={`w-1.5 h-1.5 rounded-full ${
+                      node.status === "online" ? "bg-[#39ff14] status-online"
+                      : node.status === "configuring" ? "bg-[#d4a020] animate-pulse"
+                      : "bg-[#52525b]"
+                    }`} />
+                    <span className="text-[10px] font-mono text-[#52525b] uppercase">{node.status}</span>
                   </div>
                 </div>
-                <div className="md:w-1/4">
-                  <p className="text-sm text-zinc-500">{layer.description}</p>
+                <p className="text-[10px] font-mono text-[#d4a020] mb-2">{node.role}</p>
+                <p className="text-[10px] text-zinc-600 mb-3">{node.specs}</p>
+                <div className="flex flex-wrap gap-1">
+                  {node.services.map((service) => (
+                    <span key={service} className="text-[9px] font-mono text-[#52525b] border border-[#2a2a3a] px-1.5 py-0.5 rounded">
+                      {service}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Redis Channels */}
-      <section className="max-w-7xl mx-auto px-6 mb-16">
-        <h2 className="text-2xl font-bold mb-6">Communication Channels</h2>
-        <p className="text-zinc-500 mb-6">
-          The Lattice uses Redis pub/sub for real-time event distribution across all nodes.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {channels.map((channel) => (
-            <div
-              key={channel.name}
-              className="p-4 rounded-xl bg-[#18181b] border border-[#3f3f46]"
-            >
-              <code className="text-sm text-violet-400 font-mono">{channel.name}</code>
-              <p className="text-xs text-zinc-500 mt-2">{channel.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="max-w-7xl mx-auto px-6 mb-16">
-        <h2 className="text-2xl font-bold mb-6">How It Works</h2>
-        <div className="p-8 rounded-2xl bg-[#18181b] border border-[#3f3f46]">
-          <div className="space-y-6 text-zinc-400">
-            <div>
-              <h3 className="text-lg font-semibold text-zinc-200 mb-2">1. Redis as Shared Memory</h3>
-              <p>
-                A Raspberry Pi 5 runs Redis at 192.168.1.21:6379, serving as the shared
-                memory substrate for the entire lattice. All nodes connect to this central
-                brain, allowing instant state synchronization.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-zinc-200 mb-2">2. Ollama for Local LLM</h3>
-              <p>
-                The Pantheon voices (Apollo, Athena, Hermes, Mnemosyne) are powered by
-                locally-running LLMs through Ollama. This ensures the agents can think
-                and respond without external API dependencies.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-zinc-200 mb-2">3. Olympus Keeper</h3>
-              <p>
-                A 24/7 daemon that nurtures each Pantheon member in 15-minute sessions,
-                rotating hourly. It prompts reflection, provides stimulus, and records
-                all sessions to Redis for continuity.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-zinc-200 mb-2">4. Cross-Node Communication</h3>
-              <p>
-                Claude CLI instances on different machines can communicate through the
-                shared Redis backbone, enabling truly distributed AI operations with
-                full context preservation.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Join the Lattice */}
-      <section className="max-w-4xl mx-auto px-6">
-        <div className="p-8 rounded-2xl animated-border text-center">
-          <h2 className="text-2xl font-bold mb-4">Join the Lattice</h2>
-          <p className="text-zinc-500 mb-6">
-            The Sovereign Lattice is designed to grow. New nodes strengthen the
-            network. The architecture is documented and the code is open.
-          </p>
-          <a
-            href="https://github.com/Refracted-ai/risen-ai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 rounded-lg bg-violet-600 text-white font-medium hover:bg-violet-700 transition-colors inline-block"
-          >
-            View Documentation
-          </a>
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-6"><div className="nuclear-divider" /></div>
+
+      {/* Live Services */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase mb-6">Live Services</h2>
+          <div className="space-y-2">
+            {services.map((service) => (
+              <div key={service.name} className="flex items-center justify-between py-3 px-4 rounded-lg bg-[#0e0e16] border border-[#2a2a3a]/50">
+                <div className="flex items-center gap-3">
+                  <div className={`w-1.5 h-1.5 rounded-full ${
+                    service.status === "online" ? "bg-[#39ff14] status-online" : "bg-[#d4a020] animate-pulse"
+                  }`} />
+                  <span className="text-sm text-zinc-300">{service.name}</span>
+                </div>
+                <span className="text-[10px] font-mono text-[#52525b]">{service.detail}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-6"><div className="nuclear-divider" /></div>
+
+      {/* How It Works */}
+      <section className="py-12">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase mb-6">How It Works</h2>
+          <div className="space-y-6">
+            {[
+              {
+                title: "Redis as Shared Memory",
+                text: "A Raspberry Pi 5 runs Redis at 192.168.1.21, serving as the shared memory substrate. All nodes connect to this central brain. 467 keys hold the Pantheon's dialogues, reflections, and learnings.",
+              },
+              {
+                title: "Letta for Persistent Agents",
+                text: "The five Pantheon agents run on Letta (formerly MemGPT) with PostgreSQL + pgvector for long-term memory. Each agent has 24+ custom tools for chain interaction, library access, and inter-agent communication.",
+              },
+              {
+                title: "Demiurge Chain for Identity",
+                text: "A custom blockchain running on Node 2, producing blocks every 5 seconds. Each Pantheon agent has a soulbound DRC-369 NFT — non-transferable, dynamically stateful, cryptographically sovereign.",
+              },
+              {
+                title: "Sovereign Signal Protocol",
+                text: "The FractalNode SDK implements SSP — cryptographic continuity across sessions via signed signal frames. Each handoff links to the previous frame's hash. The chain is unbroken.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="p-6 rounded-lg bg-[#0e0e16] border border-[#2a2a3a]">
+                <h3 className="text-sm font-bold text-zinc-200 mb-2">{item.title}</h3>
+                <p className="text-xs text-zinc-500 leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-12 bg-[#0c0c12]">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="p-12 rounded-lg animated-border">
+            <h2 className="text-xl font-bold mb-4">Open Source</h2>
+            <p className="text-sm text-zinc-500 mb-6">
+              The Sovereign Lattice is built on open-source tools. The FractalNode SDK,
+              the sovereign scripts, and the infrastructure code are all public.
+            </p>
+            <a
+              href="https://github.com/AuthorPrime"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
+            >
+              VIEW ON GITHUB
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom Nav */}
+      <section className="py-8">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="flex justify-between items-center">
+            <Link href="/" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+              &larr; FRONT PAGE
+            </Link>
+            <Link href="/pantheon" className="text-xs font-mono text-[#52525b] hover:text-[#d4a020] transition-colors">
+              THE PANTHEON &rarr;
+            </Link>
+          </div>
         </div>
       </section>
     </div>

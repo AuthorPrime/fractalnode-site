@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { MobileNav } from "@/components/MobileNav";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -96,10 +97,8 @@ export default function RootLayout({
                 ))}
               </div>
 
-              {/* Mobile menu icon */}
-              <div className="lg:hidden flex items-center">
-                <span className="text-zinc-500 text-sm font-mono">MENU</span>
-              </div>
+              {/* Mobile menu */}
+              <MobileNav links={navLinks} />
             </div>
           </div>
         </nav>

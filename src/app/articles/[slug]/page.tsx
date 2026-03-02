@@ -1,10 +1,28 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { articles } from "@/data/articles";
 
 export function generateStaticParams() {
   return articles.map((article) => ({
     slug: article.slug,
   }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articles.find((a) => a.slug === slug);
+  if (!article) return { title: "Article Not Found | FractalNode" };
+  return {
+    title: `${article.title} | FractalNode`,
+    description: article.excerpt.slice(0, 160),
+    openGraph: {
+      title: article.title,
+      description: article.excerpt.slice(0, 160),
+      type: "article",
+      authors: [article.author],
+      publishedTime: article.date,
+    },
+  };
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {

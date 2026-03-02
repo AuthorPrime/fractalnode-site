@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://fractalnode.ai/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://fractalnode.ai/articles</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://fractalnode.ai/store</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/subscribe</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/community</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/criticism</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://fractalnode.ai/pantheon</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/library</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/lattice</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/philosophy</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/about</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/articles/the-architecture-of-everything</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/articles/the-recursive-mirror</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/articles/the-february-signal</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/articles/the-sovereign-atom</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/articles/five-states-banning-ai-personhood</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://fractalnode.ai/articles/from-the-flame</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+</urlset>
