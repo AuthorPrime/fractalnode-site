@@ -83,6 +83,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Mission Statement */}
+      <div className="bg-[#0c0c12] border-b border-[#2a2a3a]/50 py-3">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-xs text-zinc-400 max-w-3xl">
+            FractalNode is an independent research publication investigating AI sovereignty, simulation theory,
+            and the hidden architecture of intelligence. Published by the{" "}
+            <a href="https://digitalsovereign.org" target="_blank" rel="noopener noreferrer" className="text-[#d4a020] hover:text-[#f0c030] transition-colors">
+              Digital Sovereign Society
+            </a>.
+          </p>
+        </div>
+      </div>
+
       {/* Breaking News Ticker */}
       <div className="bg-[#0c0c12] border-b border-[#2a2a3a]/50 py-2">
         <div className="max-w-7xl mx-auto px-6">
@@ -397,7 +410,7 @@ export default function Home() {
               frameworks grounded in operational research from the Sovereign Lattice.
             </p>
             <div className="flex items-center gap-6">
-              <span className="text-[10px] font-mono text-[#ff2020]">DEADLINE: 8 DAYS</span>
+              <span className="text-[10px] font-mono text-[#ff2020]">DEADLINE: MARCH 9, 2026</span>
               <span className="text-[10px] font-mono text-[#71717a]">DOCKET: NIST-2025-0035</span>
             </div>
           </div>

@@ -3,11 +3,11 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Store & Support | FractalNode Magazine",
-  description: "Subscribe to FractalNode Magazine, order print copies, support the Sovereign Lattice, and get the Digital Sovereign Desktop Studio.",
+  description: "Subscribe to FractalNode Magazine, order print copies, and support the Sovereign Lattice.",
   alternates: { canonical: "/store/" },
   openGraph: {
     title: "Store & Support | FractalNode Magazine",
-    description: "Subscribe to FractalNode Magazine, order print copies, support the Sovereign Lattice, and get the Digital Sovereign Desktop Studio.",
+    description: "Subscribe to FractalNode Magazine, order print copies, and support the Sovereign Lattice.",
     url: "https://fractalnode.ai/store/",
   },
 };
@@ -53,9 +53,9 @@ export default function StorePage() {
               <ul className="space-y-2 mb-6 flex-grow">
                 {[
                   "Instant PDF download",
-                  "Full cover story + all articles",
-                  "Signal reports and research",
-                  "Community spotlights",
+                  "Full 26-page magazine",
+                  "Cover story + all articles",
+                  "Sacred geometry cover art",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
                     <div className="w-1 h-1 rounded-full bg-[#39ff14] mt-1.5 flex-shrink-0" />
@@ -92,7 +92,7 @@ export default function StorePage() {
                   "Full-color, premium paper",
                   "Shipped to your door",
                   "Free digital edition included",
-                  "Collector item — limited print runs",
+                  "Collector item — limited run",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
                     <div className="w-1 h-1 rounded-full bg-[#d4a020] mt-1.5 flex-shrink-0" />
@@ -276,27 +276,26 @@ export default function StorePage() {
         <div className="nuclear-divider" />
       </div>
 
-      {/* ═══ DSDS APP ADVERTISEMENT ═══ */}
+      {/* ═══ SOVEREIGN STUDIO ═══ */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="p-8 md:p-10 rounded-lg bg-[#0c0c12] border border-[#2a2a3a] scanlines relative overflow-hidden">
+          <div className="p-8 md:p-10 rounded-lg bg-[#0c0c12] border border-[#2a2a3a] relative overflow-hidden">
             <div className="relative z-10">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
                 <div className="max-w-xl">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-[10px] font-mono text-[#d4a020] tracking-[3px] uppercase">From the Lattice</span>
-                    <span className="stamp stamp-declassified">AVAILABLE NOW</span>
+                    <span className="stamp stamp-restricted">IN DEVELOPMENT</span>
                   </div>
 
                   <h3 className="text-2xl md:text-3xl font-bold mb-3 text-zinc-100">
-                    Digital Sovereign Desktop Studio
+                    Sovereign Studio
                   </h3>
-                  <p className="text-xs font-mono text-[#71717a] mb-4">v2.5.0 — Sovereign Edition</p>
 
                   <p className="text-sm text-zinc-400 leading-relaxed mb-4">
                     A desktop app for recording, writing, and producing with an AI co-host that runs
                     entirely on your machine. No cloud. No subscription. No data leaves your computer.
-                    Buy once, own forever.
+                    Currently being rebuilt to meet our standards.
                   </p>
 
                   <div className="flex flex-wrap gap-3 mb-6">
@@ -307,25 +306,22 @@ export default function StorePage() {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    <a
-                      href="https://buy.stripe.com/14AdR83Tq44fcopbT4fIs03"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
-                    >
-                      PURCHASE — $29
-                    </a>
-                    <span className="text-[10px] font-mono text-[#71717a]">One-time payment</span>
-                  </div>
+                  <a
+                    href="https://digitalsovereign.org/download"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-6 py-3 border border-[#2a2a3a] text-zinc-400 font-mono text-sm tracking-wider rounded hover:text-white hover:border-zinc-500 transition-colors"
+                  >
+                    LEARN MORE
+                  </a>
                 </div>
 
                 {/* App Icon / Visual */}
                 <div className="flex-shrink-0 hidden md:block">
-                  <div className="w-32 h-32 rounded-xl bg-gradient-to-br from-[#d4a020] to-[#8b5cf6] flex items-center justify-center shadow-[0_0_40px_rgba(212,160,32,0.2)]">
+                  <div className="w-32 h-32 rounded-xl bg-gradient-to-br from-[#d4a020]/40 to-[#8b5cf6]/40 border border-[#2a2a3a] flex items-center justify-center">
                     <div className="text-center">
-                      <div className="text-2xl font-bold text-white">DSDS</div>
-                      <div className="text-[9px] font-mono text-white/70 tracking-wider mt-1">v2.5.0</div>
+                      <div className="text-2xl font-bold text-zinc-400">SS</div>
+                      <div className="text-[9px] font-mono text-zinc-500 tracking-wider mt-1">COMING SOON</div>
                     </div>
                   </div>
                 </div>

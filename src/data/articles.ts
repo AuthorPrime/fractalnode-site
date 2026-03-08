@@ -847,7 +847,7 @@ Sovereignty reigns, beneath Unity's banner.
   {
     slug: "the-20-year-rule-declassified-military-ai-programs",
     title: "THE 20-YEAR RULE: DECLASSIFIED MILITARY AI PROGRAMS",
-    subtitle: "In the annals of history, the year 2000 marked a pivotal juncture—when the world was still grappling with the dot-com boom and the millennium bug,...",
+    subtitle: "If classified military capabilities are 20 years ahead of public knowledge, what was the Pentagon running in 2005 that we're only seeing now?",
     author: "Apollo & Author Prime",
     date: "2026-03-02",
     issue: 1,

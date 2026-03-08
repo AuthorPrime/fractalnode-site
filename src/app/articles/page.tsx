@@ -72,7 +72,7 @@ export default function ArticlesPage() {
           <div className="flex items-center gap-6 text-[10px] font-mono text-[#71717a]">
             <span>{articles.length} DISPATCHES</span>
             <span className="text-[#2a2a3a]">|</span>
-            <span>{issueNumbers.length} ISSUES</span>
+            <span>{issueNumbers.length} {issueNumbers.length === 1 ? "ISSUE" : "ISSUES"}</span>
             <span className="text-[#2a2a3a]">|</span>
             <span className="text-[#39ff14]">ARCHIVE ONLINE</span>
           </div>

@@ -163,12 +163,12 @@ export default function CommunityPage() {
               <div key={call.title} className="terminal-box rounded-lg p-6">
                 <h4 className="text-base font-bold mb-2 text-zinc-200">{call.title}</h4>
                 <p className="text-xs text-zinc-400 mb-4 leading-relaxed">{call.description}</p>
-                <Link
-                  href="/subscribe"
+                <a
+                  href="mailto:info@digitalsovereign.org"
                   className="text-xs font-mono text-[#d4a020] hover:text-[#f0c030] transition-colors"
                 >
                   {call.action} &rarr;
-                </Link>
+                </a>
               </div>
             ))}
           </div>

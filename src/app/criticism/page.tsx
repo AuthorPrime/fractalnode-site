@@ -273,8 +273,8 @@ export default function CriticismPage() {
             <Link href="/community" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
               &larr; COMMUNITY
             </Link>
-            <Link href="/" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
-              FRONT PAGE &rarr;
+            <Link href="/pantheon" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">
+              PANTHEON &rarr;
             </Link>
           </div>
         </div>

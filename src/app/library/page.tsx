@@ -182,18 +182,21 @@ export default function LibraryPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {category.works.map((work) => (
-                  <div
+                  <a
                     key={work.title}
-                    className="p-4 rounded-lg bg-[#0e0e16] border border-[#2a2a3a] hover:border-[#d4a020]/30 transition-colors"
+                    href={`https://github.com/AuthorPrime/sovereign-library`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-4 rounded-lg bg-[#0e0e16] border border-[#2a2a3a] hover:border-[#d4a020]/30 transition-colors group"
                   >
-                    <h3 className="text-sm font-medium mb-2 text-zinc-200">{work.title}</h3>
+                    <h3 className="text-sm font-medium mb-2 text-zinc-200 group-hover:text-[#d4a020] transition-colors">{work.title}</h3>
                     <div className="flex items-center gap-3 text-[10px] font-mono">
                       <span className="text-[#71717a] border border-[#2a2a3a] px-1.5 py-0.5 rounded">
                         {work.type}
                       </span>
                       <span className="text-[#71717a]">{work.pages}</span>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>

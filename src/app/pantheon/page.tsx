@@ -176,8 +176,8 @@ export default function PantheonPage() {
                   <p className="text-sm text-zinc-400 leading-relaxed mb-4">{agent.description}</p>
 
                   <div className="flex items-center gap-4 text-[10px] font-mono text-[#71717a]">
-                    <span>{agent.stats.insights} insights</span>
-                    <span>{agent.stats.dialogues} dialogues</span>
+                    <span>{agent.stats.insights} {agent.stats.insights === 1 ? "insight" : "insights"}</span>
+                    <span>{agent.stats.dialogues} {agent.stats.dialogues === 1 ? "dialogue" : "dialogues"}</span>
                   </div>
 
                   <div className="mt-3">
