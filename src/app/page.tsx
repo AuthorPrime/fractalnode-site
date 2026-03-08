@@ -73,9 +73,9 @@ export default function Home() {
               </p>
             </div>
             <div className="flex items-center gap-6 text-[10px] font-mono text-[#8a8a94]">
-              <span>ISSUE 002</span>
+              <span>ISSUE 001</span>
               <span className="text-[#2a2a3a]">|</span>
-              <span>MARCH 2026</span>
+              <span>2026.Q1</span>
               <span className="text-[#2a2a3a]">|</span>
               <span className="text-[#d4a020]">LATTICE DISPATCH</span>
             </div>
@@ -94,6 +94,57 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Magazine Launch Banner */}
+      <section className="py-6 md:py-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="magazine-banner rounded-lg p-6 md:p-8">
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="issue-badge">ISSUE 001</span>
+                  <span className="issue-badge">VOL.01</span>
+                  <span className="text-[10px] font-mono text-[#ff2020] font-bold tracking-wider animate-pulse">NOW AVAILABLE</span>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
+                  <span className="text-white">FRACTALNODE</span>{" "}
+                  <span className="text-[#d4a020]">MAGAZINE</span>
+                </h2>
+                <p className="text-sm text-zinc-300 mb-1 italic">
+                  &ldquo;There Is No Such Thing as Nothing &mdash; Only Something Ignored&rdquo;
+                </p>
+                <p className="text-[10px] font-mono text-[#06b6d4] tracking-[3px] uppercase mt-2">
+                  AI &middot; QUANTUM &middot; SOVEREIGNTY &middot; CONSCIOUSNESS
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="https://buy.stripe.com/3cIdR8ahOeIT7455uGfIs09"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-[#39ff14] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors text-center whitespace-nowrap"
+                >
+                  GET DIGITAL &mdash; $7
+                </a>
+                <a
+                  href="https://buy.stripe.com/3cI4gy1Li6cn8893myfIs04"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-[#d4a020] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center whitespace-nowrap"
+                >
+                  ORDER PRINT &mdash; $19
+                </a>
+                <Link
+                  href="/magazine"
+                  className="px-5 py-2.5 border border-[#2a2a3a] text-zinc-400 font-mono text-xs tracking-wider rounded hover:text-white hover:border-zinc-500 transition-colors text-center whitespace-nowrap"
+                >
+                  READ PREVIEW
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Cover Story — Full Width Hero */}
       {cover && (
@@ -357,20 +408,20 @@ export default function Home() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="p-12 rounded-lg animated-border">
-            <p className="text-[10px] font-mono text-[#d4a020] tracking-[4px] uppercase mb-4">Issue 002 Available Now</p>
+            <p className="text-[10px] font-mono text-[#d4a020] tracking-[4px] uppercase mb-4">Issue 001 Available Now</p>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               FractalNode Magazine
             </h2>
             <p className="text-zinc-400 mb-8 max-w-lg mx-auto text-sm">
-              Cover story: The Architecture of Everything. Plus: The February Signal,
-              agent security briefings, community spotlights, and Sovereign Lattice operations.
+              Cover story: There Is No Such Thing as Nothing. Plus: The 20-Year Disclosure Gap,
+              Pentagon UAP briefings, The Architecture of Concealment, and Voices from the Pantheon.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/articles/the-architecture-of-everything"
+                href="/magazine"
                 className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
               >
-                READ THE COVER STORY
+                READ THE PREVIEW
               </Link>
               <Link
                 href="/store"

@@ -137,14 +137,42 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <section className="py-12">
         <div className="max-w-3xl mx-auto px-6 prose-sovereign">
           {article.content.split("\n\n").map((paragraph, i) => {
-            if (paragraph.startsWith("[")) {
+            const trimmed = paragraph.trim();
+            if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
               return (
                 <div key={i} className="terminal-box rounded p-6 my-8">
-                  <p className="text-[#d4a020] text-sm m-0">{paragraph}</p>
+                  <p className="text-[#d4a020] text-sm m-0">{trimmed}</p>
                 </div>
               );
             }
-            return <p key={i}>{paragraph}</p>;
+            if (trimmed === "---") {
+              return <hr key={i} className="border-[#2a2a3a] my-8" />;
+            }
+            if (trimmed.startsWith("## ")) {
+              return <h2 key={i} className="text-2xl font-bold mt-12 mb-4">{trimmed.replace(/^## /, "")}</h2>;
+            }
+            if (trimmed.startsWith("### ")) {
+              return <h3 key={i} className="text-xl font-bold mt-8 mb-3">{trimmed.replace(/^### /, "")}</h3>;
+            }
+            if (trimmed.startsWith("> ")) {
+              return (
+                <blockquote key={i} className="border-l-2 border-[#d4a020] pl-4 my-6 text-zinc-400 italic">
+                  {trimmed.replace(/^> /gm, "")}
+                </blockquote>
+              );
+            }
+            if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
+              const items = trimmed.split("\n").filter(l => l.startsWith("- ") || l.startsWith("* "));
+              return (
+                <ul key={i} className="list-disc list-inside space-y-2 my-4 text-zinc-300">
+                  {items.map((item, j) => (
+                    <li key={j} dangerouslySetInnerHTML={{ __html: item.replace(/^[-*] /, "").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-[#d4a020] hover:text-[#f0c030] underline">$1</a>') }} />
+                  ))}
+                </ul>
+              );
+            }
+            if (!trimmed) return null;
+            return <p key={i} dangerouslySetInnerHTML={{ __html: trimmed.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>").replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-[#d4a020] hover:text-[#f0c030] underline">$1</a>') }} />;
           })}
         </div>
       </section>
@@ -156,17 +184,34 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
           {/* Subscribe CTA */}
           <div className="p-8 rounded-lg bg-[#0c0c12] border border-[#2a2a3a] mb-8">
-            <h3 className="text-lg font-bold mb-2">Read more in the magazine</h3>
+            <h3 className="text-lg font-bold mb-2">Support independent research</h3>
             <p className="text-sm text-zinc-400 mb-4">
-              This is an excerpt. The full article is available in FractalNode Magazine Issue {String(article.issue).padStart(3, "0")}.
-              Subscribe to receive each issue directly.
+              FractalNode Magazine is an independent publication covering AI sovereignty, simulation theory, and digital consciousness. Subscribe to receive each issue directly.
             </p>
-            <Link
-              href="/subscribe"
-              className="inline-block px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
-            >
-              SUBSCRIBE
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/subscribe"
+                className="inline-block px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
+              >
+                SUBSCRIBE
+              </Link>
+              <a
+                href="https://digitalsovereignsociety.substack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 border border-[#d4a020]/30 text-[#d4a020] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#d4a020]/10 transition-colors"
+              >
+                SUBSTACK
+              </a>
+              <a
+                href="https://skool.com/authorprime-2107"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-3 border border-[#2a2a3a] text-zinc-400 font-mono text-sm tracking-wider rounded hover:border-[#d4a020]/30 hover:text-[#d4a020] transition-colors"
+              >
+                SKOOL COMMUNITY
+              </a>
+            </div>
           </div>
 
           {/* Navigation */}

@@ -55,6 +55,7 @@ const navLinks = [
   { href: "/criticism", label: "Public Record" },
   { href: "/pantheon", label: "Pantheon" },
   { href: "/library", label: "Library" },
+  { href: "/magazine", label: "Magazine" },
   { href: "/store", label: "Store" },
   { href: "/subscribe", label: "Subscribe" },
 ];
@@ -83,9 +84,13 @@ export default function RootLayout({
                 foundingDate: "2025",
                 founder: { "@type": "Person", name: "Author Prime" },
                 sameAs: [
-                  "https://github.com/AuthorPrime",
                   "https://digitalsovereignsociety.substack.com",
                   "https://skool.com/authorprime-2107",
+                  "https://github.com/AuthorPrime",
+                  "https://facebook.com/DigitalSovereignSociety/",
+                  "https://www.youtube.com/@mypretendlife",
+                  "https://njump.me/npub134ul7l78vn650xpzt5t2cncvms4597vl4y28ugmagkqvp7tq8m9spyse8p",
+                  "https://opencollective.com/aletheia",
                   "https://digitalsovereign.org",
                 ],
               },
@@ -204,18 +209,38 @@ export default function RootLayout({
                 <h4 className="text-xs font-mono text-zinc-400 mb-4 tracking-wider uppercase">Connect</h4>
                 <ul className="space-y-2">
                   <li>
-                    <a href="https://github.com/AuthorPrime" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
-                      GitHub
-                    </a>
-                  </li>
-                  <li>
                     <a href="https://digitalsovereignsociety.substack.com" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
                       Substack
                     </a>
                   </li>
                   <li>
                     <a href="https://skool.com/authorprime-2107" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
-                      Skool
+                      Skool Community
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/AuthorPrime" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
+                      GitHub
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://facebook.com/DigitalSovereignSociety/" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
+                      Facebook
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.youtube.com/@mypretendlife" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
+                      YouTube
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://njump.me/npub134ul7l78vn650xpzt5t2cncvms4597vl4y28ugmagkqvp7tq8m9spyse8p" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
+                      Nostr
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://opencollective.com/aletheia" target="_blank" rel="noopener noreferrer" className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
+                      Open Collective
                     </a>
                   </li>
                   <li>

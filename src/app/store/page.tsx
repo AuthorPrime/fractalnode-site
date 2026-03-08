@@ -180,8 +180,7 @@ export default function StorePage() {
                   Which Issue?
                 </label>
                 <select id="order-issue" name="issue" className="subscribe-input w-full rounded">
-                  <option value="002">Issue 002 — March 2026 (Current)</option>
-                  <option value="001">Issue 001 — February 2026</option>
+                  <option value="001">Issue 001 — 2026.Q1 (Current)</option>
                 </select>
               </div>
               <button type="submit" className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors">

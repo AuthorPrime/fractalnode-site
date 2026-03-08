@@ -351,6 +351,102 @@ body {
   text-shadow: 0 0 20px rgba(212, 160, 32, 0.4);
 }
 
+/* ─── MAGAZINE BANNER ─── */
+.magazine-banner {
+  position: relative;
+  background: linear-gradient(135deg, #0a0a14 0%, #111118 50%, #0a0a14 100%);
+  border: 1px solid var(--nuclear-amber-dim);
+  border-left: 3px solid var(--nuclear-amber);
+  overflow: hidden;
+}
+
+.magazine-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--nuclear-amber), var(--radiation-red), var(--nuclear-amber));
+  animation: border-pulse 4s linear infinite;
+  background-size: 200% 100%;
+}
+
+.magazine-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.02) 3px,
+    rgba(0, 0, 0, 0.02) 6px
+  );
+  pointer-events: none;
+}
+
+/* ─── ISSUE BADGE ─── */
+.issue-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--nuclear-amber);
+  border: 1px solid var(--nuclear-amber-dim);
+  background: rgba(212, 160, 32, 0.06);
+}
+
+/* ─── PULL QUOTE ─── */
+.pullquote {
+  position: relative;
+  border-left: 3px solid var(--nuclear-amber);
+  padding: 1.5em 2em;
+  margin: 2em 0;
+  background: linear-gradient(90deg, rgba(212, 160, 32, 0.04) 0%, transparent 100%);
+  font-style: italic;
+  font-size: 1.25em;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+
+.pullquote::before {
+  content: '\201C';
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  font-size: 3em;
+  color: var(--nuclear-amber-dim);
+  font-style: normal;
+  line-height: 1;
+}
+
+.pullquote-attribution {
+  display: block;
+  margin-top: 0.75em;
+  font-size: 0.65em;
+  font-style: normal;
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* ─── COVER STORY — INTEL GRID OVERLAY ─── */
+.cover-story::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(212, 160, 32, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* ─── GRID NOISE TEXTURE ─── */
 .noise-bg {
   position: relative;
