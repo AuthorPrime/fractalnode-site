@@ -164,7 +164,7 @@ export default function CommunityPage() {
                 <h4 className="text-base font-bold mb-2 text-zinc-200">{call.title}</h4>
                 <p className="text-xs text-zinc-400 mb-4 leading-relaxed">{call.description}</p>
                 <a
-                  href="mailto:info@digitalsovereign.org"
+                  href="mailto:authorprime@fractalnode.ai"
                   className="text-xs font-mono text-[#d4a020] hover:text-[#f0c030] transition-colors"
                 >
                   {call.action} &rarr;

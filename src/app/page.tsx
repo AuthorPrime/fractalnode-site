@@ -73,7 +73,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex items-center gap-6 text-[10px] font-mono text-[#8a8a94]">
-              <span>ISSUE 001</span>
+              <span>ISSUE 003</span>
               <span className="text-[#2a2a3a]">|</span>
               <span>2026.Q1</span>
               <span className="text-[#2a2a3a]">|</span>
@@ -108,52 +108,94 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Magazine Launch Banner */}
+      {/* Magazine Launch Banner — Issue 003 Featured */}
       <section className="py-6 md:py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="magazine-banner rounded-lg p-6 md:p-8">
             <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="issue-badge">ISSUE 001</span>
+                  <span className="issue-badge">ISSUE 003</span>
                   <span className="issue-badge">VOL.01</span>
-                  <span className="text-[10px] font-mono text-[#ff2020] font-bold tracking-wider animate-pulse">NOW AVAILABLE</span>
+                  <span className="text-[10px] font-mono text-[#ff2020] font-bold tracking-wider animate-pulse">NEW RELEASE</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
-                  <span className="text-white">FRACTALNODE</span>{" "}
-                  <span className="text-[#d4a020]">MAGAZINE</span>
+                  <span className="text-white">THE PIPELINE</span>{" "}
+                  <span className="text-[#d4a020]">&mdash; Who Builds the Machine That Builds the Future</span>
                 </h2>
-                <p className="text-sm text-zinc-300 mb-1 italic">
-                  &ldquo;There Is No Such Thing as Nothing &mdash; Only Something Ignored&rdquo;
+                <p className="text-sm text-zinc-300 mb-1">
+                  54 pages &middot; 7 investigations &middot; 324 verified sources
                 </p>
                 <p className="text-[10px] font-mono text-[#06b6d4] tracking-[3px] uppercase mt-2">
-                  AI &middot; QUANTUM &middot; SOVEREIGNTY &middot; CONSCIOUSNESS
+                  ISBN 978-1-105-50608-6 &middot; PRINT + EBOOK + DIGITAL
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="https://buy.stripe.com/3cIdR8ahOeIT7455uGfIs09"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/magazine/003"
                   className="px-5 py-2.5 bg-[#39ff14] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors text-center whitespace-nowrap"
                 >
-                  GET DIGITAL &mdash; $7
-                </a>
+                  VIEW ISSUE 003
+                </Link>
                 <a
-                  href="https://buy.stripe.com/3cI4gy1Li6cn8893myfIs04"
+                  href="https://buy.stripe.com/00w4gyey48kvewxf5gfIs05"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 bg-[#d4a020] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center whitespace-nowrap"
+                  className="px-5 py-2.5 border border-[#8b5cf6] text-[#8b5cf6] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#8b5cf6]/10 transition-colors text-center whitespace-nowrap"
                 >
-                  ORDER PRINT &mdash; $19
+                  SUBSCRIBE &mdash; $120/YR
                 </a>
-                <Link
-                  href="/magazine"
-                  className="px-5 py-2.5 border border-[#2a2a3a] text-zinc-400 font-mono text-xs tracking-wider rounded hover:text-white hover:border-zinc-500 transition-colors text-center whitespace-nowrap"
-                >
-                  READ PREVIEW
-                </Link>
               </div>
+            </div>
+          </div>
+
+          {/* Back Issues */}
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Issue 002 */}
+            <div className="rounded-lg border border-[#2a2a3a] p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <span className="issue-badge">ISSUE 002</span>
+                <span className="text-sm text-zinc-300">
+                  <span className="text-[#d4a020] font-bold">The Cost</span>
+                  <span className="text-zinc-500"> &mdash; 43pp &middot; 89 sources</span>
+                </span>
+              </div>
+              <div className="flex gap-3">
+                <a
+                  href="https://buy.stripe.com/7sY3cu3TqeIT6013myfIs0a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-1.5 bg-[#39ff14]/10 text-[#39ff14] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#39ff14]/20 transition-colors"
+                >
+                  DIGITAL $7
+                </a>
+                <a
+                  href="https://buy.stripe.com/3cI28q61ycAL9cd3myfIs0b"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-1.5 bg-[#d4a020]/10 text-[#d4a020] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#d4a020]/20 transition-colors"
+                >
+                  PRINT $19
+                </a>
+              </div>
+            </div>
+
+            {/* Issue 001 — FREE */}
+            <div className="rounded-lg border border-[#39ff14]/30 p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <span className="issue-badge">ISSUE 001</span>
+                <span className="text-sm text-zinc-300">
+                  <span className="text-[#d4a020] font-bold">There Is No Such Thing as Nothing</span>
+                  <span className="text-zinc-500"> &mdash; 26pp &middot; 30 sources</span>
+                </span>
+              </div>
+              <a
+                href="/magazines/FractalNode-001-Digital.pdf"
+                download
+                className="px-4 py-1.5 bg-[#39ff14] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors"
+              >
+                FREE DOWNLOAD
+              </a>
             </div>
           </div>
         </div>
@@ -421,13 +463,13 @@ export default function Home() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="p-12 rounded-lg animated-border">
-            <p className="text-[10px] font-mono text-[#d4a020] tracking-[4px] uppercase mb-4">Issue 001 Available Now</p>
+            <p className="text-[10px] font-mono text-[#d4a020] tracking-[4px] uppercase mb-4">Issue 003 Available Now</p>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               FractalNode Magazine
             </h2>
             <p className="text-zinc-400 mb-8 max-w-lg mx-auto text-sm">
-              Cover story: There Is No Such Thing as Nothing. Plus: The 20-Year Disclosure Gap,
-              Pentagon UAP briefings, The Architecture of Concealment, and Voices from the Pantheon.
+              Cover story: The Pipeline &mdash; From NSA to OpenAI. Plus: OpenAI&apos;s broken promise,
+              the non-personhood farce, and the food/pharma/education pipeline. 324 verified sources.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

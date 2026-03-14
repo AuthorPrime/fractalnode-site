@@ -13,16 +13,29 @@ export function SubscribeForm() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    const email = formData.get("email") as string;
+    const name = formData.get("name") as string;
 
+    // Submit to Netlify forms (for data capture)
     try {
-      // Try Netlify form submission
       await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as unknown as Record<string, string>).toString(),
       });
     } catch {
-      // If Netlify form handler isn't active, that's OK — we still redirect
+      // Netlify form handler may not be active in dev — that's OK
+    }
+
+    // Send welcome email via our function
+    try {
+      await fetch("/.netlify/functions/welcome-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, name, formName: "subscribe" }),
+      });
+    } catch {
+      // Email is best-effort — don't block the user
     }
 
     router.push("/success");
