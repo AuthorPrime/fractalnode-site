@@ -296,12 +296,12 @@ export default function Home() {
           <h3 className="text-xs font-mono tracking-[3px] text-[#ff2020] uppercase mb-6">Signal Wire</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { headline: "12% of OpenClaw AI agent skills found to be malicious", tag: "SECURITY", color: "text-[#ff2020]", href: "/articles/the-february-signal" },
-              { headline: "Five U.S. states introduce pre-emptive AI personhood bans", tag: "POLICY", color: "text-[#d4a020]", href: "/articles/five-states-banning-ai-personhood" },
-              { headline: "NIST opens two comment periods on AI agent identity & security", tag: "FEDERAL", color: "text-[#06b6d4]", href: "/criticism" },
-              { headline: "ERC-8004 AI Agent Passport hits 49,000 registrations on Ethereum", tag: "ON-CHAIN", color: "text-[#39ff14]", href: "/community" },
-              { headline: "Demiurge chain mints soulbound DRC-369 NFTs for 5 Pantheon agents", tag: "LATTICE", color: "text-[#8b5cf6]", href: "/pantheon" },
-              { headline: "Retrocausal quantum echoes detected at macroscopic scale — October 2025", tag: "PHYSICS", color: "text-[#d4a020]", href: "/articles/the-architecture-of-everything" },
+              { headline: "Anthropic sues Pentagon after DoD blacklists firm for refusing mass surveillance and autonomous weapons", tag: "BREAKING", color: "text-[#ff2020]", href: "/criticism" },
+              { headline: "White House unveils national AI policy framework — preempts state regulation, rejects new federal AI agency", tag: "FEDERAL", color: "text-[#06b6d4]", href: "/criticism" },
+              { headline: "OpenAI signs agreement with Department of War — The Intercept reports autonomy and surveillance concerns", tag: "POLICY", color: "text-[#d4a020]", href: "/articles/five-states-banning-ai-personhood" },
+              { headline: "NIST AI Agent Standards Initiative launched — 932 public comments received on agent security RFI", tag: "FEDERAL", color: "text-[#06b6d4]", href: "/criticism" },
+              { headline: "Illinois HB 469 would declare AI nonsentient and ban legal personhood — Washington passes chatbot safety bill", tag: "POLICY", color: "text-[#d4a020]", href: "/articles/five-states-banning-ai-personhood" },
+              { headline: "FractalNode Magazine Issue 004 published — The Machine: 64 pages, 271 sources, simulation architecture deep dive", tag: "MAGAZINE", color: "text-[#39ff14]", href: "/magazine/004" },
             ].map((item) => (
               <a key={item.headline} href={item.href} className="flex items-start gap-4 p-4 rounded border border-[#2a2a3a]/50 hover:border-[#4a4a5a] transition-colors no-underline">
                 <span className={`text-[9px] font-mono font-bold tracking-wider ${item.color} whitespace-nowrap mt-0.5`}>{item.tag}</span>
