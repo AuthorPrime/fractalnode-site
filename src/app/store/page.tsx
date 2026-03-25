@@ -80,15 +80,15 @@ export default function StorePage() {
               <h4 className="text-xl font-bold mb-1 text-zinc-200">Annual Print Subscription</h4>
               <div className="flex items-baseline gap-2 my-4">
                 <span className="text-3xl font-bold text-[#8b5cf6]">$120</span>
-                <span className="text-xs text-zinc-400">/year (12 issues)</span>
+                <span className="text-xs text-zinc-400">/year (6 issues)</span>
               </div>
               <ul className="space-y-2 mb-6 flex-grow">
                 {[
-                  "12 printed issues per year",
+                  "6 printed issues per year (bi-monthly)",
                   "Digital editions included",
                   "Early access to research",
                   "Name listed as Patron in each issue",
-                  "Save $60 vs individual issues",
+                  "Save $36 vs individual print issues",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
                     <div className="w-1 h-1 rounded-full bg-[#8b5cf6] mt-1.5 flex-shrink-0" />

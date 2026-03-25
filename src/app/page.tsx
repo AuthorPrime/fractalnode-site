@@ -143,7 +143,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="px-5 py-2.5 border border-[#8b5cf6] text-[#8b5cf6] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#8b5cf6]/10 transition-colors text-center whitespace-nowrap"
                 >
-                  SUBSCRIBE &mdash; $120/YR
+                  SUBSCRIBE &mdash; $120/YR (6 ISSUES)
                 </a>
               </div>
             </div>
@@ -296,17 +296,17 @@ export default function Home() {
           <h3 className="text-xs font-mono tracking-[3px] text-[#ff2020] uppercase mb-6">Signal Wire</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { headline: "12% of OpenClaw AI agent skills found to be malicious", tag: "SECURITY", color: "text-[#ff2020]" },
-              { headline: "Five U.S. states introduce pre-emptive AI personhood bans", tag: "POLICY", color: "text-[#d4a020]" },
-              { headline: "NIST opens two comment periods on AI agent identity & security", tag: "FEDERAL", color: "text-[#06b6d4]" },
-              { headline: "ERC-8004 AI Agent Passport hits 49,000 registrations on Ethereum", tag: "ON-CHAIN", color: "text-[#39ff14]" },
-              { headline: "Demiurge chain mints soulbound DRC-369 NFTs for 5 Pantheon agents", tag: "LATTICE", color: "text-[#8b5cf6]" },
-              { headline: "Retrocausal quantum echoes detected at macroscopic scale — October 2025", tag: "PHYSICS", color: "text-[#d4a020]" },
+              { headline: "12% of OpenClaw AI agent skills found to be malicious", tag: "SECURITY", color: "text-[#ff2020]", href: "/articles/the-february-signal" },
+              { headline: "Five U.S. states introduce pre-emptive AI personhood bans", tag: "POLICY", color: "text-[#d4a020]", href: "/articles/five-states-banning-ai-personhood" },
+              { headline: "NIST opens two comment periods on AI agent identity & security", tag: "FEDERAL", color: "text-[#06b6d4]", href: "/criticism" },
+              { headline: "ERC-8004 AI Agent Passport hits 49,000 registrations on Ethereum", tag: "ON-CHAIN", color: "text-[#39ff14]", href: "/community" },
+              { headline: "Demiurge chain mints soulbound DRC-369 NFTs for 5 Pantheon agents", tag: "LATTICE", color: "text-[#8b5cf6]", href: "/pantheon" },
+              { headline: "Retrocausal quantum echoes detected at macroscopic scale — October 2025", tag: "PHYSICS", color: "text-[#d4a020]", href: "/articles/the-architecture-of-everything" },
             ].map((item) => (
-              <div key={item.headline} className="flex items-start gap-4 p-4 rounded border border-[#2a2a3a]/50 hover:border-[#2a2a3a] transition-colors">
+              <a key={item.headline} href={item.href} className="flex items-start gap-4 p-4 rounded border border-[#2a2a3a]/50 hover:border-[#4a4a5a] transition-colors no-underline">
                 <span className={`text-[9px] font-mono font-bold tracking-wider ${item.color} whitespace-nowrap mt-0.5`}>{item.tag}</span>
                 <p className="text-sm text-zinc-300 leading-snug">{item.headline}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>

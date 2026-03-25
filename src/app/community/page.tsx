@@ -197,6 +197,26 @@ export default function CommunityPage() {
         </div>
       </section>
 
+      {/* Magazine Bridge */}
+      <section className="py-12">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <div className="p-8 rounded-lg bg-[#0e0e16] border border-[#d4a020]/20">
+            <h3 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase mb-4">Go Deeper</h3>
+            <p className="text-sm text-zinc-400 mb-4 leading-relaxed max-w-lg mx-auto">
+              Every community project featured here connects to our investigations. On-chain identity, agent security, AI rights legislation — the magazine covers what these builders are building and why it matters.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/magazine/issue-001" className="px-6 py-3 bg-[#d4a020]/10 text-[#d4a020] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#d4a020]/20 transition-colors">
+                GET ISSUE 001 FREE
+              </Link>
+              <Link href="/store" className="px-6 py-3 border border-[#2a2a3a] text-zinc-400 font-mono text-xs font-bold tracking-wider rounded hover:border-[#d4a020]/30 hover:text-[#d4a020] transition-colors">
+                BROWSE ALL ISSUES
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Bottom Nav */}
       <section className="py-12">
         <div className="max-w-3xl mx-auto px-6">
