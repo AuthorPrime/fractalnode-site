@@ -1,13 +1,21 @@
-import { Metadata } from "next";
-import Link from "next/link";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Thank You | FractalNode",
-  description: "Your purchase is complete. Download your magazine.",
-  robots: { index: false, follow: false },
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+
+const issueData: Record<string, { title: string; file: string }> = {
+  "001": { title: "THERE IS NO SUCH THING AS NOTHING", file: "/downloads/fractalnode-001.pdf" },
+  "002": { title: "THE COST", file: "/downloads/fractalnode-002.pdf" },
+  "003": { title: "THE PIPELINE", file: "/downloads/fractalnode-003.pdf" },
+  "004": { title: "THE MACHINE", file: "/downloads/fractalnode-004.pdf" },
 };
 
-export default function PurchaseSuccessPage() {
+function SuccessContent() {
+  const params = useSearchParams();
+  const issueParam = params.get("issue");
+  const purchased = issueParam && issueData[issueParam] ? issueData[issueParam] : null;
+
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-lg mx-auto px-6 text-center">
@@ -33,22 +41,56 @@ export default function PurchaseSuccessPage() {
               Your Downloads
             </p>
 
-            {/* Issue 001 */}
-            <div className="flex items-center justify-between py-3 border-b border-[#2a2a3a]">
-              <div>
-                <p className="text-sm font-bold text-zinc-200">Issue 001</p>
-                <p className="text-[10px] font-mono text-[#71717a]">
-                  THERE IS NO SUCH THING AS NOTHING
-                </p>
+            {/* Purchased Issue */}
+            {purchased && (
+              <div className="flex items-center justify-between py-3 border-b border-[#2a2a3a]">
+                <div>
+                  <p className="text-sm font-bold text-zinc-200">Issue {issueParam}</p>
+                  <p className="text-[10px] font-mono text-[#71717a]">{purchased.title}</p>
+                </div>
+                <a
+                  href={purchased.file}
+                  download={`FractalNode-Magazine-${issueParam}.pdf`}
+                  className="px-4 py-2 bg-[#39ff14] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors"
+                >
+                  DOWNLOAD PDF
+                </a>
               </div>
-              <a
-                href="/images/magazines/001/fractalnode-001.pdf"
-                download="FractalNode-Magazine-001.pdf"
-                className="px-4 py-2 bg-[#d4a020] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
-              >
-                DOWNLOAD PDF
-              </a>
-            </div>
+            )}
+
+            {/* Bonus: Issue 001 always included */}
+            {issueParam !== "001" && (
+              <div className="flex items-center justify-between py-3 border-b border-[#2a2a3a]">
+                <div>
+                  <p className="text-sm font-bold text-zinc-200">Issue 001 <span className="text-[10px] font-mono text-[#39ff14]">FREE BONUS</span></p>
+                  <p className="text-[10px] font-mono text-[#71717a]">THERE IS NO SUCH THING AS NOTHING</p>
+                </div>
+                <a
+                  href="/downloads/fractalnode-001.pdf"
+                  download="FractalNode-Magazine-001.pdf"
+                  className="px-4 py-2 bg-[#d4a020] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
+                >
+                  DOWNLOAD PDF
+                </a>
+              </div>
+            )}
+
+            {/* No issue param fallback */}
+            {!purchased && (
+              <div className="flex items-center justify-between py-3 border-b border-[#2a2a3a]">
+                <div>
+                  <p className="text-sm font-bold text-zinc-200">Issue 001</p>
+                  <p className="text-[10px] font-mono text-[#71717a]">THERE IS NO SUCH THING AS NOTHING</p>
+                </div>
+                <a
+                  href="/downloads/fractalnode-001.pdf"
+                  download="FractalNode-Magazine-001.pdf"
+                  className="px-4 py-2 bg-[#d4a020] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
+                >
+                  DOWNLOAD PDF
+                </a>
+              </div>
+            )}
 
             <p className="text-[10px] text-zinc-500 mt-4">
               If you purchased a print copy, you will receive a shipping confirmation once it ships.
@@ -102,5 +144,13 @@ export default function PurchaseSuccessPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+export default function PurchaseSuccessPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><p className="text-zinc-400">Loading...</p></div>}>
+      <SuccessContent />
+    </Suspense>
   );
 }
