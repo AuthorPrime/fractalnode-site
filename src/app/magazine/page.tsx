@@ -101,7 +101,7 @@ export default function MagazinePage() {
                       {latest.stripeLinkDigital ? (
                         <a href={latest.stripeLinkDigital} target="_blank" rel="noopener noreferrer"
                           className="px-6 py-3 bg-[#39ff14] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors text-center">
-                          GET DIGITAL &mdash; $7
+                          GET DIGITAL &mdash; $4.99
                         </a>
                       ) : (
                         <Link href={`/magazine/${latest.slug}`}

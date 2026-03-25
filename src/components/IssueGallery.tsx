@@ -91,7 +91,7 @@ function IssueCard({ issue, onHover }: { issue: Issue; onHover: (issue: Issue | 
                   rel="noopener noreferrer"
                   className="flex-1 text-center px-3 py-2 border border-[#39ff14]/30 text-[#39ff14] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#39ff14]/10 transition-colors"
                 >
-                  DIGITAL $7
+                  DIGITAL $4.99
                 </a>
               ) : (
                 <span className="flex-1 text-center px-3 py-2 border border-[#2a2a3a] text-zinc-500 font-mono text-[10px] tracking-wider rounded cursor-not-allowed">

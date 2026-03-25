@@ -131,7 +131,7 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
                         rel="noopener noreferrer"
                         className="px-6 py-3 bg-[#39ff14] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors text-center"
                       >
-                        GET DIGITAL &mdash; $7
+                        GET DIGITAL &mdash; $4.99
                       </a>
                     ) : (
                       <span className="px-6 py-3 border border-[#2a2a3a] text-zinc-500 font-mono text-sm tracking-wider rounded text-center cursor-not-allowed">
@@ -277,7 +277,7 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
                 <span className="stamp stamp-declassified">{issue.free ? "FREE" : "INSTANT ACCESS"}</span>
               </div>
               <h4 className="text-xl font-bold mb-1 text-zinc-200">Digital Edition</h4>
-              <div className="text-3xl font-bold text-[#39ff14] my-4">{issue.free ? "FREE" : "$7"}</div>
+              <div className="text-3xl font-bold text-[#39ff14] my-4">{issue.free ? "FREE" : "$4.99"}</div>
               <ul className="space-y-2 mb-6 flex-grow">
                 {[`Instant PDF download`, `Full ${issue.pageCount}-page magazine`, `${issue.articleCount} articles, ${issue.sourceCount} sources`, "Sacred geometry cover art"].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
@@ -294,7 +294,7 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
               ) : issue.status === "published" && issue.stripeLinkDigital ? (
                 <a href={issue.stripeLinkDigital} target="_blank" rel="noopener noreferrer"
                   className="block text-center px-6 py-3 border border-[#39ff14]/30 text-[#39ff14] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#39ff14]/10 transition-colors">
-                  BUY DIGITAL &mdash; $7
+                  BUY DIGITAL &mdash; $4.99
                 </a>
               ) : (
                 <span className="block text-center px-6 py-3 border border-[#2a2a3a] text-zinc-500 font-mono text-sm tracking-wider rounded cursor-not-allowed">

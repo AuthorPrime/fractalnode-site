@@ -162,12 +162,12 @@ export default function Home() {
               </div>
               <div className="flex gap-3">
                 <a
-                  href="https://buy.stripe.com/7sY3cu3TqeIT6013myfIs0a"
+                  href="https://buy.stripe.com/9B6dR875CeITagh0amfIs0f"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-4 py-1.5 bg-[#39ff14]/10 text-[#39ff14] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#39ff14]/20 transition-colors"
                 >
-                  DIGITAL $7
+                  DIGITAL $4.99
                 </a>
                 <a
                   href="https://buy.stripe.com/3cI28q61ycAL9cd3myfIs0b"
