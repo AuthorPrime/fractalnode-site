@@ -143,7 +143,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="px-5 py-2.5 border border-[#8b5cf6] text-[#8b5cf6] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#8b5cf6]/10 transition-colors text-center whitespace-nowrap"
                 >
-                  SUBSCRIBE &mdash; $120/YR (6 ISSUES)
+                  SUBSCRIBE &mdash; $99/YR (6 ISSUES)
                 </a>
               </div>
             </div>

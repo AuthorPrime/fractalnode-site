@@ -161,7 +161,7 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
                       rel="noopener noreferrer"
                       className="inline-block px-6 py-3 border border-[#8b5cf6]/30 text-[#8b5cf6] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#8b5cf6]/10 transition-colors text-center"
                     >
-                      SUBSCRIBE — $120/YEAR
+                      SUBSCRIBE — $99/YEAR
                     </a>
                   </div>
                 )}
@@ -342,11 +342,11 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
               </div>
               <h4 className="text-xl font-bold mb-1 text-zinc-200">Annual Print Sub</h4>
               <div className="flex items-baseline gap-2 my-4">
-                <span className="text-3xl font-bold text-[#8b5cf6]">$120</span>
+                <span className="text-3xl font-bold text-[#8b5cf6]">$99</span>
                 <span className="text-xs text-zinc-400">/year (6 issues)</span>
               </div>
               <ul className="space-y-2 mb-6 flex-grow">
-                {["6 printed issues per year (bi-monthly)", "Digital editions included", "Early access to research", "Name listed as Patron", "Save $36 vs individual"].map((item) => (
+                {["6 printed issues per year (bi-monthly)", "Digital editions included ($30 value)", "Early access to research", "Name listed as Patron", "Save $45 vs buying individually"].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
                     <div className="w-1 h-1 rounded-full bg-[#8b5cf6] mt-1.5 flex-shrink-0" />
                     {item}
