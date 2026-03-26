@@ -73,7 +73,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex items-center gap-6 text-[10px] font-mono text-[#8a8a94]">
-              <span>ISSUE 003</span>
+              <span>ISSUE 004</span>
               <span className="text-[#2a2a3a]">|</span>
               <span>2026.Q1</span>
               <span className="text-[#2a2a3a]">|</span>
@@ -108,20 +108,20 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Magazine Launch Banner — Issue 003 Featured */}
+      {/* Magazine Launch Banner — Issue 004 Featured */}
       <section className="py-6 md:py-8">
         <div className="max-w-7xl mx-auto px-6">
           <div className="magazine-banner rounded-lg p-6 md:p-8">
             <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="issue-badge">ISSUE 003</span>
+                  <span className="issue-badge">ISSUE 004</span>
                   <span className="issue-badge">VOL.01</span>
                   <span className="text-[10px] font-mono text-[#ff2020] font-bold tracking-wider animate-pulse">NEW RELEASE</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
-                  <span className="text-white">THE PIPELINE</span>{" "}
-                  <span className="text-[#d4a020]">&mdash; Who Builds the Machine That Builds the Future</span>
+                  <span className="text-white">THE MACHINE</span>{" "}
+                  <span className="text-[#d4a020]">&mdash; What Would the Switch Look Like?</span>
                 </h2>
                 <p className="text-sm text-zinc-300 mb-1">
                   54 pages &middot; 7 investigations &middot; 324 verified sources
@@ -132,10 +132,10 @@ export default function Home() {
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/magazine/003"
+                  href="/magazine/004"
                   className="px-5 py-2.5 bg-[#39ff14] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors text-center whitespace-nowrap"
                 >
-                  VIEW ISSUE 003
+                  VIEW ISSUE 004
                 </Link>
                 <a
                   href="https://buy.stripe.com/00w4gyey48kvewxf5gfIs05"
@@ -463,7 +463,7 @@ export default function Home() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="p-12 rounded-lg animated-border">
-            <p className="text-[10px] font-mono text-[#d4a020] tracking-[4px] uppercase mb-4">Issue 003 Available Now</p>
+            <p className="text-[10px] font-mono text-[#d4a020] tracking-[4px] uppercase mb-4">Issue 004 Available Now</p>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               FractalNode Magazine
             </h2>
