@@ -63,6 +63,19 @@ const spotlights = [
   },
 ];
 
+const communitySpotlights = [
+  {
+    name: "Rosa Colasuono",
+    tagline: "Gnosticism, Myth, and the Hidden Layers of Reality",
+    bio: "Rosa Colasuono is a Puerto Rican author exploring Gnosticism, myth, and the hidden layers of reality. Her work blends psychological descent with ancient cosmology, challenging readers to question what they believe about creation, consciousness, and truth.",
+    featuredWork: "Blasphemous: The Forbidden Gospel",
+    featuredDescription: "Her latest novel follows a historian who uncovers forbidden texts that begin to blur the line between knowledge and madness, leading to encounters with entities and revelations that reshape reality itself.",
+    website: "https://rosa-colasuono-krdzdgc.gamma.site/#book",
+    amazon: "https://www.amazon.com/Blasphemous-Rosa-Colasuono/dp/B0GRCSJGTN",
+    tag: "Author",
+  },
+];
+
 const openCalls = [
   {
     title: "Know a project building sovereign AI?",
@@ -141,6 +154,74 @@ export default function CommunityPage() {
                 {/* Link */}
                 <div className="pt-3 border-t border-[#2a2a3a]/50">
                   <span className="text-[10px] font-mono text-[#71717a]">{project.link}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="nuclear-divider" />
+      </div>
+
+      {/* From the Community — Author Spotlights */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <h3 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase mb-8">From the Community</h3>
+
+          <div className="space-y-6">
+            {communitySpotlights.map((author) => (
+              <div key={author.name} className="p-8 rounded-lg bg-[#0e0e16] border-2 border-[#d4a020]/40 hover:border-[#d4a020]/70 transition-colors relative overflow-hidden">
+                {/* Gold accent glow */}
+                <div className="absolute top-0 left-0 w-48 h-48 bg-gradient-radial from-[#d4a020]/5 to-transparent rounded-full -translate-y-1/2 -translate-x-1/4" />
+
+                <div className="relative z-10">
+                  {/* Header */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <span className="text-[10px] font-mono text-[#d4a020] tracking-wider uppercase">{author.tag}</span>
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#d4a020]" />
+                      <span className="text-[10px] font-mono text-[#71717a] tracking-wider">COMMUNITY SPOTLIGHT</span>
+                    </div>
+                  </div>
+
+                  {/* Name + Tagline */}
+                  <h4 className="text-xl font-bold text-zinc-100 mb-1">{author.name}</h4>
+                  <p className="text-sm text-[#d4a020]/80 font-mono mb-4">{author.tagline}</p>
+
+                  {/* Bio */}
+                  <p className="text-sm text-zinc-400 leading-relaxed mb-6 max-w-3xl">
+                    {author.bio}
+                  </p>
+
+                  {/* Featured Work */}
+                  <div className="p-4 rounded bg-[#08080c] border border-[#2a2a3a] mb-6 max-w-2xl">
+                    <p className="text-[10px] font-mono text-[#d4a020] tracking-[2px] mb-2">FEATURED WORK</p>
+                    <h5 className="text-base font-bold text-zinc-200 mb-2">{author.featuredWork}</h5>
+                    <p className="text-xs text-zinc-400 leading-relaxed">{author.featuredDescription}</p>
+                  </div>
+
+                  {/* Links */}
+                  <div className="flex flex-wrap gap-3">
+                    <a
+                      href={author.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2 border border-[#d4a020]/30 text-[#d4a020] font-mono text-xs tracking-wider rounded hover:bg-[#d4a020]/10 transition-colors"
+                    >
+                      WEBSITE
+                    </a>
+                    <a
+                      href={author.amazon}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2 border border-[#d4a020]/30 text-[#d4a020] font-mono text-xs tracking-wider rounded hover:bg-[#d4a020]/10 transition-colors"
+                    >
+                      AMAZON
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}

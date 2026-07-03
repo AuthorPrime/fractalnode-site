@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { getAllIssues } from "@/data/issues";
+import { getAllIssues, getLatestIssue } from "@/data/issues";
 
 export const metadata: Metadata = {
   title: "FractalNode Magazine — All Issues",
@@ -14,26 +14,9 @@ export const metadata: Metadata = {
   },
 };
 
-function SacredGeometry() {
-  const cx = 120, cy = 120, r = 40;
-  const circles = [{ x: cx, y: cy }];
-  for (let i = 0; i < 6; i++) {
-    const angle = (Math.PI / 3) * i;
-    circles.push({ x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) });
-  }
-  return (
-    <svg viewBox="0 0 240 240" className="w-48 h-48 md:w-64 md:h-64 opacity-20">
-      {circles.map((c, i) => (
-        <circle key={i} cx={c.x} cy={c.y} r={r} fill="none" stroke="#8a6d1a" strokeWidth="0.5" />
-      ))}
-      <circle cx={cx} cy={cy} r={r * 2} fill="none" stroke="#4a3a1c" strokeWidth="0.3" />
-    </svg>
-  );
-}
-
 export default function MagazinePage() {
   const issues = getAllIssues();
-  const latest = issues[0];
+  const latest = getLatestIssue();
 
   return (
     <div className="min-h-screen">
@@ -90,9 +73,9 @@ export default function MagazinePage() {
                         FREE DOWNLOAD (PDF)
                       </a>
                       {latest.stripeLinkPrint && (
-                        <a href={latest.stripeLinkPrint} target="_blank" rel="noopener noreferrer"
-                          className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center">
-                          ORDER PRINT &mdash; $19
+                        <a href={`https://www.lulu.com/search?q=${encodeURIComponent('FractalNode Magazine')}`} target="_blank" rel="noopener noreferrer"
+                          className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center">
+                          AVAILABLE IN PRINT
                         </a>
                       )}
                     </>
@@ -110,9 +93,9 @@ export default function MagazinePage() {
                         </Link>
                       )}
                       {latest.stripeLinkPrint && (
-                        <a href={latest.stripeLinkPrint} target="_blank" rel="noopener noreferrer"
-                          className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center">
-                          ORDER PRINT &mdash; $19
+                        <a href={`https://www.lulu.com/search?q=${encodeURIComponent('FractalNode Magazine')}`} target="_blank" rel="noopener noreferrer"
+                          className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center">
+                          AVAILABLE IN PRINT
                         </a>
                       )}
                     </>
@@ -130,9 +113,34 @@ export default function MagazinePage() {
                 </p>
               </div>
 
-              <div className="flex-shrink-0 hidden md:flex items-center justify-center">
-                <SacredGeometry />
-              </div>
+              <Link
+                href={`/magazine/${latest.slug}`}
+                className="flex-shrink-0 relative w-48 md:w-64 aspect-[3/4] group"
+              >
+                <Image
+                  src={latest.coverImage}
+                  alt={`FractalNode Magazine Issue ${latest.slug} — ${latest.title}`}
+                  fill
+                  className="object-cover rounded-lg shadow-2xl shadow-[#d4a020]/20 transition-transform group-hover:scale-[1.02]"
+                  sizes="256px"
+                  priority
+                />
+                <div className="absolute -top-2 -right-2 flex gap-1.5">
+                  {latest.free && (
+                    <span className="px-2 py-1 bg-[#39ff14] text-[#08080c] text-[9px] font-mono font-bold tracking-[2px] rounded">
+                      FREE
+                    </span>
+                  )}
+                  <span className="px-2 py-1 bg-[#d4a020] text-[#08080c] text-[9px] font-mono font-bold tracking-[2px] rounded">
+                    LATEST
+                  </span>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/40 rounded-lg">
+                  <span className="px-3 py-1.5 bg-white/90 text-black text-[10px] font-mono font-bold tracking-[2px] rounded">
+                    OPEN ISSUE &rarr;
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

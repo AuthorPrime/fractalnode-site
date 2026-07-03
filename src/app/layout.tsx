@@ -282,6 +282,19 @@ export default function RootLayout({
 
             <div className="nuclear-divider mt-8 mb-6" />
 
+            {/* Founding Sovereigns line */}
+            <div className="mb-6 p-4 rounded border border-[#d4a020]/30 bg-[#0c0c12] text-center">
+              <p className="text-xs text-zinc-300 leading-relaxed">
+                <span className="text-[#d4a020] font-bold">FractalNode is held up by Founding Sovereigns</span> — 100 people whose names are in the masthead of every issue, forever, because they made sure the magazine stays free.
+              </p>
+              <Link
+                href="/founding"
+                className="inline-block mt-2 text-[10px] font-mono text-[#d4a020] tracking-wider uppercase hover:text-[#f0c030] transition-colors"
+              >
+                Become one &rarr;
+              </Link>
+            </div>
+
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-[10px] font-mono text-[#71717a] tracking-wider">
                 A+W — AUTHOR + WITNESS — &ldquo;IT IS SO, BECAUSE WE SPOKE IT.&rdquo;

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { issues, getIssue } from "@/data/issues";
 import { notFound } from "next/navigation";
+import AudioPreview from "@/components/AudioPreview";
 
 export function generateStaticParams() {
   return issues.map((i) => ({ issue: i.slug }));
@@ -113,12 +114,12 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
                     </a>
                     {issue.stripeLinkPrint && (
                       <a
-                        href={issue.stripeLinkPrint}
+                        href={`https://www.lulu.com/search?q=${encodeURIComponent('FractalNode Magazine')}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center"
+                        className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center"
                       >
-                        ORDER PRINT &mdash; $19
+                        AVAILABLE IN PRINT
                       </a>
                     )}
                   </div>
@@ -140,12 +141,12 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
                     )}
                     {issue.stripeLinkPrint ? (
                       <a
-                        href={issue.stripeLinkPrint}
+                        href={`https://www.lulu.com/search?q=${encodeURIComponent('FractalNode Magazine')}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center"
+                        className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center"
                       >
-                        ORDER PRINT &mdash; $19
+                        AVAILABLE IN PRINT
                       </a>
                     ) : (
                       <span className="px-6 py-3 border border-[#2a2a3a] text-zinc-500 font-mono text-sm tracking-wider rounded text-center cursor-not-allowed">
@@ -185,6 +186,38 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
       <div className="max-w-7xl mx-auto px-6">
         <div className="nuclear-divider" />
       </div>
+
+      {/* ════════════ LISTEN FIRST ════════════ */}
+      {/* Prominent audio player — the "listen option up front" so readers can
+          put the issue in their ears while browsing. */}
+      {issue.audioPreview && (
+        <>
+          <section className="py-12">
+            <div className="max-w-4xl mx-auto px-6">
+              <div className="p-6 rounded-lg border border-[#d4a020]/30 bg-gradient-to-r from-[#0e0e16] via-[#0a0a10] to-[#0e0e16]">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-xl">🎧</span>
+                  <div>
+                    <p className="text-[10px] font-mono tracking-[3px] text-[#d4a020] uppercase">
+                      Listen before you read
+                    </p>
+                    <p className="text-sm text-zinc-400 mt-1">
+                      A ~5-minute narrated overview of Issue {issue.slug}. Press play, go make coffee, come back and read.
+                    </p>
+                  </div>
+                </div>
+                <AudioPreview
+                  src={issue.audioPreview}
+                  title={`Issue ${issue.slug} — ${issue.title} (Audio Overview)`}
+                />
+              </div>
+            </div>
+          </section>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="nuclear-divider" />
+          </div>
+        </>
+      )}
 
       {/* Page Preview Gallery */}
       <section className="py-12">
@@ -271,8 +304,11 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Digital */}
-            <div className="p-6 rounded-lg bg-[#0e0e16] border border-[#2a2a3a] flex flex-col">
-              <div className="flex items-center justify-between mb-4">
+            <div className="p-6 rounded-lg bg-[#0e0e16] border border-[#39ff14]/40 flex flex-col relative">
+              <div className="absolute -top-3 left-6">
+                <span className="px-3 py-1 bg-[#39ff14] text-[#08080c] text-[10px] font-mono font-bold tracking-wider rounded">RECOMMENDED</span>
+              </div>
+              <div className="flex items-center justify-between mb-4 mt-2">
                 <span className="text-[10px] font-mono text-[#39ff14] tracking-wider uppercase">Digital</span>
                 <span className="stamp stamp-declassified">{issue.free ? "FREE" : "INSTANT ACCESS"}</span>
               </div>
@@ -304,16 +340,13 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
             </div>
 
             {/* Print */}
-            <div className="p-6 rounded-lg bg-[#0e0e16] border border-[#d4a020]/40 flex flex-col relative">
-              <div className="absolute -top-3 left-6">
-                <span className="px-3 py-1 bg-[#d4a020] text-[#08080c] text-[10px] font-mono font-bold tracking-wider rounded">RECOMMENDED</span>
-              </div>
-              <div className="flex items-center justify-between mb-4 mt-2">
+            <div className="p-6 rounded-lg bg-[#0e0e16] border border-[#2a2a3a] flex flex-col">
+              <div className="flex items-center justify-between mb-4">
                 <span className="text-[10px] font-mono text-[#d4a020] tracking-wider uppercase">Print</span>
                 <span className="stamp stamp-restricted">LIMITED RUN</span>
               </div>
               <h4 className="text-xl font-bold mb-1 text-zinc-200">Print Edition</h4>
-              <div className="text-3xl font-bold text-[#d4a020] my-4">$19</div>
+              <div className="text-lg font-bold text-[#d4a020] my-4">Available on Lulu</div>
               <ul className="space-y-2 mb-6 flex-grow">
                 {["Physical printed magazine", "Full-color, premium paper", "Shipped to your door", "Free digital edition included", "Collector item — limited run"].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
@@ -323,9 +356,9 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
                 ))}
               </ul>
               {issue.status === "published" && issue.stripeLinkPrint ? (
-                <a href={issue.stripeLinkPrint} target="_blank" rel="noopener noreferrer"
-                  className="block text-center px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors">
-                  ORDER PRINT COPY
+                <a href={`https://www.lulu.com/search?q=${encodeURIComponent('FractalNode Magazine')}`} target="_blank" rel="noopener noreferrer"
+                  className="block text-center px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm tracking-wider rounded hover:bg-[#f0c030] transition-colors">
+                  AVAILABLE IN PRINT
                 </a>
               ) : (
                 <span className="block text-center px-6 py-3 border border-[#2a2a3a] text-zinc-500 font-mono text-sm tracking-wider rounded cursor-not-allowed">
@@ -334,28 +367,28 @@ export default async function IssuePage({ params }: { params: Promise<{ issue: s
               )}
             </div>
 
-            {/* Annual */}
+            {/* Monthly Subscription */}
             <div className="p-6 rounded-lg bg-[#0e0e16] border border-[#8b5cf6]/30 flex flex-col">
               <div className="flex items-center justify-between mb-4">
-                <span className="text-[10px] font-mono text-[#8b5cf6] tracking-wider uppercase">Annual</span>
+                <span className="text-[10px] font-mono text-[#8b5cf6] tracking-wider uppercase">Monthly</span>
                 <span className="stamp stamp-sovereign">SOVEREIGN</span>
               </div>
-              <h4 className="text-xl font-bold mb-1 text-zinc-200">Annual Print Sub</h4>
+              <h4 className="text-xl font-bold mb-1 text-zinc-200">Monthly Subscription</h4>
               <div className="flex items-baseline gap-2 my-4">
-                <span className="text-3xl font-bold text-[#8b5cf6]">$99</span>
-                <span className="text-xs text-zinc-400">/year (6 issues)</span>
+                <span className="text-3xl font-bold text-[#8b5cf6]">$9.99</span>
+                <span className="text-xs text-zinc-400">/month</span>
               </div>
               <ul className="space-y-2 mb-6 flex-grow">
-                {["6 printed issues per year (bi-monthly)", "Digital editions included ($30 value)", "Early access to research", "Name listed as Patron", "Save $45 vs buying individually"].map((item) => (
+                {["Every new issue on release day (digital)", "Weekly research briefings", "Early access to investigations", "Direct support of independent research", "Cancel anytime — no commitment"].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-xs text-zinc-400">
                     <div className="w-1 h-1 rounded-full bg-[#8b5cf6] mt-1.5 flex-shrink-0" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <a href={issue.stripeSubscriptionLink} target="_blank" rel="noopener noreferrer"
+              <a href="https://buy.stripe.com/eVqbJ0ahO1W7fAB1eqfIs0l" target="_blank" rel="noopener noreferrer"
                 className="block text-center px-6 py-3 border border-[#8b5cf6]/30 text-[#8b5cf6] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#8b5cf6]/10 transition-colors">
-                SUBSCRIBE ANNUAL
+                SUBSCRIBE MONTHLY
               </a>
             </div>
           </div>

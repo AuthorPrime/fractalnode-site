@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--
+  Static form definitions for Netlify Forms detection.
+  Next.js client-rendered forms (e.g. SubscribeForm.tsx) are not visible to
+  Netlify's build-time HTML scanner, so submissions silently fail to register.
+  This hidden static form makes Netlify register the "subscribe" form at deploy,
+  so the client-side POST to "/" with form-name=subscribe is captured.
+  Do not delete. Keep field names in sync with the live forms.
+-->
+<html>
+<head><meta charset="utf-8" /></head>
+<body>
+  <form name="subscribe" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="subscribe" />
+    <input type="text" name="bot-field" />
+    <input type="email" name="email" />
+    <input type="text" name="name" />
+  </form>
+</body>
+</html>

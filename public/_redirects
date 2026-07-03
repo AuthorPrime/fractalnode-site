@@ -1,0 +1,11 @@
+# Intuitive URL guesses → real routes
+/research            /articles/        301
+/public-record       /criticism/       301
+/research/*          /articles/:splat  301
+/public-record/*     /criticism/:splat 301
+
+# Common typos / aliases
+/founder             /founding/        301
+/founders            /founding/        301
+/sovereign-node      /sovereign-node-hypothesis/    301
+/snh                 /sovereign-node-hypothesis/    301

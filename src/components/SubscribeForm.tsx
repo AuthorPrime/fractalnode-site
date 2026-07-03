@@ -77,7 +77,7 @@ export function SubscribeForm() {
         disabled={submitting}
         className="w-full px-6 py-4 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors disabled:opacity-50"
       >
-        {submitting ? "TRANSMITTING..." : "SUBSCRIBE TO THE LATTICE DISPATCH"}
+        {submitting ? "TRANSMITTING..." : "SUBSCRIBE TO THE THE SOVEREIGN DISPATCH"}
       </button>
     </form>
   );

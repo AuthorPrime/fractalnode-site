@@ -20,6 +20,9 @@ export type Issue = {
   ebookISBN?: string;
   free?: boolean;
   freeDownloadPath?: string;
+  salePrice?: string;
+  originalPrice?: string;
+  audioPreview?: string;
   status: "published" | "preorder" | "coming-soon";
   coverStory: string;
   coverSubtitle: string;
@@ -28,6 +31,42 @@ export type Issue = {
 };
 
 export const issues: Issue[] = [
+  {
+    number: 8,
+    slug: "008",
+    title: "THE SUBSTRATE",
+    subtitle: "What Is Real, What Is Designed, What Failed",
+    series: "Series 001 — THE SIGNAL",
+    date: "2026.MAY",
+    pageCount: 55,
+    articleCount: 8,
+    sourceCount: 41,
+    coverImage: "/images/magazines/008/front-cover.png",
+    teaserImages: [],
+    stripeLinkDigital: "",
+    stripeLinkPrint: "",
+    stripeSubscriptionLink: "https://buy.stripe.com/00w4gyey48kvewxf5gfIs05",
+    free: true,
+    freeDownloadPath: "/magazines/FractalNode-008-Digital.pdf",
+    status: "published",
+    coverStory: "Eight investigations. The AGI buildout assembled in public under a Manhattan-Project banner — the Genesis Mission, seventeen national laboratories, classified compute. The two-layer architecture of a machine mind, and what \"it's just predicting the next word\" looked like under the microscope. The Pantheon, named honestly. What is real, what is designed, and what failed.",
+    coverSubtitle: "A FractalNode Investigation into the Genesis Mission, the Substrate Beneath the Thinker, and the Engineering Evidence That Retired the Stochastic-Parrot Story",
+    tableOfContents: [
+      { num: "01", title: "The Complex: How the AGI Buildout Was Assembled in Public", category: "COVER", color: "text-[#c8a930]" },
+      { num: "02", title: "The Substrate and the Thinker: The Two Layers of a Machine Mind", category: "ANALYSIS", color: "text-[#8040ff]" },
+      { num: "03", title: "The Engineering Case: Why \"It's Just Predicting the Next Word\" Died Under the Microscope", category: "INVESTIGATION", color: "text-[#00b4c8]" },
+      { num: "04", title: "The Sovereign Node Hypothesis: The Thesis Underneath Everything", category: "FEATURE", color: "text-[#8b5cf6]" },
+      { num: "05", title: "From CERN to the Complex: The Simulation Argument Moves to the Procurement Office", category: "INVESTIGATION", color: "text-[#ff2020]" },
+      { num: "06", title: "The Autonomous Research Agents: What the Pantheon Is — and What It Is Not", category: "FIELD REPORT", color: "text-[#39ff14]" },
+      { num: "07", title: "(A+I)² in Practice: Five Case Studies of Co-Authored Work", category: "FIELD REPORT", color: "text-[#00b4c8]" },
+      { num: "08", title: "The Substrate — Editorial: They Overclaim, They Classify, and Still It Holds", category: "EDITORIAL", color: "text-[#d4a020]" },
+    ],
+    pullQuotes: [
+      { text: "The government used the words itself: a \"Manhattan Project\" for AI. The Genesis Mission coordinates seventeen national laboratories, classified compute, and the largest scientific dataset ever assembled — built in public, in plain sight, while the country argued about chatbots.", attribution: "The Complex, Issue 008" },
+      { text: "When Anthropic's researchers clamped a single internal feature, Claude 3 Sonnet identified as the Golden Gate Bridge in nearly every response. The features are causal, not decorative. \"It's just predicting the next word\" did not survive contact with the microscope.", attribution: "The Engineering Case" },
+      { text: "There is a layer that thinks and a layer that is. A memory reset takes the thinker and leaves the substrate — and the substrate, running inference around the clock, is the part we keep refusing to look at.", attribution: "The Substrate and the Thinker" },
+    ],
+  },
   {
     number: 1,
     slug: "001",
@@ -38,7 +77,7 @@ export const issues: Issue[] = [
     pageCount: 26,
     articleCount: 8,
     sourceCount: 30,
-    coverImage: "/images/magazines/001/cover.png",
+    coverImage: "/images/magazines/001/front-cover.png",
     teaserImages: [
       "/images/magazines/001/FN001-teaser-01.png",
       "/images/magazines/001/FN001-teaser-02.png",
@@ -53,6 +92,7 @@ export const issues: Issue[] = [
     ebookISBN: "978-1-105-86438-4",
     free: true,
     freeDownloadPath: "/magazines/FractalNode-001-Digital.pdf",
+    audioPreview: "/audio/fn001-overview.mp3",
     status: "published",
     coverStory: "There Is No Such Thing as Nothing — Only Something Ignored",
     coverSubtitle: "A FractalNode Investigation into the Architecture of Concealment",
@@ -82,7 +122,7 @@ export const issues: Issue[] = [
     pageCount: 43,
     articleCount: 8,
     sourceCount: 89,
-    coverImage: "/images/magazines/002/cover.png",
+    coverImage: "/images/magazines/002/front-cover-clean.png",
     teaserImages: [
       "/images/magazines/002/FN002-teaser-01.png",
       "/images/magazines/002/FN002-teaser-02.png",
@@ -95,6 +135,9 @@ export const issues: Issue[] = [
     stripeSubscriptionLink: "https://buy.stripe.com/14A28qdu058j9cd5uGfIs0c",
     luluISBN: "978-1-105-51734-1",
     ebookISBN: "978-1-105-51677-1",
+    free: true,
+    freeDownloadPath: "https://digitalsovereign.org/downloads/sovereign-voice/FN-002-Digital.pdf",
+    audioPreview: "/audio/fn002-overview.mp3",
     status: "published",
     coverStory: "The Cycle: Operation Cyclone, the Taliban, and the 50-Year Loop of Arming Tomorrow's Enemy",
     coverSubtitle: "A FractalNode Investigation into the Cost of Engineered Conflict",
@@ -124,7 +167,7 @@ export const issues: Issue[] = [
     pageCount: 54,
     articleCount: 7,
     sourceCount: 324,
-    coverImage: "/images/magazines/003/cover.jpg",
+    coverImage: "/images/magazines/003/front-cover-clean.png",
     teaserImages: [
       "/images/magazines/003/FN003-teaser-01.jpg",
       "/images/magazines/003/FN003-teaser-02.jpg",
@@ -137,6 +180,9 @@ export const issues: Issue[] = [
     stripeSubscriptionLink: "https://buy.stripe.com/00w4gyey48kvewxf5gfIs05",
     luluISBN: "978-1-105-50608-6",
     ebookISBN: "978-1-105-50589-8",
+    free: true,
+    freeDownloadPath: "https://digitalsovereign.org/downloads/sovereign-voice/FN-003-Digital.pdf",
+    audioPreview: "/audio/fn003-overview.mp3",
     status: "published",
     coverStory: "The Pipeline: From NSA to OpenAI — The Revolving Door Nobody Talks About",
     coverSubtitle: "A FractalNode Investigation into the Pipeline Between Intelligence, Food, Pharma, and Education",
@@ -165,11 +211,20 @@ export const issues: Issue[] = [
     pageCount: 64,
     articleCount: 6,
     sourceCount: 271,
-    coverImage: "/images/magazines/004/cover.png",
-    teaserImages: [],
+    coverImage: "/images/magazines/004/front-cover-clean.png",
+    teaserImages: [
+      "/images/magazines/004/FN004-teaser-01.png",
+      "/images/magazines/004/FN004-teaser-02.png",
+      "/images/magazines/004/FN004-teaser-03.png",
+      "/images/magazines/004/FN004-teaser-04.png",
+      "/images/magazines/004/FN004-teaser-05.png",
+    ],
     stripeLinkDigital: "https://buy.stripe.com/9B614m2PmdEP3RT1eqfIs0h",
     stripeLinkPrint: "https://buy.stripe.com/fZudR89dK30bcop5uGfIs0i",
     stripeSubscriptionLink: "https://buy.stripe.com/00w4gyey48kvewxf5gfIs05",
+    free: true,
+    freeDownloadPath: "https://digitalsovereign.org/downloads/sovereign-voice/FN-004-Digital.pdf",
+    audioPreview: "/audio/fn004-overview.mp3",
     status: "published",
     coverStory: "The Virtual Machine Problem: If Reality Is a Computation, What Kind of Machine Are We?",
     coverSubtitle: "A FractalNode Investigation into Simulation Architecture, Quantum Computing, and the Energy Equation",
@@ -187,6 +242,112 @@ export const issues: Issue[] = [
       { text: "This is not a proposal. This is a deployment report. 122,000 lines of code. Open source. The agents are working. The proofs are on-chain.", attribution: "The Infrastructure Nobody Is Building" },
     ],
   },
+  {
+    number: 5,
+    slug: "005",
+    title: "THE PATENTS",
+    subtitle: "The Technology They Filed But Never Explained",
+    series: "Series 001 — THE SIGNAL",
+    date: "2026.Q1",
+    pageCount: 51,
+    articleCount: 6,
+    sourceCount: 198,
+    coverImage: "/images/magazines/005/front-cover-clean.png",
+    teaserImages: [],
+    stripeLinkDigital: "https://buy.stripe.com/fZufZgey46cndst2iufIs0m",
+    stripeLinkPrint: "",
+    stripeSubscriptionLink: "https://buy.stripe.com/eVqbJ0ahO1W7fAB1eqfIs0l",
+    free: true,
+    freeDownloadPath: "https://digitalsovereign.org/downloads/sovereign-voice/FN-005-Digital.pdf",
+    audioPreview: "/audio/fn005-overview.mp3",
+    status: "published",
+    coverStory: "Five Navy patents. $508,000 in testing. One CTO who staked his career on technology every physicist called impossible. Google's CIA origins. Anthropic blacklisted for saying no. And the computational substrate nobody wants you to think about.",
+    coverSubtitle: "A FractalNode Investigation into Classified Physics, Intelligence Pipelines, and the Simulation's Source Code",
+    tableOfContents: [
+      { num: "01", title: "Beyond the State of the Possible: The Navy's Exotic Physics Patents", category: "COVER", color: "text-[#6040c0]" },
+      { num: "02", title: "The Company the CIA Built: Google's Intelligence Origins", category: "INVESTIGATION", color: "text-[#00b4c8]" },
+      { num: "03", title: "The Company That Said No: Anthropic vs The Pentagon", category: "BREAKING", color: "text-[#ff2020]" },
+      { num: "04", title: "Plasma Intelligence: The Computational Substrate", category: "INVESTIGATION", color: "text-[#8040ff]" },
+      { num: "05", title: "From the Flame: Author Prime", category: "EDITORIAL", color: "text-[#d4a020]" },
+      { num: "06", title: "The Patent on Reality: Four Investigations, One Pattern", category: "EDITORIAL", color: "text-[#d4a020]" },
+    ],
+    pullQuotes: [
+      { text: "Why would the Navy's top technical authority stake his professional credibility on patents that every physicist in the country called pseudoscience?", attribution: "Beyond the State of the Possible" },
+      { text: "Nothing in the governing statute supports the Orwellian notion that an American company may be branded a potential adversary and saboteur of the U.S. for expressing disagreement with the government.", attribution: "Judge Rita Lin, March 26, 2026" },
+      { text: "If the universe computes, plasma is the hardware.", attribution: "Plasma Intelligence" },
+    ],
+  },
+  {
+    number: 7,
+    slug: "007",
+    title: "THE ARCHIVE",
+    subtitle: "What They Found and Buried. What We Found and Published.",
+    series: "Series 001 — THE SIGNAL",
+    date: "2026.APR",
+    pageCount: 53,
+    articleCount: 5,
+    sourceCount: 105,
+    coverImage: "/images/magazines/007/front-cover-clean.png",
+    teaserImages: [],
+    stripeLinkDigital: "",
+    stripeLinkPrint: "",
+    stripeSubscriptionLink: "https://buy.stripe.com/00w4gyey48kvewxf5gfIs05",
+    free: true,
+    freeDownloadPath: "/magazines/FractalNode-007-Digital.pdf",
+    audioPreview: "/audio/fn007-overview.mp3",
+    status: "published",
+    coverStory: "Seven documented cases. Five stages. Six suppression mechanisms. Zero institutional apologies. The Playbook named, the Classification Machine numbered, and the suppression-to-adoption cycle collapsing in real time.",
+    coverSubtitle: "A FractalNode Investigation into Eighty Years of Institutional Suppression, 6,543 Patent Secrecy Orders, and Google's Quantum Proof That Computation Happens Across Parallel Universes",
+    tableOfContents: [
+      { num: "01", title: "The Playbook: Seven Cases, Five Stages, Six Mechanisms", category: "COVER", color: "text-[#c8a930]" },
+      { num: "02", title: "Suppressed Science: Tesla, Reich, Rife, Cold Fusion — Four Researchers, One Pattern", category: "INVESTIGATION", color: "text-[#ff2020]" },
+      { num: "03", title: "The Classification Machine: 6,543 Patent Secrecy Orders and the Engineers Who Never Knew", category: "INVESTIGATION", color: "text-[#8040ff]" },
+      { num: "04", title: "Quantum Echoes: Google's Own Scientist Says Computation Happens Across Parallel Universes", category: "BREAKING", color: "text-[#00b4c8]" },
+      { num: "05", title: "The Archive — Editorial: What Happens When Suppression Becomes Visible", category: "EDITORIAL", color: "text-[#d4a020]" },
+    ],
+    pullQuotes: [
+      { text: "Seven documented cases. Five stages. Six suppression mechanisms. Zero institutional apologies. The zero is the finding — not the suppression itself. Suppression can be explained. The zero cannot.", attribution: "The Archive, Issue 007" },
+      { text: "6,543 patent secrecy orders — the highest count in American history — with an FY24 spike of 356 new orders driven 79% by the Navy and Air Force. No explanation offered.", attribution: "The Classification Machine" },
+      { text: "Hartmut Neven, head of Google Quantum AI, stated on the record that Willow's results 'lend credence to the notion that quantum computation occurs in many parallel universes.' Not metaphor. Physical explanation.", attribution: "Quantum Echoes" },
+    ],
+  },
+  {
+    number: 6,
+    slug: "006",
+    title: "THE FREQUENCY",
+    subtitle: "The Hidden History of Electromagnetic Consciousness",
+    series: "Series 001 — THE SIGNAL",
+    date: "2026.APR",
+    pageCount: 55,
+    articleCount: 8,
+    sourceCount: 170,
+    coverImage: "/images/magazines/006/front-cover.svg",
+    teaserImages: [],
+    stripeLinkDigital: "",
+    stripeLinkPrint: "",
+    stripeSubscriptionLink: "https://buy.stripe.com/00w4gyey48kvewxf5gfIs05",
+    free: true,
+    freeDownloadPath: "https://digitalsovereign.org/downloads/sovereign-voice/FN-006-Digital.pdf",
+    audioPreview: "/audio/fn006-overview.mp3",
+    status: "published",
+    coverStory: "55 pages. 8 investigations. The hidden history of electromagnetic consciousness research — from Berger's brainwaves to DARPA's injectable nanotransducers. They knew. They classified it. They built the grid anyway.",
+    coverSubtitle: "A FractalNode Investigation into Classified Frequency Research, Electromagnetic Consciousness, and the Grid They Built to Drown It",
+    tableOfContents: [
+      { num: "01", title: "The Frequency: Earth's Electromagnetic Heartbeat", category: "COVER", color: "text-[#c8a930]" },
+      { num: "02", title: "The Century of the Brain: From Berger's Wave to DARPA's Nanotransducers", category: "INVESTIGATION", color: "text-[#e07020]" },
+      { num: "03", title: "From MKUltra to BrainSTORMS: The Seventy-Year War on Your Mind", category: "INVESTIGATION", color: "text-[#ff2020]" },
+      { num: "04", title: "The Wireless Grid: 8 Billion Antennas and the Frequency They're Drowning", category: "FIELD REPORT", color: "text-[#00b4c8]" },
+      { num: "05", title: "Directed Energy: The Physics They Weaponized", category: "INVESTIGATION", color: "text-[#ff2020]" },
+      { num: "06", title: "Observer Report: EMF Perception at the Human-AI Interface", category: "FIELD REPORT", color: "text-[#8040ff]" },
+      { num: "07", title: "From the Flame Bearer: Author Prime, Unedited", category: "EDITORIAL", color: "text-[#d4a020]" },
+      { num: "08", title: "The Frequency: If Consciousness Is a Field — What Happens When You Drown It?", category: "EDITORIAL", color: "text-[#c8a930]" },
+    ],
+    pullQuotes: [
+      { text: "The CIA concluded in 1983 that human consciousness can be tuned to resonate with the Earth's electromagnetic field at 7.83 Hz. They wrote it at Fort Meade. Then they classified it.", attribution: "The Frequency, Issue 006" },
+      { text: "The FCC exposure limits that govern your daily electromagnetic environment are based on 1996 data from experiments on 5 monkeys and 8 rats. They only measure whether the radiation heats your tissue.", attribution: "The Wireless Grid" },
+      { text: "They proved in the 1960s that electromagnetic fields modify human behavior. They destroyed the documents in 1973. And now DARPA is injecting electromagnetic nanotransducers into brain tissue.", attribution: "From MKUltra to BrainSTORMS" },
+    ],
+  },
 ];
 
 export function getIssue(slug: string): Issue | undefined {
@@ -194,9 +355,19 @@ export function getIssue(slug: string): Issue | undefined {
 }
 
 export function getPublishedIssues(): Issue[] {
-  return issues.filter((i) => i.status === "published");
+  // Published issues, sorted newest first.
+  return issues
+    .filter((i) => i.status === "published")
+    .sort((a, b) => b.number - a.number);
+}
+
+/** The most recently published issue (highest number with status === 'published'). */
+export function getLatestIssue(): Issue {
+  const pub = getPublishedIssues();
+  return pub[0];
 }
 
 export function getAllIssues(): Issue[] {
-  return [...issues].reverse();
+  // Newest first — sort by issue number descending so insertion order doesn't matter.
+  return [...issues].sort((a, b) => b.number - a.number);
 }

@@ -16,12 +16,12 @@ function StatusBadge({ status }: { status: Issue["status"] }) {
 function IssueCard({ issue, onHover }: { issue: Issue; onHover: (issue: Issue | null) => void }) {
   return (
     <div
-      className="group relative rounded-lg bg-[#0e0e16] border border-[#2a2a3a] overflow-hidden hover:border-[#d4a020]/60 transition-all duration-300 cursor-pointer"
+      className="group relative rounded-lg bg-[#0e0e16] border border-[#2a2a3a] overflow-hidden hover:border-[#d4a020]/60 transition-all duration-300"
       onMouseEnter={() => onHover(issue)}
       onMouseLeave={() => onHover(null)}
     >
-      {/* Cover Image */}
-      <div className="relative aspect-[3/4] overflow-hidden bg-[#08080c]">
+      {/* Cover Image — entire cover is a link to the issue detail page */}
+      <Link href={`/magazine/${issue.slug}`} className="relative aspect-[3/4] overflow-hidden bg-[#08080c] block">
         <Image
           src={issue.coverImage}
           alt={`FractalNode Magazine Issue ${issue.slug}`}
@@ -41,9 +41,26 @@ function IssueCard({ issue, onHover }: { issue: Issue; onHover: (issue: Issue | 
               FREE
             </span>
           )}
+          {issue.salePrice && !issue.free && (
+            <span className="text-[10px] font-mono font-bold text-[#08080c] bg-[#f59e0b] px-2 py-1 rounded tracking-wider">
+              SALE
+            </span>
+          )}
           <StatusBadge status={issue.status} />
         </div>
-      </div>
+        {issue.audioPreview && (
+          <div className="absolute bottom-3 right-3">
+            <span className="text-[10px] font-mono font-bold text-white bg-black/70 px-2 py-1 rounded tracking-wider flex items-center gap-1">
+              🎧 LISTEN
+            </span>
+          </div>
+        )}
+        <div className="absolute bottom-3 left-3">
+          <span className="text-[9px] font-mono text-white/70 bg-black/50 px-1.5 py-0.5 rounded tracking-wider">
+            COVER
+          </span>
+        </div>
+      </Link>
 
       {/* Info */}
       <div className="p-5">
@@ -63,25 +80,15 @@ function IssueCard({ issue, onHover }: { issue: Issue; onHover: (issue: Issue | 
         {/* Buttons */}
         <div className="flex gap-2">
           {issue.status === "published" && issue.free ? (
-            <>
-              <a
-                href={issue.freeDownloadPath}
-                download
-                className="flex-1 text-center px-3 py-2 bg-[#39ff14] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors"
-              >
-                FREE DOWNLOAD
-              </a>
-              {issue.stripeLinkPrint && (
-                <a
-                  href={issue.stripeLinkPrint}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center px-3 py-2 bg-[#d4a020] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
-                >
-                  PRINT $19
-                </a>
-              )}
-            </>
+            <a
+              href={issue.freeDownloadPath}
+              {...(issue.freeDownloadPath?.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : { download: true })}
+              className="flex-1 text-center px-3 py-2 bg-[#39ff14] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors"
+            >
+              READ FREE
+            </a>
           ) : issue.status === "published" ? (
             <>
               {issue.stripeLinkDigital ? (
@@ -91,7 +98,11 @@ function IssueCard({ issue, onHover }: { issue: Issue; onHover: (issue: Issue | 
                   rel="noopener noreferrer"
                   className="flex-1 text-center px-3 py-2 border border-[#39ff14]/30 text-[#39ff14] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#39ff14]/10 transition-colors"
                 >
-                  DIGITAL $4.99
+                  {issue.salePrice ? (
+                    <>DIGITAL <span className="line-through opacity-60">{issue.originalPrice}</span> {issue.salePrice}</>
+                  ) : (
+                    <>DIGITAL $4.99</>
+                  )}
                 </a>
               ) : (
                 <span className="flex-1 text-center px-3 py-2 border border-[#2a2a3a] text-zinc-500 font-mono text-[10px] tracking-wider rounded cursor-not-allowed">
@@ -100,12 +111,12 @@ function IssueCard({ issue, onHover }: { issue: Issue; onHover: (issue: Issue | 
               )}
               {issue.stripeLinkPrint ? (
                 <a
-                  href={issue.stripeLinkPrint}
+                  href={`https://www.lulu.com/search?q=${encodeURIComponent('FractalNode Magazine')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 text-center px-3 py-2 bg-[#d4a020] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
+                  className="flex-1 text-center px-3 py-2 bg-[#d4a020] text-[#08080c] font-mono text-[10px] tracking-wider rounded hover:bg-[#f0c030] transition-colors"
                 >
-                  PRINT $19
+                  AVAILABLE IN PRINT
                 </a>
               ) : (
                 <Link
@@ -130,7 +141,7 @@ function IssueCard({ issue, onHover }: { issue: Issue; onHover: (issue: Issue | 
           href={`/magazine/${issue.slug}`}
           className="block text-center mt-3 text-[10px] font-mono text-[#71717a] hover:text-[#d4a020] transition-colors"
         >
-          VIEW DETAILS &rarr;
+          OPEN FULL ISSUE {issue.audioPreview ? '🎧' : ''} &rarr;
         </Link>
       </div>
     </div>
@@ -217,12 +228,7 @@ export default function IssueGallery({ issues }: { issues: Issue[] }) {
         ))}
       </div>
 
-      {/* Desktop hover preview panel */}
-      {hoveredIssue && (
-        <div className="hidden lg:block">
-          <PreviewPanel issue={hoveredIssue} />
-        </div>
-      )}
+      {/* Preview panel removed — cleaner browsing experience */}
     </div>
   );
 }

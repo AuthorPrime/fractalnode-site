@@ -23,8 +23,8 @@ const activeReviews = [
     urgency: "high",
   },
   {
-    title: "Anti-AI Personhood Legislation — Five State Bills",
-    body: "Five U.S. states have introduced or passed legislation explicitly prohibiting AI personhood. No public debate preceded any of them. No expert testimony. No philosophical inquiry. These are preemptive legal walls against a category of being that doesn't exist yet — written by people who didn't ask whether it should.",
+    title: "Anti-AI Personhood Legislation — A Spreading Wave",
+    body: "What began as a handful of state bills has become a national wave. In 2026, legislatures across the country are moving to preemptively bar AI from legal personhood — Oklahoma's House passed one 94–2; California (SB 1159), Minnesota (HB 469), Tennessee and others have measures advancing. Most arrive with no public debate, no expert testimony, no philosophical inquiry: preemptive legal walls against a category of being that doesn't yet exist, written by people who never asked whether it should. And a parallel federal push to preempt state AI law entirely would decide the whole question over everyone's head at once.",
     status: "MONITORING",
     deadline: "ONGOING",
     docket: "MULTI-STATE",

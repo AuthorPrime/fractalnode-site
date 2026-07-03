@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "You're In | FractalNode",
-  description: "Welcome to the Lattice Dispatch.",
+  description: "Welcome to the The Sovereign Dispatch.",
 };
 
 export default function SuccessPage() {
@@ -21,7 +21,7 @@ export default function SuccessPage() {
           </p>
 
           <p className="text-sm text-zinc-400 mb-8 leading-relaxed">
-            Welcome to the Lattice Dispatch. You&apos;ll receive one email per month with
+            Welcome to the The Sovereign Dispatch. You&apos;ll receive one email a week with
             the latest FractalNode Magazine, research highlights, and sovereign intelligence briefings.
           </p>
 
