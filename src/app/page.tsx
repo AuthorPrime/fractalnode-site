@@ -104,7 +104,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <span className="text-[10px] font-mono font-bold text-[#ff2020] tracking-wider animate-pulse">BREAKING</span>
             <span className="text-[11px] text-zinc-300">
-              Issue 008: THE SUBSTRATE &mdash; free download &middot; 1,340+ subscribers, zero advertising &middot; 3,200+ monthly readers (UK/AU/US) &middot; Eight issues, 1,500+ sources, all free
+              Issue 008: THE SUBSTRATE &mdash; free download &middot; 1,340+ subscribers, zero advertising &middot; Eight issues, 1,500+ sources, all free
             </span>
           </div>
         </div>
