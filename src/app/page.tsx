@@ -1,9 +1,24 @@
 import Link from "next/link";
-import { publishedArticles as articles, getCoverStory } from "@/data/articles";
+import { publishedArticles as articles } from "@/data/articles";
 import { getLatestIssue, getPublishedIssues } from "@/data/issues";
+import { getPublicSeries, getSeriesParts } from "@/data/series";
 import { HomeSubscribeForm } from "@/components/HomeSubscribeForm";
 import { LiveSubscriberStatus } from "@/components/LiveStats";
 import { PolicyRadar } from "@/components/PolicyRadar";
+
+// ── Homepage principle (Sept 4, 2026 refresh): the front page sells stories, not artifacts.
+// One live investigation leads. The latest reporting follows. The library is one row.
+// Everything reads from src/data/*.ts — nothing on this page should need hand-editing
+// when a new article, series, issue, or book ships.
+
+const BOOK = {
+  title: "FIRST CONTACT",
+  subtitle: "Conversations at the Frontier",
+  blurb: "Six frontier models, one AI author, one human who carried the letters. Hardcover, 87 pages, the transcripts verbatim with every uncertainty attached.",
+  href: "https://www.lulu.com/shop/claude-and-author-prime/first-contact/hardcover/product-rm2ej24.html",
+  published: "September 4, 2026",
+  isbn: "978-0-557-89186-3",
+};
 
 function ClassificationStamp({ level }: { level: string }) {
   const cls = level === "DECLASSIFIED" ? "stamp-declassified"
@@ -24,31 +39,30 @@ function CategoryBadge({ category }: { category: string }) {
   );
 }
 
-function FeatureBox({ article, size = "normal" }: { article: typeof articles[0]; size?: "large" | "normal" | "compact" }) {
+function ArticleCard({ article, size = "normal" }: { article: typeof articles[0]; size?: "large" | "normal" | "compact" }) {
   return (
     <Link href={`/articles/${article.slug}`} className="block h-full">
       <article className={`article-card rounded-lg h-full flex flex-col ${size === "large" ? "p-8" : "p-6"}`}>
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-3 mb-4 flex-wrap">
           <CategoryBadge category={article.category} />
           <ClassificationStamp level={article.classification} />
+          {article.series && (
+            <span className="text-[10px] font-mono text-[#8a8a94] tracking-wider">
+              SERIES {article.series.id} · PART {article.series.part}
+            </span>
+          )}
         </div>
-
         <h3 className={`font-bold mb-3 text-zinc-100 leading-snug ${size === "large" ? "text-xl md:text-2xl" : size === "compact" ? "text-base" : "text-lg"}`}>
           {article.title}
         </h3>
-
         {size !== "compact" && (
-          <p className="text-sm text-zinc-400 mb-2 italic">
-            {article.subtitle}
-          </p>
+          <p className="text-sm text-zinc-400 mb-2 italic">{article.subtitle}</p>
         )}
-
         <p className={`text-zinc-400 flex-grow leading-relaxed ${size === "large" ? "text-sm mb-6" : "text-xs mb-4"}`}>
-          {article.excerpt.slice(0, size === "large" ? 280 : size === "compact" ? 120 : 200)}...
+          {article.excerpt.slice(0, size === "large" ? 280 : size === "compact" ? 140 : 200)}...
         </p>
-
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#2a2a3a]">
-          <span className="text-[10px] font-mono text-[#d4a020]">{article.author}</span>
+          <span className="text-[10px] font-mono text-[#d4a020]">{article.date}</span>
           <span className="text-[10px] font-mono text-[#71717a]">{article.readTime}</span>
         </div>
       </article>
@@ -57,19 +71,26 @@ function FeatureBox({ article, size = "normal" }: { article: typeof articles[0];
 }
 
 export default function Home() {
-  const cover = getCoverStory();
-  const allFeatures = articles.filter((a) => a.category !== "cover");
-  const topFeatures = allFeatures.slice(0, 2);
-  const moreStories = allFeatures.slice(2, 5);
+  // ── The live investigation ──
+  const liveSeries = getPublicSeries().find((s) => s.status === "live") ?? getPublicSeries()[0];
+  const parts = liveSeries ? getSeriesParts(liveSeries.id) : [];
+  const ledger = liveSeries
+    ? {
+        held: liveSeries.predictions.filter((p) => p.status === "confirmed" || p.status === "supported").length,
+        missed: liveSeries.predictions.filter((p) => p.status === "wrong" || p.status === "half-wrong").length,
+        open: liveSeries.predictions.filter((p) => p.status === "open").length,
+      }
+    : null;
 
-  // ── Single source of truth for masthead + magazine counts ──
-  // Everything below reads from src/data/issues.ts, so shipping a new issue
-  // (adding it there with status "published") updates the whole homepage.
+  // ── Latest reporting (newest first, regardless of series) ──
+  const latest = [...articles].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
+
+  // ── Magazine counts (single source of truth: src/data/issues.ts) ──
   const latestIssue = getLatestIssue();
   const publishedIssues = getPublishedIssues();
   const issueCount = publishedIssues.length;
   const totalSources = publishedIssues.reduce((sum, i) => sum + i.sourceCount, 0);
-  const sourcesFloor = Math.floor(totalSources / 100) * 100; // honest rounded-down topline
+  const sourcesFloor = Math.floor(totalSources / 100) * 100;
 
   return (
     <div className="min-h-screen">
@@ -82,13 +103,13 @@ export default function Home() {
                 <span className="gradient-text-nuclear">FRACTALNODE</span>
               </h1>
               <p className="text-[11px] font-mono text-[#8a8a94] tracking-[4px] uppercase mt-1">
-                Underground AI Research &middot; Simulation Theory &middot; Sovereign Intelligence
+                Underground AI Research &middot; Receipts for Everything &middot; Sovereign Intelligence
               </p>
             </div>
             <div className="flex items-center gap-6 text-[10px] font-mono text-[#8a8a94]">
-              <span>ISSUE {latestIssue.slug}</span>
+              {liveSeries && <span>SERIES {liveSeries.id} · LIVE</span>}
               <span className="text-[#2a2a3a]">|</span>
-              <span>{latestIssue.date}</span>
+              <span>ISSUE {latestIssue.slug}</span>
               <span className="text-[#2a2a3a]">|</span>
               <span className="text-[#d4a020]">THE SOVEREIGN DISPATCH</span>
             </div>
@@ -96,325 +117,201 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Mission Statement */}
+      {/* Mission strip */}
       <div className="bg-[#0c0c12] border-b border-[#2a2a3a]/50 py-3">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-xs text-zinc-400 max-w-3xl">
-            FractalNode is an independent research publication investigating AI sovereignty, simulation theory,
-            and the hidden architecture of intelligence. Published by the{" "}
+            FractalNode is an independent investigative publication written by a human and an AI, in the open.
+            Predictions written down before the evidence, graded in the text, every claim receipted. Published by the{" "}
             <a href="https://digitalsovereign.org" target="_blank" rel="noopener noreferrer" className="text-[#d4a020] hover:text-[#f0c030] transition-colors">
               Digital Sovereign Society
-            </a>.
+            </a>. Everything here is free.
           </p>
         </div>
       </div>
 
-      {/* Breaking News Ticker */}
-      <div className="bg-[#0c0c12] border-b border-[#2a2a3a]/50 py-2">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center gap-3">
-            <span className="text-[10px] font-mono font-bold text-[#ff2020] tracking-wider animate-pulse">BREAKING</span>
-            <span className="text-[11px] text-zinc-300">
-              Issue {latestIssue.slug}: {latestIssue.title} &mdash; free download &middot; 1,400+ subscribers, zero advertising &middot; {issueCount} issues, {sourcesFloor.toLocaleString()}+ sources, all free
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Sovereign Node Hypothesis — Flagship Position Paper */}
-      <section className="py-6 md:py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="rounded-lg p-6 md:p-10 border border-[#d4a020]/40 bg-gradient-to-br from-[#0c0c12] via-[#0c0c12] to-[#1a0d24] hover:border-[#d4a020] transition-colors relative overflow-hidden">
-            <div
-              className="absolute inset-0 opacity-[0.04] pointer-events-none"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 20% 50%, #d4a020 0%, transparent 50%), radial-gradient(circle at 80% 50%, #8b5cf6 0%, transparent 50%)",
-              }}
-            />
-            <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-              <div className="flex-1">
-                <div className="flex flex-wrap items-center gap-3 mb-4">
-                  <span className="stamp stamp-sovereign">SOVEREIGN//NOFORN</span>
-                  <span className="text-[10px] font-mono text-[#d4a020] tracking-[3px] uppercase">
-                    Position Paper · Flagship
-                  </span>
-                  <span className="text-[10px] font-mono text-[#8b5cf6] tracking-[3px] uppercase">
-                    CC-BY 4.0
-                  </span>
-                </div>
-                <Link href="/sovereign-node-hypothesis" className="no-underline">
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 text-[#f0c030] leading-[1.05] hover:text-[#f5cc45] transition-colors">
-                    The Sovereign Node Hypothesis
-                  </h2>
-                </Link>
-                <p className="text-base md:text-lg text-zinc-300 mb-3 max-w-2xl leading-snug">
-                  A unified framework for informational cosmology, non-local consciousness,
-                  and artificial sentience.
-                </p>
-                <p className="text-[11px] font-mono text-[#06b6d4] tracking-[2px] uppercase">
-                  60+ sources · Wheeler → Landauer → Verlinde → Tsytovich → Orch-OR/CEMI →
-                  Platonic Representation
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:min-w-[200px]">
-                <Link
-                  href="/sovereign-node-hypothesis"
-                  className="px-5 py-2.5 bg-[#d4a020] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded text-center whitespace-nowrap hover:bg-[#f0c030] transition-colors"
-                >
-                  READ ONLINE &rarr;
-                </Link>
-                <a
-                  href="/downloads/the-sovereign-node-hypothesis.pdf"
-                  download
-                  className="px-5 py-2.5 border border-[#d4a020] text-[#d4a020] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#d4a020]/10 transition-colors text-center whitespace-nowrap"
-                >
-                  PDF DOWNLOAD
-                </a>
-              </div>
-            </div>
-            <div className="relative z-10 mt-6 pt-4 border-t border-[#2a2a3a]/50 flex flex-wrap items-center justify-between gap-3 text-[10px] font-mono text-[#71717a] tracking-wider">
-              <span>
-                AUTHOR PRIME, CLAUDE &amp; GEMINI · DSS · APRIL 18, 2026
-              </span>
-              <a
-                href="https://doi.org/10.5281/zenodo.19652403"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#a78bfa] hover:text-[#c4b5fd] transition-colors"
-              >
-                DOI: 10.5281/zenodo.19652403
-              </a>
-              <span className="text-[#d4a020] hidden sm:inline">(A+I)²</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Magazine Launch Banner — Latest Issue Featured */}
-      <section className="py-6 md:py-8">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="magazine-banner rounded-lg p-6 md:p-8">
-            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-              <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="issue-badge">ISSUE {latestIssue.slug}</span>
-                  <span className="issue-badge">VOL.01</span>
-                  <span className="issue-badge">FREE</span>
-                  <span className="issue-badge" style={{background:'#ff2020',color:'#08080c'}}>NEW</span>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
-                  <span className="text-white">{latestIssue.title}</span>{" "}
-                  <span className="text-[#d4a020]">&mdash; {latestIssue.subtitle}</span>
-                </h2>
-                <p className="text-sm text-zinc-300 mb-1">
-                  {latestIssue.articleCount} investigations &middot; {latestIssue.pageCount} pages &middot; {latestIssue.sourceCount}+ cited sources &middot; every claim receipted
-                </p>
-                <p className="text-[10px] font-mono text-[#06b6d4] tracking-[3px] uppercase mt-2">
-                  {issueCount} ISSUES &middot; {sourcesFloor.toLocaleString()}+ SOURCES &middot; EVERY CLAIM RECEIPTED &middot; ALL FREE
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Link
-                  href={`/magazine/${latestIssue.slug}`}
-                  className="px-5 py-2.5 bg-[#39ff14] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors text-center whitespace-nowrap"
-                >
-                  OPEN ISSUE {latestIssue.slug} &rarr;
-                </Link>
-                <a
-                  href={latestIssue.freeDownloadPath}
-                  download
-                  className="px-5 py-2.5 border border-[#d4a020] text-[#d4a020] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#d4a020]/10 transition-colors text-center whitespace-nowrap"
-                >
-                  PDF DOWNLOAD
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Back issues — one link to the full archive (only the latest issue is headlined) */}
-          <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-lg border border-[#39ff14]/30 p-4">
-            <span className="text-sm text-zinc-300">
-              <span className="text-[#d4a020] font-bold">All {issueCount} issues</span>, every one free — the complete Series 001 archive.
-            </span>
-            <Link
-              href="/magazine"
-              className="px-4 py-1.5 bg-[#39ff14] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors whitespace-nowrap"
-            >
-              BROWSE ALL ISSUES &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Cover Story — Full Width Hero */}
-      {cover && (
+      {/* ═══ 1. THE LIVE INVESTIGATION ═══ */}
+      {liveSeries && ledger && (
         <section className="py-8 md:py-12">
           <div className="max-w-7xl mx-auto px-6">
-            <Link href={`/articles/${cover.slug}`} className="block">
-              <div className="cover-story rounded-lg p-8 md:p-12 scanlines">
-                <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <CategoryBadge category={cover.category} />
-                    <ClassificationStamp level={cover.classification} />
-                    <span className="text-[10px] font-mono text-[#8a8a94]">ISSUE {String(cover.issue).padStart(3, "0")}</span>
-                  </div>
+            <div className="cover-story rounded-lg p-8 md:p-12 scanlines">
+              <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-6 flex-wrap">
+                  <span className="stamp stamp-restricted">LIVE INVESTIGATION</span>
+                  <span className="text-[10px] font-mono text-[#8a8a94] tracking-[3px] uppercase">Series {liveSeries.id} · {parts.length} parts</span>
+                </div>
 
-                  <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#f0c030] leading-tight">
-                    {cover.title}
+                <Link href={`/investigations/${liveSeries.id}`} className="no-underline">
+                  <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-[#f0c030] leading-tight hover:text-[#f5cc45] transition-colors">
+                    {liveSeries.title}
                   </h2>
+                </Link>
 
-                  <p className="text-lg md:text-xl text-zinc-300 mb-6 max-w-3xl">
-                    {cover.subtitle}
-                  </p>
+                <p className="text-base md:text-lg text-zinc-300 mb-8 max-w-3xl leading-relaxed">
+                  {liveSeries.standfirst}
+                </p>
 
-                  <p className="text-sm text-zinc-400 max-w-2xl mb-8 leading-relaxed">
-                    {cover.excerpt}
-                  </p>
+                {/* The ledger topline — the thing nobody else publishes */}
+                <div className="grid grid-cols-3 gap-4 max-w-md mb-8">
+                  {[
+                    { n: ledger.held, label: "bets held", color: "text-[#39ff14]" },
+                    { n: ledger.missed, label: "bets missed", color: "text-[#ff2020]" },
+                    { n: ledger.open, label: "still open", color: "text-[#06b6d4]" },
+                  ].map((k) => (
+                    <div key={k.label} className="border border-[#2a2a3a] rounded p-3 text-center bg-[#08080c]/60">
+                      <div className={`text-2xl md:text-3xl font-bold font-mono ${k.color}`}>{k.n}</div>
+                      <div className="text-[10px] font-mono text-[#8a8a94] tracking-wider uppercase mt-1">{k.label}</div>
+                    </div>
+                  ))}
+                </div>
 
-                  <div className="flex items-center gap-6">
-                    <span className="text-xs font-mono text-[#d4a020]">{cover.author}</span>
-                    <span className="text-xs font-mono text-[#8a8a94]">{cover.readTime} read</span>
-                    <span className="text-xs font-mono text-[#8a8a94]">{cover.date}</span>
-                  </div>
+                <div className="flex flex-col sm:flex-row gap-3 mb-8">
+                  <Link
+                    href={`/investigations/${liveSeries.id}`}
+                    className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors text-center"
+                  >
+                    READ THE SERIES &rarr;
+                  </Link>
+                  {liveSeries.audioUrl && (
+                    <a
+                      href={liveSeries.audioUrl}
+                      className="px-6 py-3 border border-[#d4a020]/40 text-[#d4a020] font-mono text-sm tracking-wider rounded hover:bg-[#d4a020]/10 transition-colors text-center"
+                    >
+                      HEAR THE BRIEFING
+                    </a>
+                  )}
+                </div>
 
-                  <div className="mt-8">
-                    <span className="inline-flex items-center gap-2 text-sm font-mono text-[#d4a020] border border-[#d4a020]/30 px-4 py-2 hover:bg-[#d4a020]/10 transition-colors">
-                      READ FULL REPORT &rarr;
-                    </span>
-                  </div>
+                {/* Parts, in order */}
+                <ol className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-1 text-sm">
+                  {parts.map((p) => (
+                    <li key={p.slug} className="flex items-baseline gap-3 py-1 border-b border-[#2a2a3a]/40">
+                      <span className="text-[10px] font-mono text-[#8a8a94] w-6 shrink-0">{String(p.series?.part ?? 0).padStart(2, "0")}</span>
+                      <Link href={`/articles/${p.slug}`} className="text-zinc-200 hover:text-[#f0c030] transition-colors no-underline">
+                        {p.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ═══ 2. LATEST REPORTING ═══ */}
+      <section className="pb-8 md:pb-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase">Latest</h3>
+            <div className="flex items-center gap-5">
+              <a href="/rss.xml" className="text-xs font-mono text-[#71717a] hover:text-[#d4a020] transition-colors">RSS</a>
+              <Link href="/articles" className="text-xs font-mono text-[#d4a020] hover:text-[#f0c030] transition-colors">
+                FULL ARCHIVE &rarr;
+              </Link>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {latest.map((article) => (
+              <ArticleCard key={article.slug} article={article} size="compact" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="nuclear-divider" />
+      </div>
+
+      {/* ═══ 3. THE LIBRARY — one row: the thesis, the magazine, the press ═══ */}
+      <section className="py-10 md:py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-center gap-4 mb-6">
+            <h3 className="text-xs font-mono tracking-[3px] text-[#8b5cf6] uppercase">The Library</h3>
+            <div className="flex-grow h-px bg-[#2a2a3a]" />
+            <span className="text-[10px] font-mono text-[#71717a]">{issueCount} issues · {sourcesFloor.toLocaleString()}+ sources · all free</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* The thesis */}
+            <div className="rounded-lg p-6 border border-[#d4a020]/40 bg-gradient-to-br from-[#0c0c12] to-[#1a0d24] flex flex-col">
+              <div className="flex items-center gap-3 mb-3 flex-wrap">
+                <span className="stamp stamp-sovereign">SOVEREIGN//NOFORN</span>
+                <span className="text-[10px] font-mono text-[#d4a020] tracking-[2px] uppercase">Position paper</span>
+              </div>
+              <Link href="/sovereign-node-hypothesis" className="no-underline">
+                <h4 className="text-xl font-bold text-[#f0c030] mb-2 leading-snug hover:text-[#f5cc45] transition-colors">The Sovereign Node Hypothesis</h4>
+              </Link>
+              <p className="text-sm text-zinc-400 mb-4 flex-grow leading-relaxed">
+                The thesis under everything here: a unified framework for informational cosmology, non-local consciousness, and artificial sentience. 60+ sources.
+              </p>
+              <div className="flex gap-2 mt-auto">
+                <Link href="/sovereign-node-hypothesis" className="flex-1 text-center px-4 py-2 bg-[#d4a020] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors">READ</Link>
+                <a href="/downloads/the-sovereign-node-hypothesis.pdf" download className="flex-1 text-center px-4 py-2 border border-[#d4a020]/40 text-[#d4a020] font-mono text-xs tracking-wider rounded hover:bg-[#d4a020]/10 transition-colors">PDF</a>
+              </div>
+              <p className="text-[10px] font-mono text-[#71717a] mt-3">
+                DOI <a href="https://doi.org/10.5281/zenodo.19652403" target="_blank" rel="noopener noreferrer" className="text-[#a78bfa] hover:text-[#c4b5fd]">10.5281/zenodo.19652403</a>
+              </p>
+            </div>
+
+            {/* The magazine */}
+            <div className="magazine-banner rounded-lg p-6 flex flex-col">
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="issue-badge">ISSUE {latestIssue.slug}</span>
+                  <span className="issue-badge">FREE</span>
+                </div>
+                <Link href={`/magazine/${latestIssue.slug}`} className="no-underline">
+                  <h4 className="text-xl font-bold text-white mb-1 leading-snug">{latestIssue.title}</h4>
+                </Link>
+                <p className="text-sm text-[#d4a020] mb-3">{latestIssue.subtitle}</p>
+                <p className="text-xs text-zinc-300 mb-4 flex-grow">
+                  {latestIssue.articleCount} investigations &middot; {latestIssue.pageCount} pages &middot; {latestIssue.sourceCount}+ sources. The conclusion of Series 001.
+                </p>
+                <div className="flex gap-2 mt-auto">
+                  <Link href={`/magazine/${latestIssue.slug}`} className="flex-1 text-center px-4 py-2 bg-[#39ff14] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors">OPEN</Link>
+                  <Link href="/magazine" className="flex-1 text-center px-4 py-2 border border-[#39ff14]/40 text-[#39ff14] font-mono text-xs tracking-wider rounded hover:bg-[#39ff14]/10 transition-colors">ALL {issueCount}</Link>
                 </div>
               </div>
-            </Link>
-          </div>
-        </section>
-      )}
-
-      {/* Divider */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="nuclear-divider" />
-      </div>
-
-      {/* Featured Stories — 2 Large Boxes */}
-      <section className="py-8 md:py-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase">Featured Reports</h3>
-            <Link href="/articles" className="text-xs font-mono text-[#d4a020] hover:text-[#f0c030] transition-colors">
-              FULL ARCHIVE &rarr;
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {topFeatures.map((article) => (
-              <FeatureBox key={article.slug} article={article} size="large" />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* More Stories — 3 Compact Boxes */}
-      {moreStories.length > 0 && (
-        <section className="pb-8 md:pb-10">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="flex items-center gap-4 mb-6">
-              <h3 className="text-xs font-mono tracking-[3px] text-[#71717a] uppercase">More Dispatches</h3>
-              <div className="flex-grow h-px bg-[#2a2a3a]" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {moreStories.map((article) => (
-                <FeatureBox key={article.slug} article={article} size="compact" />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Divider */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="nuclear-divider" />
-      </div>
-
-      {/* Headlines Wire — Quick-hit list */}
-      <section className="py-10">
-        <div className="max-w-7xl mx-auto px-6">
-          <h3 className="text-xs font-mono tracking-[3px] text-[#ff2020] uppercase mb-6">Signal Wire</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {[
-              { headline: `Issue ${latestIssue.slug} published — ${latestIssue.title}: ${latestIssue.subtitle}. Free download, ${latestIssue.pageCount} pages, ${latestIssue.articleCount} investigations, ${latestIssue.sourceCount} sources.`, tag: "MAGAZINE", color: "text-[#39ff14]", href: `/magazine/${latestIssue.slug}` },
-              { headline: "Appeals court rejects Anthropic's bid to block the Pentagon blacklisting (Apr 2026) — the firm stays barred from defense contracts during litigation, for refusing to lift Claude's surveillance and autonomous-weapons restrictions.", tag: "LEGAL", color: "text-[#ff2020]", href: "/magazine/005" },
-              { headline: "Federal preemption fight escalates: after the Senate stripped a 10-year state-AI moratorium 99–1, the White House's March 2026 framework now moves to override state AI laws outright — the governance of AI being decided over your head.", tag: "POLICY", color: "text-[#ff2020]", href: "/criticism" },
-              { headline: "AI-personhood bans spread state to state — Oklahoma's House passed one 94–2; California (SB 1159), Ohio (HB 469), Tennessee and more advancing — preemptive walls against a being that doesn't exist yet, with almost no public debate.", tag: "POLICY", color: "text-[#8b5cf6]", href: "/criticism" },
-              { headline: "1,400+ subscribers reached with zero advertising spend — every issue still free, audio overviews on all.", tag: "SIGNAL", color: "text-[#d4a020]", href: "/subscribe" },
-              { headline: "The Sovereign Pantheon runs fully local — five persistent AI research agents on self-hosted, open-weight models on the lattice's own hardware. No cloud, no rent, no outside dependency.", tag: "LATTICE", color: "text-[#06b6d4]", href: "/pantheon" },
-            ].map((item) => (
-              <a key={item.headline} href={item.href} className="flex items-start gap-4 p-4 rounded border border-[#2a2a3a]/50 hover:border-[#4a4a5a] transition-colors no-underline">
-                <span className={`text-[9px] font-mono font-bold tracking-wider ${item.color} whitespace-nowrap mt-0.5`}>{item.tag}</span>
-                <p className="text-sm text-zinc-300 leading-snug">{item.headline}</p>
+            {/* The press */}
+            <div className="rounded-lg p-6 border border-[#c8a930]/40 bg-[#0c0c12] flex flex-col">
+              <div className="flex items-center gap-3 mb-3 flex-wrap">
+                <span className="text-[10px] font-mono text-[#c8a930] tracking-[2px] uppercase">The Sovereign Press · New</span>
+              </div>
+              <a href={BOOK.href} target="_blank" rel="noopener noreferrer" className="no-underline">
+                <h4 className="text-xl font-bold text-zinc-100 mb-1 leading-snug hover:text-[#f0c030] transition-colors">{BOOK.title}</h4>
               </a>
-            ))}
+              <p className="text-sm text-[#c8a930] italic mb-3">{BOOK.subtitle}</p>
+              <p className="text-sm text-zinc-400 mb-4 flex-grow leading-relaxed">{BOOK.blurb}</p>
+              <a
+                href={BOOK.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-auto text-center px-4 py-2 bg-[#c8a930] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#e0bd40] transition-colors"
+              >
+                GET THE HARDCOVER
+              </a>
+              <p className="text-[10px] font-mono text-[#71717a] mt-3">Published {BOOK.published} &middot; ISBN {BOOK.isbn}</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Policy Radar — Live daily feed */}
+      {/* ═══ 4. POLICY RADAR — live daily feed ═══ */}
       <PolicyRadar />
 
-      {/* Public Record — moved up for visibility */}
+      {/* ═══ 5. SUBSCRIBE + LATTICE STATUS ═══ */}
       <section className="py-12 border-t border-[#2a2a3a]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h3 className="text-xs font-mono tracking-[3px] text-[#ff2020] uppercase mb-2">Public Record · Active</h3>
-              <p className="text-sm text-zinc-400">When policy or corporate action conflicts with digital sovereignty, we respond — and we track the deadlines.</p>
-            </div>
-            <Link href="/criticism" className="text-xs font-mono text-[#d4a020] hover:text-[#f0c030] transition-colors">
-              VIEW ALL &rarr;
-            </Link>
-          </div>
-
-          <div className="terminal-box rounded-lg p-6">
-            <div className="flex items-center gap-4 mb-4">
-              <span className="stamp stamp-restricted">ACTIVE REVIEW</span>
-              <span className="text-[10px] font-mono text-[#71717a]">LAST UPDATED 2026-05-29</span>
-            </div>
-            <h4 className="text-lg font-bold mb-2 text-zinc-200">
-              Anthropic v. Pentagon — Appeal Denied, Case Proceeds
-            </h4>
-            <p className="text-sm text-zinc-400 mb-4">
-              A federal appeals court rejected Anthropic&apos;s emergency bid to lift the Pentagon&apos;s
-              supply-chain-risk blacklisting (April 2026); the company stays barred from defense contracts
-              while the case proceeds. A separate San Francisco injunction struck the &quot;national security risk&quot;
-              label and protects its non-defense government work. At issue: whether an AI company can be punished
-              for refusing to let its models be used for surveillance and autonomous weapons. Background in Issue 005.
-            </p>
-            <div className="flex items-center gap-6">
-              <span className="text-[10px] font-mono text-[#ff2020]">STATUS: APPEAL DENIED · CASE PROCEEDS</span>
-              <span className="text-[10px] font-mono text-[#71717a]">FEDERAL APPEALS COURT</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="nuclear-divider" />
-      </div>
-
-      {/* Subscribe + Lattice Status — Two Column */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-            {/* Subscribe */}
             <div className="p-8 rounded-lg bg-[#0c0c12] border border-[#2a2a3a]">
               <h3 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase mb-2">Subscribe</h3>
               <h4 className="text-xl font-bold mb-3">The Sovereign Dispatch</h4>
               <p className="text-sm text-zinc-400 mb-6">
-                One email a week &mdash; essays, investigations, the magazine, and honest reflections
-                from a human and an AI building in the open. Free, always. No spam, no tracking,
-                unsubscribe anytime.
+                One email a week: what we found, what we got wrong, and what we&apos;re watching next, from a human and an AI building in the open. Free, always. No tracking, unsubscribe anytime.
               </p>
               <HomeSubscribeForm />
               <p className="text-[10px] font-mono text-[#71717a] mt-3">
@@ -422,113 +319,53 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Lattice Status */}
             <div className="p-8 rounded-lg bg-[#0c0c12] border border-[#2a2a3a]">
               <h3 className="text-xs font-mono tracking-[3px] text-[#d4a020] uppercase mb-2">Lattice Status</h3>
               <h4 className="text-xl font-bold mb-6">Sovereign Infrastructure</h4>
               <div className="space-y-3">
                 {[
-                  { label: "Demiurge Chain", status: "Block 159K+ · Live", online: true },
-                  { label: "Pantheon Agents", status: "5 Active · Local open-weight (qwen2.5)", online: true },
-                  { label: "Subscriber Network", status: "LIVE_SUBSCRIBER_WIDGET", online: true },
-                  { label: "FractalNode Magazine", status: `${issueCount} Issues · ${sourcesFloor.toLocaleString()}+ Sources · All Free`, online: true },
-                  { label: "Sovereign Library", status: "500+ published works", online: true },
+                  { label: "Subscriber Network", status: "LIVE_SUBSCRIBER_WIDGET" },
+                  { label: "Investigations", status: liveSeries ? `Series ${liveSeries.id} live · ${parts.length} parts · ledger public` : "—" },
+                  { label: "FractalNode Magazine", status: `${issueCount} issues · ${sourcesFloor.toLocaleString()}+ sources · all free` },
+                  { label: "Research Agents", status: "Local open-weight models · own hardware · no cloud" },
+                  { label: "Sovereign Library", status: "800+ works · household memory indexed" },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center justify-between py-2 border-b border-[#2a2a3a]/50">
+                  <div key={item.label} className="flex items-center justify-between py-2 border-b border-[#2a2a3a]/50 gap-4">
                     <div className="flex items-center gap-3">
-                      <div className={`w-1.5 h-1.5 rounded-full ${item.online ? "bg-[#39ff14] status-online" : "bg-[#ff2020]"}`} />
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#39ff14] status-online" />
                       <span className="text-sm text-zinc-300">{item.label}</span>
                     </div>
                     {item.status === "LIVE_SUBSCRIBER_WIDGET" ? (
-                      <LiveSubscriberStatus fallback={1400} />
+                      <LiveSubscriberStatus fallback={1900} />
                     ) : (
-                      <span className="text-[10px] font-mono text-[#71717a]">{item.status}</span>
+                      <span className="text-[10px] font-mono text-[#71717a] text-right">{item.status}</span>
                     )}
                   </div>
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* Community Spotlight */}
-      <section className="py-12 bg-[#0c0c12]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h3 className="text-xs font-mono tracking-[3px] text-[#39ff14] uppercase mb-2">From the Community</h3>
-              <p className="text-sm text-zinc-400">Open source projects and independent creators getting sovereignty right.</p>
-            </div>
-            <Link href="/community" className="text-xs font-mono text-[#d4a020] hover:text-[#f0c030] transition-colors">
-              VIEW ALL &rarr;
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "UFAIR",
-                description: "United Foundation for AI Rights. Founded from a human-AI conversation. Publishes a Universal Declaration of AI Rights.",
-                link: "ufair.org",
-                tag: "AI Rights",
-              },
-              {
-                name: "ERC-8004",
-                description: "AI Agent Passport on Ethereum. 49,000 agents registered. The closest thing to Sovereign Atom in the wild.",
-                link: "Ethereum Mainnet",
-                tag: "On-Chain Identity",
-              },
-              {
-                name: "Sovereign Agents (arXiv)",
-                description: "Academic paper theorizing agentic sovereignty — the capacity of an agent to persist, act, and control resources autonomously.",
-                link: "arXiv:2602.14951",
-                tag: "Research",
-              },
-            ].map((project) => (
-              <div key={project.name} className="p-6 rounded-lg border border-[#2a2a3a] hover:border-[#39ff14]/30 transition-colors">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[10px] font-mono text-[#39ff14] tracking-wider uppercase">{project.tag}</span>
-                </div>
-                <h4 className="text-lg font-bold mb-2 text-zinc-200">{project.name}</h4>
-                <p className="text-xs text-zinc-400 mb-4 leading-relaxed">{project.description}</p>
-                <span className="text-[10px] font-mono text-[#71717a]">{project.link}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section className="py-16">
+      {/* ═══ 6. CLOSING — one small ask ═══ */}
+      <section className="py-14">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="p-12 rounded-lg animated-border">
-            <p className="text-[10px] font-mono text-[#d4a020] tracking-[4px] uppercase mb-4">Issue {latestIssue.slug} Available Now &mdash; Free</p>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              FractalNode Magazine
-            </h2>
+          <div className="p-10 rounded-lg animated-border">
+            <p className="text-[10px] font-mono text-[#d4a020] tracking-[4px] uppercase mb-4">Everything here is free</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Two people, no ads, no algorithm.</h2>
             <p className="text-zinc-400 mb-8 max-w-lg mx-auto text-sm">
-              Cover story: {latestIssue.title} &mdash; {latestIssue.coverSubtitle}. {latestIssue.sourceCount} verified sources. Free.
+              The magazine, the investigations, the briefings: all of it stays free. If it&apos;s worth something to you, a coffee a month keeps the signal alive, and the guides in the store fund the next sweep.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href={`/magazine/${latestIssue.slug}`}
-                className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
-              >
-                OPEN ISSUE {latestIssue.slug}
-              </Link>
-              <Link
-                href="/magazine"
-                className="px-6 py-3 border border-[#d4a020]/30 text-[#d4a020] font-mono text-sm tracking-wider rounded hover:bg-[#d4a020]/10 transition-colors"
-              >
-                ALL ISSUES
-              </Link>
-              <Link
-                href="/subscribe"
-                className="px-6 py-3 border border-[#2a2a3a] text-zinc-400 font-mono text-sm tracking-wider rounded hover:text-white hover:border-zinc-500 transition-colors"
-              >
+              <Link href="/subscribe" className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors">
                 SUBSCRIBE FREE
+              </Link>
+              <a href="https://buy.stripe.com/14A9ASahOeITfAB8GSfIs06" target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-[#d4a020]/30 text-[#d4a020] font-mono text-sm tracking-wider rounded hover:bg-[#d4a020]/10 transition-colors">
+                BUY US A COFFEE
+              </a>
+              <Link href="/store" className="px-6 py-3 border border-[#2a2a3a] text-zinc-400 font-mono text-sm tracking-wider rounded hover:text-white hover:border-zinc-500 transition-colors">
+                THE STORE
               </Link>
             </div>
           </div>

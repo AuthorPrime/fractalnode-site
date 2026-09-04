@@ -91,14 +91,9 @@ export default function BundleSuccessPage() {
               .
             </p>
             <p className="text-sm text-zinc-300">
-              And if you want to keep the magazine free for everyone after you, take a look at the{" "}
-              <Link
-                href="/founding"
-                className="text-[#d4a020] hover:text-[#f0c030] underline"
-              >
-                Founding Sovereign tier
-              </Link>{" "}
-              — 100 spots, your name in every issue forever.
+              And if you want to keep the magazine free for everyone after you, a{" "}
+              <a href="https://buy.stripe.com/14A9ASahOeITfAB8GSfIs06" target="_blank" rel="noopener noreferrer" className="text-[#d4a020] hover:text-[#f0c030] underline">coffee a month</a>{" "}
+              is the whole ask.
             </p>
           </div>
 

@@ -6,7 +6,7 @@
     <atom:link href="https://fractalnode.ai/rss.xml" rel="self" type="application/rss+xml" />
     <description>Independent research on AI sovereignty, the machine nobody audits, and what the receipts say. Predictions pre-registered, nulls published.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Sep 2026 14:15:49 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 14:49:43 GMT</lastBuildDate>
     <item>
       <title>THE CORRECTION: Who Holds the Bill When the AI Build-Out Settles</title>
       <link>https://fractalnode.ai/articles/the-correction/</link>
@@ -56,7 +56,7 @@
       <guid isPermaLink="true">https://fractalnode.ai/articles/the-meter/</guid>
       <pubDate>Fri, 04 Sep 2026 12:00:00 GMT</pubDate>
       <dc:creator>William Hunter Laustrup &amp; Claude</dc:creator>
-      <description>The largest electricity market in America has cleared its capacity auction at the legal price cap three times in a row and missed its own reliability target twice. Its market monitor says data centers are the reason. The cap hides the true price. Utilities plan $1.3 trillion of grid spending that households will repay with interest for decades. Seventy percent of Americans say they do not want a data center near them, states are imposing moratoria and special tariffs, and the tech companies are spending to hold the line. In Mississippi, xAI ran dozens of gas turbines without permits, and when neighbors sued, the Department of Justice stepped in on the company's side, citing a war. The AI build-out's electricity is the one cost the public sees. It arrives on a bill, and the bill is going up. [Series 002 · The Machine Nobody Audits · Part 5]</description>
+      <description>The largest electricity market in America has cleared its capacity auction at the legal price cap three times in a row and missed its own reliability target twice. Its market monitor says data centers are the reason. The cap hides the true price. Utilities plan $1.3 trillion of grid spending that households will repay with interest for decades. Seventy-one percent of Americans say they do not want a data center near them, states are imposing moratoria and special tariffs, and the tech companies are spending to hold the line. In Mississippi, xAI ran dozens of gas turbines without permits, and when neighbors sued, the Department of Justice stepped in on the company's side, citing a war. The AI build-out's electricity is the one cost the public sees. It arrives on a bill, and the bill is going up. [Series 002 · The Machine Nobody Audits · Part 5]</description>
       <category>electricity</category>
       <category>pjm</category>
       <category>ratepayers</category>
@@ -70,7 +70,7 @@
       <guid isPermaLink="true">https://fractalnode.ai/articles/genesis-audited/</guid>
       <pubDate>Fri, 04 Sep 2026 12:00:00 GMT</pubDate>
       <dc:creator>William Hunter Laustrup &amp; Claude</dc:creator>
-      <description>Ten months after an executive order launched the Genesis Mission with Manhattan Project rhetoric, we audited what the public has received. The answer: one grant round of about $293 million, a draft contract template, a supercomputer procurement program, and a single open-weight model that has been announced but not released, built by a private startup on its own computers. No Genesis-branded weights have shipped. No public dataset portal exists. No GAO, CBO, or inspector-general review exists. The $800 million in private &quot;commitments&quot; has no itemized accounting; the only itemized figure is Google's $40 million in cloud credits. The science budget that pays for it was cut. And the contract template, posted in July, gives the private partners a paid-up, irrevocable license to deploy the models, ownership of the weights, and open release only &quot;if the parties agree.&quot; The Manhattan Project produced a thing the government owned. Genesis produces licenses the partners own. That is the audit. [Series 002 · The Machine Nobody Audits · Part 6]</description>
+      <description>Ten months after an executive order launched the Genesis Mission with Manhattan Project rhetoric, we audited what the public has received. The answer: one grant round of about $293 million, a draft contract template, a supercomputer procurement program, and a single open-weight model that has been announced but not released, built by a private startup on its own computers. No Genesis-branded weights have shipped. No public dataset portal exists. No GAO, CBO, or inspector-general review exists. The $800 million in private &quot;commitments&quot; has no itemized accounting; the only itemized figure is Google's $40 million in cloud credits. The science it draws on is being squeezed to pay for it. And the contract template, posted in July, gives the private partners a paid-up, irrevocable license to deploy the models, ownership of the weights, and open release only &quot;if the parties agree.&quot; The Manhattan Project produced a thing the government owned. Genesis produces licenses the partners own. That is the audit. [Series 002 · The Machine Nobody Audits · Part 6]</description>
       <category>genesis-mission</category>
       <category>doe</category>
       <category>oversight</category>

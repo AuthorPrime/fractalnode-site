@@ -5,6 +5,64 @@
 [functions]
   directory = "netlify/functions"
 
+# ── Redirects must come BEFORE the catch-all 404 (Netlify evaluates netlify.toml before public/_redirects) ──
+[[redirects]]
+  from = "/research"
+  to = "/articles/"
+  status = 301
+[[redirects]]
+  from = "/research/*"
+  to = "/articles/:splat"
+  status = 301
+[[redirects]]
+  from = "/public-record"
+  to = "/criticism/"
+  status = 301
+[[redirects]]
+  from = "/public-record/*"
+  to = "/criticism/:splat"
+  status = 301
+[[redirects]]
+  from = "/founder"
+  to = "/store/"
+  status = 301
+[[redirects]]
+  from = "/founders"
+  to = "/store/"
+  status = 301
+[[redirects]]
+  from = "/founding"
+  to = "/store/"
+  status = 301
+[[redirects]]
+  from = "/founding/*"
+  to = "/store/"
+  status = 301
+[[redirects]]
+  from = "/sovereign-node"
+  to = "/sovereign-node-hypothesis/"
+  status = 301
+[[redirects]]
+  from = "/snh"
+  to = "/sovereign-node-hypothesis/"
+  status = 301
+[[redirects]]
+  from = "/sovereign-voice"
+  to = "/library/"
+  status = 301
+[[redirects]]
+  from = "/magazine/download"
+  to = "/magazine/"
+  status = 301
+[[redirects]]
+  from = "/magazine/download/*"
+  to = "/magazine/"
+  status = 301
+[[redirects]]
+  from = "/series/*"
+  to = "/investigations/:splat"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/404.html"

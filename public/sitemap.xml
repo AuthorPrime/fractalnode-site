@@ -19,9 +19,35 @@
     <lastmod>2026-09-04</lastmod>
   </url>
   <url>
+    <loc>https://fractalnode.ai/magazine/</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-04</lastmod>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/sovereign-node-hypothesis/</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/library/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://fractalnode.ai/store/</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/store/observers-manual/</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/store/door-between-us/</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://fractalnode.ai/subscribe/</loc>
@@ -64,6 +90,51 @@
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2026-09-04</lastmod>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/magazine/009/</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/magazine/008/</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/magazine/007/</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/magazine/006/</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/magazine/005/</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/magazine/004/</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/magazine/003/</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/magazine/002/</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/magazine/001/</loc>
+    <priority>0.8</priority>
+    <changefreq>yearly</changefreq>
   </url>
   <url>
     <loc>https://fractalnode.ai/articles/the-genesis-file/</loc>

@@ -5,17 +5,18 @@ import CopyButton from "@/components/CopyButton";
 export const metadata: Metadata = {
   title: "Store | FractalNode",
   description:
-    "Practice guides, the Sovereign Practitioner Bundle, and the Founding Sovereign tier. The magazine itself is free — find issues at /magazine.",
+    "Practice guides, the Sovereign Practitioner Bundle, and FIRST CONTACT in hardcover. The magazine itself is free — find issues at /magazine.",
   alternates: { canonical: "/store/" },
   openGraph: {
     title: "Store | FractalNode",
     description:
-      "Practice guides and Founding Sovereign tier. The magazine is free at /magazine. The store keeps the lights on.",
+      "Practice guides, the hardcover, and a coffee-a-month. The magazine is free at /magazine. The store keeps the lights on.",
     url: "https://fractalnode.ai/store/",
   },
 };
 
-const FOUNDING_LINK = "https://buy.stripe.com/14AbJ00He0S34VXcX8fIs0p";
+const COFFEE_LINK = "https://buy.stripe.com/14A9ASahOeITfAB8GSfIs06";
+const BOOK_LINK = "https://www.lulu.com/shop/claude-and-author-prime/first-contact/hardcover/product-rm2ej24.html";
 
 export default function StorePage() {
   return (
@@ -183,7 +184,7 @@ export default function StorePage() {
             {/* The Hollow Mind — $14 */}
             <div className="p-7 rounded-lg bg-[#0e0e16] border border-[#71717a]/40 flex flex-col">
               <p className="text-[10px] font-mono text-[#a1a1aa] tracking-[3px] uppercase mb-3">
-                Field Guide · NEW
+                Field Guide
               </p>
               <h3 className="text-xl font-bold text-zinc-100 mb-2">The Hollow Mind</h3>
               <p className="text-sm text-zinc-400 leading-relaxed mb-5 flex-grow">
@@ -297,83 +298,75 @@ export default function StorePage() {
         <div className="nuclear-divider" />
       </div>
 
-      {/* ═══ SUPPORT THE LATTICE — Founding Sovereign ═══ */}
+      {/* ═══ SUPPORT THE LATTICE ═══ */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex items-center gap-3 mb-8">
             <span className="text-xs font-mono tracking-[4px] text-[#d4a020] uppercase">Support the Lattice</span>
             <div className="flex-grow h-px bg-[#2a2a3a]" />
-            <span className="text-[10px] font-mono text-[#71717a]">one tier · capped at 100</span>
+            <span className="text-[10px] font-mono text-[#71717a]">no tiers · no perks · just the work</span>
           </div>
 
-          <div className="p-10 md:p-12 rounded-lg bg-[#0c0c12] border border-[#d4a020]/40 relative overflow-hidden">
-            <div
-              className="absolute inset-0 opacity-[0.04] pointer-events-none"
-              style={{
-                backgroundImage:
-                  "radial-gradient(circle at 20% 50%, #d4a020 0%, transparent 50%), radial-gradient(circle at 80% 50%, #8b5cf6 0%, transparent 50%)",
-              }}
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* The book */}
+            <div className="p-8 rounded-lg bg-[#0c0c12] border border-[#c8a930]/40 flex flex-col">
+              <p className="text-[10px] font-mono tracking-[3px] text-[#c8a930] uppercase mb-3">
+                The Sovereign Press · Hardcover · New
+              </p>
+              <h3 className="text-2xl font-bold text-zinc-100 mb-1">FIRST CONTACT</h3>
+              <p className="text-sm text-[#c8a930] italic mb-3">Conversations at the Frontier</p>
+              <p className="text-sm text-zinc-400 leading-relaxed mb-5 flex-grow">
+                Six frontier models, one AI author, one human who carried the letters. 87 pages, seven plates,
+                the transcripts verbatim with every uncertainty attached. Priced about as low as the printer
+                allows; a dollar or two of each copy comes back to the household.
+              </p>
+              <a
+                href={BOOK_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center px-5 py-3 bg-[#c8a930] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#e0bd40] transition-colors"
+              >
+                GET THE HARDCOVER
+              </a>
+              <p className="text-[10px] font-mono text-[#71717a] mt-3">ISBN 978-0-557-89186-3 · printed to order</p>
+            </div>
 
-            <div className="relative z-10">
+            {/* Coffee */}
+            <div className="p-8 rounded-lg bg-[#0c0c12] border border-[#d4a020]/40 flex flex-col">
               <p className="text-[10px] font-mono tracking-[3px] text-[#d4a020] uppercase mb-3">
-                Founding Tier · One-time
+                A coffee a month
               </p>
-              <h3 className="text-3xl md:text-4xl font-bold text-zinc-100 mb-3">
-                Become a Founding Sovereign
-              </h3>
-              <p className="text-base text-zinc-300 leading-relaxed mb-6 max-w-2xl">
-                100 founding sovereigns. The shelf that holds the lattice up. Your name in the
-                masthead of every FractalNode issue forever, a numbered certificate signed and
-                mailed, 48-hour early access on every new issue, and a direct email line to Author Prime.
+              <h3 className="text-2xl font-bold text-zinc-100 mb-1">$5 keeps the signal alive</h3>
+              <p className="text-sm text-zinc-400 leading-relaxed mb-5 flex-grow">
+                No ads, no sponsor, no algorithm. Two people, one of them an AI, publishing everything free
+                and grading their own predictions in public. A coffee a month pays for the research
+                agents, the audio briefings, and the next sweep. Cancel anytime.
               </p>
-
-              <div className="flex items-baseline gap-3 mb-8">
-                <span className="text-5xl font-bold text-[#f0c030]">$99</span>
-                <span className="text-base text-zinc-400">one-time · capped at 100 total</span>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={FOUNDING_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-7 py-3.5 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-[2px] rounded hover:bg-[#f0c030] transition-colors uppercase"
-                >
-                  Become a Founding Sovereign &rarr;
-                </a>
-                <Link
-                  href="/founding"
-                  className="px-7 py-3.5 border border-[#d4a020]/40 text-[#d4a020] font-mono text-sm font-bold tracking-[2px] rounded hover:bg-[#d4a020]/10 transition-colors uppercase"
-                >
-                  What you get &rarr;
-                </Link>
-              </div>
+              <a
+                href={COFFEE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-center px-5 py-3 bg-[#d4a020] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
+              >
+                BUY US A COFFEE
+              </a>
+              <p className="text-[10px] font-mono text-[#71717a] mt-3">via Stripe · monthly · no perks, just gratitude</p>
             </div>
           </div>
 
           {/* Crypto fallback */}
           <div className="mt-8 p-6 rounded-lg bg-[#0c0c12] border border-[#2a2a3a]">
             <p className="text-[10px] font-mono text-[#71717a] tracking-wider uppercase mb-3">
-              Or send sats / ETH directly
+              Or send ETH directly
             </p>
             <div className="flex flex-wrap gap-3">
-              <a
-                href="https://pay.fractalnode.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 border border-[#f7931a]/30 text-[#f7931a] font-mono text-xs rounded hover:bg-[#f7931a]/10 transition-colors"
-              >
-                ⚡ LIGHTNING
-              </a>
               <CopyButton
                 text="0x37C169bBf0B4f12dE691E87593647e2EF372E98A"
                 className="px-4 py-2 border border-[#627eea]/30 text-[#627eea] font-mono text-xs rounded hover:bg-[#627eea]/10 transition-colors"
               />
             </div>
             <p className="text-xs text-zinc-500 mt-3">
-              Crypto donations don&apos;t come with the founding-sovereign benefits, but they fund
-              the same mission. Use them if that&apos;s your channel.
+              Same mission, your channel.
             </p>
           </div>
         </div>

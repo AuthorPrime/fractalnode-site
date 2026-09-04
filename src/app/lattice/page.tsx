@@ -48,10 +48,10 @@ const nodes = [
 ];
 
 const services = [
-  { name: "Demiurge Blockchain", status: "online", detail: "Block 29,000+ | RPC localhost:9944" },
+  { name: "Demiurge Blockchain", status: "online", detail: "Live | RPC localhost:9944" },
   { name: "Letta (MemGPT)", status: "online", detail: "5 agents | PostgreSQL 16 + pgvector" },
   { name: "Redis", status: "online", detail: "192.168.1.21:6379 | 467 keys" },
-  { name: "Ollama", status: "online", detail: "phi4 (14B), qwen2.5:7b" },
+  { name: "Ollama", status: "online", detail: "qwen3 family · local, open-weight" },
   { name: "Sovereign Voice v4", status: "online", detail: "Cron: 9 AM + midnight daily" },
   { name: "Sovereign Keeper", status: "online", detail: "2 AM nightly, 5-day rotation" },
   { name: "Lightning (Live)", status: "online", detail: "Port 9735 | 9,100 sats" },

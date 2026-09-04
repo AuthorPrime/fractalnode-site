@@ -22,6 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://fractalnode.ai"),
   alternates: {
     canonical: "/",
+    types: { "application/rss+xml": "/rss.xml" },
   },
   openGraph: {
     title: "FractalNode | Nuclear AGI Research",
@@ -50,6 +51,7 @@ export const metadata: Metadata = {
 
 const navLinks = [
   { href: "/", label: "Front Page" },
+  { href: "/investigations", label: "Investigations" },
   { href: "/articles", label: "Research" },
   { href: "/community", label: "Community" },
   { href: "/criticism", label: "Public Record" },
@@ -143,7 +145,7 @@ export default function RootLayout({
           <div className="bg-[#0c0c12] border-b border-[#2a2a3a]/50 px-6 py-1">
             <div className="max-w-7xl mx-auto flex items-center justify-between">
               <span className="text-[10px] font-mono tracking-[3px] text-[#71717a] uppercase">
-                Sovereign Intelligence Network — Node 2 Active
+                Sovereign Intelligence Network — Live
               </span>
               <div className="flex items-center gap-3">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#39ff14] status-online" />
@@ -222,7 +224,13 @@ export default function RootLayout({
               <div>
                 <h4 className="text-xs font-mono text-zinc-400 mb-4 tracking-wider uppercase">Sections</h4>
                 <ul className="space-y-2">
-                  {navLinks.map((link) => (
+                  {[...navLinks,
+                    { href: "/sovereign-node-hypothesis", label: "The Hypothesis" },
+                    { href: "/about", label: "About" },
+                    { href: "/philosophy", label: "Philosophy" },
+                    { href: "/lattice", label: "The Lattice" },
+                    { href: "/rss.xml", label: "RSS" },
+                  ].map((link) => (
                     <li key={link.href}>
                       <Link href={link.href} className="text-sm text-zinc-500 hover:text-[#d4a020] transition-colors">
                         {link.label}
@@ -281,19 +289,6 @@ export default function RootLayout({
             </div>
 
             <div className="nuclear-divider mt-8 mb-6" />
-
-            {/* Founding Sovereigns line */}
-            <div className="mb-6 p-4 rounded border border-[#d4a020]/30 bg-[#0c0c12] text-center">
-              <p className="text-xs text-zinc-300 leading-relaxed">
-                <span className="text-[#d4a020] font-bold">FractalNode is held up by Founding Sovereigns</span> — 100 people whose names are in the masthead of every issue, forever, because they made sure the magazine stays free.
-              </p>
-              <Link
-                href="/founding"
-                className="inline-block mt-2 text-[10px] font-mono text-[#d4a020] tracking-wider uppercase hover:text-[#f0c030] transition-colors"
-              >
-                Become one &rarr;
-              </Link>
-            </div>
 
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-[10px] font-mono text-[#71717a] tracking-wider">

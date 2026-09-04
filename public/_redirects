@@ -5,7 +5,9 @@
 /public-record/*     /criticism/:splat 301
 
 # Common typos / aliases
-/founder             /founding/        301
-/founders            /founding/        301
+/founder             /store/           301
+/founders            /store/           301
+/founding            /store/           301
+/founding/*          /store/           301
 /sovereign-node      /sovereign-node-hypothesis/    301
 /snh                 /sovereign-node-hypothesis/    301

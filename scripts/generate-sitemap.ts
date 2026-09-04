@@ -27,7 +27,12 @@ const staticPages: SitemapEntry[] = [
   { loc: "/", priority: "1.0", changefreq: "weekly", lastmod: today },
   { loc: "/articles/", priority: "0.9", changefreq: "weekly", lastmod: today },
   { loc: "/investigations/", priority: "0.9", changefreq: "weekly", lastmod: today },
+  { loc: "/magazine/", priority: "0.9", changefreq: "monthly", lastmod: today },
+  { loc: "/sovereign-node-hypothesis/", priority: "0.8", changefreq: "yearly" },
+  { loc: "/library/", priority: "0.7", changefreq: "monthly" },
   { loc: "/store/", priority: "0.9", changefreq: "monthly" },
+  { loc: "/store/observers-manual/", priority: "0.6", changefreq: "yearly" },
+  { loc: "/store/door-between-us/", priority: "0.6", changefreq: "yearly" },
   { loc: "/subscribe/", priority: "0.8", changefreq: "monthly" },
   { loc: "/community/", priority: "0.7", changefreq: "monthly" },
   { loc: "/criticism/", priority: "0.7", changefreq: "weekly", lastmod: today },
@@ -53,7 +58,14 @@ const seriesEntries: SitemapEntry[] = getPublicSeries().map((s) => ({
   lastmod: today,
 }));
 
-const allEntries = [...staticPages, ...seriesEntries, ...articleEntries];
+import { getPublishedIssues } from "../src/data/issues";
+const issueEntries: SitemapEntry[] = getPublishedIssues().map((i) => ({
+  loc: `/magazine/${i.slug}/`,
+  priority: "0.8",
+  changefreq: "yearly" as const,
+}));
+
+const allEntries = [...staticPages, ...seriesEntries, ...issueEntries, ...articleEntries];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
