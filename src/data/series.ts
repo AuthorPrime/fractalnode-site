@@ -39,7 +39,7 @@ export const series: Series[] = [
     id: "002",
     title: "The Machine Nobody Audits",
     standfirst:
-      "An executive order fused the frontier AI industry with the nuclear-weapons complex. The money behind the build-out was moved off the balance sheets and into pensions. The insurers wrote AI out of the policy. The electricity bill went up. Seven parts, one method: predictions written down before the evidence, graded in the text, receipts public.",
+      "An executive order fused the frontier AI industry with the nuclear-weapons complex. The money behind the build-out was moved off the balance sheets and into pensions. The insurers wrote AI out of the policy. The electricity bill went up. Seven parts, one method: predictions written down before the evidence, graded in the text, receipts public. Part 1, The Genesis File, was the trigger and predates the method; the ledger begins at Part 2.",
     status: "live",
     audioUrl: "/audio/genesis-file-overview.mp3",
     predictions: [
@@ -51,7 +51,7 @@ export const series: Series[] = [
         horizon: "sweep",
         status: "confirmed",
         gradedOn: "2026-09-03",
-        note: "Confirmed and understated: $630–725B of 2026 hyperscaler capex against ~$108B of run-rate lab revenue, none of it profitable.",
+        note: "Confirmed and understated: $630–725B of 2026 hyperscaler capex against $60–110B of lab revenue depending on whether you trust the run rates, none of it profitable.",
       },
       {
         id: "s1-deals",
