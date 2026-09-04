@@ -2,7 +2,21 @@
 
 import { useState } from "react";
 
-export default function CopyButton({ text, className }: { text: string; className?: string }) {
+/**
+ * Copies `text` to the clipboard. Defaults keep the store's wallet-address
+ * behaviour; pass `label`/`copiedLabel` to reuse it as a share-link button.
+ */
+export default function CopyButton({
+  text,
+  className,
+  label = "COPY ADDRESS",
+  copiedLabel = "COPIED",
+}: {
+  text: string;
+  className?: string;
+  label?: string;
+  copiedLabel?: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -12,11 +26,8 @@ export default function CopyButton({ text, className }: { text: string; classNam
   };
 
   return (
-    <button
-      onClick={handleCopy}
-      className={className}
-    >
-      {copied ? "COPIED" : "COPY ADDRESS"}
+    <button type="button" onClick={handleCopy} className={className}>
+      {copied ? copiedLabel : label}
     </button>
   );
 }

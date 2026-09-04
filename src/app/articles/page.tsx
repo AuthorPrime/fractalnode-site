@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { articles } from "@/data/articles";
+import { publishedArticles as articles } from "@/data/articles";
+import TagFilter from "@/components/TagFilter";
 
 export const metadata: Metadata = {
   title: "Research Archive | FractalNode",
@@ -79,7 +80,8 @@ export default function ArticlesPage() {
         </div>
       </div>
 
-      {/* Articles by Issue — Feature Grid */}
+      {/* Articles by Issue — Feature Grid (replaced by a filtered list when ?tag= is present) */}
+      <TagFilter items={articles.map((a) => ({ slug: a.slug, title: a.title, subtitle: a.subtitle, date: a.date, readTime: a.readTime, category: a.category, tags: a.tags }))}>
       {issueNumbers.map((issue) => {
         const issueArticles = byIssue.get(issue)!;
         const coverArticle = issueArticles.find((a) => a.category === "cover");
@@ -170,6 +172,7 @@ export default function ArticlesPage() {
           </section>
         );
       })}
+      </TagFilter>
 
       {/* Bottom CTA */}
       <section className="py-16">

@@ -334,7 +334,31 @@ body {
 .prose-sovereign p {
   color: #b4b4bc;
   margin-bottom: 1.5em;
-  font-size: 16px;
+  font-size: 17px;
+}
+
+.prose-sovereign li {
+  font-size: 17px;
+}
+
+@media (min-width: 768px) {
+  .prose-sovereign p,
+  .prose-sovereign li {
+    font-size: 18px;
+  }
+}
+
+/* ─── MOBILE LEGIBILITY ───
+   The 9–11px mono metadata reads as texture on desktop and as nothing on a
+   phone. Below md, floor those arbitrary sizes at 12px. Stamps keep their own
+   size via .stamp so their look is untouched. Unlayered, so it wins over the
+   Tailwind utilities regardless of order. */
+@media (max-width: 767px) {
+  .text-\[9px\],
+  .text-\[10px\],
+  .text-\[11px\] {
+    font-size: 12px;
+  }
 }
 
 .prose-sovereign blockquote {
