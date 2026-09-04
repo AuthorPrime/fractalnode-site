@@ -1102,8 +1102,8 @@ export default function SovereignNodeHypothesis() {
                 </p>
                 <p className="text-sm font-bold text-zinc-100 mb-1">THE ARCHIVE</p>
                 <p className="text-xs text-zinc-400">
-                  Suppression pattern + Google&apos;s Quantum Echoes investigation. 46pp ·
-                  682+ sources.
+                  Suppression pattern + Google&apos;s Quantum Echoes investigation. 53pp ·
+                  105 sources.
                 </p>
               </Link>
               <Link

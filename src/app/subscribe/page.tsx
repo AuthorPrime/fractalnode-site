@@ -46,7 +46,7 @@ export default function SubscribePage() {
               <ul className="space-y-4 mb-8">
                 {[
                   { label: "Weekly Dispatches", desc: "Research updates, investigation progress, and community highlights delivered every Friday." },
-                  { label: "FractalNode Magazine", desc: "Every issue — free. 7 issues published, 1,500+ verified sources, plus the Sovereign Node Hypothesis flagship paper (DOI 10.5281/zenodo.19652403). Cover stories, investigations, field reports." },
+                  { label: "FractalNode Magazine", desc: "Every issue — free. 8 issues published, 1,200+ verified sources, plus the Sovereign Node Hypothesis flagship paper (DOI 10.5281/zenodo.19652403). Cover stories, investigations, field reports." },
                   { label: "Audio Overviews", desc: "4-5 minute narrated summaries of every issue. Listen before you read." },
                   { label: "Community Spotlights", desc: "Independent creators, researchers, and projects building sovereignty. Your voice matters here." },
                 ].map((item) => (

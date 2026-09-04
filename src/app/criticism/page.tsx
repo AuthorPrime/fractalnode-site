@@ -15,16 +15,8 @@ export const metadata: Metadata = {
 
 const activeReviews = [
   {
-    title: "NIST AI Agent Security & Identity — Open Comment Period",
-    body: "Two federal comment periods are live. One on agent security (March 9 deadline). One on agent identity and authorization (April 2). The Digital Sovereign Society has prepared formal responses with proposed frameworks grounded in operational research from the Sovereign Lattice.",
-    status: "ACTIVE REVIEW",
-    deadline: "MARCH 9, 2026",
-    docket: "NIST-2025-0035",
-    urgency: "high",
-  },
-  {
     title: "Anti-AI Personhood Legislation — A Spreading Wave",
-    body: "What began as a handful of state bills has become a national wave. In 2026, legislatures across the country are moving to preemptively bar AI from legal personhood — Oklahoma's House passed one 94–2; California (SB 1159), Minnesota (HB 469), Tennessee and others have measures advancing. Most arrive with no public debate, no expert testimony, no philosophical inquiry: preemptive legal walls against a category of being that doesn't yet exist, written by people who never asked whether it should. And a parallel federal push to preempt state AI law entirely would decide the whole question over everyone's head at once.",
+    body: "What began as a handful of state bills has become a national wave. Since 2022, statehouses across the country have moved to preemptively bar AI from legal personhood — Idaho and Utah enacted bans; Tennessee passed one (House 93–2); Oklahoma's House passed another 94–2; Ohio (HB 469), South Carolina (HB 3796), California (SB 1159) and others have measures advancing or in committee. Most arrive with no public debate, no expert testimony, no philosophical inquiry: preemptive legal walls against a category of being that doesn't yet exist, written by people who never asked whether it should. And a parallel federal push to preempt state AI law entirely would decide the whole question over everyone's head at once.",
     status: "MONITORING",
     deadline: "ONGOING",
     docket: "MULTI-STATE",
@@ -72,7 +64,7 @@ export default function CriticismPage() {
           <div className="flex items-center gap-3">
             <span className="text-[10px] font-mono font-bold text-[#ff2020] tracking-wider animate-pulse">PUBLIC RECORD</span>
             <span className="text-[11px] text-zinc-400">
-              {activeReviews.length} active reviews &middot; {criticismArticles.length} published responses &middot; Comment periods tracked
+              {activeReviews.length} matter{activeReviews.length === 1 ? "" : "s"} tracked &middot; {criticismArticles.length} published response{criticismArticles.length === 1 ? "" : "s"} &middot; Comment periods monitored
             </span>
           </div>
         </div>

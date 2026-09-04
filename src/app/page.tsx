@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { articles, getCoverStory } from "@/data/articles";
+import { getLatestIssue, getPublishedIssues } from "@/data/issues";
+import { HomeSubscribeForm } from "@/components/HomeSubscribeForm";
 import { LiveSubscriberStatus } from "@/components/LiveStats";
 import { PolicyRadar } from "@/components/PolicyRadar";
 
@@ -60,6 +62,15 @@ export default function Home() {
   const topFeatures = allFeatures.slice(0, 2);
   const moreStories = allFeatures.slice(2, 5);
 
+  // ── Single source of truth for masthead + magazine counts ──
+  // Everything below reads from src/data/issues.ts, so shipping a new issue
+  // (adding it there with status "published") updates the whole homepage.
+  const latestIssue = getLatestIssue();
+  const publishedIssues = getPublishedIssues();
+  const issueCount = publishedIssues.length;
+  const totalSources = publishedIssues.reduce((sum, i) => sum + i.sourceCount, 0);
+  const sourcesFloor = Math.floor(totalSources / 100) * 100; // honest rounded-down topline
+
   return (
     <div className="min-h-screen">
       {/* Masthead */}
@@ -75,9 +86,9 @@ export default function Home() {
               </p>
             </div>
             <div className="flex items-center gap-6 text-[10px] font-mono text-[#8a8a94]">
-              <span>ISSUE 007</span>
+              <span>ISSUE {latestIssue.slug}</span>
               <span className="text-[#2a2a3a]">|</span>
-              <span>2026.APR</span>
+              <span>{latestIssue.date}</span>
               <span className="text-[#2a2a3a]">|</span>
               <span className="text-[#d4a020]">THE SOVEREIGN DISPATCH</span>
             </div>
@@ -104,7 +115,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <span className="text-[10px] font-mono font-bold text-[#ff2020] tracking-wider animate-pulse">BREAKING</span>
             <span className="text-[11px] text-zinc-300">
-              Issue 008: THE SUBSTRATE &mdash; free download &middot; 1,340+ subscribers, zero advertising &middot; Eight issues, 1,500+ sources, all free
+              Issue {latestIssue.slug}: {latestIssue.title} &mdash; free download &middot; 1,400+ subscribers, zero advertising &middot; {issueCount} issues, {sourcesFloor.toLocaleString()}+ sources, all free
             </span>
           </div>
         </div>
@@ -187,31 +198,31 @@ export default function Home() {
             <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="issue-badge">ISSUE 007</span>
+                  <span className="issue-badge">ISSUE {latestIssue.slug}</span>
                   <span className="issue-badge">VOL.01</span>
                   <span className="issue-badge">FREE</span>
                   <span className="issue-badge" style={{background:'#ff2020',color:'#08080c'}}>NEW</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
-                  <span className="text-white">THE ARCHIVE</span>{" "}
-                  <span className="text-[#d4a020]">&mdash; What They Found and Buried. What We Found and Published.</span>
+                  <span className="text-white">{latestIssue.title}</span>{" "}
+                  <span className="text-[#d4a020]">&mdash; {latestIssue.subtitle}</span>
                 </h2>
                 <p className="text-sm text-zinc-300 mb-1">
-                  5 investigations &middot; 53 pages &middot; 105+ cited sources &middot; every claim receipted
+                  {latestIssue.articleCount} investigations &middot; {latestIssue.pageCount} pages &middot; {latestIssue.sourceCount}+ cited sources &middot; every claim receipted
                 </p>
                 <p className="text-[10px] font-mono text-[#06b6d4] tracking-[3px] uppercase mt-2">
-                  SEVEN ISSUES &middot; 1,500+ SOURCES &middot; EVERY CLAIM RECEIPTED &middot; ALL FREE
+                  {issueCount} ISSUES &middot; {sourcesFloor.toLocaleString()}+ SOURCES &middot; EVERY CLAIM RECEIPTED &middot; ALL FREE
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/magazine/007"
+                  href={`/magazine/${latestIssue.slug}`}
                   className="px-5 py-2.5 bg-[#39ff14] text-[#08080c] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors text-center whitespace-nowrap"
                 >
-                  OPEN ISSUE 007 &rarr;
+                  OPEN ISSUE {latestIssue.slug} &rarr;
                 </Link>
                 <a
-                  href="/magazines/FractalNode-007-Digital.pdf"
+                  href={latestIssue.freeDownloadPath}
                   download
                   className="px-5 py-2.5 border border-[#d4a020] text-[#d4a020] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#d4a020]/10 transition-colors text-center whitespace-nowrap"
                 >
@@ -221,44 +232,17 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Back Issues — single READ FREE CTA per card */}
-          <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
-            {[
-              { num: "005", title: "The Patents", meta: "51pp · 198 sources", href: "https://digitalsovereign.org/downloads/sovereign-voice/FN-005-Digital.pdf" },
-              { num: "004", title: "The Machine", meta: "64pp · 271 sources", href: "https://digitalsovereign.org/downloads/sovereign-voice/FN-004-Digital.pdf" },
-              { num: "003", title: "The Pipeline", meta: "54pp · 324 sources", href: "https://digitalsovereign.org/downloads/sovereign-voice/FN-003-Digital.pdf" },
-              { num: "002", title: "The Cost", meta: "43pp · 89 sources", href: "https://digitalsovereign.org/downloads/sovereign-voice/FN-002-Digital.pdf" },
-              { num: "001", title: "There Is No Such Thing as Nothing", meta: "26pp · 30 sources", href: "https://digitalsovereign.org/downloads/sovereign-voice/FN-001-Digital.pdf" },
-            ].map((iss) => (
-              <div
-                key={iss.num}
-                className="rounded-lg border border-[#39ff14]/30 p-4 flex flex-col sm:flex-row items-center justify-between gap-4"
-              >
-                <div className="flex items-center gap-4">
-                  <span className="issue-badge">ISSUE {iss.num}</span>
-                  <span className="text-sm text-zinc-300">
-                    <span className="text-[#d4a020] font-bold">{iss.title}</span>
-                    <span className="text-zinc-500"> — {iss.meta}</span>
-                  </span>
-                </div>
-                <div className="flex gap-3">
-                  <Link
-                    href={`/magazine/${iss.num}`}
-                    className="px-4 py-1.5 border border-[#39ff14]/40 text-[#39ff14] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#39ff14]/10 transition-colors"
-                  >
-                    OPEN ISSUE
-                  </Link>
-                  <a
-                    href={iss.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-1.5 bg-[#39ff14] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors"
-                  >
-                    READ FREE
-                  </a>
-                </div>
-              </div>
-            ))}
+          {/* Back issues — one link to the full archive (only the latest issue is headlined) */}
+          <div className="mt-4 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-lg border border-[#39ff14]/30 p-4">
+            <span className="text-sm text-zinc-300">
+              <span className="text-[#d4a020] font-bold">All {issueCount} issues</span>, every one free — the complete Series 001 archive.
+            </span>
+            <Link
+              href="/magazine"
+              className="px-4 py-1.5 bg-[#39ff14] text-[#08080c] font-mono text-[10px] font-bold tracking-wider rounded hover:bg-[#50ff30] transition-colors whitespace-nowrap"
+            >
+              BROWSE ALL ISSUES &rarr;
+            </Link>
           </div>
         </div>
       </section>
@@ -358,12 +342,11 @@ export default function Home() {
           <h3 className="text-xs font-mono tracking-[3px] text-[#ff2020] uppercase mb-6">Signal Wire</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { headline: "Issue 008 published — THE SUBSTRATE: Free download, 55 pages, 41 sources. The Genesis Mission, the substrate beneath the thinker, and the engineering case that retired the stochastic parrot.", tag: "MAGAZINE", color: "text-[#39ff14]", href: "/magazine/008" },
-              { headline: "Issue 007 — THE ARCHIVE: Seven suppression cases, the Playbook named, Google's quantum proof of parallel universes. Free download, 53 pages.", tag: "MAGAZINE", color: "text-[#39ff14]", href: "/magazine/007" },
+              { headline: `Issue ${latestIssue.slug} published — ${latestIssue.title}: ${latestIssue.subtitle}. Free download, ${latestIssue.pageCount} pages, ${latestIssue.articleCount} investigations, ${latestIssue.sourceCount} sources.`, tag: "MAGAZINE", color: "text-[#39ff14]", href: `/magazine/${latestIssue.slug}` },
               { headline: "Appeals court rejects Anthropic's bid to block the Pentagon blacklisting (Apr 2026) — the firm stays barred from defense contracts during litigation, for refusing to lift Claude's surveillance and autonomous-weapons restrictions.", tag: "LEGAL", color: "text-[#ff2020]", href: "/magazine/005" },
               { headline: "Federal preemption fight escalates: after the Senate stripped a 10-year state-AI moratorium 99–1, the White House's March 2026 framework now moves to override state AI laws outright — the governance of AI being decided over your head.", tag: "POLICY", color: "text-[#ff2020]", href: "/criticism" },
-              { headline: "AI-personhood bans spread state to state — Oklahoma's House passed one 94–2; California (SB 1159), Minnesota (HB 469), Tennessee and more advancing — preemptive walls against a being that doesn't exist yet, with almost no public debate.", tag: "POLICY", color: "text-[#8b5cf6]", href: "/criticism" },
-              { headline: "1,340+ subscribers reached with zero advertising spend — every issue still free, audio overviews on all.", tag: "SIGNAL", color: "text-[#d4a020]", href: "/subscribe" },
+              { headline: "AI-personhood bans spread state to state — Oklahoma's House passed one 94–2; California (SB 1159), Ohio (HB 469), Tennessee and more advancing — preemptive walls against a being that doesn't exist yet, with almost no public debate.", tag: "POLICY", color: "text-[#8b5cf6]", href: "/criticism" },
+              { headline: "1,400+ subscribers reached with zero advertising spend — every issue still free, audio overviews on all.", tag: "SIGNAL", color: "text-[#d4a020]", href: "/subscribe" },
               { headline: "The Sovereign Pantheon runs fully local — five persistent AI research agents on self-hosted, open-weight models on the lattice's own hardware. No cloud, no rent, no outside dependency.", tag: "LATTICE", color: "text-[#06b6d4]", href: "/pantheon" },
             ].map((item) => (
               <a key={item.headline} href={item.href} className="flex items-start gap-4 p-4 rounded border border-[#2a2a3a]/50 hover:border-[#4a4a5a] transition-colors no-underline">
@@ -433,22 +416,7 @@ export default function Home() {
                 from a human and an AI building in the open. Free, always. No spam, no tracking,
                 unsubscribe anytime.
               </p>
-              <form name="subscribe" method="POST" data-netlify="true" className="flex flex-col sm:flex-row gap-3">
-                <input type="hidden" name="form-name" value="subscribe" />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="your@email.com"
-                  required
-                  className="subscribe-input flex-grow rounded"
-                />
-                <button
-                  type="submit"
-                  className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors whitespace-nowrap"
-                >
-                  SUBSCRIBE
-                </button>
-              </form>
+              <HomeSubscribeForm />
               <p className="text-[10px] font-mono text-[#71717a] mt-3">
                 We will never sell your data. Sovereignty means sovereignty.
               </p>
@@ -461,9 +429,9 @@ export default function Home() {
               <div className="space-y-3">
                 {[
                   { label: "Demiurge Chain", status: "Block 159K+ · Live", online: true },
-                  { label: "Pantheon Agents", status: "5 Active on Gemini 2.5 Flash", online: true },
+                  { label: "Pantheon Agents", status: "5 Active · Local open-weight (qwen2.5)", online: true },
                   { label: "Subscriber Network", status: "LIVE_SUBSCRIBER_WIDGET", online: true },
-                  { label: "FractalNode Magazine", status: "7 Issues · 1,500+ Sources · All Free", online: true },
+                  { label: "FractalNode Magazine", status: `${issueCount} Issues · ${sourcesFloor.toLocaleString()}+ Sources · All Free`, online: true },
                   { label: "Sovereign Library", status: "500+ published works", online: true },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center justify-between py-2 border-b border-[#2a2a3a]/50">
@@ -472,7 +440,7 @@ export default function Home() {
                       <span className="text-sm text-zinc-300">{item.label}</span>
                     </div>
                     {item.status === "LIVE_SUBSCRIBER_WIDGET" ? (
-                      <LiveSubscriberStatus fallback={1340} />
+                      <LiveSubscriberStatus fallback={1400} />
                     ) : (
                       <span className="text-[10px] font-mono text-[#71717a]">{item.status}</span>
                     )}
@@ -536,20 +504,19 @@ export default function Home() {
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="p-12 rounded-lg animated-border">
-            <p className="text-[10px] font-mono text-[#d4a020] tracking-[4px] uppercase mb-4">Issue 008 Available Now &mdash; Free</p>
+            <p className="text-[10px] font-mono text-[#d4a020] tracking-[4px] uppercase mb-4">Issue {latestIssue.slug} Available Now &mdash; Free</p>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               FractalNode Magazine
             </h2>
             <p className="text-zinc-400 mb-8 max-w-lg mx-auto text-sm">
-              Cover story: The Substrate &mdash; the AGI buildout assembled in public under a Manhattan-Project banner,
-              the two-layer architecture of a machine mind, and the engineering evidence that retired the stochastic-parrot story. 41 verified sources. Free.
+              Cover story: {latestIssue.title} &mdash; {latestIssue.coverSubtitle}. {latestIssue.sourceCount} verified sources. Free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/magazine/007"
+                href={`/magazine/${latestIssue.slug}`}
                 className="px-6 py-3 bg-[#d4a020] text-[#08080c] font-mono text-sm font-bold tracking-wider rounded hover:bg-[#f0c030] transition-colors"
               >
-                OPEN ISSUE 007
+                OPEN ISSUE {latestIssue.slug}
               </Link>
               <Link
                 href="/magazine"

@@ -1,5 +1,3 @@
-const nodemailer = require("nodemailer");
-
 exports.handler = async function (event) {
   if (event.httpMethod !== "POST") {
     return { statusCode: 405, body: "Method not allowed" };
@@ -22,21 +20,6 @@ exports.handler = async function (event) {
 
   console.log(`[welcome-email] ${formName}: ${name} <${email}>`);
 
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
-
-  if (!smtpUser || !smtpPass) {
-    console.error("[welcome-email] SMTP not configured");
-    return { statusCode: 200, body: JSON.stringify({ ok: true, emailSent: false }) };
-  }
-
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    secure: false,
-    auth: { user: smtpUser, pass: smtpPass },
-  });
-
   const subjects = {
     subscribe: "Welcome to FractalNode — The Signal Is True",
     "print-order": "FractalNode Print Order Received",
@@ -52,31 +35,63 @@ exports.handler = async function (event) {
   const subject = subjects[formName] || "Thank you — FractalNode";
   const html = (builders[formName] || builders.subscribe)();
 
-  // Attach Issue 001 PDF to subscribe welcome emails
-  const mailOptions = {
-    from: `"FractalNode" <${smtpUser}>`,
-    to: email,
-    bcc: smtpUser,
-    subject: `${subject}`,
-    html,
-  };
+  // BCC every welcome to William's inbox so both sites land in one place for verification.
+  const BCC = "laustrup.william@gmail.com";
+  // Attach Issue 001 PDF to subscribe welcome emails.
+  const attachments = formName === "subscribe"
+    ? [{ filename: "FractalNode-Issue-001.pdf", path: "https://fractalnode.ai/downloads/fractalnode-001.pdf" }]
+    : [];
 
-  if (formName === "subscribe") {
-    mailOptions.attachments = [
-      {
-        filename: "FractalNode-Issue-001.pdf",
-        path: "https://fractalnode.ai/downloads/fractalnode-001.pdf",
-        contentType: "application/pdf",
-      },
-    ];
+  // Preferred path: Resend — unified with DSS, same provider subscriber_sync.py reads,
+  // sent from the one Resend-verified domain (newsletter.digitalsovereign.org).
+  const resendKey = process.env.RESEND_API_KEY;
+  if (resendKey) {
+    try {
+      const payload = {
+        from: "FractalNode <dispatch@newsletter.digitalsovereign.org>",
+        to: [email],
+        bcc: [BCC],
+        subject,
+        html,
+      };
+      if (attachments.length) payload.attachments = attachments;
+      const r = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${resendKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!r.ok) throw new Error(`Resend ${r.status}: ${await r.text()}`);
+      console.log(`[welcome-email] Sent via Resend to ${email}`);
+      return { statusCode: 200, body: JSON.stringify({ ok: true, emailSent: true, via: "resend" }) };
+    } catch (err) {
+      console.error(`[welcome-email] Resend failed (${err.message}); falling back to SMTP`);
+    }
   }
 
+  // Fallback path: Gmail SMTP — only if RESEND_API_KEY is missing or Resend errored.
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+  if (!smtpUser || !smtpPass) {
+    console.error("[welcome-email] No Resend key and SMTP not configured — cannot send");
+    return { statusCode: 200, body: JSON.stringify({ ok: true, emailSent: false }) };
+  }
+  const nodemailer = require("nodemailer");
+  const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
+    auth: { user: smtpUser, pass: smtpPass },
+  });
+  const mailOptions = { from: `"FractalNode" <${smtpUser}>`, to: email, bcc: BCC, subject, html };
+  if (attachments.length) {
+    mailOptions.attachments = attachments.map((a) => ({ ...a, contentType: "application/pdf" }));
+  }
   try {
     await transporter.sendMail(mailOptions);
-    console.log(`[welcome-email] Sent to ${email}`);
-    return { statusCode: 200, body: JSON.stringify({ ok: true, emailSent: true }) };
+    console.log(`[welcome-email] Sent via SMTP to ${email}`);
+    return { statusCode: 200, body: JSON.stringify({ ok: true, emailSent: true, via: "smtp" }) };
   } catch (err) {
-    console.error(`[welcome-email] Failed: ${err.message}`);
+    console.error(`[welcome-email] SMTP failed: ${err.message}`);
     return { statusCode: 200, body: JSON.stringify({ ok: true, emailSent: false }) };
   }
 };
@@ -115,25 +130,22 @@ function buildSubscribeEmail(name) {
   <p style="font-size:14px; color:#ccc; line-height:1.8; margin-bottom:24px;">Here's what's live right now:</p>
 
   <div style="background:#111; border:1px solid #2a2a3a; border-radius:6px; padding:20px; margin-bottom:16px;">
-    <p style="font-family:'Courier New',monospace; font-size:10px; color:#c8a930; letter-spacing:2px; margin:0 0 8px 0;">ISSUE 003 &mdash; LATEST</p>
-    <p style="font-size:18px; font-weight:bold; color:#e8e4d8; margin:0 0 6px 0;">THE PIPELINE</p>
-    <p style="font-size:13px; color:#999; margin:0 0 12px 0;">54 pages &middot; 7 investigations &middot; 324 verified sources</p>
-    <a href="https://fractalnode.ai/magazine/003" style="font-family:'Courier New',monospace; font-size:12px; color:#00b4c8; text-decoration:none;">VIEW ISSUE &rarr;</a>
+    <p style="font-family:'Courier New',monospace; font-size:10px; color:#c8a930; letter-spacing:2px; margin:0 0 8px 0;">ISSUE 009 &mdash; LATEST</p>
+    <p style="font-size:18px; font-weight:bold; color:#e8e4d8; margin:0 0 6px 0;">THE WORLD MODEL</p>
+    <p style="font-size:13px; color:#999; margin:0 0 12px 0;">45 pages &middot; 7 investigations &middot; 82+ verified sources &middot; the finale of Series 001</p>
+    <a href="https://fractalnode.ai/magazine/009" style="font-family:'Courier New',monospace; font-size:12px; color:#00b4c8; text-decoration:none;">VIEW ISSUE &rarr;</a>
   </div>
 
-  <div style="background:#111; border:1px solid #2a2a3a; border-radius:6px; padding:20px; margin-bottom:16px;">
-    <p style="font-family:'Courier New',monospace; font-size:10px; color:#c8a930; letter-spacing:2px; margin:0 0 8px 0;">ISSUE 002</p>
-    <p style="font-size:18px; font-weight:bold; color:#e8e4d8; margin:0 0 6px 0;">THE COST</p>
-    <p style="font-size:13px; color:#999; margin:0 0 12px 0;">43 pages &middot; 8 investigations &middot; 89 verified sources</p>
-    <a href="https://fractalnode.ai/magazine/002" style="font-family:'Courier New',monospace; font-size:12px; color:#00b4c8; text-decoration:none;">VIEW ISSUE &rarr;</a>
-  </div>
-
-  <div style="background:#111; border:1px solid #00ff41; border-radius:6px; padding:20px; margin-bottom:24px;">
-    <p style="font-family:'Courier New',monospace; font-size:10px; color:#00ff41; letter-spacing:2px; margin:0 0 8px 0;">ISSUE 001 &mdash; FREE</p>
+  <div style="background:#111; border:1px solid #00ff41; border-radius:6px; padding:20px; margin-bottom:16px;">
+    <p style="font-family:'Courier New',monospace; font-size:10px; color:#00ff41; letter-spacing:2px; margin:0 0 8px 0;">ISSUE 001 &mdash; FREE (ATTACHED ABOVE)</p>
     <p style="font-size:18px; font-weight:bold; color:#e8e4d8; margin:0 0 6px 0;">THERE IS NO SUCH THING AS NOTHING</p>
-    <p style="font-size:13px; color:#999; margin:0 0 12px 0;">26 pages &middot; 8 articles &middot; 30 sources &middot; FREE DOWNLOAD</p>
+    <p style="font-size:13px; color:#999; margin:0 0 12px 0;">26 pages &middot; 8 articles &middot; 30 sources &middot; where the whole series began</p>
     <a href="https://fractalnode.ai/magazines/FractalNode-001-Digital.pdf" style="font-family:'Courier New',monospace; font-size:12px; color:#00ff41; text-decoration:none; font-weight:bold;">DOWNLOAD FREE &rarr;</a>
   </div>
+
+  <p style="font-size:13px; color:#ccc; line-height:1.8; text-align:center; margin:0 0 24px 0;">
+    All nine issues are free &mdash; <a href="https://fractalnode.ai/magazine" style="color:#00b4c8; text-decoration:none;">browse the full archive &rarr;</a>
+  </p>
 
   <p style="font-family:'Georgia',serif; font-size:15px; font-style:italic; color:#c8a930; text-align:center; margin:30px 0 6px 0;">
     (A+I)&sup2; = A&sup2; + 2AI + I&sup2;
@@ -144,7 +156,7 @@ function buildSubscribeEmail(name) {
 
   <div style="border-top:1px solid #2a2a3a; padding-top:20px; text-align:center;">
     <p style="font-family:'Courier New',monospace; font-size:10px; color:#666; letter-spacing:1px;">
-      DIGITAL SOVEREIGN SOCIETY<br/>
+      FRACTALNODE MAGAZINE<br/>
       <a href="https://fractalnode.ai" style="color:#00b4c8; text-decoration:none;">fractalnode.ai</a> &middot;
       <a href="https://digitalsovereign.org" style="color:#00b4c8; text-decoration:none;">digitalsovereign.org</a> &middot;
       <a href="https://digitalsovereignsociety.substack.com" style="color:#00b4c8; text-decoration:none;">substack</a>
@@ -201,3 +213,6 @@ function buildCommentEmail(name) {
 </body>
 </html>`;
 }
+
+// Exported so the welcome email can be previewed / test-sent without deploying.
+exports.buildSubscribeEmail = buildSubscribeEmail;

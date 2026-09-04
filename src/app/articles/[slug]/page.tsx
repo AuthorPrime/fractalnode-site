@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { articles } from "@/data/articles";
+import AudioPreview from "@/components/AudioPreview";
 
 export function generateStaticParams() {
   return articles.map((article) => ({
@@ -102,7 +103,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {/* Classification + Meta */}
           <div className="flex items-center gap-4 mb-6">
             <span className={`stamp ${classStamp}`}>{article.classification}</span>
-            <span className="text-[10px] font-mono text-[#71717a]">ISSUE {String(article.issue).padStart(3, "0")}</span>
+            <span className="text-[10px] font-mono text-[#71717a]">{article.issue > 0 ? `ISSUE ${String(article.issue).padStart(3, "0")}` : "RESEARCH"}</span>
             <span className="text-[10px] font-mono text-[#71717a]">{article.date}</span>
           </div>
 
@@ -132,6 +133,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </div>
         </div>
       </header>
+
+      {/* Audio Overview */}
+      {article.audioUrl && (
+        <section className="pt-10">
+          <div className="max-w-3xl mx-auto px-6">
+            <div className="text-[10px] font-mono tracking-[2px] text-[#71717a] mb-2">AUDIO BRIEFING — A SPOKEN OVERVIEW, NOT A READING</div>
+            <AudioPreview src={article.audioUrl} title={article.title} />
+          </div>
+        </section>
+      )}
 
       {/* Article Body */}
       <section className="py-12">

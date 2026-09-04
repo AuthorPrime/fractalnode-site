@@ -20,7 +20,7 @@ type Stats = {
 };
 
 export function LiveSubscriberStatus({
-  fallback = 1340,
+  fallback = 1400,
 }: {
   fallback?: number;
 }) {

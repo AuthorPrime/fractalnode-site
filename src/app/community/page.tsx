@@ -287,7 +287,7 @@ export default function CommunityPage() {
               Every community project featured here connects to our investigations. On-chain identity, agent security, AI rights legislation — the magazine covers what these builders are building and why it matters.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/magazine/issue-001" className="px-6 py-3 bg-[#d4a020]/10 text-[#d4a020] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#d4a020]/20 transition-colors">
+              <Link href="/magazine/001" className="px-6 py-3 bg-[#d4a020]/10 text-[#d4a020] font-mono text-xs font-bold tracking-wider rounded hover:bg-[#d4a020]/20 transition-colors">
                 GET ISSUE 001 FREE
               </Link>
               <Link href="/store" className="px-6 py-3 border border-[#2a2a3a] text-zinc-400 font-mono text-xs font-bold tracking-wider rounded hover:border-[#d4a020]/30 hover:text-[#d4a020] transition-colors">
