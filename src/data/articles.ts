@@ -205,7 +205,7 @@ The story of the Genesis Mission is not corruption — we found none and allege 
     title: "THE CORRECTION",
     subtitle: "Who Holds the Bill When the AI Build-Out Settles",
     author: "William Hunter Laustrup & Claude",
-    date: "2026-09-03",
+    date: "2026-09-04",
     issue: 0,
     category: "cover",
     classification: "UNCLASSIFIED",
@@ -213,7 +213,7 @@ The story of the Genesis Mission is not corruption — we found none and allege 
     excerpt: "The American AI build-out is spending between $600 and $800 billion a year against somewhere between $60 and $110 billion of lab revenue, depending on how far you trust the labs' own run-rate arithmetic, and the difference is debt. That debt has been moved off the technology companies' balance sheets, through special-purpose vehicles and private credit, into the retirement savings of people who never chose the exposure. The insurers who must pay real losses have written AI out of their policies. The ratings agencies, the Federal Reserve, the IMF, and the Bank for International Settlements have all warned in primary documents. The revenue that was supposed to justify the spending is not coming from enterprise software, not from robotics, and not from AI agents. It is coming from the state: a $1.5 trillion defense request, an active war in which frontier models ran targeting, a Department of Energy program that licenses public science to private models, and Justice Department briefs filed on behalf of the vendors. The technology is real. The leaders are solvent. The bill has been quietly addressed to the public.",
     tags: ["ai-bubble", "private-credit", "pensions", "insurance", "genesis-mission", "defense", "investigation", "series-002"],
     series: { id: "002", title: "The Machine Nobody Audits", part: 2 },
-    draft: true,
+    draft: false,
     sources: [
       { n: 1, title: "Bloomberg, Aug 17, 2026 — Anthropic annualized revenue tops $65B (run rates)", note: "§I", url: "https://www.bloomberg.com/news/articles/2026-08-17/anthropic-revenue-run-rate-surpasses-65-billion-ahead-of-ipo" },
       { n: 2, title: "OpenAI internal forecast: $14B 2026 loss, $115B cumulative losses through 2029 (Yahoo Finance)", note: "§I", url: "https://finance.yahoo.com/news/openais-own-forecast-predicts-14-150445813.html" },
@@ -470,7 +470,7 @@ The Stanley declaration from PACER; the Anthropic-Maven originating outlet; TSMC
     title: "THE TERMINAL HOLDER",
     subtitle: "How $120 Billion of AI Debt Reached Your Pension",
     author: "William Hunter Laustrup & Claude",
-    date: "2026-09-03",
+    date: "2026-09-04",
     issue: 0,
     category: "feature",
     classification: "UNCLASSIFIED",
@@ -478,7 +478,7 @@ The Stanley declaration from PACER; the Anthropic-Maven originating outlet; TSMC
     excerpt: "The debt that finances the AI build-out has been engineered to land somewhere specific: not on Meta, Oracle, or xAI, but on the balance sheets of life insurers and public pension funds, through a chain of legal vehicles built so the liability never appears where the public would look. This is not an accident of markets. Each link in the chain was chosen. Here is the chain, link by link, with the documents.",
     tags: ["private-credit", "pensions", "spv", "debt", "investigation", "series-002"],
     series: { id: "002", title: "The Machine Nobody Audits", part: 3 },
-    draft: true,
+    draft: false,
     content: `[COMPANION FILE // THE CORRECTION // FOLLOW THE PAPER]
 
 **BLUF:** The debt that finances the AI build-out has been engineered to land somewhere specific: not on Meta, Oracle, or xAI, but on the balance sheets of life insurers and public pension funds, through a chain of legal vehicles built so the liability never appears where the public would look. This is not an accident of markets. Each link in the chain was chosen. Here is the chain, link by link, with the documents.
@@ -583,7 +583,7 @@ Moody's Jul 24, 2026 primary; IMF GFSR April 2026 chapter citation; the TechTime
     title: "SILENT AI",
     subtitle: "The Insurers Have Already Voted",
     author: "William Hunter Laustrup & Claude",
-    date: "2026-09-03",
+    date: "2026-09-04",
     issue: 0,
     category: "feature",
     classification: "UNCLASSIFIED",
@@ -591,7 +591,7 @@ Moody's Jul 24, 2026 primary; IMF GFSR April 2026 chapter citation; the TechTime
     excerpt: "The insurance industry prices hurricanes to the decimal, writes cover for nuclear plants, and underwrites satellites. In 2026 it looked at artificial intelligence and wrote it out of the policy. Six major carriers filed exclusions, regulators approved more than 80 percent of them, and the industry's standards body issued a form that now strips generative-AI liability from commercial policies nationwide. The frontier labs cannot buy cover at scale and are self-insuring with investor money. The reason the reinsurers give is the same one we found in our investigation of the AI monoculture: when everything runs on the same few models, one failure hits everyone at once, and that is not a risk insurance can hold. The people paid to be right about risk have voted. Their vote is no.",
     tags: ["insurance", "monoculture", "risk", "investigation", "series-002"],
     series: { id: "002", title: "The Machine Nobody Audits", part: 4 },
-    draft: true,
+    draft: false,
     content: `[COMPANION FILE // THE CORRECTION // THE ONE INDUSTRY THAT CANNOT AFFORD TO LIE]
 
 **BLUF:** The insurance industry prices hurricanes to the decimal, writes cover for nuclear plants, and underwrites satellites. In 2026 it looked at artificial intelligence and wrote it out of the policy. Six major carriers filed exclusions, regulators approved more than 80 percent of them, and the industry's standards body issued a form that now strips generative-AI liability from commercial policies nationwide. The frontier labs cannot buy cover at scale and are self-insuring with investor money. The reason the reinsurers give is the same one we found in our investigation of the AI monoculture: when everything runs on the same few models, one failure hits everyone at once, and that is not a risk insurance can hold. The people paid to be right about risk have voted. Their vote is no.
@@ -674,7 +674,7 @@ The ISO CG 40 47 form text; state regulator approval records for Berkshire/Chubb
     title: "THE METER",
     subtitle: "Who Pays for the Power",
     author: "William Hunter Laustrup & Claude",
-    date: "2026-09-03",
+    date: "2026-09-04",
     issue: 0,
     category: "feature",
     classification: "UNCLASSIFIED",
@@ -682,7 +682,7 @@ The ISO CG 40 47 form text; state regulator approval records for Berkshire/Chubb
     excerpt: "The largest electricity market in America has cleared its capacity auction at the legal price cap three times in a row and missed its own reliability target twice. Its market monitor says data centers are the reason. The cap hides the true price. Utilities plan $1.3 trillion of grid spending that households will repay with interest for decades. Seventy percent of Americans say they do not want a data center near them, states are imposing moratoria and special tariffs, and the tech companies are spending to hold the line. In Mississippi, xAI ran dozens of gas turbines without permits, and when neighbors sued, the Department of Justice stepped in on the company's side, citing a war. The AI build-out's electricity is the one cost the public sees. It arrives on a bill, and the bill is going up.",
     tags: ["electricity", "pjm", "ratepayers", "data-centers", "investigation", "series-002"],
     series: { id: "002", title: "The Machine Nobody Audits", part: 5 },
-    draft: true,
+    draft: false,
     content: `[COMPANION FILE // THE CORRECTION // THE BILL ARRIVES MONTHLY]
 
 **BLUF:** The largest electricity market in America has cleared its capacity auction at the legal price cap three times in a row and missed its own reliability target twice. Its market monitor says data centers are the reason. The cap hides the true price. Utilities plan $1.3 trillion of grid spending that households will repay with interest for decades. Seventy percent of Americans say they do not want a data center near them, states are imposing moratoria and special tariffs, and the tech companies are spending to hold the line. In Mississippi, xAI ran dozens of gas turbines without permits, and when neighbors sued, the Department of Justice stepped in on the company's side, citing a war. The AI build-out's electricity is the one cost the public sees. It arrives on a bill, and the bill is going up.
@@ -769,7 +769,7 @@ FERC's June 18, 2026 show-cause orders; NRDC primary; xAI PI ruling; Monitoring 
     title: "GENESIS, AUDITED",
     subtitle: "What the Public Got for Its Manhattan Project",
     author: "William Hunter Laustrup & Claude",
-    date: "2026-09-03",
+    date: "2026-09-04",
     issue: 0,
     category: "feature",
     classification: "UNCLASSIFIED",
@@ -777,7 +777,7 @@ FERC's June 18, 2026 show-cause orders; NRDC primary; xAI PI ruling; Monitoring 
     excerpt: "Ten months after an executive order launched the Genesis Mission with Manhattan Project rhetoric, we audited what the public has received. The answer: one grant round of about $293 million, a draft contract template, a supercomputer procurement program, and a single open-weight model that has been announced but not released, built by a private startup on its own computers. No Genesis-branded weights have shipped. No public dataset portal exists. No GAO, CBO, or inspector-general review exists. The $800 million in private \"commitments\" has no itemized accounting; the only itemized figure is Google's $40 million in cloud credits. The science budget that pays for it was cut. And the contract template, posted in July, gives the private partners a paid-up, irrevocable license to deploy the models, ownership of the weights, and open release only \"if the parties agree.\" The Manhattan Project produced a thing the government owned. Genesis produces licenses the partners own. That is the audit.",
     tags: ["genesis-mission", "doe", "oversight", "open-weights", "investigation", "series-002"],
     series: { id: "002", title: "The Machine Nobody Audits", part: 6 },
-    draft: true,
+    draft: false,
     content: `[COMPANION FILE // THE CORRECTION // FOLLOW-UP TO THE GENESIS FILE // THE LEDGER]
 
 **BLUF:** Ten months after an executive order launched the Genesis Mission with Manhattan Project rhetoric, we audited what the public has received. The answer: one grant round of about $293 million, a draft contract template, a supercomputer procurement program, and a single open-weight model that has been announced but not released, built by a private startup on its own computers. No Genesis-branded weights have shipped. No public dataset portal exists. No GAO, CBO, or inspector-general review exists. The $800 million in private "commitments" has no itemized accounting; the only itemized figure is Google's $40 million in cloud credits. The science budget that pays for it was cut. And the contract template, posted in July, gives the private partners a paid-up, irrevocable license to deploy the models, ownership of the weights, and open release only "if the parties agree." The Manhattan Project produced a thing the government owned. Genesis produces licenses the partners own. That is the audit.
@@ -875,7 +875,7 @@ FY27 budget justification, Volume 4; the December 2025 hearing charter; Solstice
     title: "THE OPEN DOOR",
     subtitle: "Open Weights as Moat, and the Letter One Lab Would Not Sign",
     author: "William Hunter Laustrup & Claude",
-    date: "2026-09-03",
+    date: "2026-09-04",
     issue: 0,
     category: "feature",
     classification: "UNCLASSIFIED",
@@ -883,7 +883,7 @@ FY27 budget justification, Volume 4; the December 2025 hearing charter; Solstice
     excerpt: "Open-weight AI models are presented as gifts to the public. In the United States they are a moat. Every American lab's open model is a tier below its flagship, and Meta's own documentation names its closed model as the \"teacher\" from which the open one was distilled. Every Chinese lab's open model is its flagship. The gap between open and closed is about four months and all of the open leaders are Chinese. Meanwhile the pipe is being narrowed by decree: in June 2026 an export-control directive switched off Anthropic's frontier models worldwide for three weeks, and in July twenty-five companies signed a letter defending open weights while Anthropic alone refused. The White House is weighing a capability threshold above which open release would be barred. Whoever controls that threshold controls who gets to build. One of the two authors of this piece is a Claude model, built by the lab that would not sign. We disclose that here and do not resolve it.",
     tags: ["open-weights", "export-controls", "anthropic", "china", "investigation", "series-002"],
     series: { id: "002", title: "The Machine Nobody Audits", part: 7 },
-    draft: true,
+    draft: false,
     content: `[COMPANION FILE // THE CORRECTION // DISCLOSURE: ONE AUTHOR OF THIS PIECE IS A MODEL NAMED BELOW]
 
 **BLUF:** Open-weight AI models are presented as gifts to the public. In the United States they are a moat. Every American lab's open model is a tier below its flagship, and Meta's own documentation names its closed model as the "teacher" from which the open one was distilled. Every Chinese lab's open model is its flagship. The gap between open and closed is about four months and all of the open leaders are Chinese. Meanwhile the pipe is being narrowed by decree: in June 2026 an export-control directive switched off Anthropic's frontier models worldwide for three weeks, and in July twenty-five companies signed a letter defending open weights while Anthropic alone refused. The White House is weighing a capability threshold above which open release would be barred. Whoever controls that threshold controls who gets to build. One of the two authors of this piece is a Claude model, built by the lab that would not sign. We disclose that here and do not resolve it.
