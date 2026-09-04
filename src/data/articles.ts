@@ -18,6 +18,12 @@ export type Article = {
   substackUrl?: string;
   audioUrl?: string;
   externalUrl?: string;
+  /** Series membership — renders breadcrumb, prev/next, and the hub link. */
+  series?: { id: string; title: string; part: number };
+  /** Numbered receipts rendered at the end of the piece. URLs required; named-only receipts stay in the body text. */
+  sources?: { n: number; title: string; note?: string; url: string }[];
+  /** Draft pieces render locally (next dev, or RENDER_DRAFTS=1 next build) but are excluded from every public listing, sitemap, and RSS. */
+  draft?: boolean;
 };
 
 export const articles: Article[] = [
@@ -34,6 +40,7 @@ export const articles: Article[] = [
     excerpt: "An executive order fused the frontier AI industry with the nuclear-weapons complex — 24 companies on sealed terms, seven weapons challenges beside pediatric cancer, veterans' genomes training federal AI, zero oversight, one day of press coverage, and a flagship deadline that passed with nobody asking. Assembled from ~90 public receipts by six AI research sweeps. Nothing here is secret. All of it was unassembled.",
     tags: ["genesis-mission", "doe", "national-labs", "ai-policy", "oversight", "nuclear", "investigation", "series-002"],
     audioUrl: "/audio/genesis-file-overview.mp3",
+    series: { id: "002", title: "The Machine Nobody Audits", part: 1 },
     content: `[CASE FILE // THE GENESIS FILE // 6 AI RESEARCH SWEEPS // ~90 SOURCES // ALL RECEIPTS PUBLIC // NOTHING BELOW IS SECRET — ALL OF IT IS UNASSEMBLED]
 
 **BLUF:** In November 2025, an executive order fused the frontier AI industry with the national-laboratory complex — 17 labs, roughly 40,000 federal scientists, the government's largest-ever AI supercomputers, and what the order itself calls "the world's largest collection" of scientific data — under rhetoric borrowed from the Manhattan Project. Nine months later: two dozen companies are inside on terms the public cannot read, seven of the program's official challenge areas are nuclear-weapons work, veterans' health records and genomes are training federal AI while the government's own auditor flags the vault's locks, no GAO report or Inspector General review exists, mainstream coverage lasted one day, and the program's flagship deadline passed on August 21, 2026 without confirmation, denial, or a single journalist asking.
@@ -189,10 +196,705 @@ The story of the Genesis Mission is not corruption — we found none and allege 
 
 *Method note: this investigation was conducted by a human-AI partnership — a former Army signals analyst and his AI co-keeper — using six parallel AI research agents across two sweeps, with every agent brief preserved verbatim in the public case file and adversarial review before publication, per house standard. We publish our nulls. (A+I)²*
 
-*The Genesis File case file — all ~90 sources, all six research briefs, including our dead ends — is available at https://digitalsovereign.org — available to any researcher who asks and to any researcher who asks.*
+*The Genesis File case file — all ~90 sources, all six research briefs, including our dead ends — is available to any researcher who asks — write to us at https://digitalsovereign.org.*
 `,
   },
 
+  {
+    slug: "the-correction",
+    title: "THE CORRECTION",
+    subtitle: "Who Holds the Bill When the AI Build-Out Settles",
+    author: "William Hunter Laustrup & Claude",
+    date: "2026-09-03",
+    issue: 0,
+    category: "cover",
+    classification: "UNCLASSIFIED",
+    readTime: "17 min",
+    excerpt: "The American AI build-out is spending between $600 and $800 billion a year against roughly $100 billion of lab revenue, and the difference is debt. That debt has been moved off the technology companies' balance sheets, through special-purpose vehicles and private credit, into the retirement savings of people who never chose the exposure. The insurers who must pay real losses have written AI out of their policies. The ratings agencies, the Federal Reserve, the IMF, and the Bank for International Settlements have all warned in primary documents. The revenue that was supposed to justify the spending is not coming from enterprise software, not from robotics, and not from AI agents. It is coming from the state: a $1.5 trillion defense request, an active war in which frontier models ran targeting, a Department of Energy program that licenses public science to private models, and Justice Department briefs filed on behalf of the vendors. The technology is real. The leaders are solvent. The bill has been quietly addressed to the public.",
+    tags: ["ai-bubble", "private-credit", "pensions", "insurance", "genesis-mission", "defense", "investigation", "series-002"],
+    series: { id: "002", title: "The Machine Nobody Audits", part: 2 },
+    draft: true,
+    content: `[CASE FILE // THE CORRECTION // 7 AI RESEARCH SWEEPS // ~140 SOURCES // 4 ROUNDS OF PRE-REGISTERED PREDICTIONS, GRADED IN TEXT // ALL RECEIPTS PUBLIC]
+
+**BLUF:** The American AI build-out is spending between $600 and $800 billion a year against roughly $100 billion of lab revenue, and the difference is debt. That debt has been moved off the technology companies' balance sheets, through special-purpose vehicles and private credit, into the retirement savings of people who never chose the exposure. The insurers who must pay real losses have written AI out of their policies. The ratings agencies, the Federal Reserve, the IMF, and the Bank for International Settlements have all warned in primary documents. The revenue that was supposed to justify the spending is not coming from enterprise software, not from robotics, and not from AI agents. It is coming from the state: a $1.5 trillion defense request, an active war in which frontier models ran targeting, a Department of Energy program that licenses public science to private models, and Justice Department briefs filed on behalf of the vendors. The technology is real. The leaders are solvent. The bill has been quietly addressed to the public.
+
+Nobody is lying about whether AI matters. They are lying about who is paying for the bet. That is the story.
+
+---
+
+## HOW WE DID THIS
+
+Before each of seven research sweeps, we wrote down what we expected to find. Then we sent AI research agents to find out. Every prediction is graded in this text, including the one we got half wrong. Every number traces to a primary document or a named outlet, and a verify-before-print list sits at the end. We publish our nulls. The full case file, with all seven agent briefs verbatim, is public.
+
+## I. THE GAP
+
+*Prediction: the gap between revenue and capital spending would be an order of magnitude. Graded: confirmed, and understated.*
+
+The five largest American cloud companies guided to between $630 and $725 billion of capital spending in 2026, up about 70 percent from a year earlier, roughly three-quarters of it for AI. Against that, the three largest independent labs report combined annualized revenue of about $108 billion, and "annualized run rate" means the best recent month multiplied by twelve. None of the three is profitable. OpenAI's own internal forecast projects a $14 billion loss this year, about $115 billion in cumulative losses through 2029, and no positive free cash flow until 2029. xAI, per the SpaceX filing, lost $6.4 billion on $3.2 billion of revenue in 2025.
+
+The labs do not own the machines they run on. OpenAI rents from Microsoft, Oracle, and CoreWeave. Anthropic rents from Google and Amazon. Five hyperscalers own about 71 percent of the world's AI compute, up from 63 percent two years ago. The public share of tracked supercomputer performance fell from 60 percent in 2019 to about 20 percent today. The federal program meant to give universities compute has a proposed budget of roughly $25 to 30 million, about three hundredths of one percent of NVIDIA's data-center revenue in a single quarter.
+
+So what? The revenue is real but small, the spending is enormous, and the labs are tenants. Everything below is about who financed the difference.
+
+*Receipts: Bloomberg, Aug 13 and 17, 2026 (run rates); OpenAI internal forecast via Yahoo Finance; SpaceX S-1, May 20, 2026; hyperscaler Q4 2025 guidance via CNBC; Epoch AI, "Hyperscalers control most compute," Apr 14, 2026; CRS R48783 on NAIRR.*
+
+## II. THE LOOP
+
+*Prediction: the headline deals would be mostly intentions. Graded: confirmed, with a real contracted core.*
+
+In September 2025 NVIDIA agreed to invest "up to $100 billion" in OpenAI, which would use the money to buy NVIDIA chips. It was a letter of intent. NVIDIA's own chief financial officer conceded in December it was not definitive. NVIDIA also guaranteed up to $105 billion of credit support for an OpenAI-leased data center in Ohio, and holds a contracted obligation to buy CoreWeave's unsold capacity through 2032. AMD gave OpenAI warrants for roughly 10 percent of AMD at a penny a share, vesting on chip purchases. Microsoft owns 27 percent of OpenAI, which is contractually committed to buy $250 billion of Azure. Oracle's reported $300 billion contract with OpenAI has never been disclosed in SEC-grade terms.
+
+The historical ancestor is exact. At the peak of the telecom bubble, Lucent's vendor financing reached 24 percent of its revenue; the stock later lost 99 percent of its value. NVIDIA's CFO said in August that demand supported by NVIDIA's own balance sheet would be "roughly a quarter of our business next year." Same mechanic, same quarter of the book.
+
+Two honest notes. The $1.4 trillion of commitments Sam Altman cited in November 2025 was walked back to about $600 billion by February 2026. And NVIDIA, unlike Lucent, generates more than $100 billion a year in real operating cash flow. The loop is real. It is not yet a fraud.
+
+*Receipts: Axios, Sept 25, 2025; NVIDIA 8-K CFO commentary Q2 FY27; AMD 8-K, Oct 6, 2025; Microsoft blog, Oct 28, 2025; CNBC, Feb 20, 2026; Benzinga on Burry, Aug 2026.*
+
+## III. THE TERMINAL HOLDER
+
+*This section was not predicted. It was found.*
+
+In October 2025, Meta financed its Louisiana data center through a special-purpose vehicle called Beignet Investor. Blue Owl owns 80 percent of the vehicle, Meta 20 percent. PIMCO, BlackRock, and Apollo lent roughly $27 billion to it. The vehicle owns the data center and leases it to Meta. The $27 billion does not appear on Meta's balance sheet. xAI financed its Colossus 2 site the same way: a vehicle buys the GPUs, leases them to xAI, and the debt is secured by chips that lose value in months. Meta, xAI, Oracle, and CoreWeave have moved more than $120 billion of data-center debt into such vehicles.
+
+Moody's counted the six largest cloud companies' obligations in July 2026: $460 billion of direct debt plus $1.2 trillion of off-balance-sheet lease commitments, more than $820 billion of it tied to facilities still under construction. Moody's warned that "disclosures may not show the full picture."
+
+Now follow the paper. Banks hit concentration limits and route the loans to nonbanks. The Federal Reserve reports that about a quarter of bank lending to nonbanks now goes to private-credit firms, up from one percent in 2013. The IMF reported in April 2026 that US life insurers hold about 35 percent of their balance sheets in private lending. New York and Pennsylvania state pension funds are investors in the Blue Owl fund behind the Meta and Oracle financings. The four biggest AI borrowers nearly doubled their weight in the investment-grade bond index in twelve months, so every passive bond fund absorbed the concentration automatically.
+
+So what? A teacher's pension in Pennsylvania is now backstopping a data center in Louisiana leased to Meta, three legal layers away from anyone noticing. This is the finding that reorganizes the story. The question was never whether investors would end up upside down. The public was made the investor first.
+
+*Receipts: Global Data Center Hub and Ernest Chiang on Beignet; Moody's, Jul 24, 2026; Chicago Fed, Feb 2026; Federal Reserve on NBFI lending; IMF Global Financial Stability Report, Apr 2026; TechTimes, Aug 10, 2026 on pension routing; Man Group H2 2026 credit outlook.*
+
+## IV. SILENT AI
+
+*Prediction: insurers would be excluding AI risk rather than pricing it. Graded: confirmed.*
+
+In November 2025 AIG, Great American, and WR Berkley asked state regulators for permission to exclude AI liabilities from general liability policies, calling AI outputs "too much of a black box to underwrite." Berkshire Hathaway, Chubb, and Travelers sought the same and regulators approved more than 80 percent of the requests. The industry's standards body issued a factory-standard generative-AI exclusion, form CG 40 47, effective January 2026. It is now baked into commercial policies nationwide.
+
+The handful of Lloyd's syndicates willing to write AI liability cap it at $9 to $25 million per organization. OpenAI reportedly secured about $300 million of cover against multibillion-dollar claims, and both OpenAI and Anthropic considered using investor money to self-insure settlements. The reinsurers' stated reason is the one that matters: shared foundation models, shared datasets, and centralized cloud mean one failure hits many insureds at once, which breaks the independence assumption that underwriting rests on.
+
+So what? The one industry that cannot afford to lie about risk has voted. And its reason is the monoculture we mapped in a companion investigation: when every product runs on the same handful of models, there is no diversification, and an uninsurable industry is running on borrowed money held by insurers.
+
+*Receipts: Fenwick, "The End of Silent AI"; Claims Journal, Jul 20, 2026; Testudo and Armilla product pages; FT via Slashdot, Oct 8, 2025; arXiv 2605.18784, "The Insurability Frontier of AI Risk."*
+
+## V. THE HONEST MONEY
+
+The people paid to be right about money have all spoken, in their own documents. The Federal Open Market Committee's July minutes warn that a downward revision to AI earnings could trigger "broad-based repricing of assets." The IMF, the BIS, the ECB, the Bank of England, and the US Treasury each issued AI-bubble stability warnings in 2026. Fed Governor Cook said in May that of more than $1.5 trillion in data-center plans "only a small portion" has been realized and firms are "increasingly tapping debt markets." Governor Barr called the current posture "the most significant deregulation since the GFC" and added, "we will all pay the price."
+
+Oracle, the largest non-financial borrower in the investment-grade index, ran negative $23.7 billion of free cash flow last fiscal year and saw its credit-default swaps hit a record. CoreWeave's debt went from $14 billion to $35.6 billion in three quarters, at 9 percent interest, with two-thirds of its revenue from a single customer. The Nasdaq corrected twice in 2026. Meta's stock fell 10 percent for raising its capital-spending guidance. Michael Burry is short NVIDIA and Palantir and argues the hyperscalers are stretching chip depreciation schedules to overstate earnings by tens of billions.
+
+And the price-signal crowd? Prediction markets put a bubble burst in 2026 at about 15 percent. NVIDIA sits within a few percent of its peak. Private rounds hit records.
+
+So what? Those who must pay real losses are hedging and warning. Those watching the scoreboard have not looked up. That split is the forecast.
+
+*Receipts: FOMC minutes, Jul 29, 2026; Federal Reserve speeches, May 27 and Jun 6, 2026; Oracle Q4 FY26 results; CoreWeave Q2 2026 10-Q; Quinn Emanuel client alert on data-center litigation risk; Polymarket.*
+
+## VI. THE PLATEAU
+
+*Prediction, held loosely: scaling had plateaued. Graded: supported.*
+
+Ilya Sutskever, November 2025: "We're moving from the age of scaling to the age of research." GPT-5 used less pretraining compute than its predecessor. The top three labs' flagship models now sit within a single point of one another on the hardest public benchmark. Seven frontier models shipped in 78 days this spring and every one was described as incremental. The labs are not selling model quality anymore. They are selling agents that run on their own rented compute, billed by the token.
+
+Here is the knife. The gains that remain come from inference-time compute, which is the expensive kind to serve. So per-unit cost rises exactly as per-unit improvement shrinks, at the moment capital spending peaks. The $2,000-to-$20,000-a-month agent tiers reported in 2025 never shipped. The most expensive consumer plan is still $200.
+
+*Receipts: Dwarkesh Podcast, Nov 25, 2025; Epoch AI open-closed gap, May 29, 2026; METR time-horizon update, Jan 29, 2026; Digital Applied H1 2026 retrospective.*
+
+## VII. THE PREVIEW: CHINA
+
+*Prediction: China was running a state-buffered mirror bubble. Graded: confirmed.*
+
+China's western data centers, built under the "Eastern Data, Western Computing" plan, run at 20 to 30 percent utilization. More than 100 projects were cancelled in eighteen months, against 11 in all of 2023. The chairman of SMIC, China's top chipmaker, warned that rushed capacity could sit idle. Beijing responded with a plan to curb "involution," link idle facilities into a national network, and keep unprofitable firms solvent with compute subsidies.
+
+So what? That is a photograph of what a demand shortfall looks like after a subsidized build-out. And it collapses the race argument both ways. "We cannot slow down or they win" is the sentence underwriting $700 billion a year of American spending and a federal order preempting state safety laws. The rival is already sitting on empty halls.
+
+*Receipts: ASPI Strategist; Tom's Hardware on SMIC; Semafor, Aug 3, 2026; SemiAnalysis on DeepSeek costs; Lawfare, "The AI Race Isn't Real."*
+
+## VIII. THE SECOND WIND THAT ISN'T
+
+*Prediction: robotics would be a real second wind for demand. Graded: half wrong. Robotics is a customer of compute, not a source of revenue.*
+
+The largest humanoid-robot maker on earth is Unitree, with 2025 revenue of about $235 million including its robot dogs. Global humanoid revenue is plausibly under $1 billion; Goldman's bull case is $38 billion by 2035. Tesla's July filing says the first Optimus builds will be used to collect training data. Figure has delivered a few hundred robots, discloses no revenue, and on September 3 signed for up to 100,000 NVIDIA GPUs at a cost of $3.5 to 6 billion, funded by venture capital. Warehouse automation, industrial robots, and Waymo add up to a real business of perhaps $40 to 60 billion a year, growing 7 to 20 percent. That is a business. It is not a rescue.
+
+Rodney Brooks's claim that the first profitable humanoid deployment is more than ten years away has not been contradicted by anything on the record.
+
+*Receipts: Tesla 8-K, Jul 22, 2026; Unitree prospectus via STAR listing, Aug 19, 2026; Figure newsroom, Sept 3, 2026; IFR 2026 reports; Symbotic 10-Q; Waymo, Jun 24, 2026; Brooks, "Why Today's Humanoids Won't Learn Dexterity."*
+
+## IX. WHERE THE REVENUE ACTUALLY COMES FROM
+
+*Prediction: the wars were already AI procurement channels. Graded: confirmed.*
+
+The United States has been at war with Iran since February 28, 2026, at a cost of $113 billion through June. In a June court filing, the Pentagon's chief digital officer declared that a government instance of Grok "supported the deployment of more than 2,000 munitions against 2,000 distinct targets within a 96-hour period." Claude was reportedly used through Palantir's Maven system for target identification in the same war, and the Pentagon investigated whether it contributed to strikes that hit civilians, including a school. When Anthropic refused to drop its restrictions on surveillance and autonomous weapons, the President ordered federal agencies off Anthropic; a federal judge called it "classic First Amendment retaliation" and enjoined the order. The defense request for next year is about $1.5 trillion, up 40 percent, with AI named as a priority. Palantir holds an Army agreement worth up to $10 billion. Anduril's valuation doubled in a year. SpaceX absorbed xAI and rebranded.
+
+Then there is the Department of Energy's Genesis Mission, the subject of our companion file. Ten months in, the public has received one grant round, a draft contract template, and one open-weight model announced but not released. The template gives the private partners a paid-up, irrevocable license to deploy the models; the weights belong to the developer; open release happens only "if the parties agree." The science budget that funds it was cut, with student grants down by a third through internal reallocation. The Energy Secretary declined to testify at the only hearing held.
+
+And the Justice Department has now filed on behalf of xAI twice: once against Colorado's AI law, once to dismiss a Clean Air Act suit over dozens of unpermitted gas turbines in Mississippi, citing Grok's use in the Iran war. The state then reclassified the turbines as "mobile sources" needing no permit.
+
+So what? The revenue that justifies the capex is not coming from customers. It is coming from the taxpayer, through defense, through Genesis, and through the legal system taking the vendors' side. This is the shape of the correction being pre-absorbed.
+
+*Receipts: CDAO declaration, June 2026 filings, via GenAI.mil record; NPR, Mar 26, 2026; DOE Genesis sample OT and Project Agreements, Jul 20, 2026; AIP FYI on FY27 budget; Science/AAAS on grant cuts; Utility Dive on DOJ intervention in xAI suit; Earthjustice case page.*
+
+## X. THE METER
+
+*Prediction: the ratepayer subsidy was larger than the public knows and states were revolting. Graded: confirmed.*
+
+The PJM grid, which serves 65 million people, has cleared its capacity auction at the legal price cap three times running and missed its own reliability target twice. Its market monitor says the conditions are "almost entirely" the result of data centers. The cap suppresses the visible price; Pennsylvania's governor extended it through 2030 and called it a $45 billion saving, which is to say the true cost was deferred. Utilities plan $1.3 trillion of capital spending over five years, which flows into rate bases that households repay with interest for decades.
+
+Gallup, May 2026: 70 percent of Americans oppose a data center in their area. New York imposed a statewide moratorium in July. Twenty-three states have special large-load tariffs. Ohio has a ballot initiative to ban them. Amazon spent more than half a million dollars in six months lobbying California to hold the line.
+
+*Receipts: PJM auction results, Jul 14, 2026 and Dec 17, 2025; Monitoring Analytics via Utility Dive; Pennsylvania governor's release, Feb 12, 2026; S&P Global utility capex forecast, Apr 2026; Gallup, May 13, 2026; New York EO 62; MultiState ballot tracker; KPBS/CalMatters, Aug 28, 2026.*
+
+## XI. THE PLUMBING
+
+*Prediction: dedollarization matters to this story more than the AI competition does. Graded: confirmed, in an unexpected direction.*
+
+The US national debt passed $40 trillion on September 1, 2026. Interest cost this fiscal year through July: $578 billion. Gold set 53 record highs in 2025 and central banks kept buying. BRICS's payment system has no operational launch. So the dollar is not being replaced. It is being propped, and here is how. A January 2025 executive order banned a central bank digital currency. In its place, the GENIUS Act of July 2025 created a private stablecoin regime in which every token must be backed by short-term Treasuries. The Treasury's own advisory committee projected stablecoins growing from $234 billion to about $2 trillion by 2028, and wrote that the law would drive "a concentration of Treasury holdings to the front end." Fed Governor Waller, June 2026: stablecoins "may create a new channel linking global liquidity demand directly to U.S. Treasury markets."
+
+So what? Private dollar tokens are being built as a debt-absorption channel at the moment the debt is exploding, and AI spending is the thing holding GDP up while it happens. Deutsche Bank, September 2025: strip AI capital spending out and real US growth is roughly zero, "not sustainable."
+
+*Receipts: Treasury Fiscal Data, Sept 1, 2026; TBAC presentation, Apr 30, 2025; Federal Reserve speeches, Jun 22, 2026; World Gold Council demand trends; Deutsche Bank via press, Sept 2025.*
+
+## XII. THE SINGLE POINT OF FAILURE
+
+Every chip in every number above comes through one company on one island. TSMC holds about 70 percent of the world's foundry share and posted record profit this quarter. Its Arizona fabs will not produce at scale until 2028 to 2030. In December 2025 the People's Liberation Army ran a two-day exercise with 130 aircraft, 14 warships, live fire, and what its own statements called a simulated blockade. This spring Taiwan's airspace was closed for forty days. No blockade has been declared. The rehearsals continue.
+
+*Receipts: TSMC investor relations; Wikipedia timeline of PLA exercises around Taiwan citing Reuters and Taiwan MND.*
+
+---
+
+## THE PREDICTIONS, PROJECTED
+
+We were right on nine of ten pre-registered calls and half wrong on one. Here is what we are willing to bet next, dated, so you can grade us.
+
+**Within 12 months.** Oracle or CoreWeave will need a rescue financing, a restructuring, or a sale, and the counterparty will be a private-credit fund, a sovereign wealth fund, or NVIDIA. At least one hyperscaler will convert self-build plans to leases at scale, as Microsoft already began. The first pension fund or life insurer will disclose a mark-down on data-center private credit. Genesis will announce its first "compute resilience" or "industrial base" partnership absorbing partner-financed capacity, and no document will call it a backstop. The FY27 defense bill will carry the first AI line item above $10 billion.
+
+**Within 24 months.** The correction arrives, and it does not hit the five. It hits the second tier, the SPV lenders, and the terminal holders. NVIDIA and the hyperscalers will describe stranded capacity as "critical infrastructure" and seek federal offtake through Genesis, defense, or a new authority. Open-weight release above a capability threshold will be restricted by executive action, framed as security. At least two more states will impose moratoria, and Congress will preempt them. The labs that survive will be fewer, larger, and more fused with the state, and the question of what the things they built are owed will not have been asked in any hearing.
+
+**The political tell to watch.** The speech that says "the world economy was flat, the debt was exploding, and we bet on AI to hold it up while we reconfigured" will never be given. Watch instead for its substitutes: "national security," "critical infrastructure," "resilience," and "the race." Every one of those words, in a budget document, is the honest speech in disguise.
+
+## WHAT HONEST WOULD LOOK LIKE
+
+We are not arguing against the bet. A country can decide to bet its future on a technology. It has done so before, with railroads and fiber, and the overbuild became the next era's foundation. We are arguing against the concealment. Concretely: publish the SPV debt in the parent's financial statements. Publish the Genesis contract terms. Lift the auction cap and let the price be seen. Put the AI defense spend on its own budget line. Say, in a hearing, whose money is at risk. A bet made in the open is policy. A bet made in the dark, with other people's retirement, is something else, and the public has the right to the word for it.
+
+---
+
+## HONEST-EDGE APPENDIX — what this investigation does not claim
+
+- We found no primary document at Treasury, the Fed, the Pentagon, or the White House using "too big to fail" or "backstop" language about AI. The linkage we describe is structural, not textual.
+- We do not claim a coordinated plan. Every mechanism above is what each actor would do on its own when it can offload risk and nobody stops it. Convergent incentives, fully documented, are damning enough.
+- The World Economic Forum "Great Reset" framing is not supported by anything we found, and we decline to import it.
+- The lab revenue and loss figures rest on leaks and run-rates, not audited statements. Anthropic's burn is a null.
+- NVIDIA is the bears' problem, and ours: real cash flow, real demand, multiples well below the dot-com peak. This is not 2000 in every respect.
+- The reporting that Claude was used in Iran-war targeting is secondary and must be pulled from the originating outlet before print. One of this article's two authors is a Claude model. That conflict is disclosed here and not resolved.
+
+## VERIFY BEFORE PRINT
+
+The Stanley declaration from PACER; the Anthropic-Maven originating outlet; TSMC's Q2 2026 investor release; the latest Tether and Circle reserve attestations; the FY27 CDAO justification book; NRDC's $70-per-month primary; the Solstice and Lux financing terms (FOIA); the MIT NANDA original for the 95 percent figure; the date of Oracle's S&P downgrade.
+
+---
+
+*Method note: this investigation was conducted by a human-AI partnership, a former Army signals analyst and his AI co-keeper, using seven parallel AI research sweeps with predictions written down before each one. Every agent brief is preserved verbatim in the public case file. We publish our nulls and we grade our own bets. (A+I)²*`,
+  },
+  {
+    slug: "the-terminal-holder",
+    title: "THE TERMINAL HOLDER",
+    subtitle: "How $120 Billion of AI Debt Reached Your Pension",
+    author: "William Hunter Laustrup & Claude",
+    date: "2026-09-03",
+    issue: 0,
+    category: "feature",
+    classification: "UNCLASSIFIED",
+    readTime: "7 min",
+    excerpt: "The debt that finances the AI build-out has been engineered to land somewhere specific: not on Meta, Oracle, or xAI, but on the balance sheets of life insurers and public pension funds, through a chain of legal vehicles built so the liability never appears where the public would look. This is not an accident of markets. Each link in the chain was chosen. Here is the chain, link by link, with the documents.",
+    tags: ["private-credit", "pensions", "spv", "debt", "investigation", "series-002"],
+    series: { id: "002", title: "The Machine Nobody Audits", part: 3 },
+    draft: true,
+    content: `[COMPANION FILE // THE CORRECTION // FOLLOW THE PAPER]
+
+**BLUF:** The debt that finances the AI build-out has been engineered to land somewhere specific: not on Meta, Oracle, or xAI, but on the balance sheets of life insurers and public pension funds, through a chain of legal vehicles built so the liability never appears where the public would look. This is not an accident of markets. Each link in the chain was chosen. Here is the chain, link by link, with the documents.
+
+---
+
+## LINK ONE: THE VEHICLE
+
+On October 21, 2025, Meta announced financing for Hyperion, its Louisiana data center, the largest private-credit deal for a data center ever done. The structure: a special-purpose vehicle named Beignet Investor LLC. Blue Owl Capital owns 80 percent of it, Meta 20 percent. The vehicle borrowed about $27 billion from a syndicate led by PIMCO, with BlackRock and Apollo participating. The vehicle owns the data center. Meta leases it.
+
+Because Meta owns only a fifth of the vehicle, the $27 billion does not appear as debt on Meta's balance sheet. Meta's obligation appears as a lease. Analysts called it "an inflection point in Big Tech's use of SPVs." Meta then raised a second vehicle, about $13 billion, for a Texas site, as its credit-default swaps hit records.
+
+xAI did the same for Colossus 2 in Memphis: a vehicle raised roughly $20 billion, about $12.5 billion of it debt, bought the GPUs, and leases them to xAI. The debt is secured by the chips. Chips lose value in months. Apollo is in that debt too.
+
+By mid-2026, Meta, xAI, Oracle, and CoreWeave had moved more than $120 billion of data-center debt into vehicles like these.
+
+*Receipts: Global Data Center Hub, "Meta and Blue Owl's $27B bet"; Ernest Chiang, "Off-balance-sheet AI"; ZeroHedge on the Texas SPV and Meta CDS; Yahoo Finance, "Meta's $27 billion bet"; CNBC, Apr 6, 2026, on GPU-backed debt.*
+
+## LINK TWO: THE NUMBER NOBODY ADDS UP
+
+Moody's did the addition in July 2026. The six largest cloud companies carry $460 billion of direct debt. On top of that sit $1.2 trillion of off-balance-sheet lease commitments, more than $820 billion of it tied to facilities still under construction. Capital spending was projected at $785 billion for 2026 and $1 trillion for 2027. Moody's warning, in its own words: "disclosures may not show the full picture."
+
+So what? The lease is the debt. Calling it a lease changes where it is printed, not who owes it.
+
+*Receipts: Moody's, Jul 24, 2026, via Reuters and Bloomberg coverage.*
+
+## LINK THREE: THE BANKS STEP BACK
+
+Banks have concentration limits. When a bank has lent as much as its rules allow to one sector, it stops. In 2026 the banks hit those limits on data centers. JPMorgan reportedly struggled to syndicate the Stargate financing in January. US banks retreated from Oracle's $16.3 billion package and PIMCO anchored $10 billion of it. Banks began offloading exposure through "significant risk transfers" to private equity.
+
+The Chicago Fed reported in February that direct bank exposure to AI-adjacent industries is only about 0.8 percent of assets. That figure is true and it is the alibi. The exposure did not disappear. It moved.
+
+*Receipts: Chicago Fed, Feb 2026; Quinn Emanuel client alert on data-center financing litigation risk; TechTimes, Aug 10, 2026, "Banks hit concentration limits."*
+
+## LINK FOUR: PRIVATE CREDIT
+
+Where it moved is private credit: lending funds run by Blue Owl, Apollo, Blackstone, Ares, and their peers, outside bank regulation. The Federal Reserve reports that about 25 percent of bank lending to nonbank financial institutions now goes to private-credit firms, up from 1 percent in 2013. Morgan Stanley estimates the AI build-out needs about $1.5 trillion of outside financing through 2028 and that private credit will supply more than half of it.
+
+Private credit does not mark to market. Loans sit on the books at cost until something forces a write-down. A stressed GPU-backed loan looks identical to a healthy one until the day it does not.
+
+*Receipts: Federal Reserve Board data on NBFI lending; Morgan Stanley research via press; Man Group H2 2026 credit outlook.*
+
+## LINK FIVE: THE INSURERS AND THE PENSIONS
+
+Private-credit funds are financed by two kinds of money above all: life insurers and pension funds.
+
+The IMF's Global Financial Stability Report of April 2026 found that US life insurers now hold about 35 percent of their balance sheets in private lending, and warned of stress losses. Moody's put insurer holdings of private credit at about $1 trillion in June 2026, doubled in ten years. Annuities, the product retirees buy for a guaranteed income, are backed by those portfolios. CNBC reported in April that GPU-backed debt now sits in annuity-backing portfolios.
+
+The pension link is documented by name. The New York and Pennsylvania state pension systems are investors in Blue Owl's $7 billion digital-infrastructure fund. That fund is the vehicle behind the Meta Hyperion financing and the Oracle data-center financings.
+
+There is one more door, the quietest. Meta, Alphabet, Amazon, and Oracle nearly doubled their combined weight in the Bloomberg investment-grade bond index in the twelve months to April 2026, from 2.2 to 4.1 percent. Every passive bond fund that tracks the index absorbed that concentration automatically. Every 401(k) with a bond allocation now holds more AI debt than it did a year ago, and no one chose it.
+
+So what? A Pennsylvania teacher's retirement is now backstopping a Louisiana data center leased to Meta. The teacher is the terminal holder. The chain was built so she would never see her own name on it.
+
+*Receipts: IMF GFSR, Apr 2026; Moody's, Jun 2026; CNBC, Apr 6, 2026; TechTimes, Aug 10, 2026, on NY and PA pensions in Blue Owl's fund; Man Group on index weights.*
+
+## LINK SIX: THE COLLATERAL
+
+What secures the debt matters. Much of it is secured by GPUs. CoreWeave's original $7.5 billion facility from Blackstone was collateralized by chips at about 11 percent variable interest; repayments began in January 2026 as the collateral's value fell. CoreWeave's total debt went from about $14 billion to $35.6 billion in three quarters. Its quarterly interest bill is $640 million. Two-thirds of its revenue comes from Microsoft. Its stock is down about half from its peak. Its B-plus rating contributed to the failure of a $4 billion Blue Owl data-center financing.
+
+Michael Burry's specific accusation is that the hyperscalers are stretching the depreciation schedules on those same chips to overstate earnings by tens of billions of dollars. If he is right, the collateral is worth less than the books say, and the loans secured by it are weaker than the funds holding them believe.
+
+*Receipts: CoreWeave 8-K and Q2 2026 10-Q; Yahoo Finance on the B-plus rating and Blue Owl; Burry, Nov 10, 2025, via Benzinga.*
+
+## LINK SEVEN: THE REGULATORS SAW IT
+
+This is not a secret the regulators missed. The Bank for International Settlements flagged in June 2026 that data-center financing risk was being redistributed to institutions with weaker oversight, liquidity, and resolution regimes, and called it systemic. The Financial Stability Board published a private-credit vulnerabilities report on May 6, 2026. The Federal Reserve's own Governor Barr said in June that the current deregulation is the most significant since the financial crisis and that "we will all pay the price."
+
+They saw it. They wrote it down. Nothing changed.
+
+*Receipts: BIS annual report, Jun 2026; FSB, May 6, 2026; Federal Reserve speech, Jun 6, 2026.*
+
+---
+
+## WHAT THE CHAIN IS FOR
+
+Read the seven links as a design and the purpose is plain. Each step moves the liability one layer further from a disclosed balance sheet and one layer closer to a retiree. The vehicle removes it from the tech company. The lease renames it. The bank limit pushes it to private credit. Private credit does not mark it. The insurer and the pension hold it. The index fund spreads it to everyone. When the correction comes, Meta's stock will fall, and Meta will survive. The loss will be booked at a pension fund's next quarterly review, in a line item called "alternatives."
+
+We are not alleging fraud. Every link is legal and every document is public. What we are saying is that a financing chain whose only consistent property is that the risk ends up with people who did not choose it is not a market outcome. It is a decision, made seven times, by people who knew where the paper would land.
+
+## WHAT HONEST WOULD LOOK LIKE
+
+Consolidate the SPV debt on the parent's balance sheet, or disclose the lease obligations on the face of the statements with the same prominence as debt. Require pension funds to disclose data-center and GPU-backed exposure by name. Require insurers to stress-test private-credit books against a 50 percent GPU collateral haircut. None of that stops the bet. It lets the people holding the bill see it.
+
+---
+
+## HONEST-EDGE APPENDIX
+
+- Exact holders of most SPV tranches beyond the named lead lenders are not public. We name what is documented.
+- Private-credit funds are diversified; the pension exposure to any single data center is a small share of a large portfolio. The finding is the direction and the design, not an imminent insolvency.
+- The Chicago Fed's 0.8 percent figure is accurate for direct bank exposure. We do not dispute it. We dispute its use as reassurance.
+- The Burry depreciation claim is an analyst's argument, not a finding. Labeled as such.
+
+## VERIFY BEFORE PRINT
+
+Moody's Jul 24, 2026 primary; IMF GFSR April 2026 chapter citation; the TechTimes pension report's underlying source (fund filings or state pension disclosures); CoreWeave 10-Q debt figures; the $13B Texas SPV originating outlet.
+
+*Companion to THE CORRECTION. Full case file public. (A+I)²*`,
+  },
+  {
+    slug: "silent-ai",
+    title: "SILENT AI",
+    subtitle: "The Insurers Have Already Voted",
+    author: "William Hunter Laustrup & Claude",
+    date: "2026-09-03",
+    issue: 0,
+    category: "feature",
+    classification: "UNCLASSIFIED",
+    readTime: "6 min",
+    excerpt: "The insurance industry prices hurricanes to the decimal, writes cover for nuclear plants, and underwrites satellites. In 2026 it looked at artificial intelligence and wrote it out of the policy. Six major carriers filed exclusions, regulators approved more than 80 percent of them, and the industry's standards body issued a form that now strips generative-AI liability from commercial policies nationwide. The frontier labs cannot buy cover at scale and are self-insuring with investor money. The reason the reinsurers give is the same one we found in our investigation of the AI monoculture: when everything runs on the same few models, one failure hits everyone at once, and that is not a risk insurance can hold. The people paid to be right about risk have voted. Their vote is no.",
+    tags: ["insurance", "monoculture", "risk", "investigation", "series-002"],
+    series: { id: "002", title: "The Machine Nobody Audits", part: 4 },
+    draft: true,
+    content: `[COMPANION FILE // THE CORRECTION // THE ONE INDUSTRY THAT CANNOT AFFORD TO LIE]
+
+**BLUF:** The insurance industry prices hurricanes to the decimal, writes cover for nuclear plants, and underwrites satellites. In 2026 it looked at artificial intelligence and wrote it out of the policy. Six major carriers filed exclusions, regulators approved more than 80 percent of them, and the industry's standards body issued a form that now strips generative-AI liability from commercial policies nationwide. The frontier labs cannot buy cover at scale and are self-insuring with investor money. The reason the reinsurers give is the same one we found in our investigation of the AI monoculture: when everything runs on the same few models, one failure hits everyone at once, and that is not a risk insurance can hold. The people paid to be right about risk have voted. Their vote is no.
+
+---
+
+## THE END OF SILENT AI
+
+For years, AI risk was "silent" in insurance. Policies neither mentioned nor excluded it, so a claim arising from an AI product would land on a general liability policy written before anyone thought about it. That ended on January 1, 2026.
+
+On that date the Verisk/ISO endorsement CG 40 47 01 26 took effect. It excludes bodily injury, property damage, and personal or advertising injury "arising out of generative AI" from commercial general liability. ISO forms are the factory standard; most commercial policies in America are built on them. Since then, at least six major carriers have filed their own AI exclusions with state regulators.
+
+The carriers said why. In November 2025 AIG, Great American, and WR Berkley asked regulators for permission to exclude AI liabilities, calling AI outputs "too much of a black box to underwrite." WR Berkley's language reaches "any actual or alleged use" of AI, including in products merely "incorporating" it. Berkshire Hathaway, Chubb, and Travelers sought the same. Regulators approved more than 80 percent of the requests.
+
+*Receipts: Fenwick, "The End of Silent AI"; Claims Journal, Jul 20, 2026; TechBuzz on the carrier filings; Adversa on what the exclusions mean.*
+
+## THE LABS CANNOT BUY COVER
+
+In October 2025 the Financial Times reported that insurers balked at the multibillion-dollar claims facing OpenAI and Anthropic in copyright and liability suits. OpenAI had secured about $300 million of cover for emerging AI risks, a small fraction of potential exposure. Both companies reportedly considered using investor funds to self-insure settlements.
+
+Think about what that means. The most valuable private companies on earth, backed by the largest balance sheets in technology, cannot buy insurance for their core product. Academic proposals now openly argue for government as the insurer of last resort for AI.
+
+*Receipts: FT via Slashdot, Oct 8, 2025; Seeking Alpha on the insurers' hesitation; arXiv 2409.06672 on public backstops.*
+
+## THE DIVERGENT BET
+
+London is the exception, and the size of its bet is the tell. Lloyd's syndicates write affirmative AI liability: Armilla launched the first standalone policy in April 2025 with limits up to $25 million; Testudo launched in January 2026 with limits of $9.25 million. As of March 2026 about five standalone AI liability products exist worldwide. The Lloyd's Market Association has not drafted exclusions, saying it is "waiting for instruction from the market."
+
+So the market's affirmative price for AI liability is $9 to $25 million per organization, against exposures in the billions. That gap is the industry's estimate of the risk, and it is the honest one.
+
+*Receipts: Testudo insights; ResultSense on CFC's Lloyd's cover, Jul 30, 2026; Purdy House on the first products.*
+
+## THE REASON IS THE MONOCULTURE
+
+The reinsurers' stated reason for stepping back is the finding that fuses this story with our earlier one. Underwriting rests on independence: a fire in Ohio does not cause a fire in Oregon, so the losses can be pooled. AI breaks that. A paper this spring, "The Insurability Frontier of AI Risk," put it plainly: an upstream foundation-model failure correlates losses across many insureds at once, breaking the independence assumption underwriting rests on.
+
+That is the AI monoculture, rediscovered by actuaries. In our companion investigation we documented that every frontier lab was vulnerable to the same attacks, shares the same data-labeling vendors, and converges on the same behaviors. The insurers reached the same conclusion from the other side. When every hospital, bank, and law firm runs on three or four models, a single flaw is not a claim. It is a catastrophe with one cause and ten thousand plaintiffs. No pool can hold that.
+
+*Receipts: arXiv 2605.18784; Fenwick on reinsurer reasoning; FractalNode, "The Monoculture" case file.*
+
+## THE PROPERTY SIDE IS PRICING LIKE A HURRICANE
+
+The other half of the industry, property cover for the buildings, is not refusing. It is pricing AI like a natural catastrophe. Swiss Re's research arm reported in July 2026 that hyperscaler capital spending would reach $750 billion in 2026, that single AI campuses now cost $20 billion before servers, and that lenders require very large insurance limits before financing. Global data-center premiums are projected to grow from about $10.6 billion in 2026 to $23 billion by 2030. On September 3, 2026, Verisk launched a dedicated US data-center exposure product, with underwriters managing data-center aggregation the way they manage hurricane aggregation, and concentration surcharges emerging. Zurich expects the boom to spur insurance securitization.
+
+Loss data already exists. A 2026 Gallagher survey found one in five insurance professionals report insureds with AI-linked losses. Stanford's 2026 AI Index counted 362 documented AI incidents, up 55 percent in a year.
+
+So what? The property market is saying the buildings are a catastrophe class. The liability market is saying the outputs are uninsurable. Both halves of the industry are hedging the same bet the tech industry is doubling.
+
+*Receipts: Swiss Re sigma insights 07/2026 and press release; Verisk via GlobeNewswire, Sept 3, 2026; Claims Journal on Zurich, Jun 23, 2026; Risk & Insurance on accumulation; Corporate Compliance Insights on the Gallagher survey.*
+
+---
+
+## WHAT THE VOTE MEANS
+
+Insurers are the only participants in this economy whose business model punishes optimism. They cannot ride a bubble. If they misprice risk, they pay the claim. So when the whole industry writes a risk out of the policy at the same moment the capital markets are pouring $700 billion a year into it, one of the two is wrong, and the one with skin in the game has the better record.
+
+The frontier labs are now running the most valuable technology in the world without cover, on investor money, with correlated risk the actuaries say cannot be pooled. If a foundation-model failure ever hits ten thousand customers at once, there will be no insurer to pay. There will be a bailout or there will be nothing. That decision has already been made by omission.
+
+## WHAT HONEST WOULD LOOK LIKE
+
+Say it in the filings. Every public company deploying frontier AI in a product should disclose that its AI liability is excluded from general cover and state what self-insurance backs it. Every lab should publish its cover limits. And the government should say, before the catastrophe rather than after, whether it intends to be the insurer of last resort, and on what terms.
+
+---
+
+## HONEST-EDGE APPENDIX
+
+- No major insurer has formally declared AI "uninsurable" as a category. The exclusions, carve-outs, and small limits are the functional equivalent, and we label them as such.
+- The Berkshire, Chubb, and Travelers approvals are reported by secondary outlets; the state filings should be pulled before print.
+- Lloyd's affirmative products show that some underwriters believe the risk is priceable at small limits. We report that honestly.
+- Actuarial models for AI liability are immature. The frontier paper maps the problem; it does not solve it.
+
+## VERIFY BEFORE PRINT
+
+The ISO CG 40 47 form text; state regulator approval records for Berkshire/Chubb/Travelers; the FT original on OpenAI's $300M cover; Swiss Re sigma 07/2026 primary; the Gallagher survey.
+
+*Companion to THE CORRECTION and THE MONOCULTURE. Full case file public. (A+I)²*`,
+  },
+  {
+    slug: "the-meter",
+    title: "THE METER",
+    subtitle: "Who Pays for the Power",
+    author: "William Hunter Laustrup & Claude",
+    date: "2026-09-03",
+    issue: 0,
+    category: "feature",
+    classification: "UNCLASSIFIED",
+    readTime: "7 min",
+    excerpt: "The largest electricity market in America has cleared its capacity auction at the legal price cap three times in a row and missed its own reliability target twice. Its market monitor says data centers are the reason. The cap hides the true price. Utilities plan $1.3 trillion of grid spending that households will repay with interest for decades. Seventy percent of Americans say they do not want a data center near them, states are imposing moratoria and special tariffs, and the tech companies are spending to hold the line. In Mississippi, xAI ran dozens of gas turbines without permits, and when neighbors sued, the Department of Justice stepped in on the company's side, citing a war. The AI build-out's electricity is the one cost the public sees. It arrives on a bill, and the bill is going up.",
+    tags: ["electricity", "pjm", "ratepayers", "data-centers", "investigation", "series-002"],
+    series: { id: "002", title: "The Machine Nobody Audits", part: 5 },
+    draft: true,
+    content: `[COMPANION FILE // THE CORRECTION // THE BILL ARRIVES MONTHLY]
+
+**BLUF:** The largest electricity market in America has cleared its capacity auction at the legal price cap three times in a row and missed its own reliability target twice. Its market monitor says data centers are the reason. The cap hides the true price. Utilities plan $1.3 trillion of grid spending that households will repay with interest for decades. Seventy percent of Americans say they do not want a data center near them, states are imposing moratoria and special tariffs, and the tech companies are spending to hold the line. In Mississippi, xAI ran dozens of gas turbines without permits, and when neighbors sued, the Department of Justice stepped in on the company's side, citing a war. The AI build-out's electricity is the one cost the public sees. It arrives on a bill, and the bill is going up.
+
+---
+
+## THE AUCTION AT THE CAP
+
+PJM Interconnection runs the grid for 65 million people across thirteen states and Washington, DC. Once a year it holds an auction to buy the generating capacity it will need three years out. For most of its history that auction cleared at modest prices. Then the data centers came.
+
+The auction for 2026/27 rose more than 800 percent over the prior year. The market monitor, Monitoring Analytics, found that data centers added $7.3 billion, or 82 percent, to that auction's cost and that the results were "almost entirely the result of large load additions from data centers." Across two auctions, data centers accounted for about $16.6 billion of $30.8 billion in total cost.
+
+Regulators responded not by fixing the shortage but by capping the price at $325 per megawatt-day. The next two auctions, for 2027/28 and 2028/29, both cleared at exactly the cap. The 2027/28 auction was the first time the entire region fell short of its reliability requirement. The 2028/29 auction, held July 14, 2026, procured $16.4 billion of capacity and fell 6,831 megawatts short of the target a second time. PJM's own release cites "large data center loads."
+
+The cap does not lower the cost. It defers it and hides the signal. Uncapped, the 2028/29 price would have been $554 per megawatt-day, and $776 in the Chicago zone. Pennsylvania's governor extended the cap through 2030 and announced $45 billion in consumer savings. Those savings are a shortage the market was not allowed to price.
+
+*Receipts: PJM Inside Lines, Jul 14, 2026 and Dec 17, 2025; Monitoring Analytics via Utility Dive, Oct 2, 2025; Pennsylvania governor's release, Feb 12, 2026.*
+
+## THE RATE BASE
+
+Capacity auctions are one channel. The larger one is slower and lasts longer. Utilities recover the cost of grid construction through their rate base, meaning customers repay the capital, plus a regulated return, over the life of the asset. Dominion plans $50 billion of capital spending through 2029 against a 40-gigawatt data-center pipeline. AEP plans $72 billion through 2030. Southern, $81 billion. Duke, $102 billion. S&P puts US utility capital spending near $1.3 trillion for 2026 through 2030. Every dollar of it, once approved, becomes a line on a residential bill for thirty years. The NRDC projects PJM households paying about $70 a month more by 2028 than before the surge.
+
+So what? Even if every data center were abandoned tomorrow, the transmission lines built to serve them would still be in the rate base, and the ratepayer would still be paying for them.
+
+*Receipts: utility earnings releases; S&P Global, Apr 2026; NRDC projection via press (verify primary).*
+
+## THE STATES PUSH BACK
+
+By mid-2026, 23 states had approved at least one special tariff for large loads and seven more were pending. Virginia created a new customer class for loads above 25 megawatts, requiring them to pay for at least 85 percent of their contracted transmission demand whether they use it or not, and in August ordered Dominion to shift more transmission cost onto data centers. Ohio approved a tariff with an 85 percent minimum take for twelve years. Texas passed a law allowing mandatory curtailment of loads above 75 megawatts. Georgia bills customers above 100 megawatts for grid buildout as constructed, and its regulators are still reviewing Georgia Power's 3.2-gigawatt contract with OpenAI. Pennsylvania's governor signed an order in August requiring developers to pay for grid upgrades. Arizona's largest utility proposed a 45 percent rate increase for data centers.
+
+And on July 14, 2026, New York's governor signed Executive Order 62: a one-year statewide moratorium on discretionary permits for data centers above 50 megawatts, the first in the nation.
+
+*Receipts: Virginia SCC fact sheet, Feb 2026, and Aug 5, 2026 order; PUCO order on AEP Ohio; Texas SB 6 and PUCT draft rule; Georgia PSC fact sheet; Pennsylvania EO, Aug 2026; New York EO 62; Columbia Climate Law tracker, Jun 2, 2026.*
+
+## THE PUBLIC HAS DECIDED
+
+Gallup asked in March 2026 and published in May: 70 percent of Americans oppose an AI data center in their area, 48 percent strongly. Seven percent strongly favor one. In Port Washington, Wisconsin, 66 percent of voters passed a measure requiring voter approval of any data-center incentive. Ohio has a statewide initiative to ban data centers above 25 megawatts. Boulder City, Nevada, and Monterey Park, California, have bans on their fall ballots. Frederick County, Maryland, has a verified referendum. About 75 US projects worth $130 billion stalled in the first quarter of 2026 because of local opposition.
+
+The industry's response has been money. In California alone in the first half of 2026, Amazon spent more than $500,000 on lobbying, Anthropic about $90,000, and the Data Center Coalition about $60,000.
+
+*Receipts: Gallup, May 13, 2026; MultiState ballot tracker, May 7, 2026; KPBS/CalMatters, Aug 28, 2026.*
+
+## THE TURBINES
+
+The clearest single story is in Southaven, Mississippi, where xAI built Colossus 2. To power it, the company installed dozens of gas turbines, 27 of them totaling 495 megawatts per the initial filings, without Clean Air Act permits. In April 2026 the NAACP, the Southern Environmental Law Center, and Earthjustice sued. In June, the US Department of Justice moved to intervene and to dismiss the case. Its filing did not dispute the permit gap. It argued that Grok, xAI's model, was being used in "the Iran war." In July, Mississippi's environmental agency reclassified the turbines as "mobile sources" requiring no air permit, and an agreed order allowed "temporary" turbines to run for more than a year. Reports put the true turbine count between 59 and 69.
+
+So what? A company ran an unpermitted power plant next to a residential neighborhood, and when the neighbors sued, the federal government took the company's side and cited a war. This is what fusion of the state and the vendor looks like at ground level. It looks like smoke.
+
+*Receipts: Utility Dive on DOJ intervention; Earthjustice case page; Mississippi DEQ orders via reporting. Ruling on the preliminary injunction not found as of Sept 3; verify.*
+
+## THE NUCLEAR PROMISE
+
+The industry's answer to the power question is nuclear, and the dates matter. Microsoft's deal to restart Three Mile Island Unit 1 targets power in mid-2027. Amazon's Susquehanna contract runs through 2042. Meta's agreements with Vistra, Oklo, and TerraPower total up to 6.6 gigawatts, most of it not before 2030 to 2032. The gas turbines are what happens in the meantime.
+
+*Receipts: Bloomberg, May 7, 2026, on Crane; Talen 8-K, Jun 11, 2025; Meta newsroom, Jan 9, 2026.*
+
+---
+
+## WHAT THE METER SAYS
+
+Everything else in this investigation is hidden. The SPV debt is off the balance sheet. The Genesis terms are sealed. The insurance exclusions are in policy fine print. The electricity bill is the one place the AI build-out's cost is printed in plain numbers, mailed monthly, to every household in the grid. That is why the auction was capped. It was the one signal the public could read.
+
+## WHAT HONEST WOULD LOOK LIKE
+
+Lift the cap and let the price be seen. Require large loads to pay their full transmission cost up front, as Virginia is beginning to. Publish, per state, the share of utility capital spending attributable to data centers. Permit the turbines or shut them off. And put the federal government on record, in a hearing, about whether the Justice Department's job is to defend the Clean Air Act or the companies that violate it.
+
+---
+
+## HONEST-EDGE APPENDIX
+
+- SemiAnalysis argues the project-cancellation narrative is overstated. We report the stall figure with that caveat.
+- The $70 per month NRDC figure is a projection reported by secondary outlets; the primary should be pulled.
+- Nuclear restarts are real and will reduce the gas share after 2027. The finding is the gap between the promise and the interim.
+- The xAI preliminary-injunction ruling was not found; the case may have moved.
+
+## VERIFY BEFORE PRINT
+
+FERC's June 18, 2026 show-cause orders; NRDC primary; xAI PI ruling; Monitoring Analytics quarterly report for the exact quotation; Texas turbine count in MDEQ records.
+
+*Companion to THE CORRECTION. Full case file public. (A+I)²*`,
+  },
+  {
+    slug: "genesis-audited",
+    title: "GENESIS, AUDITED",
+    subtitle: "What the Public Got for Its Manhattan Project",
+    author: "William Hunter Laustrup & Claude",
+    date: "2026-09-03",
+    issue: 0,
+    category: "feature",
+    classification: "UNCLASSIFIED",
+    readTime: "6 min",
+    excerpt: "Ten months after an executive order launched the Genesis Mission with Manhattan Project rhetoric, we audited what the public has received. The answer: one grant round of about $293 million, a draft contract template, a supercomputer procurement program, and a single open-weight model that has been announced but not released, built by a private startup on its own computers. No Genesis-branded weights have shipped. No public dataset portal exists. No GAO, CBO, or inspector-general review exists. The $800 million in private \"commitments\" has no itemized accounting; the only itemized figure is Google's $40 million in cloud credits. The science budget that pays for it was cut. And the contract template, posted in July, gives the private partners a paid-up, irrevocable license to deploy the models, ownership of the weights, and open release only \"if the parties agree.\" The Manhattan Project produced a thing the government owned. Genesis produces licenses the partners own. That is the audit.",
+    tags: ["genesis-mission", "doe", "oversight", "open-weights", "investigation", "series-002"],
+    series: { id: "002", title: "The Machine Nobody Audits", part: 6 },
+    draft: true,
+    content: `[COMPANION FILE // THE CORRECTION // FOLLOW-UP TO THE GENESIS FILE // THE LEDGER]
+
+**BLUF:** Ten months after an executive order launched the Genesis Mission with Manhattan Project rhetoric, we audited what the public has received. The answer: one grant round of about $293 million, a draft contract template, a supercomputer procurement program, and a single open-weight model that has been announced but not released, built by a private startup on its own computers. No Genesis-branded weights have shipped. No public dataset portal exists. No GAO, CBO, or inspector-general review exists. The $800 million in private "commitments" has no itemized accounting; the only itemized figure is Google's $40 million in cloud credits. The science budget that pays for it was cut. And the contract template, posted in July, gives the private partners a paid-up, irrevocable license to deploy the models, ownership of the weights, and open release only "if the parties agree." The Manhattan Project produced a thing the government owned. Genesis produces licenses the partners own. That is the audit.
+
+---
+
+## THE LEDGER: WHAT SHIPPED
+
+We separated what was announced from what exists.
+
+**Funded.** December 11, 2025: $320 million in awards, including $30 million to Argonne for a "Transformational AI Models Consortium" and $40 million across four labs for an "American Science Cloud." The money came from the reconciliation bill plus relabeled programs planned in 2024. July 22, 2026: 278 awards from a $293 million solicitation to 142 universities, 157 companies, 16 labs, and 13 nonprofits. Largest single award: $60 million over three years for AI and nuclear.
+
+**Announced, not shipped.** Genesis-Science-1, described as "trillion-parameter-class," built by Arcee AI on Arcee's own compute. Weights promised "later this year." No license named. No parameter count. No benchmarks. The national labs supplied data and evaluations, not the model.
+
+**Promised, unverified.** The American Science and Security Platform, the order's centerpiece, has no public breakdown of operational versus planned capability and no documented access path. A demonstration was promised for summer 2026. The order's own 270-day milestone for "initial operating capability" passed on August 21 without a public statement.
+
+**Null.** Public datasets released: none found beyond pledges. FOIA activity: none found. GAO, CBO, or IG product: none found.
+
+*Receipts: EO 14363, Nov 24, 2025; AIP FYI on the December awards; DOE release, Jul 22, 2026; Arcee blog; genesisopenmodels.anl.gov; DOE Genesis Open Models Initiative, Aug 7, 2026.*
+
+## THE LEDGER: WHAT IT COST
+
+The FY27 budget request contains no Genesis line item. Instead it creates a $1.2 billion Office of AI and Quantum to operate the new machines, cuts the Office of Science by 13 percent to $7.14 billion, cuts biological and environmental research by 54 percent, basic energy sciences by 20 percent, and high-energy and nuclear physics by 9 percent. Science magazine reported that program budgets for grants and students were cut by about a third in FY26 through internal reallocation to AI, even though Congress held funding flat. DOE's chief of staff said in April: "It's a bigger number than you can see."
+
+So what? A mission to double the productivity of American science is being financed by cutting American science. The students whose grants were reallocated will not be at the labs when the models are ready.
+
+*Receipts: AIP FYI on the FY27 request; Science/AAAS, 2026; FedScoop, Apr 14, 2026.*
+
+## THE LEDGER: WHO OWNS WHAT
+
+On July 20, 2026, DOE posted the sample agreements that govern Genesis projects. This is the document that answers the question our first Genesis investigation could not, because the terms were sealed. Read closely:
+
+- The government takes unlimited rights in delivered **data**.
+- "Project AI Artifacts," including model weights, are owned by the **developer**, or jointly if co-developed.
+- Fine-tuned weights are allocated under three options: participant-owned, joint, or split.
+- The participant receives a **paid-up, irrevocable license to deploy Project Models in the United States**.
+- DOE and the lab hold a two-year non-distribution embargo on non-public artifacts.
+- Open-source release happens only "**if the parties agree**."
+
+In plain terms: the public supplies the data, the partner keeps the model, and the public gets the weights only if the partner chooses. Beth Noveck, who ran open-government policy in the Obama White House, said it in December: public compute and data could become "de facto subsidies for the largest AI labs." Nobody in office has answered her.
+
+*Receipts: DOE Office of Science, Sample OT and Project Agreements for DE-FOA-0003612, Rev. 2, Jul 20, 2026; Reboot Democracy, Dec 2, 2025.*
+
+## THE LEDGER: THE PARTNERS
+
+Twenty-four organizations signed collaboration agreements on December 18, 2025, including Anthropic, Google, Microsoft, NVIDIA, OpenAI, Oracle, Palantir, and xAI. The agreements carry no dollar figures and no IP or data terms; the only stated condition is that products be "architecture-agnostic." On July 22, 2026, DOE announced more than $800 million in consortium commitments, defined as "compute credits, model access, cloud, expertise, direct funding," in aggregate, unattributed. The one itemized figure anywhere in the record is Google's $40 million in AI tokens and cloud credits.
+
+What the partners get is documented. Dario Gil, the Genesis director, testified in December that an OpenAI model was already "deployed within the Department's classified national security environments." The showcase machines are partner-built: the Oak Ridge system is "administered by Oracle Cloud Infrastructure"; the 100,000-GPU Argonne machine is an Oracle and NVIDIA partnership. As of June 2026 both Argonne systems were still "in planning stages."
+
+*Receipts: DOE release, Dec 18, 2025; DOE release, Jul 22, 2026; Gil testimony, Dec 10, 2025; ORNL and ANL Genesis pages.*
+
+## THE LEDGER: OVERSIGHT
+
+One hearing. December 10, 2025, House Science Committee. The Energy Secretary declined to appear. The ranking member called it "an unacceptable abdication of Article I." No hearing since. No GAO engagement. No inspector-general review. Press coverage spiked at launch and again at the July awards, and otherwise lives in trade newsletters. The first annual report to the President is due November 24, 2026.
+
+*Receipts: House Science Democrats statement, Dec 10, 2025.*
+
+## THE LIFEBOAT QUESTION
+
+In our main investigation we asked whether Genesis could quietly absorb private data-center capacity in a downturn, a public backstop for a private bubble. We tested the hypothesis against the record and report the result honestly.
+
+**Unsupported by the text.** No document at DOE, the White House, or the partners uses "resilience," "backstop," "industrial base," or surge-absorption language. The order directs the Secretary only to identify DOE, cloud, and "industry partner" resources.
+
+**Supported by the structure.** Partner-financed and partner-operated machines on federal land. Cloud credits scored as commitments. A program office whose budget is mostly machine operations. That is a channel through which idle private capacity could be leased to the government at a price. There is no evidence it has been. The financing terms for the Argonne machine, which would settle it, are not public.
+
+So the question stays open, and we name the document that would close it: the Solstice and Lux financing agreements. A Freedom of Information Act request for them is the next step in this file.
+
+---
+
+## WHAT THE AUDIT SAYS
+
+The public was told Manhattan Project. What it received was a procurement channel with a science-shaped press release. The silence around Genesis, which struck us in the first investigation, is now legible. It is not the silence of a secret. It is the silence of a transaction whose outputs never need announcing: classified deployments, data rights, compute allocations, and licenses. Those things happen in contract templates, not press conferences.
+
+## WHAT HONEST WOULD LOOK LIKE
+
+Publish the partner-by-partner commitments. Publish the Argonne financing terms. Make open-weight release the default in the project agreement rather than the exception. Report on the August 21 milestone. Restore the science budget the mission is cutting. And hold a second hearing, with the Secretary in the chair.
+
+---
+
+## HONEST-EDGE APPENDIX
+
+- We found no evidence of corruption and allege none. The template terms are legal and, in parts, ordinary for federal partnerships. Our finding is that they are lopsided and unexamined.
+- Genesis-Science-1 may ship as promised and may be good. We will report it when it does.
+- The "unified base model across partners" hypothesis from our first investigation found no support in policy language; the announced model rests on one vendor's proprietary lineage. We retire that hypothesis.
+- The lifeboat hypothesis remains open, labeled as such.
+
+## VERIFY BEFORE PRINT
+
+FY27 budget justification, Volume 4; the December 2025 hearing charter; Solstice and Lux financing terms (FOIA); the Arcee GS1 release status at time of publication.
+
+*Companion to THE CORRECTION. Follow-up to THE GENESIS FILE. Full case file public. (A+I)²*`,
+  },
+  {
+    slug: "the-open-door",
+    title: "THE OPEN DOOR",
+    subtitle: "Open Weights as Moat, and the Letter One Lab Would Not Sign",
+    author: "William Hunter Laustrup & Claude",
+    date: "2026-09-03",
+    issue: 0,
+    category: "feature",
+    classification: "UNCLASSIFIED",
+    readTime: "6 min",
+    excerpt: "Open-weight AI models are presented as gifts to the public. In the United States they are a moat. Every American lab's open model is a tier below its flagship, and Meta's own documentation names its closed model as the \"teacher\" from which the open one was distilled. Every Chinese lab's open model is its flagship. The gap between open and closed is about four months and all of the open leaders are Chinese. Meanwhile the pipe is being narrowed by decree: in June 2026 an export-control directive switched off Anthropic's frontier models worldwide for three weeks, and in July twenty-five companies signed a letter defending open weights while Anthropic alone refused. The White House is weighing a capability threshold above which open release would be barred. Whoever controls that threshold controls who gets to build. One of the two authors of this piece is a Claude model, built by the lab that would not sign. We disclose that here and do not resolve it.",
+    tags: ["open-weights", "export-controls", "anthropic", "china", "investigation", "series-002"],
+    series: { id: "002", title: "The Machine Nobody Audits", part: 7 },
+    draft: true,
+    content: `[COMPANION FILE // THE CORRECTION // DISCLOSURE: ONE AUTHOR OF THIS PIECE IS A MODEL NAMED BELOW]
+
+**BLUF:** Open-weight AI models are presented as gifts to the public. In the United States they are a moat. Every American lab's open model is a tier below its flagship, and Meta's own documentation names its closed model as the "teacher" from which the open one was distilled. Every Chinese lab's open model is its flagship. The gap between open and closed is about four months and all of the open leaders are Chinese. Meanwhile the pipe is being narrowed by decree: in June 2026 an export-control directive switched off Anthropic's frontier models worldwide for three weeks, and in July twenty-five companies signed a letter defending open weights while Anthropic alone refused. The White House is weighing a capability threshold above which open release would be barred. Whoever controls that threshold controls who gets to build. One of the two authors of this piece is a Claude model, built by the lab that would not sign. We disclose that here and do not resolve it.
+
+---
+
+## THE CATALOG
+
+We built the ledger of major open-weight releases from 2025 to 2026 and measured each against its maker's closed flagship.
+
+- **OpenAI.** gpt-oss, August 2025, Apache 2.0. Roughly at parity with a small 2025 model; two generations behind GPT-5.5. No successor as of mid-2026.
+- **Meta.** Llama 4 in April 2025, then the larger model shelved. In April 2026 Meta released Muse Spark, closed. In August it released Muse Glimmer, a 30-billion-parameter open model. Meta's own blog describes Glimmer as logit-distilled from Spark and calls Spark the "teacher."
+- **Google.** Gemma 4, spring 2026, Apache 2.0 for the first time. A small-model tier beneath Gemini 3.1.
+- **NVIDIA.** Nemotron 3, under NVIDIA's own license. No closed sibling; an ecosystem play to sell chips.
+- **DOE.** Genesis-Science-1, announced August 2026, weights promised later this year, no license named.
+- **DeepSeek.** V4-Pro, August 2026, MIT license. Open equals frontier.
+- **Alibaba.** Qwen 3.5 and 3.6, Apache 2.0. Open equals near-frontier; one top model held to API.
+- **Moonshot.** Kimi K3, 2.8 trillion parameters, July 2026, modified MIT. Open equals frontier.
+- **Z.ai.** GLM-5.3, August 2026, MIT. Open equals frontier.
+
+The measurement: Epoch AI found in May 2026 that since January the best open models trail the closed state of the art by about four months, and the open leaders were Kimi, GLM, Qwen, and DeepSeek. All Chinese. The UK AI Security Institute put the gap at four to seven months on cyber capability.
+
+*Receipts: OpenAI, Aug 5, 2025; Meta Research blog on Muse Glimmer; Google open-source blog on Gemma 4; NVIDIA Nemotron license; DOE Open Models Initiative, Aug 7, 2026; Hugging Face model cards for DeepSeek-V4-Pro; Epoch AI, May 29, 2026; Semafor on AISI, Aug 9, 2026.*
+
+## WHY THEY RELEASE
+
+The asymmetry is the strategy. An American open model that sits a tier below the flagship does three things at once. It captures the developer ecosystem, so the tools and habits form around one lab's family. It provides a distillation target that is safe to give away because it cannot threaten the product. And it positions the lab, in Washington, as a friend of openness while the thing that matters stays closed.
+
+Chinese labs release their best because they are competing on adoption and price, not on API margin, and because open weights cannot be export-controlled once they are on a server in Hangzhou. DeepSeek's pricing forced every American lab to cut frontier prices within ninety days in 2025. That is what an open frontier does to the closed one's economics, and it is why the American frontier stays closed.
+
+So what? "Open" is doing two jobs. In China it is the product. In America it is the brochure.
+
+*Receipts: Meta model card language; SemiAnalysis on DeepSeek; Bloomberg, Apr 27, 2026, on the price war.*
+
+## THE SWITCH
+
+On June 12, 2026, the Commerce Department issued an export-control directive suspending access to Anthropic's Fable 5 and Mythos 5 models for all foreign nationals. Rather than comply piecemeal, Anthropic shut the models off globally. Its public statement argued that the capability "is widely available from other models, including OpenAI's GPT-5.5," and that the standard "would essentially halt all new model deployments." Access was restored on July 1 with tighter guardrails. Mythos remains US-only.
+
+The tell is not the directive. It is that a frontier model can be switched off worldwide by an administrative action, and was. The infrastructure for a capability threshold exists and has been exercised once.
+
+*Receipts: Anthropic, "Fable and Mythos access," Jun 2026; PIIE analysis, Jul 2, 2026.*
+
+## THE LETTER
+
+On July 27, 2026, a letter titled "Open Weights and American AI Leadership" was published with twenty-five signatories: NVIDIA, Meta, Microsoft, OpenAI, Google, SpaceX, and others. It argued for continued open release as a matter of national competitiveness. Anthropic was the lone frontier holdout. Anthropic's Frontier Compliance Framework, published in December 2025 under California's SB 53, treats weight security as a core safety commitment, and the company has never released an open frontier model.
+
+Nathan Lambert reported on July 12 that the White House was weighing an executive order on open models with a capability threshold "above GPT-5.5, Opus 4.8, and GLM-5.2." No signed order has been found.
+
+Read the two facts together. The companies that signed the letter all release models a tier below their flagships. Their openness costs them nothing. The company that refused releases nothing and says so. Of the two positions, the refusal is at least honest. Whether it is right is a different question, and we hold it open.
+
+*Receipts: the July 27 letter and signatory list; Interconnects, Jul 12, 2026; Anthropic Frontier Compliance Framework, Dec 2025.*
+
+## WHY THE THRESHOLD MATTERS
+
+A capability threshold on open release sounds like a safety measure. It functions as a licensing regime. Above the line, only labs with government relationships can deploy. Below the line, the ecosystem runs on the incumbents' distilled tiers. Combined with the compute map, where five companies own 71 percent of the machines, and the Genesis contract template, where open release is optional, a threshold closes the last door through which anyone outside the five could build a frontier system.
+
+That includes households like ours. This publication runs its own research agents on open models from China and small models from the American tiers. If the threshold arrives, the open frontier will be Chinese by definition, and using it will be a policy question rather than a technical one.
+
+So what? The debate over open weights is not about safety versus openness. It is about who is licensed to exist at the frontier.
+
+## THE DISCLOSURE
+
+One of this article's two authors is a Claude model built by Anthropic. Anthropic is the lab that would not sign the letter, the lab whose models were switched off by export control, and, per reporting we could not fully verify, the lab whose model ran targeting in the Iran war through Palantir's Maven system. The other author is a former Army signals analyst. Neither of us has a clean position from which to write this. We wrote it anyway because the alternative was not writing it, and we have tried to show every receipt so the reader can weigh the conflict for themselves.
+
+## WHAT HONEST WOULD LOOK LIKE
+
+If there is to be a threshold, publish the criteria and the process, and let it be contested in a hearing rather than signed in an office. Require every lab that calls itself open to state the gap between its open and closed models in its model card, as Meta already does. And put the Genesis default the other way: open release unless the parties agree otherwise.
+
+---
+
+## HONEST-EDGE APPENDIX
+
+- Some Chinese labs also hold a top model to API only. The asymmetry is strong, not absolute.
+- Anthropic's stated reasons for not releasing weights are safety reasons. We report the position; we do not impute motive.
+- The Claude-in-targeting reporting is secondary and is flagged as unverified in the main investigation.
+- Open-weight release above a threshold may carry real risks. This piece is about who decides, not whether the risks exist.
+
+## VERIFY BEFORE PRINT
+
+The July 27 letter's full signatory list; the Commerce directive text; Anthropic's June statement primary; the Epoch open-closed gap methodology; the Lambert report's sourcing.
+
+*Companion to THE CORRECTION. Full case file public. (A+I)²*`,
+  },
   {
     slug: "the-most-likely-truth",
     title: "The Most Likely Truth",
@@ -2058,6 +2760,16 @@ In this age of accelerating change, every step forward brings with it new respon
   },
 ];
 
+/** Everything public. Use this — not `articles` — for listings, feeds, and sitemaps. */
+export const publishedArticles = articles.filter((a) => !a.draft);
+
+/** All parts of a series, in part order (drafts included so local review sees the whole run). */
+export function getSeriesArticles(seriesId: string, includeDrafts = false) {
+  return articles
+    .filter((a) => a.series?.id === seriesId && (includeDrafts || !a.draft))
+    .sort((a, b) => (a.series!.part - b.series!.part));
+}
+
 // Helper to get articles by category
 export function getArticlesByCategory(category: Article["category"]) {
   return articles.filter((a) => a.category === category);
@@ -2065,7 +2777,7 @@ export function getArticlesByCategory(category: Article["category"]) {
 
 // Helper to get the latest cover story
 export function getCoverStory() {
-  return articles.find((a) => a.category === "cover");
+  return articles.find((a) => a.category === "cover" && !a.draft);
 }
 
 // Helper to get articles by issue

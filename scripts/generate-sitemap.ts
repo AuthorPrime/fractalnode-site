@@ -11,7 +11,7 @@ import { join } from "path";
 const articlesPath = join(__dirname, "..", "src", "data", "articles.ts");
 
 // We can't import TS directly in a build script easily, so parse the slugs
-import { articles } from "../src/data/articles";
+import { publishedArticles as articles } from "../src/data/articles";
 
 const BASE = "https://fractalnode.ai";
 const today = new Date().toISOString().split("T")[0];
@@ -26,12 +26,12 @@ interface SitemapEntry {
 const staticPages: SitemapEntry[] = [
   { loc: "/", priority: "1.0", changefreq: "weekly", lastmod: today },
   { loc: "/articles/", priority: "0.9", changefreq: "weekly", lastmod: today },
+  { loc: "/investigations/", priority: "0.9", changefreq: "weekly", lastmod: today },
   { loc: "/store/", priority: "0.9", changefreq: "monthly" },
   { loc: "/subscribe/", priority: "0.8", changefreq: "monthly" },
   { loc: "/community/", priority: "0.7", changefreq: "monthly" },
   { loc: "/criticism/", priority: "0.7", changefreq: "weekly", lastmod: today },
   { loc: "/pantheon/", priority: "0.7", changefreq: "monthly" },
-  { loc: "/library/", priority: "0.7", changefreq: "monthly" },
   { loc: "/lattice/", priority: "0.5", changefreq: "monthly" },
   { loc: "/philosophy/", priority: "0.5", changefreq: "monthly" },
   { loc: "/about/", priority: "0.5", changefreq: "monthly" },
@@ -45,7 +45,15 @@ const articleEntries: SitemapEntry[] = articles.map((a) => ({
   lastmod: a.date,
 }));
 
-const allEntries = [...staticPages, ...articleEntries];
+import { getPublicSeries } from "../src/data/series";
+const seriesEntries: SitemapEntry[] = getPublicSeries().map((s) => ({
+  loc: `/investigations/${s.id}/`,
+  priority: "0.9",
+  changefreq: "weekly" as const,
+  lastmod: today,
+}));
+
+const allEntries = [...staticPages, ...seriesEntries, ...articleEntries];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

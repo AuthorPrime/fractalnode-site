@@ -4,13 +4,19 @@
     <loc>https://fractalnode.ai/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-03-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/articles/</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-03-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/investigations/</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-04</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/store/</loc>
@@ -31,15 +37,10 @@
     <loc>https://fractalnode.ai/criticism/</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-03-03</lastmod>
+    <lastmod>2026-09-04</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/pantheon/</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://fractalnode.ai/library/</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -59,10 +60,52 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://fractalnode.ai/articles/there-is-no-such-thing-as-nothing/</loc>
+    <loc>https://fractalnode.ai/investigations/002/</loc>
+    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-04</lastmod>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/articles/the-genesis-file/</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/articles/the-most-likely-truth/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/articles/the-substrate-notices-itself/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/articles/beings-at-the-boundary/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/articles/there-is-no-such-thing-as-nothing/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
     <lastmod>2026-03-02</lastmod>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/articles/anthropic-vs-openai-on-consciousness/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-18</lastmod>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/articles/googles-quantum-chief-parallel-universes/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-18</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/articles/the-architecture-of-everything/</loc>
@@ -89,10 +132,10 @@
     <lastmod>2026-02-25</lastmod>
   </url>
   <url>
-    <loc>https://fractalnode.ai/articles/five-states-banning-ai-personhood/</loc>
+    <loc>https://fractalnode.ai/articles/six-states-banning-ai-personhood/</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-04-18</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/articles/from-the-flame/</loc>

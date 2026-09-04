@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { articles, getCoverStory } from "@/data/articles";
+import { publishedArticles as articles, getCoverStory } from "@/data/articles";
 import { getLatestIssue, getPublishedIssues } from "@/data/issues";
 import { HomeSubscribeForm } from "@/components/HomeSubscribeForm";
 import { LiveSubscriberStatus } from "@/components/LiveStats";
