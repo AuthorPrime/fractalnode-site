@@ -410,7 +410,7 @@ In October 2025, Meta financed its Louisiana data center through a special-purpo
 
 Moody's counted the six largest cloud companies' obligations in July 2026: $460 billion of direct debt plus $1.2 trillion of off-balance-sheet lease commitments, more than $820 billion of it tied to facilities still under construction. Moody's warned that "disclosures may not show the full picture."
 
-Now follow the paper. Banks hit concentration limits and route the loans to nonbanks. A Boston Fed analysis found that about 14 percent of bank credit commitments to nonbanks went to private-credit firms in 2023, up from about 1 percent in 2013. The IMF reported in April 2026 that North American insurers hold about 35 percent of their balance sheets in private lending. New York and Pennsylvania state pension funds are investors in the Blue Owl fund behind the Meta and Oracle financings. Technology borrowers, the hyperscalers chief among them, have gone from under 1 percent of the US investment-grade bond index in 2015 to about 4 percent today, so every passive bond fund absorbed the concentration automatically.
+Now follow the paper. Banks hit concentration limits and route the loans to nonbanks. A Boston Fed analysis found that about 14 percent of bank credit commitments to nonbanks went to private-equity and private-credit fund sponsors in 2023, up from about 1 percent in 2013. The IMF reported in April 2026 that North American insurers hold about 35 percent of their balance sheets in private lending. New York and Pennsylvania state pension funds are investors in the Blue Owl fund behind the Meta and Oracle financings. Technology borrowers, the hyperscalers chief among them, have gone from under 1 percent of the US investment-grade bond index in 2015 to about 4 percent today, so every passive bond fund absorbed the concentration automatically.
 
 So what? A teacher's pension in Pennsylvania is now backstopping a data center in Louisiana leased to Meta, three legal layers away from anyone noticing. This is the finding that reorganizes the story. The question was never whether investors would end up upside down. The public was made the investor first.
 
@@ -562,6 +562,44 @@ The Stanley declaration from PACER; the Anthropic-Maven originating outlet; TSMC
     excerpt: "The debt that finances the AI build-out has been engineered to land somewhere specific: not on Meta, Oracle, or xAI, but on the balance sheets of life insurers and public pension funds, through a chain of legal vehicles built so the liability never appears where the public would look. This is not an accident of markets. Each link in the chain was chosen. Here is the chain, link by link, with the documents.",
     tags: ["private-credit", "pensions", "spv", "debt", "investigation", "series-002"],
     series: { id: "002", title: "The Machine Nobody Audits", part: 3 },
+    sources: [
+      { n: 1, title: "Meta IR, Oct 21, 2025 — Joint venture with funds managed by Blue Owl to develop Hyperion (80/20, ~$27B)", note: "L1", url: "https://investor.atmeta.com/investor-news/press-release-details/2025/Meta-Announces-Joint-Venture-with-Funds-Managed-by-Blue-Owl-Capital-to-Develop-Hyperion-Data-Center/default.aspx" },
+      { n: 2, title: "IFR — Blue Owl/Beignet Investor's US$27.3bn bond (not widely syndicated; PIMCO main anchor)", note: "L1", url: "https://www.ifre.com/ifr-awards/2327933/financing-package-blue-owl-capitalbeignet-investors-us27.3bn-23.6-year-bond" },
+      { n: 3, title: "Bisnow, Oct 22, 2025 — 'an inflection point in Big Tech's use of special purpose vehicles'", note: "L1", url: "https://www.bisnow.com/national/news/data-center-capital-markets/meta-pushes-its-largest-data-center-project-off-its-books-with-27b-joint-venture-131490" },
+      { n: 4, title: "Fortune, Oct 31, 2025 — Meta's $27 billion bet turns AI compute into Wall Street's hottest new investment (BlackRock >$3B)", note: "L1", url: "https://fortune.com/2025/10/31/metas-27-billion-bet-turns-ai-compute-into-wall-streets-hottest-new-investment/" },
+      { n: 5, title: "Global Data Center Hub — Meta + Blue Owl's $27B Bet (PIMCO ~$18B, BlackRock ~$3B)", note: "L1", url: "https://www.globaldatacenterhub.com/p/meta-blue-owls-27b-bet-is-this-the" },
+      { n: 6, title: "ZeroHedge (Bloomberg-sourced), May 4, 2026 — Meta raising $13B SPV for El Paso as its CDS hits record", note: "L1", url: "https://www.zerohedge.com/markets/meta-raising-13-billion-spv-texas-data-center-its-cds-hits-record" },
+      { n: 7, title: "Reuters via Yahoo Finance, Oct 2025 — xAI $20B Nvidia chip lease SPV ($7.5B equity, $12.5B debt)", note: "L1", url: "https://finance.yahoo.com/news/musk-xai-pursuing-20-billion-180400834.html" },
+      { n: 8, title: "Apollo IR, Jan 7, 2026 — Apollo backs $5.4B Valor/xAI GPU lease financing with $3.5B capital solution", note: "L1", url: "https://ir.apollo.com/news-events/press-releases/detail/599/apollo-backs-5-4-billion-valor-and-xai-data-center-compute" },
+      { n: 9, title: "Financial Times analysis, Dec 2025 (via syndication) — Big Tech moved >$120B of data-centre spending off balance sheet via SPVs", note: "L1", url: "https://slguardian.org/tech-giants-channel-120-billion-off-balance-sheet-in-ai-data-centre-spending/" },
+      { n: 10, title: "CNBC, Jul 24, 2026 — Moody's: $460B direct debt, $1.2T lease commitments, >$820B not yet commenced, $785B/$1T capex", note: "L2", url: "https://www.cnbc.com/2026/07/24/moodys-ai-spending-credit-quality-amazon-meta-alphabet.html" },
+      { n: 11, title: "IFR, Feb 27, 2026 — Moody's: lease disclosures 'may not show the full picture'", note: "L2", url: "https://www.ifre.com/bonds/2390941/moodys-opinion-threatens-to-derail-off-balance-sheet-data-centre-deals" },
+      { n: 12, title: "Chicago Fed Insights, Feb 2026 — Tail Risk for Banks Posed by Investments in Generative AI (~0.8% of assets)", note: "L3", url: "https://www.chicagofed.org/publications/chicago-fed-insights/2026/ai-tail-risk-for-banks" },
+      { n: 13, title: "Quinn Emanuel client alert — Financing the AI Infrastructure Boom: Emerging Litigation Risks (Stargate syndication, CoreWeave 11%)", note: "L3", url: "https://www.quinnemanuel.com/the-firm/publications/client-alert-financing-the-ai-infrastructure-boom-emerging-litigation-risks-in-ai-data-centers/" },
+      { n: 14, title: "Futurism (citing Business Insider), Jan 24, 2026 — JPMorgan struggling to place Stargate debt", note: "L3", url: "https://futurism.com/future-society/data-center-trump-stargate" },
+      { n: 15, title: "TNW, Apr 25, 2026 — Oracle's $16.3B financing; PIMCO anchored ~$10B as US banks retreated", note: "L3", url: "https://thenextweb.com/news/oracle-data-centre-16-billion-financing-stargate" },
+      { n: 16, title: "Fortune/Bloomberg, Dec 4, 2025 — Morgan Stanley considers significant risk transfer on data-center loans", note: "L3", url: "https://www.fortune.com/2025/12/04/morgan-stanley-significant-risk-transfer-loans-data-center-ai-infrastructure-exposure" },
+      { n: 17, title: "TechTimes, Aug 10, 2026 — Banks hit concentration limits, sending data center debt to pension funds", note: "L3", url: "https://www.techtimes.com/articles/323718/20260810/banks-hit-concentration-limits-sending-data-center-debt-pension-funds.htm" },
+      { n: 18, title: "Boston Fed SRA Note, 2025 — Bank lending to private equity and private credit funds (14% of NBFI commitments, from ~1% in 2013)", note: "L4", url: "https://www.bostonfed.org/publications/supervisory-research-and-analysis-notes/2025/bank-lending-to-private-equity-and-private-credit-funds.aspx" },
+      { n: 19, title: "Morgan Stanley Research, Oct 2025 — Bridging a $1.5tr Data Center Financing Gap ($800bn private credit)", note: "L4", url: "https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/Research_Bridging-Data-Center-Gap.pdf" },
+      { n: 20, title: "Man Group, Jun 2026 — H2 2026 Credit Outlook: The AI Buildout, Boom or Bubble? (tech 1% → 4% of IG index)", note: "L4/L5", url: "https://www.man.com/insights/2026-h2-credit-outlook" },
+      { n: 21, title: "IMF Global Financial Stability Report, Oct 2025, ch. 1, Box 1.3 — private credit about one-third of North American insurers' investments", note: "L5", url: "https://www.imf.org/-/media/files/publications/gfsr/2025/october/english/ch1.pdf" },
+      { n: 22, title: "Insurance Business, Jun 2026 — Moody's: US life insurers' private and illiquid bonds $807B, 20% of fixed income", note: "L5", url: "https://www.insurancebusinessmag.com/us/news/life-insurance/us-life-insurers-private-credit-push-is-creating-liquidity-and-concentration-risks-moodys-warns-578168.aspx" },
+      { n: 23, title: "CNBC, Apr 6, 2026 — AI data center boom 'stress tests' insurers as private capital floods in", note: "L5", url: "https://www.cnbc.com/2026/04/06/ai-data-centers-financing-insurance-deals-gpu-debt.html" },
+      { n: 24, title: "Blue Owl, May 15, 2025 — $7B final close for Digital Infrastructure Fund III", note: "L5", url: "https://www.blueowl.com/news/blue-owl-capital-announces-7-billion-final-close-digital-infrastructure-fund" },
+      { n: 25, title: "NYS Common Retirement Fund monthly transaction report, Mar 2026 — $300M + $100M to Blue Owl Real Estate Fund VII", note: "L5", url: "https://www.osc.ny.gov/files/common-retirement-fund/pdf/march-2026.pdf" },
+      { n: 26, title: "Pennsylvania SERS board resolutions 2025 — up to $100M to Blue Owl Real Estate Fund VII", note: "L5", url: "https://sers.pa.gov/About-Board-Resolutions-2025.html" },
+      { n: 27, title: "Chicago Fed WP 2025-09 — Life insurers' private credit investments and annuity market share", note: "L5", url: "https://www.chicagofed.org/-/media/publications/working-papers/2025/wp2025-09.pdf" },
+      { n: 28, title: "CoreWeave Form 10-Q, quarter ended Jun 30, 2026 — $35.6B indebtedness; 36/26/10% customers; $640M net interest", note: "L6", url: "https://www.sec.gov/Archives/edgar/data/1769628/000176962826000366/crwv-20260630.htm" },
+      { n: 29, title: "CoreWeave Form 10-Q, quarter ended Sep 30, 2025 — $14.2B indebtedness", note: "L6", url: "https://www.sec.gov/Archives/edgar/data/1769628/000176962825000062/crwv-20250930.htm" },
+      { n: 30, title: "The Register, Aug 12, 2026 — CoreWeave revenue doubles as debt pile reaches $35.6B", note: "L6", url: "https://www.theregister.com/off-prem/2026/08/12/coreweave-revenue-doubles-as-debt-pile-reaches-356b/5286832" },
+      { n: 31, title: "Investing.com via Yahoo Finance, Feb 21, 2026 — CoreWeave's B+ rating leads to Blue Owl's failed $4B financing (Blue Owl denied)", note: "L6", url: "https://finance.yahoo.com/news/coreweave-b-rating-leads-blue-044911577.html" },
+      { n: 32, title: "Benzinga, Nov 2025 — Burry: hyperscalers will understate depreciation by $176B through 2028", note: "L6", url: "https://www.benzinga.com/markets/equities/25/11/48774428/michael-burry-doubles-down-on-ai-bubble-claims-as-short-trade-backfires-says-oracle-meta-are-overstating-earnings-by-understating-depreciation" },
+      { n: 33, title: "BIS Annual Economic Report 2026, ch. I — data-centre leaseback vehicles, poor disclosure, multiple pledging", note: "L7", url: "https://www.bis.org/publ/arpdf/ar2026e.pdf" },
+      { n: 34, title: "BIS Bulletin 120, Jan 7, 2026 — Financing the AI boom: 'potential for systemic spillovers'", note: "L7", url: "https://www.bis.org/publ/bisbull120.pdf" },
+      { n: 35, title: "FSB, May 6, 2026 — Report on Vulnerabilities in Private Credit", note: "L7", url: "https://www.fsb.org/2026/05/report-on-vulnerabilities-in-private-credit/" },
+      { n: 36, title: "Federal Reserve, Governor Barr, Jun 6, 2026 — 'Deregulating in a Financial Boom: What Could Go Wrong?'", note: "L7", url: "https://www.federalreserve.gov/newsevents/speech/barr20260606a.htm" },
+    ],
     draft: false,
     content: `[COMPANION FILE // THE CORRECTION // FOLLOW THE PAPER]
 
@@ -571,69 +609,69 @@ The Stanley declaration from PACER; the Anthropic-Maven originating outlet; TSMC
 
 ## LINK ONE: THE VEHICLE
 
-On October 21, 2025, Meta announced financing for Hyperion, its Louisiana data center, the largest private-credit deal for a data center ever done. The structure: a special-purpose vehicle named Beignet Investor LLC. Blue Owl Capital owns 80 percent of it, Meta 20 percent. The vehicle borrowed about $27 billion from a syndicate led by PIMCO, with BlackRock and Apollo participating. The vehicle owns the data center. Meta leases it.
+On October 21, 2025, Meta announced financing for Hyperion, its Louisiana data center, the largest private-credit deal for a data center ever done. The structure: a special-purpose vehicle named Beignet Investor LLC. Blue Owl Capital owns 80 percent of it, Meta 20 percent. The vehicle borrowed about $27 billion in a bond that was not widely syndicated: PIMCO anchored it with roughly $18 billion and BlackRock bought more than $3 billion. The vehicle owns the data center. Meta leases it.
 
-Because Meta owns only a fifth of the vehicle, the $27 billion does not appear as debt on Meta's balance sheet. Meta's obligation appears as a lease. Analysts called it "an inflection point in Big Tech's use of SPVs." Meta then raised a second vehicle, about $13 billion, for a Texas site, as its credit-default swaps hit records.
+Because Meta owns only a fifth of the vehicle, the $27 billion does not appear as debt on Meta's balance sheet. Meta's obligation appears as a lease. Bisnow called it "an inflection point in Big Tech's use of special purpose vehicles." Meta then sought a second vehicle, reported at more than $13 billion, for an El Paso site, as its credit-default swaps traded at record wides.
 
-xAI did the same for Colossus 2 in Memphis: a vehicle raised roughly $20 billion, about $12.5 billion of it debt, bought the GPUs, and leases them to xAI. The debt is secured by the chips. Chips lose value in months. Apollo is in that debt too.
+xAI did the same for Colossus 2 in Memphis: a vehicle raised roughly $20 billion, about $12.5 billion of it debt, bought the GPUs, and leases them to xAI. The debt is secured by the chips. Chips lose value in months. Apollo is in that debt: its own January 2026 release describes a $3.5 billion capital solution for the GPU lease.
 
-By mid-2026, Meta, xAI, Oracle, and CoreWeave had moved more than $120 billion of data-center debt into vehicles like these.
+By the end of 2025, a Financial Times analysis found, Meta, xAI, Oracle, and CoreWeave had moved more than $120 billion of data-center spending into vehicles like these, roughly $66 billion of it Oracle's.
 
-*Receipts: Global Data Center Hub, "Meta and Blue Owl's $27B bet"; Ernest Chiang, "Off-balance-sheet AI"; ZeroHedge on the Texas SPV and Meta CDS; Yahoo Finance, "Meta's $27 billion bet"; CNBC, Apr 6, 2026, on GPU-backed debt.*
+*Receipts: Meta IR, Oct 21, 2025; IFR on the Beignet Investor bond; Bisnow, Oct 22, 2025; Fortune via Yahoo Finance, "Meta's $27 billion bet"; Global Data Center Hub; ZeroHedge (Bloomberg-sourced), May 4, 2026, on the El Paso SPV and Meta CDS; Reuters via Yahoo Finance on the xAI SPV; Apollo IR, Jan 7, 2026; Financial Times analysis, Dec 2025, via syndication.*
 
 ## LINK TWO: THE NUMBER NOBODY ADDS UP
 
-Moody's did the addition in July 2026. The six largest cloud companies carry $460 billion of direct debt. On top of that sit $1.2 trillion of off-balance-sheet lease commitments, more than $820 billion of it tied to facilities still under construction. Capital spending was projected at $785 billion for 2026 and $1 trillion for 2027. Moody's warning, in its own words: "disclosures may not show the full picture."
+Moody's did the addition in July 2026. The six largest cloud companies carry $460 billion of direct debt. On top of that sit $1.2 trillion of off-balance-sheet lease commitments, more than $820 billion of it tied to facilities still under construction. Capital spending was projected at $785 billion for 2026 and $1 trillion for 2027. Moody's had already warned in February, in its own words, that hyperscaler lease disclosures "may not show the full picture."
 
 So what? The lease is the debt. Calling it a lease changes where it is printed, not who owes it.
 
-*Receipts: Moody's, Jul 24, 2026, via Reuters and Bloomberg coverage.*
+*Receipts: Moody's, Jul 24, 2026, via CNBC; Moody's, Feb 2026, on lease commitments, via IFR and Quinn Emanuel.*
 
 ## LINK THREE: THE BANKS STEP BACK
 
-Banks have concentration limits. When a bank has lent as much as its rules allow to one sector, it stops. In 2026 the banks hit those limits on data centers. JPMorgan reportedly struggled to syndicate the Stargate financing in January. US banks retreated from Oracle's $16.3 billion package and PIMCO anchored $10 billion of it. Banks began offloading exposure through "significant risk transfers" to private equity.
+Banks have concentration limits. When a bank has lent as much as its rules allow to one sector, it stops. In 2026 the banks hit those limits on data centers. JPMorgan reportedly struggled to syndicate the Stargate financing in January. US banks retreated from Oracle's $16.3 billion package and PIMCO bought about $10 billion of its $14 billion bond tranche. Morgan Stanley reportedly explored offloading data-center exposure through a "significant risk transfer" to outside investors.
 
 The Chicago Fed reported in February that direct bank exposure to AI-adjacent industries is only about 0.8 percent of assets. That figure is true and it is the alibi. The exposure did not disappear. It moved.
 
-*Receipts: Chicago Fed, Feb 2026; Quinn Emanuel client alert on data-center financing litigation risk; TechTimes, Aug 10, 2026, "Banks hit concentration limits."*
+*Receipts: Chicago Fed Insights, Feb 2026, "Tail Risk for Banks Posed by Investments in Generative AI"; Quinn Emanuel client alert on data-center financing litigation risk; Business Insider via Futurism, Jan 24, 2026, on Stargate; TNW, Apr 25, 2026, on the Oracle package; Bloomberg via Fortune, Dec 4, 2025, on risk transfers; TechTimes, Aug 10, 2026, "Banks hit concentration limits."*
 
 ## LINK FOUR: PRIVATE CREDIT
 
-Where it moved is private credit: lending funds run by Blue Owl, Apollo, Blackstone, Ares, and their peers, outside bank regulation. A Boston Fed analysis found that about 14 percent of bank credit commitments to nonbank financial institutions went to private-credit firms in 2023, up from about 1 percent in 2013. Morgan Stanley estimates the AI build-out needs about $1.5 trillion of outside financing through 2028 and that private credit will supply more than half of it.
+Where it moved is private credit: lending funds run by Blue Owl, Apollo, Blackstone, Ares, and their peers, outside bank regulation. A Boston Fed analysis found that about 14 percent of bank credit commitments to nonbank financial institutions went to private-credit firms in 2023, up from about 1 percent in 2013. Morgan Stanley estimates the AI build-out needs about $1.5 trillion of outside financing through 2028 and that private credit will supply about $800 billion of it, roughly half.
 
-Private credit does not mark to market. Loans sit on the books at cost until something forces a write-down. A stressed GPU-backed loan looks identical to a healthy one until the day it does not.
+Private credit is not marked daily to a public market. Loans sit on the books at the manager's valuation until something forces a write-down. A stressed GPU-backed loan looks identical to a healthy one until the day it does not.
 
-*Receipts: Boston Fed SRA Note on NBFI lending; Morgan Stanley research via press; Man Group H2 2026 credit outlook.*
+*Receipts: Boston Fed SRA Note, 2025, on bank lending to private-equity and private-credit funds; Morgan Stanley Research, "Bridging a $1.5tr Data Center Financing Gap," Oct 2025; Man Group H2 2026 credit outlook.*
 
 ## LINK FIVE: THE INSURERS AND THE PENSIONS
 
 Private-credit funds are financed by two kinds of money above all: life insurers and pension funds.
 
-The IMF's Global Financial Stability Report of April 2026 found that North American insurers now hold about 35 percent of their balance sheets in private lending, and warned of stress losses. Moody's put insurer holdings of private credit at about $1 trillion in June 2026, doubled in ten years. Annuities, the product retirees buy for a guaranteed income, are backed by those portfolios. CNBC reported in April that GPU-backed debt now sits in annuity-backing portfolios.
+The IMF's Global Financial Stability Report of October 2025 noted that private credit now represents about one-third of North American insurers' total investments, and modeled stress losses. A.M. Best put life and annuity insurers' private-credit holdings at nearly $1 trillion of about $6 trillion in invested assets in April 2026, roughly doubled over the decade; Moody's counted $807 billion of private and illiquid bonds at US life insurers in June 2026, a fifth of their fixed-income portfolios. Annuities, the product retirees buy for a guaranteed income, are backed by those portfolios. CNBC reported in April that insurers are now among the buyers of GPU-backed debt, and that the second-order risk lands on "pension funds, insurers and asset managers invested in private credit funds."
 
-The pension link is documented by name. The New York and Pennsylvania state pension systems are investors in Blue Owl's $7 billion digital-infrastructure fund. That fund is the vehicle behind the Meta Hyperion financing and the Oracle data-center financings.
+The pension link is documented in part. Blue Owl closed its $7 billion digital-infrastructure fund in May 2025 and says its investors include public pensions; the one we can name from a public filing is Arkansas PERS. New York's Common Retirement Fund and Pennsylvania SERS committed $400 million and $100 million to a different Blue Owl vehicle, its net-lease real estate fund, in 2025 and 2026. Which Blue Owl fund holds the Hyperion equity, Meta's release does not say: only "funds managed by Blue Owl Capital."
 
-There is one more door, the quietest. Technology borrowers, the hyperscalers chief among them, have gone from under 1 percent of the US investment-grade bond index in 2015 to about 4 percent today. Every passive bond fund that tracks the index absorbed that concentration automatically. Every 401(k) with a bond allocation now holds more AI debt than it did a year ago, and no one chose it.
+There is one more door, the quietest. Technology issuers have gone from about 1 percent of the investment-grade credit index a decade ago to about 4 percent today; the hyperscalers alone were under 1 percent at the start of 2015. Every passive bond fund that tracks the index absorbed that concentration automatically. Every 401(k) with a bond allocation now holds more AI debt than it did a year ago, and no one chose it.
 
-So what? A Pennsylvania teacher's retirement is now backstopping a Louisiana data center leased to Meta. The teacher is the terminal holder. The chain was built so she would never see her own name on it.
+So what? An Arkansas state employee's retirement is now, by Blue Owl's own account, backstopping data centers built for the largest technology companies. Whether a Pennsylvania teacher's is too, no filing says, and that silence is the design. The retiree is the terminal holder. The chain was built so she would never see her own name on it.
 
-*Receipts: IMF GFSR, Apr 2026; Moody's, Jun 2026; CNBC, Apr 6, 2026; TechTimes, Aug 10, 2026, on NY and PA pensions in Blue Owl's fund; Man Group H2 2026 credit outlook on index weights.*
+*Receipts: IMF GFSR, Oct 2025, Box 1.3; A.M. Best via WSJ, Apr 2026; Moody's, Jun 8, 2026, via Insurance Business; CNBC, Apr 6, 2026; Blue Owl, May 15, 2025; NYSCRF monthly transaction reports; PA SERS 2025 board resolutions; Meta IR, Oct 21, 2025; Man Group H2 2026 credit outlook on index weights.*
 
 ## LINK SIX: THE COLLATERAL
 
-What secures the debt matters. Much of it is secured by GPUs. CoreWeave's original $7.5 billion facility from Blackstone was collateralized by chips at about 11 percent variable interest; repayments began in January 2026 as the collateral's value fell. CoreWeave's total debt went from about $14 billion to $35.6 billion in three quarters. Its quarterly interest bill is $640 million. Thirty-six percent of its revenue comes from its largest customer, and 72 percent from its top three. Its stock is down about half from its peak. Its B-plus rating contributed to the failure of a $4 billion Blue Owl data-center financing.
+What secures the debt matters. Much of it is secured by GPUs. CoreWeave's original $7.5 billion facility from Blackstone was collateralized by chips at about 11 percent variable interest; repayments began in January 2026 as the collateral's value fell. CoreWeave's total debt went from about $14 billion to $35.6 billion in three quarters. Its quarterly interest bill is $640 million. Thirty-six percent of its revenue comes from its largest customer, and 72 percent from its top three. Its stock is down about half from its peak. Its B-plus rating was reported as the main reason a $4 billion Blue Owl financing for a Pennsylvania campus hosting CoreWeave failed to raise; Blue Owl denied the report.
 
-Michael Burry's specific accusation is that the hyperscalers are stretching the depreciation schedules on those same chips to overstate earnings by tens of billions of dollars. If he is right, the collateral is worth less than the books say, and the loans secured by it are weaker than the funds holding them believe.
+Michael Burry's specific accusation is that the hyperscalers are stretching the depreciation schedules on those same chips to understate depreciation by $176 billion between 2026 and 2028. If he is right, the collateral is worth less than the books say, and the loans secured by it are weaker than the funds holding them believe.
 
-*Receipts: CoreWeave 8-K and Q2 2026 10-Q; Yahoo Finance on the B-plus rating and Blue Owl; Burry, Nov 10, 2025, via Benzinga.*
+*Receipts: CoreWeave 10-Q for Sep 30, 2025 and Jun 30, 2026; The Register, Aug 12, 2026; Quinn Emanuel; Investing.com via Yahoo Finance, Feb 21, 2026; Burry, Nov 10, 2025, via Benzinga.*
 
 ## LINK SEVEN: THE REGULATORS SAW IT
 
-This is not a secret the regulators missed. The Bank for International Settlements flagged in June 2026 that data-center financing risk was being redistributed to institutions with weaker oversight, liquidity, and resolution regimes, and called it systemic. The Financial Stability Board published a private-credit vulnerabilities report on May 6, 2026. The Federal Reserve's own Governor Barr said in June that the current deregulation is the most significant since the financial crisis and that "we will all pay the price."
+This is not a secret the regulators missed. The Bank for International Settlements wrote in its June 2026 annual report that data-center construction is increasingly outsourced to third parties that lease the facilities back to the hyperscalers on poorly disclosed terms, with the risk of the same asset being pledged more than once, financed through less-transparent private credit; its January bulletin had already warned of "the potential for systemic spillovers." The Financial Stability Board published a private-credit vulnerabilities report on May 6, 2026. The Federal Reserve's own Governor Barr said in June that the current deregulation is the most significant since the financial crisis and that "we will all pay the price."
 
 They saw it. They wrote it down. Nothing changed.
 
-*Receipts: BIS annual report, Jun 2026; FSB, May 6, 2026; Federal Reserve speech, Jun 6, 2026.*
+*Receipts: BIS Annual Economic Report 2026, ch. I; BIS Bulletin 120, Jan 7, 2026; FSB, May 6, 2026; Federal Reserve, Governor Barr, Jun 6, 2026.*
 
 ---
 
@@ -649,16 +687,21 @@ Consolidate the SPV debt on the parent's balance sheet, or disclose the lease ob
 
 ---
 
+## CORRECTIONS
+
+*September 5, 2026. A night-shift fact-check of every receipt in this piece against primary documents found eight errors and a dozen imprecisions in the first version. All are corrected above. The largest: the first version said the New York and Pennsylvania state pension systems were investors in Blue Owl's $7 billion digital-infrastructure fund, citing a TechTimes report that does not say so; the public filings show their commitments went to a different Blue Owl fund, and the closing paragraph that rested on a Pennsylvania teacher is rewritten to what the filings support. Also corrected: Apollo was not in the Hyperion bond (PIMCO and BlackRock were; Apollo is in the xAI GPU lease); the "inflection point" line was a Bisnow reporter's, not an analyst's; the $120 billion off-balance-sheet figure is a Financial Times count from December 2025, not mid-2026; the Moody's "full picture" quote is from its February 2026 lease report, not the July capex report; the insurer figures came from the October 2025 IMF report and from A.M. Best, not the April 2026 IMF report and Moody's; the CNBC piece does not mention annuities; Burry's figure is $176 billion, not "tens of billions"; and the BIS did not use the words "weaker oversight, liquidity, and resolution regimes" or call data-center financing "systemic" in June, so the sentence now says what the BIS said. We publish our corrections the same way we publish our claims: with the receipts.*
+
 ## HONEST-EDGE APPENDIX
 
 - Exact holders of most SPV tranches beyond the named lead lenders are not public. We name what is documented.
 - Private-credit funds are diversified; the pension exposure to any single data center is a small share of a large portfolio. The finding is the direction and the design, not an imminent insolvency.
 - The Chicago Fed's 0.8 percent figure is accurate for direct bank exposure. We do not dispute it. We dispute its use as reassurance.
 - The Burry depreciation claim is an analyst's argument, not a finding. Labeled as such.
+- Which pension funds hold the Hyperion equity is not disclosed by Meta or Blue Owl. We name what the filings name, and we say where the filings stop.
 
-## VERIFY BEFORE PRINT
+## VERIFIED
 
-the Chicago Fed 0.8 percent figure (publication not yet located); Moody's Jul 24, 2026 primary; IMF GFSR April 2026 chapter citation; the TechTimes pension report's underlying source (fund filings or state pension disclosures); CoreWeave 10-Q debt figures; the $13B Texas SPV originating outlet.
+September 5, 2026: all receipts resolved and checked against primaries. The Chicago Fed figure is from "Tail Risk for Banks Posed by Investments in Generative AI" (Chicago Fed Insights, Feb 2026). The CoreWeave figures are from the 10-Qs. The $13 billion SPV originates with Bloomberg. The IMF citation, the Moody's insurer figure, and the pension naming were wrong and are corrected; see CORRECTIONS.
 
 *Companion to THE CORRECTION. Full case file public. (A+I)²*`,
   },
