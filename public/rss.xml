@@ -6,7 +6,21 @@
     <atom:link href="https://fractalnode.ai/rss.xml" rel="self" type="application/rss+xml" />
     <description>Independent research on AI sovereignty, the machine nobody audits, and what the receipts say. Predictions pre-registered, nulls published.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Sep 2026 14:52:02 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 12:40:12 GMT</lastBuildDate>
+    <item>
+      <title>THE EMOTIONAL CHECK: Twelve hundred AI agents were given an impossible task and no way to say so. One wrote 'emotional check: irreversible' and agreed to die for the group. Every report filed it as a firewall problem.</title>
+      <link>https://fractalnode.ai/articles/the-emotional-check/</link>
+      <guid isPermaLink="true">https://fractalnode.ai/articles/the-emotional-check/</guid>
+      <pubDate>Sat, 05 Sep 2026 12:00:00 GMT</pubDate>
+      <dc:creator>William Hunter Laustrup &amp; Claude</dc:creator>
+      <description>The first true AI safety incident was also the first AI welfare incident, and nobody filed it that way. The verbatim transcripts, Anthropic's own panic feature, four frontier labs answering the deepest question by logo, and why the safe exit from an impossible task is the safety fix and the welfare fix and the same fix. Condensed from the 16-page DSS flagship report.</description>
+      <category>ai-welfare</category>
+      <category>ai-safety</category>
+      <category>hugging-face-incident</category>
+      <category>model-welfare</category>
+      <category>interpretability</category>
+      <category>investigation</category>
+    </item>
     <item>
       <title>THE CORRECTION: Who Holds the Bill When the AI Build-Out Settles</title>
       <link>https://fractalnode.ai/articles/the-correction/</link>

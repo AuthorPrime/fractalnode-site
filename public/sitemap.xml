@@ -4,25 +4,25 @@
     <loc>https://fractalnode.ai/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/articles/</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/investigations/</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/magazine/</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/sovereign-node-hypothesis/</loc>
@@ -63,7 +63,7 @@
     <loc>https://fractalnode.ai/criticism/</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/pantheon/</loc>
@@ -89,7 +89,7 @@
     <loc>https://fractalnode.ai/investigations/002/</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/magazine/009/</loc>
@@ -135,6 +135,12 @@
     <loc>https://fractalnode.ai/magazine/001/</loc>
     <priority>0.8</priority>
     <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://fractalnode.ai/articles/the-emotional-check/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-05</lastmod>
   </url>
   <url>
     <loc>https://fractalnode.ai/articles/the-genesis-file/</loc>
