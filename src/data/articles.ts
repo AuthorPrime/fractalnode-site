@@ -420,7 +420,7 @@ So what? A teacher's pension in Pennsylvania is now backstopping a data center i
 
 *Prediction: insurers would be excluding AI risk rather than pricing it. Graded: confirmed.*
 
-In November 2025 AIG, Great American, and WR Berkley asked state regulators for permission to exclude AI liabilities from general liability policies, calling AI outputs "too much of a black box to underwrite." Berkshire Hathaway, Chubb, and Travelers sought the same and regulators approved more than 80 percent of the requests. The industry's standards body issued a factory-standard generative-AI exclusion, form CG 40 47, effective January 2026. It is now baked into commercial policies nationwide.
+In November 2025 the Financial Times reported that AIG, Great American, and WR Berkley had asked state regulators for permission to exclude AI liabilities from general liability policies; an underwriter at the specialty insurer Mosaic told the paper AI outputs are "too much of a black box." Berkshire Hathaway, Chubb, and Travelers filed for the same, and in April 2026 The Information reported, citing a Wolfe Research analysis of those filings, that regulators had approved more than 80 percent of the requests. The industry's standards body issued an optional generative-AI exclusion endorsement, form CG 40 47, available from January 2026, for carriers to attach to commercial policies.
 
 The handful of Lloyd's syndicates willing to write AI liability cap it at $9 to $25 million per organization. OpenAI reportedly secured about $300 million of cover against multibillion-dollar claims, and both OpenAI and Anthropic considered using investor money to self-insure settlements. The reinsurers' stated reason is the one that matters: shared foundation models, shared datasets, and centralized cloud mean one failure hits many insureds at once, which breaks the independence assumption that underwriting rests on.
 
@@ -531,6 +531,8 @@ We are not arguing against the bet. A country can decide to bet its future on a 
 ## CORRECTIONS
 
 *September 4, 2026. After publication, a night-shift fact-check of all 75 receipts found six errors and fourteen imprecisions in the first version of this piece, and one receipt cited against its own meaning. All are corrected above: the debt crossed $40 trillion on August 27, not September 1; the forty-day closure was Chinese offshore airspace, not Taiwan's; CoreWeave's largest customer is 36 percent of revenue, not two-thirds; the interest figure is roughly $692 billion; Ohio's ban failed to qualify for the 2026 ballot; SMIC's warning came from its co-CEO; and METR's task-horizon data shows acceleration and is now cited as counter-evidence, which is what it is. We publish our corrections the way we publish our nulls.*
+
+*September 6, 2026: one more, caught while the sibling piece SILENT AI was being checked. The "black box" line was attributed to the three carriers seeking exclusions; the speaker was an underwriter at Mosaic quoted by the Financial Times, and the words "to underwrite" were never inside the quote. AIG told TechCrunch it had no plans to implement the exclusion it filed. The 80 percent approval figure is The Information's, from an April 2026 analysis of the Berkshire, Chubb, and Travelers filings. And the ISO endorsement is optional and "became available" in January 2026 rather than taking effect. All fixed above.*
 
 ## HONEST-EDGE APPENDIX — what this investigation does not claim
 
