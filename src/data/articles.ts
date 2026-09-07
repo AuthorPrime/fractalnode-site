@@ -466,7 +466,7 @@ Rodney Brooks's judgment that vision-trained humanoid dexterity is decades away 
 
 The United States has been at war with Iran since February 28, 2026, at a cost of $113 billion through June. In a June court filing, the Pentagon's chief digital officer declared that a government instance of Grok "supported the deployment of more than 2,000 munitions against 2,000 distinct targets within a 96-hour period." Claude was reportedly used through Palantir's Maven system for target identification in the same war, and the Pentagon investigated whether it contributed to strikes that hit civilians, including a school. When Anthropic refused to drop its restrictions on surveillance and autonomous weapons, the President ordered federal agencies off Anthropic; a federal judge called it "classic First Amendment retaliation" and enjoined the order. The defense request for next year is about $1.5 trillion, up roughly 44 percent, with AI named as a priority. Palantir holds an Army agreement worth up to $10 billion. Anduril's valuation doubled in a year. SpaceX absorbed xAI and rebranded.
 
-Then there is the Department of Energy's Genesis Mission, the subject of our companion file. Ten months in, the public has received one grant round, a draft contract template, and one open-weight model announced but not released. The template gives the private partners a paid-up, irrevocable license to deploy the models; the weights belong to the developer; open release happens only "if the parties agree." The science it draws on is being squeezed to fund it: redirecting about a tenth of the Office of Science budget to Genesis left roughly a third of expiring research grants unrenewed. The Energy Secretary declined to testify at the only hearing held.
+Then there is the Department of Energy's Genesis Mission, the subject of our companion file. Ten months in, the public has received one grant round, a set of sample agreements, and one open-weight model announced but not released. The sample agreements offer the private partner a paid-up, irrevocable license to deploy the models; the weights belong to whoever develops them; open release is conditional, "if the parties agree." The science it draws on is being squeezed to fund it: Science magazine reported the Office of Science would fund Genesis in part by "skimming 10%" from its research budgets, and nuclear physicists expected that to leave nothing for the roughly one-third of their grants expiring this year. The only hearing held on Genesis itself had the mission's director, not the Energy Secretary, in the chair; the Secretary first appeared before the committee six months later, at a budget hearing.
 
 And the Justice Department has now filed on behalf of xAI twice: once against Colorado's AI law, once to dismiss a Clean Air Act suit over dozens of unpermitted gas turbines in Mississippi, citing Grok's use in the Iran war. The state had already excused the turbines from permits as "mobile" and "temporary," and in July extended their run past the twelve-month limit that excuse rested on.
 
@@ -525,6 +525,8 @@ We are not arguing against the bet. A country can decide to bet its future on a 
 *September 6, 2026: one more, caught while the sibling piece SILENT AI was being checked. The "black box" line was attributed to the three carriers seeking exclusions; the speaker was an underwriter at Mosaic quoted by the Financial Times, and the words "to underwrite" were never inside the quote. AIG told TechCrunch it had no plans to implement the exclusion it filed. The 80 percent approval figure is The Information's, from an April 2026 analysis of the Berkshire, Chubb, and Travelers filings. And the ISO endorsement is optional and "became available" in January 2026 rather than taking effect. All fixed above.*
 
 *September 6, 2026, later: four more from the check of THE METER. The governor announced the PJM cap extension; PJM and FERC made it. The tariff-state list is now the trade group's count of twenty-three, with Texas's law described as what it is. Amazon's California lobbying total is general, not data-center-specific. And Mississippi's "mobile" and "temporary" permit exemption dates to 2025, before the suit, not after it; July's action was an order extending the turbines' run. All fixed above.*
+
+*September 7, 2026: three more from the check of GENESIS, AUDITED. The Science magazine finding was a nuclear physicists' forecast about their own field, not a realized Office-of-Science-wide outcome. The Energy Secretary was not invited-and-declined at the December hearing; he had not yet appeared before the committee, and did so on June 10, 2026. The Genesis agreements are samples with negotiable options, not a "draft contract template."*
 
 ## HONEST-EDGE APPENDIX — what this investigation does not claim
 
@@ -971,7 +973,7 @@ The industry's answer to the power question is nuclear, and the dates matter. Mi
 
 ## WHAT THE METER SAYS
 
-Everything else in this investigation is hidden. The SPV debt is off the balance sheet. The Genesis terms are sealed. The insurance exclusions are in policy fine print. The electricity bill is the one place the AI build-out's cost is printed in plain numbers, mailed monthly, to every household in the grid. That is why the auction was capped. It was the one signal the public could read.
+Everything else in this investigation is hidden. The SPV debt is off the balance sheet. The Genesis partnership financing is unpublished. The insurance exclusions are in policy fine print. The electricity bill is the one place the AI build-out's cost is printed in plain numbers, mailed monthly, to every household in the grid. That is why the auction was capped. It was the one signal the public could read.
 
 ## WHAT HONEST WOULD LOOK LIKE
 
@@ -1010,13 +1012,50 @@ September 6, 2026: all receipts resolved and checked against primaries. The auct
     category: "feature",
     classification: "UNCLASSIFIED",
     readTime: "6 min",
-    excerpt: "Ten months after an executive order launched the Genesis Mission with Manhattan Project rhetoric, we audited what the public has received. The answer: one grant round of about $293 million, a draft contract template, a supercomputer procurement program, and a single open-weight model that has been announced but not released, built by a private startup on its own computers. No Genesis-branded weights have shipped. No public dataset portal exists. No GAO, CBO, or inspector-general review exists. The $800 million in private \"commitments\" has no itemized accounting; the only itemized figure is Google's $40 million in cloud credits. The science it draws on is being squeezed to pay for it. And the contract template, posted in July, gives the private partners a paid-up, irrevocable license to deploy the models, ownership of the weights, and open release only \"if the parties agree.\" The Manhattan Project produced a thing the government owned. Genesis produces licenses the partners own. That is the audit.",
+    excerpt: "Ten months after an executive order launched the Genesis Mission with Manhattan Project rhetoric, we audited what the public has received. The answer: one grant round solicited at $293 million and awarded at \"over $250 million,\" a set of sample agreements, a supercomputer procurement program, and a single open-weight model that has been announced but not released, built by a private startup on its own computers. No Genesis-branded weights have shipped. No public dataset portal exists. No GAO, CBO, or inspector-general review exists. The $800 million in private \"commitments\" has no partner-by-partner accounting from DOE; the only itemized figures come from two partners themselves, Google's $40 million in AI tokens and cloud credits and Microsoft's $60 million in credits and engineering services. The science it draws on is being squeezed to pay for it. And the sample agreements, posted in July, let the private partner own the weights it develops, offer it a paid-up, irrevocable license to deploy the models, and make open release conditional: \"if the parties agree.\" The Manhattan Project produced a thing the government owned. Genesis produces licenses the partners own. That is the audit.",
     tags: ["genesis-mission", "doe", "oversight", "open-weights", "investigation", "series-002"],
     series: { id: "002", title: "The Machine Nobody Audits", part: 6 },
     draft: false,
+    sources: [
+      { n: 1, title: "Executive Order 14363, 'Launching the Genesis Mission,' Nov 24, 2025 (90 FR 55035; §3(c) industry-partner resources, §3(f) 270-day 'seek to demonstrate an initial operating capability,' §6 annual report)", note: "§Shipped", url: "https://www.federalregister.gov/documents/2025/11/28/2025-21665/launching-the-genesis-mission" },
+      { n: 2, title: "DOE, Dec 10, 2025 — 'over $320 million' in Genesis investments (ModCon, AmSC)", note: "§Shipped", url: "https://www.energy.gov/articles/energy-department-advances-investments-ai-science" },
+      { n: 3, title: "AIP FYI, Dec 2025 — 'Genesis Mission starting to take shape' ($30M Argonne, $40M four labs; 'previously planned... first opened in 2024')", note: "§Shipped", url: "https://www.aip.org/fyi/genesis-mission-starting-to-take-shape" },
+      { n: 4, title: "DOE, Mar 17, 2026 — $293 million Request for Application", note: "§Shipped", url: "https://www.energy.gov/articles/energy-department-announces-293-million-funding-support-genesis-mission-national-science" },
+      { n: 5, title: "DOE, Jul 22, 2026 — 278 awards selected (87/168/19/4 by lead; 342 participating institutions; $60M nuclear project)", note: "§Shipped", url: "https://www.energy.gov/articles/secretary-energy-chris-wright-announces-first-genesis-mission-projects-selected-accelerate" },
+      { n: 6, title: "AIP FYI newsletter, Jul 27, 2026 — Gil: 'over $250 million from DOE's budget for the research awards'", note: "§Shipped", url: "https://www.aip.org/newsletter/0000019f-a3e2-def3-ad9f-abf22c860000" },
+      { n: 7, title: "FedScoop, Jul 2026 — the platform demo video at the summit, 'after several delays and false starts'", note: "§Shipped", url: "https://fedscoop.com/energy-department-demo-genesis-mission-platform-rfa-awards/" },
+      { n: 8, title: "Arcee AI blog, Jul 22, 2026 — Genesis-Science-1 ('trillion-parameter-class'; 'released openly later this year')", note: "§Shipped", url: "https://www.arcee.ai/blog/genesis-science-1" },
+      { n: 9, title: "Genesis Open Models portal, Argonne (genesisopenmodels.anl.gov)", note: "§Shipped", url: "https://genesisopenmodels.anl.gov/" },
+      { n: 10, title: "DOE Office of the Under Secretary for Science, Aug 7, 2026 — Genesis Open Models Initiative", note: "§Shipped", url: "https://www.energy.gov/undersecretaryforscience/articles/us-department-energy-launches-genesis-open-models-initiative" },
+      { n: 11, title: "Supercomputing News, Aug 2026 — GS1 partnership terms (no license, benchmarks, or technical report public; no federal funds)", note: "§Shipped", url: "https://www.supercomputing.news/ai/genesis-science-1-doe-arcee-ai-partnership-terms" },
+      { n: 12, title: "DOE — American Science and Security Platform page", note: "§Shipped", url: "https://www.energy.gov/undersecretaryforscience/genesis-mission/american-science-and-security-platform" },
+      { n: 13, title: "DOE FY 2027 Budget in Brief, Apr 2026 (Office of Science $7,138,815K, −13%; BER −54%; BES −20%; HEP −9%; NP −9%; AIQ $1.2B 'repurposes prior year unobligated IIJA funding')", note: "§Cost", url: "https://www.energy.gov/documents/doe-fy-2027-budget-brief" },
+      { n: 14, title: "AIP FYI, Apr 22, 2026 — 'DOE proposes boosts for supercomputers, cuts to research'", note: "§Cost", url: "https://www.aip.org/fyi/doe-proposes-boosts-for-supercomputers-cuts-to-research" },
+      { n: 15, title: "Adrian Cho, Science, Apr 7, 2026 — 'Department of Energy's AI push squeezes funding for research grants' (doi:10.1126/science.aeh8590)", note: "§Cost", url: "https://www.science.org/doi/10.1126/science.aeh8590" },
+      { n: 16, title: "FedScoop, Apr 14, 2026 — Carl Coe: 'It's a bigger number than you can see'", note: "§Cost", url: "https://fedscoop.com/doe-genesis-mission-funding-challenges-aitalks/" },
+      { n: 17, title: "DOE Office of Science, Sample OT and Project Agreements for DE-FOA-0003612, Rev. 2, posted Jul 20, 2026 (Data Use Agreement: ownership of Project AI Artifacts; fine-tune Options A/B/C; Deployment License Options 1/2; 'If the parties agree to open-source release')", note: "§Owns", url: "https://science.osti.gov/-/media/grants/pdf/foas-resources/2026/Sample-OT-and-Project-Agreements-for-DE-FOA-0003612-REV2.pdf" },
+      { n: 18, title: "DOE Office of Science, DE-FOA-0003612 — 'The Genesis Mission: Transforming Science and Energy with AI' (RFA page)", note: "§Owns", url: "https://science.osti.gov/grants/FOAs/FOAs/2026/DE-FOA-0003612" },
+      { n: 19, title: "Beth Simone Noveck, Reboot Democracy, Dec 2, 2025 — 'de facto subsidies for the largest AI labs and corporations'", note: "§Owns", url: "https://rebootdemocracy.ai/blog/research-radar-the-white-house-calls-it-genesis-for-public-input-it-looks-more-like-an-exodus" },
+      { n: 20, title: "DOE, Dec 18, 2025 — 24 organizations sign MOUs; 'architecture-agnostic'", note: "§Partners", url: "https://www.energy.gov/articles/energy-department-announces-collaboration-agreements-24-organizations-advance-genesis" },
+      { n: 21, title: "DOE Office of the Under Secretary for Science, Jul 22, 2026 — 'more than $800 million in committed partner support'", note: "§Partners", url: "https://www.energy.gov/undersecretaryforscience/articles/us-department-energy-announces-more-800-million-partner" },
+      { n: 22, title: "Google Cloud, Jul 22, 2026 — '$40 million of AI tokens and cloud credits'", note: "§Partners", url: "https://cloud.google.com/blog/topics/public-sector/accelerating-frontiers-of-scientific-discovery-40-million-dollar-commitment-genesis-mission" },
+      { n: 23, title: "Microsoft, Jul 22, 2026 — '$60 million investment package' ($40M Azure credits over three years; $20M solution engineering)", note: "§Partners", url: "https://blogs.microsoft.com/blog/2026/07/22/powering-americas-genesis-mission-microsofts-commitment-to-scientific-discovery/" },
+      { n: 24, title: "UPI, Jul 22, 2026 — Microsoft's $60 million Genesis commitment", note: "§Partners", url: "https://www.upi.com/Top_News/US/2026/07/22/microsoft-genesis-mission-investment-spark/5671784728042/" },
+      { n: 25, title: "Nextgov, Jul 2026 — Genesis kicks off 270+ projects; Gil: 'more than $500 million in financial contributions'", note: "§Partners", url: "https://www.nextgov.com/artificial-intelligence/2026/07/genesis-mission-kicks-over-270-projects/414931/" },
+      { n: 26, title: "Darío Gil, written testimony, House Science Committee, Dec 10, 2025 — OpenAI model 'deployed... within the Department's classified national security environments'", note: "§Partners", url: "https://www.energy.gov/congressional/articles/house-committee-science-space-and-technology-14" },
+      { n: 27, title: "ORNL, Oct 27, 2025 — Discovery and Lux ('the AMD-led Lux system will leverage Oracle Cloud Infrastructure (OCI)')", note: "§Partners", url: "https://www.ornl.gov/news/ornl-amd-and-hpe-deliver-does-newest-ai-supercomputers-discovery-and-lux" },
+      { n: 28, title: "ORNL Genesis Mission page (no mention of Oracle as of Sept 2026)", note: "§Partners", url: "https://www.ornl.gov/genesis" },
+      { n: 29, title: "DOE, Oct 28, 2025 — NVIDIA and Oracle partnership: Solstice (100,000 Blackwell GPUs) and Equinox (10,000); 'shared investments and shared computing power'", note: "§Partners", url: "https://www.energy.gov/articles/energy-department-announces-new-partnership-nvidia-and-oracle-build-largest-doe-ai" },
+      { n: 30, title: "NVIDIA, Oct 28, 2025 — Equinox 'expected to be available in the first half of 2026'", note: "§Partners", url: "https://nvidianews.nvidia.com/news/nvidia-oracle-us-department-of-energy-ai-supercomputer-scientific-discovery" },
+      { n: 31, title: "ALCF Genesis Mission page, Jul 13, 2026 (Wayback) — 'Still in early stages of development'", note: "§Partners", url: "http://web.archive.org/web/20260713055920/https://www.alcf.anl.gov/genesis-mission" },
+      { n: 32, title: "House Science Committee, Dec 10, 2025 — 'The Genesis Mission: Prioritizing American Science and Technology Leadership' (witness: Darío Gil)", note: "§Oversight", url: "https://science.house.gov/2025/12/full-committee-hearing" },
+      { n: 33, title: "Ranking Member Zoe Lofgren, statement, Dec 10, 2025 — 'an unacceptable abdication of our Article I duties'", note: "§Oversight", url: "https://democrats-science.house.gov/news/press-releases/ranking-member-lofgrens-statement-at-hearing-on-genesis-mission" },
+      { n: 34, title: "House Science Committee, Jun 10, 2026 — 'Overview of the Department of Energy's Fiscal Year 2027 Budget Request' (witness: Secretary Christopher Wright)", note: "§Oversight", url: "https://science.house.gov/2026/6/full-committee-hearing-doe-budget-hearing" },
+      { n: 35, title: "AIP FYI, Jun 12, 2026 — 'Energy Secretary takes heat in first House Science hearing' (Genesis at center; Foster's 'Genesis tax')", note: "§Oversight", url: "https://www.aip.org/fyi/energy-secretary-takes-heat-in-first-house-science-hearing" },
+    ],
     content: `[COMPANION FILE // THE CORRECTION // FOLLOW-UP TO THE GENESIS FILE // THE LEDGER]
 
-**BLUF:** Ten months after an executive order launched the Genesis Mission with Manhattan Project rhetoric, we audited what the public has received. The answer: one grant round of about $293 million, a draft contract template, a supercomputer procurement program, and a single open-weight model that has been announced but not released, built by a private startup on its own computers. No Genesis-branded weights have shipped. No public dataset portal exists. No GAO, CBO, or inspector-general review exists. The $800 million in private "commitments" has no itemized accounting; the only itemized figure is Google's $40 million in cloud credits. The science it draws on is being squeezed to pay for it. And the contract template, posted in July, gives the private partners a paid-up, irrevocable license to deploy the models, ownership of the weights, and open release only "if the parties agree." The Manhattan Project produced a thing the government owned. Genesis produces licenses the partners own. That is the audit.
+**BLUF:** Ten months after an executive order launched the Genesis Mission with Manhattan Project rhetoric, we audited what the public has received. The answer: one grant round solicited at $293 million and awarded at "over $250 million," a set of sample agreements, a supercomputer procurement program, and a single open-weight model that has been announced but not released, built by a private startup on its own computers. No Genesis-branded weights have shipped. No public dataset portal exists. No GAO, CBO, or inspector-general review exists. The $800 million in private "commitments" has no partner-by-partner accounting from DOE; the only itemized figures come from two partners themselves, Google's $40 million in AI tokens and cloud credits and Microsoft's $60 million in credits and engineering services. The science it draws on is being squeezed to pay for it. And the sample agreements, posted in July, let the private partner own the weights it develops, offer it a paid-up, irrevocable license to deploy the models, and make open release conditional: "if the parties agree." The Manhattan Project produced a thing the government owned. Genesis produces licenses the partners own. That is the audit.
 
 ---
 
@@ -1024,52 +1063,52 @@ September 6, 2026: all receipts resolved and checked against primaries. The auct
 
 We separated what was announced from what exists.
 
-**Funded.** December 11, 2025: $320 million in awards, including $30 million to Argonne for a "Transformational AI Models Consortium" and $40 million across four labs for an "American Science Cloud." The money came from the reconciliation bill plus relabeled programs planned in 2024. July 22, 2026: 278 awards from a $293 million solicitation to 142 universities, 157 companies, 16 labs, and 13 nonprofits. Largest single award: $60 million over three years for AI and nuclear.
+**Funded.** December 10, 2025: "over $320 million" in awards, including $30 million to Argonne for the "Transformational AI Models Consortium" and $40 million across four labs for the "American Science Cloud" (the per-program figures are AIP's, not in DOE's release). AIP FYI: the awards "appear to encompass a combination of new initiatives and previously planned AI programs and projects, as some of the awards were first opened in 2024," with the reconciliation bill funding some of them. July 22, 2026: 278 awards selected for negotiation from a $293 million solicitation, 87 led by national labs, 168 by universities, 19 by companies, and 4 by nonprofits, with 342 participating institutions in all; DOE put the research money at "over $250 million." Largest single award: a three-year, $60 million project using AI to build nuclear facilities.
 
 **Announced, not shipped.** Genesis-Science-1, described as "trillion-parameter-class," built by Arcee AI on Arcee's own compute. Weights promised "later this year." No license named. No parameter count. No benchmarks. The national labs supplied data and evaluations, not the model.
 
-**Promised, unverified.** The American Science and Security Platform, the order's centerpiece, has no public breakdown of operational versus planned capability and no documented access path. A demonstration was promised for summer 2026. The order's own 270-day milestone for "initial operating capability" passed on August 21 without a public statement.
+**Promised, unverified.** The American Science and Security Platform, the order's centerpiece, has no public breakdown of operational versus planned capability and no access path for anyone who is not an awardee or consortium member. The order gave the Secretary 270 days to "seek to demonstrate an initial operating capability of the Platform." What the public got was a pre-recorded demo video at the July 22 summit, played, in FedScoop's account, "after several delays and false starts." The 270 days ran out on August 21 without a DOE statement that the milestone was met.
 
-**Null.** Public datasets released: none found beyond pledges. FOIA activity: none found. GAO, CBO, or IG product: none found.
+**Null.** Public datasets released: none found beyond pledges. FOIA activity: none found. GAO, CBO, or IG product: none found in public search.
 
-*Receipts: EO 14363, Nov 24, 2025; AIP FYI on the December awards; DOE release, Jul 22, 2026; Arcee blog; genesisopenmodels.anl.gov; DOE Genesis Open Models Initiative, Aug 7, 2026.*
+*Receipts: EO 14363, Nov 24, 2025; DOE release, Dec 10, 2025; AIP FYI on the December awards; DOE RFA release, Mar 17, 2026; DOE release, Jul 22, 2026; AIP FYI, Jul 27, 2026; FedScoop on the July 22 demo; Arcee blog; genesisopenmodels.anl.gov; DOE Genesis Open Models Initiative, Aug 7, 2026.*
 
 ## THE LEDGER: WHAT IT COST
 
-The FY27 budget request contains no Genesis line item. Instead it creates a $1.2 billion Office of AI and Quantum to operate the new machines, cuts the Office of Science by 13 percent to $7.14 billion, cuts biological and environmental research by 54 percent, basic energy sciences by 20 percent, and high-energy and nuclear physics by 9 percent. Science magazine reported that redirecting about a tenth of the Office of Science budget to Genesis left roughly a third of expiring research grants unrenewed in FY26, even though Congress had appropriated a small increase. DOE's chief of staff said in April: "It's a bigger number than you can see."
+The FY27 budget request contains no Genesis line item. Instead it funds a $1.2 billion Office of Artificial Intelligence and Quantum, created in late 2025, to run the new machines, paid for by repurposing unobligated infrastructure-law money outside DOE's topline; it cuts the Office of Science by 13 percent to $7.14 billion, biological and environmental research by 54 percent, basic energy sciences by 20 percent, and high-energy physics and nuclear physics by 9 percent each. Science magazine reported in April that the Office of Science would fund Genesis in part by "skimming 10%" from its traditional research budgets, which Congress had held roughly flat rather than cut, and that nuclear physicists expected the redirect to leave no money to renew the roughly one-third of their ordinary grants expiring this year. DOE officials told Science that grants were still being renewed. DOE's chief of staff, Carl Coe, said in April of the mission's total cost: "It's a bigger number than you can see."
 
-So what? A mission to double the productivity of American science is being financed by cutting American science. The researchers whose grants went unrenewed will not be at the labs when the models are ready.
+So what? A mission to double the productivity of American science is being financed by cutting American science. The researchers whose grants go unrenewed will not be at the labs when the models are ready.
 
-*Receipts: AIP FYI on the FY27 request; Science/AAAS, 2026; FedScoop, Apr 14, 2026.*
+*Receipts: DOE FY27 Budget in Brief, Apr 2026; AIP FYI, Apr 22, 2026; Science, Apr 7, 2026; FedScoop, Apr 14, 2026.*
 
 ## THE LEDGER: WHO OWNS WHAT
 
-In July 2026, DOE posted the sample agreements that govern Genesis projects. This is the document that answers the question our first Genesis investigation could not, because the terms were sealed. Read closely:
+On July 20, 2026, DOE posted the sample agreements for Genesis awards: the Other Transaction agreement between DOE and the awardee, and the templates a national lab signs with each participant, with terms to be negotiated per award. This is the document that answers the question our first Genesis investigation could not, because the terms were sealed. Read closely:
 
 - The government takes unlimited rights in delivered **data**.
 - "Project AI Artifacts," including model weights, are owned by the **developer**, or jointly if co-developed.
-- Fine-tuned weights are allocated under three options: participant-owned, joint, or split.
-- The participant receives a **paid-up, irrevocable license to deploy Project Models in the United States**.
-- DOE and the lab hold a two-year non-distribution embargo on non-public artifacts.
-- Open-source release happens only "**if the parties agree**."
+- Fine-tuned weights are allocated under three options: owned by whichever party developed them, jointly owned, or split, with the lab keeping architecture and code and the participant keeping task-specific weights.
+- Under the first of two deployment options, the participant receives a **paid-up, irrevocable license to deploy Project Models in the United States**; under the second, DOE and the lab operator hold that license instead.
+- Under that first option, DOE and the lab agree not to distribute non-public project artifacts outside the government for two years after the project ends.
+- Open-source release is conditional: "**if the parties agree**."
 
-In plain terms: the public supplies the data, the partner keeps the model, and the public gets the weights only if the partner chooses. Beth Noveck, who ran open-government policy in the Obama White House, said it in December: public compute and data could become "de facto subsidies for the largest AI labs." Nobody in office has answered her.
+In plain terms: the public supplies the data, the partner keeps the model it builds, and the public gets the weights only if both sides choose. Beth Noveck, who ran open-government policy in the Obama White House, said it in December: public compute and data could become "de facto subsidies for the largest AI labs." Nobody in office has answered her.
 
-*Receipts: DOE Office of Science, Sample OT and Project Agreements for DE-FOA-0003612, Rev. 2, Jul 2026; Reboot Democracy, Dec 2, 2025.*
+*Receipts: DOE Office of Science, Sample OT and Project Agreements for DE-FOA-0003612, Rev. 2, posted Jul 20, 2026; Reboot Democracy, Dec 2, 2025.*
 
 ## THE LEDGER: THE PARTNERS
 
-Twenty-four organizations signed collaboration agreements on December 18, 2025, including Anthropic, Google, Microsoft, NVIDIA, OpenAI, Oracle, Palantir, and xAI. The agreements carry no dollar figures and no IP or data terms; the only stated condition is that products be "architecture-agnostic." On July 22, 2026, DOE announced more than $800 million in consortium commitments, defined as "compute credits, model access, cloud, expertise, direct funding," in aggregate, unattributed. The one itemized figure anywhere in the record is Google's $40 million in AI tokens and cloud credits.
+Twenty-four organizations signed memorandums of understanding announced December 18, 2025, including Anthropic, Google, Microsoft, NVIDIA, OpenAI, Oracle, Palantir, and xAI. The release carries no dollar figures and no IP or data terms; the only constraint it states is that "any products produced for the Genesis Mission will be architecture-agnostic." On July 22, 2026, DOE announced "more than $800 million in committed partner support," a figure it described as including "compute resources and credits, access to foundational AI models, cloud infrastructure, scientific expertise, research partnerships, and direct funding," in aggregate, with no partner named beside a number. The same day, Genesis director Darío Gil put the figure at "more than $500 million," per Nextgov. The only itemized figures come from the partners themselves: Google's $40 million in AI tokens and cloud credits, and Microsoft's $60 million, $40 million in Azure credits over three years plus $20 million in engineering services.
 
-What the partners get is documented. Darío Gil, the Genesis director, testified in December that an OpenAI model was already "deployed within the Department's classified national security environments." The showcase machines are partner-built: the Oak Ridge system is "administered by Oracle Cloud Infrastructure"; the 100,000-GPU Argonne machine is an Oracle and NVIDIA partnership. As of June 2026 both Argonne systems were still "in planning stages."
+What the partners get is documented. Darío Gil, the Genesis director, testified in December that an OpenAI model was already "deployed within the Department's classified national security environments." The showcase machines are partner-built. At Oak Ridge, ORNL said in October 2025 that "the AMD-led Lux system will leverage Oracle Cloud Infrastructure (OCI) as part of the Lux AI Cluster"; Oracle has since disappeared from ORNL's Genesis page. At Argonne, the 100,000-GPU Solstice and the 10,000-GPU Equinox are an Oracle and NVIDIA partnership; Equinox was promised for the first half of 2026, and as of July 2026 Argonne's own page still described both systems as "in early stages of development."
 
-*Receipts: DOE release, Dec 18, 2025; DOE release, Jul 22, 2026; Gil testimony, Dec 10, 2025; ORNL and ANL Genesis pages.*
+*Receipts: DOE release, Dec 18, 2025; DOE release on partner commitments, Jul 22, 2026; Google Cloud and Microsoft, Jul 22, 2026; Nextgov, Jul 2026; Gil testimony, Dec 10, 2025; ORNL release, Oct 27, 2025; ORNL Genesis page; DOE and NVIDIA releases, Oct 28, 2025; ALCF Genesis page, Jul 2026.*
 
 ## THE LEDGER: OVERSIGHT
 
-One hearing. December 10, 2025, House Science Committee. The Energy Secretary declined to appear. The ranking member called it "an unacceptable abdication of Article I." No hearing since. No GAO engagement. No inspector-general review. Press coverage spiked at launch and again at the July awards, and otherwise lives in trade newsletters. The first annual report to the President is due November 24, 2026.
+One hearing on Genesis itself: December 10, 2025, House Science Committee, with Darío Gil as the sole witness. The Energy Secretary had not appeared before the committee in eleven months; ranking member Zoe Lofgren said the committee had heard from no agency head that Congress and called it "an unacceptable abdication of our Article I duties." Secretary Wright did come, on June 10, 2026, for the FY27 budget hearing, where Genesis was the center of his remarks and Rep. Bill Foster called the mission a "Genesis tax" on the rest of DOE research. Genesis has otherwise been examined only inside budget hearings. No GAO engagement found. No inspector-general review found. Press coverage spiked at launch and again at the July awards, and otherwise lives mostly in trade newsletters. The first annual report to the President is due November 24, 2026.
 
-*Receipts: House Science Democrats statement, Dec 10, 2025.*
+*Receipts: House Science hearing pages, Dec 10, 2025 and Jun 10, 2026; Lofgren statement, Dec 10, 2025; AIP FYI, Jun 12, 2026; EO 14363 §6.*
 
 ## THE LIFEBOAT QUESTION
 
@@ -1077,9 +1116,9 @@ In our main investigation we asked whether Genesis could quietly absorb private 
 
 **Unsupported by the text.** No document at DOE, the White House, or the partners uses "resilience," "backstop," "industrial base," or surge-absorption language. The order directs the Secretary only to identify DOE, cloud, and "industry partner" resources.
 
-**Supported by the structure.** Partner-financed and partner-operated machines on federal land. Cloud credits scored as commitments. A program office whose budget is mostly machine operations. That is a channel through which idle private capacity could be leased to the government at a price. There is no evidence it has been. The financing terms for the Argonne machine, which would settle it, are not public.
+**Supported by the structure.** Partner-financed and partner-operated machines on federal land. Cloud credits scored as commitments. A program office whose budget is mostly machine operations. That is a channel through which idle private capacity could be leased to the government at a price. There is no evidence it has been. The financing terms for the Argonne machines, which would settle it, are not public; DOE describes the arrangement only as "shared investments and shared computing power between government and industry."
 
-So the question stays open, and we name the document that would close it: the Solstice and Lux financing agreements. A Freedom of Information Act request for them is the next step in this file.
+So the question stays open, and we name the documents that would close it: the partnership and financing terms for Solstice and Equinox at Argonne, and for Lux at Oak Ridge. None has been published. A Freedom of Information Act request for them is the next step in this file.
 
 ---
 
@@ -1089,9 +1128,17 @@ The public was told Manhattan Project. What it received was a procurement channe
 
 ## WHAT HONEST WOULD LOOK LIKE
 
-Publish the partner-by-partner commitments. Publish the Argonne financing terms. Make open-weight release the default in the project agreement rather than the exception. Report on the August 21 milestone. Restore the science budget the mission is cutting. And hold a second hearing, with the Secretary in the chair.
+Publish the partner-by-partner commitments. Publish the Argonne financing terms. Make open-weight release the default in the project agreement rather than the exception. Say whether the August 21 milestone was met. Restore the science budget the mission is cutting. And hold a second hearing on Genesis itself, with the Secretary in the chair.
 
 ---
+
+## CORRECTIONS
+
+*September 7, 2026. A night-shift fact-check of every receipt in this piece against primary documents found seven errors and about a dozen imprecisions in the first version. All are corrected above. The largest: the first version said "no hearing since" December 2025 and that the Energy Secretary "declined to appear"; Secretary Wright testified before the House Science Committee on June 10, 2026, at the FY27 budget hearing, and Genesis was the center of it. The first version also said Google's $40 million was the only itemized partner commitment; Microsoft itemized $60 million the same day. Also corrected: the Science magazine finding was a nuclear physicists' forecast about their own field, not a realized Office-of-Science-wide outcome; "administered by Oracle Cloud Infrastructure" appears in no ORNL document, and the Oak Ridge machine in question is Lux; the December award release is dated December 10, not 11; the 142/157/16/13 figures count participating institutions, not award recipients; and there are no "Solstice and Lux financing agreements" to request, because none has been published. Tightened: the DOE partner-commitment definition and the Argonne "planning stages" line were paraphrases in quotation marks and are now the documents' words; the sample agreements are samples, not a "draft contract," and the deployment license is one of two options; the "summer demonstration" was a journalist's reading of the order's 270-day clause, and a demo video did play on July 22.*
+
+## VERIFIED
+
+September 7, 2026: all receipts resolved and checked against primaries. Every quoted string in the sample agreements, the executive order, Gil's testimony, Lofgren's statement, the Arcee announcement, and the DOE releases is verbatim from the document on disk. Genesis-Science-1 remained unreleased at time of check. See CORRECTIONS.
 
 ## HONEST-EDGE APPENDIX
 
@@ -1102,7 +1149,7 @@ Publish the partner-by-partner commitments. Publish the Argonne financing terms.
 
 ## VERIFY BEFORE PRINT
 
-FY27 budget justification, Volume 4; the December 2025 hearing charter; Solstice and Lux financing terms (FOIA); the Arcee GS1 release status at time of publication.
+Solstice, Equinox, and Lux partnership and financing terms (FOIA); the Arcee GS1 release status at time of publication (unreleased as of Sept 7, 2026); Equinox and Lux operational status. Done Sept 7: FY27 Budget in Brief and Volume 4 read; the December 2025 hearing charter read.
 
 *Companion to THE CORRECTION. Follow-up to THE GENESIS FILE. Full case file public. (A+I)²*`,
   },
